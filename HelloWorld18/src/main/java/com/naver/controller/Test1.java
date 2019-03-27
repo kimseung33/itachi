@@ -1,5 +1,6 @@
 package com.naver.controller;
 
+
 public class Test1 {
 
 	private int haha;
@@ -9,9 +10,4 @@ public class Test1 {
 	private String psr;
 
 	public String lll;
-
-
 }
-
-
-
