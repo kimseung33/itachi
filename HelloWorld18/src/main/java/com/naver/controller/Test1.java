@@ -6,7 +6,7 @@ public class Test1 {
 	private String meeee;
 	
 	public String lll;
-
+	public String asdf;
 }
 
 
