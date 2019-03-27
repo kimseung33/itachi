@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- <mapper namespace="org.mybatis.example.BlogMapper"> -->
+<mapper namespace="kr.co.mapper.reply">
+
+	<insert id="insert">
+		insert into tbl_reply (rno, bno, replyText, replyer)
+		values (#{rno}, #{bno}, #{replyText}, #{replyer})
+	</insert>
+
+	<select id="createRno" resultType="Integer">
+		select max(rno) from tbl_reply
+	</select>
+
+	<select id="list" resultType="ReplyVO">
+		select * from tbl_reply where bno= #{bno} order by rno desc
+	</select>
+
+	<update id="update">
+		update tbl_reply set replyText = #{replyText}, updateDate=sysdate where rno
+		= #{rno}
+	</update>
+
+	<delete id="delete">
+		delete from tbl_reply where rno = #{rno}
+	</delete>
+
+	<select id="getAmount" resultType="Integer">
+		select count(rno) from tbl_reply where bno=#{bno}
+	</select>
+
+	<delete id="deleteByBno">
+		delete from tbl_reply where bno=#{bno}
+	</delete>
+
+</mapper>

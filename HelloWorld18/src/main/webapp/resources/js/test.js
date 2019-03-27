@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+
+
+function list() {
+	alert("hello");
+}
+

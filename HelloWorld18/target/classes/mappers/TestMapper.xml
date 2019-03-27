@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- <mapper namespace="org.mybatis.example.BlogMapper"> -->
+<mapper namespace="kr.co.mapper.test">
+  <select id="list" resultType="kr.co.domain.TestDTO">
+  	select * from test
+  </select>
+  
+  <insert id="insert">
+  insert into test (num, tname) values (#{num}, #{tname})
+  </insert>
+   
+ <select id="selectByNum" resultType="kr.co.domain.TestDTO">
+ select * from test where num = #{num}
+ 
+ </select>
+ 
+   <delete id="delete">
+delete from test where num = #{num}
+  
+  </delete>
+  
+  <update id="update">
+  update test set tname = #{tname} where num = #{num}
+  
+  </update>
+  
+</mapper>
