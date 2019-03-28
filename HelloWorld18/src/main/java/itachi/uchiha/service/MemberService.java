@@ -12,5 +12,5 @@ public interface MemberService {
 	public MemberDTO updateui(int id);
 	public void update(MemberDTO dto);
 	public void delete(int id);
-	
+	 
 }
