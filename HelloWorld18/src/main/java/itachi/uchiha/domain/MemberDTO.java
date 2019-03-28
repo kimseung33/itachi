@@ -8,6 +8,7 @@ public class MemberDTO implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	private String mb_id;
 	private String mb_pw;
 	private String mb_birth;
@@ -170,5 +171,7 @@ public class MemberDTO implements Serializable {
 				+ mb_addr3 + ", mb_hp=" + mb_hp + ", mb_email=" + mb_email + ", mb_date=" + mb_date + "]";
 	}
 	
+
+
 	
 }
