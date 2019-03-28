@@ -3,7 +3,6 @@ package itachi.uchiha.domain;
 import java.io.Serializable;
 
 public class MemberDTO implements Serializable {
-	//왜안됨ㄴ아ㅣㅇ;ㄴ머ㅡㅇㅈ마ㅣㅈ암;ㅣㅇㅈㅁ
 	/**
 	 * 
 	 */
