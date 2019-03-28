@@ -7,6 +7,14 @@
 	<select id="login" resultType="MemberDTO">
 		select * from itachi_mb
 		where
-		mb_id=#{mb_Id} and mb_pw=#{mb_Pw)
+		mb_id=#{mb_Id} and mb_pw=#{mb_Pw}
+	</select>
+	
+	<select id="selectid" resultType="MemberDTO">
+		select mb_id from itachi_mb where mb_hp=#{mb_hp} and mb_birth=#{mb_birth}
+	</select>
+	
+	<select id="selectpw" resultType="MemberDTO">
+		select mb_id from itachi_mb where mb_id=#{mb_id} and mb_birth=#{mb_birth}
 	</select>
 </mapper>

@@ -27,6 +27,12 @@ public class MemberDAOImpl implements MemberDAO{
 		
 		return sqlSession.selectOne(NS+".login", dto);
 	}
+
+	@Override
+	public String findId(MemberDTO dto) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(NS+".selectid", dto);
+	}
 	
 
 

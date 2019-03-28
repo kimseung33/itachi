@@ -20,4 +20,10 @@ public class MemberServiceImpl implements MemberService {
 	public MemberDTO login(LoginDTO dto) {
 		return dao.login(dto);
 	}
+
+	@Override
+	public String findId(MemberDTO dto) {
+		// TODO Auto-generated method stub
+		return dao.findId(dto);
+	}
 }
