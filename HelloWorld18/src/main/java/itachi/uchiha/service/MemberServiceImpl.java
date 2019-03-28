@@ -18,6 +18,7 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public MemberDTO login(LoginDTO dto) {
+		System.out.println("memberserviceImpl Test입니다.");
 		return dao.login(dto);
 	}
 

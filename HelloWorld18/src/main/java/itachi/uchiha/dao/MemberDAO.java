@@ -5,7 +5,7 @@ import itachi.uchiha.domain.MemberDTO;
 
 public interface MemberDAO {
 	MemberDTO login(LoginDTO dto);
-	String findId(MemberDTO dto);
-	
+	String findId(MemberDTO dto);	
 
 }
+

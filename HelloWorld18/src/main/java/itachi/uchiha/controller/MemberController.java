@@ -30,37 +30,22 @@ public class MemberController {
 		if(memberDTO==null) {
 			return;
 		}
-		model.addAttribute("memberDTO", memberDTO);
-		System.out.println("MemberControl test입니다.");
+		model.addAttribute("memberDTO", dto);
+		System.out.println("MemberControl loginPost부분 test입니다.");
 		System.out.println("MemberControl test입니다.");
 		System.out.println("MemberControl test입니다.");System.out.println("MemberControl test입니다.");
 	 }	
 	
 	@RequestMapping(value="/loginpost",method=RequestMethod.GET)
 	public void loginPost() {
-		
+		System.out.println("MemberControl loginGetPost부분 test입니다.");
 	}
+	
+	
 	@RequestMapping(value="/login",method=RequestMethod.GET)
 	public void loginGet() {
 		
-	}	
-	
-	
-	@RequestMapping(value = "/findingId" , method = RequestMethod.POST, produces = "application/json; charset=utf-8")
-	public @ResponseBody String findingId(@ModelAttribute MemberDTO dto, Model model , HttpServletResponse response)throws Exception {
-
-		System.out.println(dto.toString());
-
-
-		ArrayList <String> emailList = service.findId(dto);
-		System.out.println(emailList.toString());
-		System.out.println(emailList.get(0));
-		String findEmail = "{\"user_email\":\""+emailList+"\"}";
-
-		System.out.println(findEmail);
-
-		return findEmail;
-	}
+	}		
 
 
 

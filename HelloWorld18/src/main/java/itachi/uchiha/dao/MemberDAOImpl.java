@@ -24,7 +24,8 @@ public class MemberDAOImpl implements MemberDAO{
 
 	@Override
 	public MemberDTO login(LoginDTO dto) {
-		
+		System.out.println("MemberDAOImpl test입니다.");
+		System.out.println(sqlSession.selectOne(NS+".login", dto));
 		return sqlSession.selectOne(NS+".login", dto);
 	}
 
