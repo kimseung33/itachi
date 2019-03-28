@@ -15,61 +15,9 @@ import itachi.uchiha.service.MemberService;
 @Controller
 @RequestMapping("/itachi/member")
 public class MemberController {
-	@Inject
-	private MemberService service;
-
-	@RequestMapping("/select")
-	public String select(Model model) {
-
-		List<MemberDTO> list = service.select();
-		model.addAttribute("list", list);
-
-		return "member/select";
+	public void dkak() {
+		
 	}
 
-	@RequestMapping("/insertui")
-	public String insertui() {
-		return "member/insert";
-
-	}
-
-	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public String insert(MemberDTO dto) {
-		service.insert(dto);
-		return "redirect:/member/select";
-
-	}
-
-	@RequestMapping(value = "/selectbyid")
-	public void selectById(int id, Model model) {
-		MemberDTO dto = service.selectById(id);
-		model.addAttribute("dto", dto);
-	}
-
-	@RequestMapping(value = "/updateui")
-	public String updateui(int id, Model model) {
-
-		MemberDTO dto = service.updateui(id);
-		model.addAttribute("dto", dto);
-
-		return "member/update";
-	}
-
-	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public String update(MemberDTO dto) {
-
-		service.update(dto);
-
-		return "redirect:/member/select";
-	}
-
-	@RequestMapping(value = "delete")
-	public String delete(int num) {
-
-		service.delete(num);
-
-		return "redirect:/member/select";
-
-	}
 
 }
