@@ -1,20 +1,11 @@
 package itachi.uchiha.dao;
 
-import java.util.List;
-
+import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
 
-
 public interface MemberDAO {
+	MemberDTO login(LoginDTO dto);
+	String findId(MemberDTO dto);	
 
-	
-	public void insert(MemberDTO dto);
-	public List<MemberDTO> select();
-	public MemberDTO selectById(int id);
-	public MemberDTO updateui(int id);
-	public void update(MemberDTO dto);
-	public void delete(int id);
-
-	
-	
 }
+

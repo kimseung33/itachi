@@ -33,16 +33,13 @@
 
 	<beans:bean class="java.lang.String" id="uploadPath">
 		<beans:constructor-arg value="C:\\supload"></beans:constructor-arg>
-	</beans:bean>	
+
+	</beans:bean>
 	
 	<context:component-scan base-package="kr.co.ca" />
 	<context:component-scan
-		base-package="kr.co.controller" />
-	<context:component-scan
-		base-package="com.naver.controller" />
-	<context:component-scan
-		base-package="kr.co.restcontroller" />
-
+		base-package="itachi.uchiha.controller" />
 
 
 </beans:beans>
+ 
