@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.dao.MemberDAO;
-import kr.co.domain.MemberDTO;
+import itachi.uchiha.dao.MemberDAO;
+import itachi.uchiha.domain.MemberDTO;
+
+
 
 @Service
 public class MemberServiceImpl implements MemberService {

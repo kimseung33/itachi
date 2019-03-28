@@ -2,7 +2,8 @@ package itachi.uchiha.dao;
 
 import java.util.List;
 
-import kr.co.domain.MemberDTO;
+import itachi.uchiha.domain.MemberDTO;
+
 
 public interface MemberDAO {
 

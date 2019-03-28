@@ -7,7 +7,9 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import kr.co.domain.MemberDTO;
+import itachi.uchiha.domain.MemberDTO;
+
+
 
 @Repository
 public class MemberDAOImpl implements MemberDAO{
