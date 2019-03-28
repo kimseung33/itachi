@@ -20,7 +20,7 @@ public class MemberDAOImpl implements MemberDAO{
 	@Inject
 	private SqlSession sqlSession;
 	
-	private String NS="kr.co.mapper.board";
+	private String NS="itachi.uchiha.mapper.board";
 
 	@Override
 	public MemberDTO login(LoginDTO dto) {

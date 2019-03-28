@@ -34,7 +34,7 @@ public class HomeController {
 		 */
 		//model.addAttribute("serverTime", formattedDate );
 		System.out.println("test입니다.");
-		return "redirect:/itachi/main";
+		return "/itachi/main";
 	}
 	
 }
