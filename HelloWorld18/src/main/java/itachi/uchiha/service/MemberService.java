@@ -8,5 +8,6 @@ import itachi.uchiha.domain.MemberDTO;
 public interface MemberService {
 
 	MemberDTO login(LoginDTO dto);
+	String findId(MemberDTO dto);
 	
 }

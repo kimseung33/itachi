@@ -5,27 +5,27 @@ import java.io.Serializable;
 public class LoginDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private String mb_id;
-	private String mb_pw;
+	private String mb_Id;
+	private String mb_Pw;
 	public LoginDTO() {
 		// TODO Auto-generated constructor stub
 	}
-	public LoginDTO(String mb_id, String mb_pw) {
+	public LoginDTO(String mb_Id, String mb_Pw) {
 		super();
-		this.mb_id = mb_id;
-		this.mb_pw = mb_pw;
+		this.mb_Id = mb_Id;
+		this.mb_Pw = mb_Pw;
 	}
-	public String getMb_id() {
-		return mb_id;
+	public String getMb_Id() {
+		return mb_Id;
 	}
-	public void setMb_id(String mb_id) {
-		this.mb_id = mb_id;
+	public void setMb_Id(String mb_Id) {
+		this.mb_Id = mb_Id;
 	}
-	public String getMb_pw() {
-		return mb_pw;
+	public String getMb_Pw() {
+		return mb_Pw;
 	}
-	public void setMb_pw(String mb_pw) {
-		this.mb_pw = mb_pw;
+	public void setMb_Pw(String mb_Pw) {
+		this.mb_Pw = mb_Pw;
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -34,8 +34,8 @@ public class LoginDTO implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((mb_id == null) ? 0 : mb_id.hashCode());
-		result = prime * result + ((mb_pw == null) ? 0 : mb_pw.hashCode());
+		result = prime * result + ((mb_Id == null) ? 0 : mb_Id.hashCode());
+		result = prime * result + ((mb_Pw == null) ? 0 : mb_Pw.hashCode());
 		return result;
 	}
 	@Override
@@ -47,22 +47,21 @@ public class LoginDTO implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		LoginDTO other = (LoginDTO) obj;
-		if (mb_id == null) {
-			if (other.mb_id != null)
+		if (mb_Id == null) {
+			if (other.mb_Id != null)
 				return false;
-		} else if (!mb_id.equals(other.mb_id))
+		} else if (!mb_Id.equals(other.mb_Id))
 			return false;
-		if (mb_pw == null) {
-			if (other.mb_pw != null)
+		if (mb_Pw == null) {
+			if (other.mb_Pw != null)
 				return false;
-		} else if (!mb_pw.equals(other.mb_pw))
+		} else if (!mb_Pw.equals(other.mb_Pw))
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "LoginDTO [mb_id=" + mb_id + ", mb_pw=" + mb_pw + "]";
+		return "LoginDTO [mb_Id=" + mb_Id + ", mb_Pw=" + mb_Pw + "]";
 	}
-	
 	
 }
