@@ -1,6 +1,6 @@
 package itachi.uchiha.controller;
 
-import java.util.List;
+
 
 import javax.inject.Inject;
 
@@ -9,8 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
-
+import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
 
 import itachi.uchiha.service.MemberService;
@@ -20,61 +19,14 @@ import itachi.uchiha.service.MemberService;
 public class MemberController {
 	@Inject
 	private MemberService service;
-
-
-
-	@RequestMapping("/select")
-	public String select(Model model) {
-
-		List<MemberDTO> list = service.select();
-		model.addAttribute("list", list);
-
-		return "member/select";
+	
+	@RequestMapping(value="/loginpost",method=RequestMethod.POST)
+	public void loginPost(LoginDTO dto,Model model)throws Exception{
+		MemberDTO memberDTO=service.login(dto);
+		if(memberDTO==null) {
+			return;
+		}
+		model.addAttribute("memberDTO", memberDTO);
+		System.out.println("MemberControl test입니다.");
 	}
-
-	@RequestMapping("/insertui")
-	public String insertui() {
-		return "member/insert";
-
-	}
-
-	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public String insert(MemberDTO dto) {
-		service.insert(dto);
-		return "redirect:/member/select";
-
-	}
-
-	@RequestMapping(value = "/selectbyid")
-	public void selectById(int id, Model model) {
-		MemberDTO dto = service.selectById(id);
-		model.addAttribute("dto", dto);
-	}
-
-	@RequestMapping(value = "/updateui")
-	public String updateui(int id, Model model) {
-
-		MemberDTO dto = service.updateui(id);
-		model.addAttribute("dto", dto);
-
-		return "member/update";
-	}
-
-	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public String update(MemberDTO dto) {
-
-		service.update(dto);
-
-		return "redirect:/member/select";
-	}
-
-	@RequestMapping(value = "delete")
-	public String delete(int num) {
-
-		service.delete(num);
-
-		return "redirect:/member/select";
-
-	}
-
 }

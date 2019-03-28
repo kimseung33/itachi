@@ -45,8 +45,8 @@
 	</bean>
 	<tx:annotation-driven/>
 	
-	<context:component-scan base-package="kr.co.service"/>
-	<context:component-scan base-package="kr.co.dao"/>
-	<context:component-scan base-package="kr.co.aop"/>
+	<context:component-scan base-package="itachi.uchiha.service"/>
+	<context:component-scan base-package="itachi.uchiha.dao"/>
+	<!-- <context:component-scan base-package="kr.co.aop"/> -->
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>

@@ -36,6 +36,7 @@
 
 	</beans:bean>
 	
+	<context:component-scan base-package="kr.co.mapper.board"/>
 	
 	
 	

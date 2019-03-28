@@ -1,6 +1,5 @@
 package itachi.uchiha.dao;
 
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -21,12 +20,12 @@ public class MemberDAOImpl implements MemberDAO{
 	@Inject
 	private SqlSession sqlSession;
 	
-	private final String NS="?";
+	private String NS="kr.co.mapper.board";
 
 	@Override
 	public MemberDTO login(LoginDTO dto) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return sqlSession.selectOne(NS+".login", dto);
 	}
 	
 
