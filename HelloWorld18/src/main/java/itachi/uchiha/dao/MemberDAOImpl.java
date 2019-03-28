@@ -49,7 +49,7 @@ public class MemberDAOImpl implements MemberDAO{
 		// TODO Auto-generated method stub
 		sqlSession.insert(NS+".delete", id);
 	}
-
+ 
 	
 	
 
