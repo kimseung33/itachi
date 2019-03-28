@@ -46,7 +46,25 @@ public class MemberController {
 	public void loginGet() {
 		
 	}		
-
+	
+	@RequestMapping("/update")
+	public String updateUI(Model model, int id) {
+		
+		MemberDTO dto=service.updateui(id);
+		
+		model.addAttribute("dto", dto);
+		
+		return "/member/update";
+				
+	}
+	
+	@RequestMapping(value="update", method=RequestMethod.POST)
+	public String update(MemberDTO dto) {
+		
+		service.update(dto);
+		
+		return "sp";
+	}
 
 
 }
