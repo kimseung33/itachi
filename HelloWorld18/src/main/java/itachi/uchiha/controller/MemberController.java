@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/itachi")
 public class MemberController {
+	
 
 	
 
