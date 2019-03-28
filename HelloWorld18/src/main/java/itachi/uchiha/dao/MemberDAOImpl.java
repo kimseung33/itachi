@@ -32,7 +32,7 @@ public class MemberDAOImpl implements MemberDAO{
 
 	@Override
 	public MemberDTO selectById(int id) {
-		return sqlSession.selectOne(NS+".selectById", id);	}
+		return sqlSession.selectOne(NS+".selectById", id);}
 
 	@Override
 	public MemberDTO updateui(int id) {
@@ -51,7 +51,7 @@ public class MemberDAOImpl implements MemberDAO{
 		// TODO Auto-generated method stub
 		sqlSession.insert(NS+".delete", id);
 	}
-
+ 
 	
 	
 

@@ -165,12 +165,15 @@ public class MemberDTO implements Serializable {
 
 	@Override
 	public String toString() {
+
 		return "MemberDTO [mb_id=" + mb_id + ", mb_birth=" + mb_birth + ", mb_zip1=" + mb_zip1
 				+ ", mb_zip2=" + mb_zip2 + ", mb_addr1=" + mb_addr1 + ", mb_addr2=" + mb_addr2 + ", mb_addr3="
 				+ mb_addr3 + ", mb_hp=" + mb_hp + ", mb_email=" + mb_email + ", mb_date=" + mb_date + "]";
-	}
-	
 
+
+	}
+
+	
 
 	
 }
