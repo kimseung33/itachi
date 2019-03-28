@@ -53,9 +53,32 @@ public class MemberController {
 
 		String emailList = service.findId(dto);
 		
+<<<<<<< HEAD
 		String findEmail = "{\"user_email\":\"" + emailList + "\"}";		
 
 		return findEmail;		
+=======
+	}		
+	
+	@RequestMapping("/update")
+	public String updateUI(Model model, int id) {
+		
+		MemberDTO dto=service.updateui(id);
+		
+		model.addAttribute("dto", dto);
+		
+		return "/member/update";
+				
+	}
+	
+	@RequestMapping(value="update", method=RequestMethod.POST)
+	public String update(MemberDTO dto) {
+		
+		service.update(dto);
+		
+		return "sp";
+	}
+>>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
 
 	}
 

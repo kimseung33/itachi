@@ -11,8 +11,7 @@ public class MemberDTO implements Serializable {
 	private String mb_id;
 	private String mb_pw;
 	private String mb_birth;
-	private int mb_zip1;
-	private int mb_zip2;
+	private int mb_zip;
 	private String mb_addr1;
 	private String mb_addr2;
 	private String mb_addr3;
@@ -24,14 +23,15 @@ public class MemberDTO implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MemberDTO(String mb_id, String mb_pw, String mb_birth, int mb_zip1, int mb_zip2, String mb_addr1,
-			String mb_addr2, String mb_addr3, int mb_hp, String mb_email, String mb_date) {
+
+
+	public MemberDTO(String mb_id, String mb_pw, String mb_birth, int mb_zip, String mb_addr1, String mb_addr2,
+			String mb_addr3, int mb_hp, String mb_email, String mb_date) {
 		super();
 		this.mb_id = mb_id;
 		this.mb_pw = mb_pw;
 		this.mb_birth = mb_birth;
-		this.mb_zip1 = mb_zip1;
-		this.mb_zip2 = mb_zip2;
+		this.mb_zip = mb_zip;
 		this.mb_addr1 = mb_addr1;
 		this.mb_addr2 = mb_addr2;
 		this.mb_addr3 = mb_addr3;
@@ -39,6 +39,8 @@ public class MemberDTO implements Serializable {
 		this.mb_email = mb_email;
 		this.mb_date = mb_date;
 	}
+
+
 
 	public String getMb_id() {
 		return mb_id;
@@ -64,20 +66,12 @@ public class MemberDTO implements Serializable {
 		this.mb_birth = mb_birth;
 	}
 
-	public int getMb_zip1() {
-		return mb_zip1;
+	public int getMb_zip() {
+		return mb_zip;
 	}
 
-	public void setMb_zip1(int mb_zip1) {
-		this.mb_zip1 = mb_zip1;
-	}
-
-	public int getMb_zip2() {
-		return mb_zip2;
-	}
-
-	public void setMb_zip2(int mb_zip2) {
-		this.mb_zip2 = mb_zip2;
+	public void setMb_zip(int mb_zip) {
+		this.mb_zip = mb_zip;
 	}
 
 	public String getMb_addr1() {
@@ -165,13 +159,12 @@ public class MemberDTO implements Serializable {
 
 	@Override
 	public String toString() {
-
-		return "MemberDTO [mb_id=" + mb_id + ", mb_birth=" + mb_birth + ", mb_zip1=" + mb_zip1
-				+ ", mb_zip2=" + mb_zip2 + ", mb_addr1=" + mb_addr1 + ", mb_addr2=" + mb_addr2 + ", mb_addr3="
-				+ mb_addr3 + ", mb_hp=" + mb_hp + ", mb_email=" + mb_email + ", mb_date=" + mb_date + "]";
-
-
+		return "MemberDTO [mb_id=" + mb_id + ", mb_birth=" + mb_birth + ", mb_zip=" + mb_zip + ", mb_addr1=" + mb_addr1
+				+ ", mb_addr2=" + mb_addr2 + ", mb_addr3=" + mb_addr3 + ", mb_hp=" + mb_hp + ", mb_email=" + mb_email
+				+ ", mb_date=" + mb_date + "]";
 	}
+
+	
 
 	
 
