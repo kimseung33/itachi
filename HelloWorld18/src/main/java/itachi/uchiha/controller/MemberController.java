@@ -49,37 +49,32 @@ public class MemberController {
 
 	@RequestMapping(value = "/findingId", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
 	public @ResponseBody String findingId(@ModelAttribute MemberDTO dto, Model model, HttpServletResponse response)
-			throws Exception {		
-
+			throws Exception {
 		String emailList = service.findId(dto);
-		
-<<<<<<< HEAD
-		String findEmail = "{\"user_email\":\"" + emailList + "\"}";		
 
-		return findEmail;		
-=======
-	}		
-	
+		String findEmail = "{\"user_email\":\"" + emailList + "\"}";
+
+		return findEmail;
+
+	}
+
 	@RequestMapping("/update")
 	public String updateUI(Model model, int id) {
-		
-		MemberDTO dto=service.updateui(id);
-		
-		model.addAttribute("dto", dto);
-		
-		return "/member/update";
-				
-	}
-	
-	@RequestMapping(value="update", method=RequestMethod.POST)
-	public String update(MemberDTO dto) {
-		
-		service.update(dto);
-		
-		return "sp";
-	}
->>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
 
+		MemberDTO dto = service.updateui(id);
+
+		model.addAttribute("dto", dto);
+
+		return "/member/update";
+
+	}
+
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public String update(MemberDTO dto) {
+
+		service.update(dto);
+
+		return "sp";
 	}
 
 }
