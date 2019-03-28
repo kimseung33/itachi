@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- <mapper namespace="org.mybatis.example.BlogMapper"> -->
 <mapper namespace="kr.co.mapper.board">
-	<select id="login" resultType="MemberDTO">
+	<select id="login" resultType="itachi.uchiha.domain.MemberDTO">
 		select * from itachi_mb
 		where
 		mb_id=#{mb_Id} and mb_pw=#{mb_Pw)
