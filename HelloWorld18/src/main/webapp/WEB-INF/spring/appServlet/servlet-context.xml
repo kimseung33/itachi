@@ -33,6 +33,7 @@
 
 	<beans:bean class="java.lang.String" id="uploadPath">
 		<beans:constructor-arg value="C:\\supload"></beans:constructor-arg>
+
 	</beans:bean>
 	
 	
@@ -68,6 +69,9 @@
 	</interceptors>
 	
 	
+=======
+	</beans:bean>	
+>>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
 	
 	<context:component-scan base-package="kr.co.ca" />
 	<context:component-scan

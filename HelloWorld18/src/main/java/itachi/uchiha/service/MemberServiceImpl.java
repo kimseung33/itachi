@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 import itachi.uchiha.dao.MemberDAO;
 
 
+import itachi.uchiha.domain.MemberDTO;
+
+
+
+
 @Service
 public class MemberServiceImpl implements MemberService {
 
