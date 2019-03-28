@@ -2,11 +2,20 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- <mapper namespace="org.mybatis.example.BlogMapper"> -->
-<mapper namespace="kr.co.mapper.board">
-	<select id="login" resultType="itachi.uchiha.domain.MemberDTO">
+
+
+<mapper namespace="itachi.uchiha.mapper.board">
+	<select id="login" resultType="MemberDTO">
 		select * from itachi_mb
 		where
-		mb_id=#{mb_Id} and mb_pw=#{mb_Pw)
-	</select>
+		mb_id=#{mb_Id} and mb_pw=#{mb_Pw}
+</select>
 </mapper>
+
+<!-- <mapper namespace="itachi.uchiha.mapper.board">
+	<select id="login" resultType="MemberDTO">
+		select * from itachi_mb
+		where
+		mb_id=#{mb_Id} and mb_pw=#{mb_Pw}
+	</select>
+</mapper> -->

@@ -1,7 +1,5 @@
 package itachi.uchiha.controller;
 
-
-
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -15,7 +13,7 @@ import itachi.uchiha.domain.MemberDTO;
 import itachi.uchiha.service.MemberService;
 
 @Controller
-@RequestMapping("/itachi/member")
+@RequestMapping("/member")
 public class MemberController {
 
 	@Inject
@@ -27,14 +25,21 @@ public class MemberController {
 		if(memberDTO==null) {
 			return;
 		}
-		model.addAttribute("memberDTO", memberDTO);
-		System.out.println("MemberControl test입니다.");
+		model.addAttribute("memberDTO", dto);
+		System.out.println("MemberControl loginPost부분 test입니다.");
 		System.out.println("MemberControl test입니다.");
 		System.out.println("MemberControl test입니다.");System.out.println("MemberControl test입니다.");
-	 } 
-
-	public void dkak() {
-		
+	 }	
+	
+	@RequestMapping(value="/loginpost",method=RequestMethod.GET)
+	public void loginPost() {
+		System.out.println("MemberControl loginGetPost부분 test입니다.");
+	}
+	
+	
+	@RequestMapping(value="/login",method=RequestMethod.GET)
+	public void loginGet() {
+		System.out.println("MemberControl loginGet부분 test입니다.");
 	}
 
 

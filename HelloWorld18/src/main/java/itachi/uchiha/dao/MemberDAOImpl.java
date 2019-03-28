@@ -20,11 +20,12 @@ public class MemberDAOImpl implements MemberDAO{
 	@Inject
 	private SqlSession sqlSession;
 	
-	private String NS="kr.co.mapper.board";
+	private String NS="itachi.uchiha.mapper.board";
 
 	@Override
 	public MemberDTO login(LoginDTO dto) {
-		
+		System.out.println("MemberDAOImpl test입니다.");
+		System.out.println(sqlSession.selectOne(NS+".login", dto));
 		return sqlSession.selectOne(NS+".login", dto);
 	}
 	
