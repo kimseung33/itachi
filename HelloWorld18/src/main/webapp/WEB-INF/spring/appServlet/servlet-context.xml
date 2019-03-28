@@ -33,43 +33,7 @@
 
 	<beans:bean class="java.lang.String" id="uploadPath">
 		<beans:constructor-arg value="C:\\supload"></beans:constructor-arg>
-	</beans:bean>
-	
-	<beans:bean id="sampleInterceptor" class="kr.co.interceptor.Sampleinterceptor"></beans:bean>
-	<beans:bean id="myInterceptor" class="kr.co.interceptor.MyInterceptor"></beans:bean>
-	<beans:bean id="loginInterceptor" class="kr.co.interceptor.LoginInterceptor"></beans:bean>
-	<beans:bean id="authInterceptor" class="kr.co.interceptor.AuthInterceptor"></beans:bean>
-	
-	<interceptors>
-		<interceptor>
-			<mapping path="/doA"></mapping>
-			<mapping path="/doB"></mapping>
-			<beans:ref bean="sampleInterceptor"/>
-		</interceptor>
-		
-		<interceptor>
-			<mapping path="/doC"/>
-			<mapping path="/doD"/>
-			<beans:ref bean="myInterceptor"/>
-		</interceptor>
-		
-		<interceptor>			
-			<mapping path="/user/loginPost"/>			
-			<beans:ref bean="loginInterceptor"/>
-		</interceptor>
-		
-		<interceptor>
-			<mapping path="/board/updateui"/>
-			<mapping path="/board/update"/>
-			<mapping path="/board/insertui"/>
-			<mapping path="/board/insert"/>
-			<mapping path="/board/delete"/>
-			<beans:ref bean="authInterceptor"/>
-		</interceptor>
-		
-	</interceptors>
-	
-	
+	</beans:bean>	
 	
 	<context:component-scan base-package="kr.co.ca" />
 	<context:component-scan
