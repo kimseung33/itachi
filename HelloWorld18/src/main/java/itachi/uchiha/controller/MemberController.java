@@ -28,5 +28,5 @@ public class MemberController {
 		}
 		model.addAttribute("memberDTO", memberDTO);
 		System.out.println("MemberControl test입니다.");
-	}
+	 } 
 }
