@@ -28,7 +28,7 @@ public class MemberServiceImpl implements MemberService {
 		return dao.findId(dto);
 	}
 	@Override
-	public MemberDTO updateui(int id) {
+	public MemberDTO updateui(String id) {
 		
 		return dao.updateUI(id);
 	}

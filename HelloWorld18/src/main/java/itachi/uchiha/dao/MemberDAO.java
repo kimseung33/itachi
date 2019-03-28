@@ -6,7 +6,7 @@ import itachi.uchiha.domain.MemberDTO;
 public interface MemberDAO {
 	MemberDTO login(LoginDTO dto);
 	String findId(MemberDTO dto);	
-	MemberDTO updateUI(int id);
+	MemberDTO updateUI(String id);
 	void update(MemberDTO dto);
 }
 

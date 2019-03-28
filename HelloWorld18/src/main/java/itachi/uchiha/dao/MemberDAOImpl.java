@@ -36,7 +36,7 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 	
 	@Override
-	public MemberDTO updateUI(int id) {
+	public MemberDTO updateUI(String id) {
 		
 		return sqlSession.selectOne(NS+".updateui", id);
 		

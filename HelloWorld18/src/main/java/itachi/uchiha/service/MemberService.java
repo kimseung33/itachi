@@ -9,6 +9,6 @@ public interface MemberService {
 
 	MemberDTO login(LoginDTO dto);
 	String findId(MemberDTO dto);
-	MemberDTO updateui(int id);
+	MemberDTO updateui(String id);
 	void update(MemberDTO dto);
 }

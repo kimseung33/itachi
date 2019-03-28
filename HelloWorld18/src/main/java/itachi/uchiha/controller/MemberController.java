@@ -59,14 +59,11 @@ public class MemberController {
 	}
 
 	@RequestMapping("/update")
-	public String updateUI(Model model, int id) {
+	public String updateUI(Model model, String id) {
 
 		MemberDTO dto = service.updateui(id);
-
 		model.addAttribute("dto", dto);
-
 		return "/member/update";
-
 	}
 
 	@RequestMapping(value = "update", method = RequestMethod.POST)

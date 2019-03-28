@@ -20,10 +20,9 @@
 	
 </select>
 
-	<select id="updateui" resultType="itachi.uchiha.domain.MemberDTO">
+	<select id="updateui" resultType="MemberDTO">
 		select * from itachi_mb where mb_id=#{mb_id}
 	</select>
-	
 	
 
 
