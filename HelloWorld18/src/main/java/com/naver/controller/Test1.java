@@ -9,5 +9,5 @@ public class Test1 {
 	
 	private String psr;
 
-	public String lll;
+	public String ll;
 }
