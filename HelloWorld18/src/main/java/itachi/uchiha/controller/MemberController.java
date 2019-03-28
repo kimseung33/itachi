@@ -48,7 +48,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value="/updateui")
-public String updateui(int id, Model model) {
+	public String updateui(int id, Model model) {
 		
 		MemberDTO dto = service.updateui(id);
 	    model.addAttribute("dto",dto);
