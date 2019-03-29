@@ -12,7 +12,7 @@
 	</select>
 	
 	<select id="selectid" resultType="String">
-		select mb_id from itachi_mb where mb_hp=#{mb_hp} and mb_birth=#{mb_birth} and mb_email=#{mb_email}
+		select mb_id from itachi_mb where mb_hp=#{mb_hp} and mb_name=#{mb_name} and mb_email=#{mb_email}
 	</select>
 	
 	<select id="selectpw" resultType="String">
