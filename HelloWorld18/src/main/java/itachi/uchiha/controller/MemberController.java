@@ -23,30 +23,55 @@ public class MemberController {
 
 	@Inject
 	private MemberService service;
-	
-	@RequestMapping(value="/loginpost",method=RequestMethod.POST)
-	public void loginPost(LoginDTO dto,Model model)throws Exception{
-		MemberDTO memberDTO=service.login(dto);
-		if(memberDTO==null) {
+
+	@RequestMapping(value = "/loginpost", method = RequestMethod.POST)
+	public void loginPost(LoginDTO dto, Model model) throws Exception {
+		MemberDTO memberDTO = service.login(dto);
+		if (memberDTO == null) {
 			return;
 		}
 		model.addAttribute("memberDTO", dto);
 		System.out.println("MemberControl loginPost부분 test입니다.");
 		System.out.println("MemberControl test입니다.");
-		System.out.println("MemberControl test입니다.");System.out.println("MemberControl test입니다.");
-	 }	
-	
-	@RequestMapping(value="/loginpost",method=RequestMethod.GET)
+		System.out.println("MemberControl test입니다.");
+		System.out.println("MemberControl test입니다.");
+	}
+
+	@RequestMapping(value = "/loginpost", method = RequestMethod.GET)
 	public void loginPost() {
 		System.out.println("MemberControl loginGetPost부분 test입니다.");
 	}
-	
-	
-	@RequestMapping(value="/login",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public void loginGet() {
-		
-	}		
 
+	}
 
+	@RequestMapping(value = "/findingId", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+	public @ResponseBody String findingId(@ModelAttribute MemberDTO dto, Model model, HttpServletResponse response)
+			throws Exception {
+		String emailList = service.findId(dto);
+
+		String findEmail = "{\"user_email\":\"" + emailList + "\"}";
+
+		return findEmail;
+
+	}
+
+	@RequestMapping("/update")
+	public String updateUI(Model model, String id) {
+
+		MemberDTO dto = service.updateui(id);
+		model.addAttribute("dto", dto);
+		return "/member/update";
+	}
+
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public String update(MemberDTO dto) {
+
+		service.update(dto);
+
+		return "sp";
+	}
 
 }

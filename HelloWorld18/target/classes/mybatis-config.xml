@@ -4,7 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-
 	<typeAliases>
 		<package name="itachi.uchiha.domain" />
 	</typeAliases>

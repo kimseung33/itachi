@@ -33,7 +33,17 @@ public class MemberDAOImpl implements MemberDAO{
 		return sqlSession.selectOne(NS+".selectid", dto);
 	}
 	
+	@Override
+	public MemberDTO updateUI(String id) {
+		
+		return sqlSession.selectOne(NS+".updateui", id);
+		
+	}
 
+	@Override
+	public void update(MemberDTO dto) {
+		sqlSession.update(NS+".update", dto);
+	}
 
 
 	
