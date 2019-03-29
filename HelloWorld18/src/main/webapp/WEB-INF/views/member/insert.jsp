@@ -30,6 +30,11 @@
 			</div>
 			
 			<div class="form-group">
+				<label for="mb_Pw_ok">비밀번호확인</label>
+				<input type="password" required placeholder="PassWord 확인을 입력해주세요" class="form-control" name="mb_Pw_ok" id="mb_Pw_ok">
+			</div>
+			
+			<div class="form-group">
 				<label for="mb_Name">이름</label>
 				<input required placeholder="이름" class="form-control" name="mb_Name" id="mb_Name">
 			</div>
