@@ -24,17 +24,12 @@
 			</div>
 			<div class="form-group">
 				<label for="mb_Name">Name</label>
-				<input readonly="readonly" class="form-control" name="mb_Name" id="mb_Name" value="${dto.mb_Name}">
+				<input class="form-control" name="mb_Name" id="mb_Name" value="${dto.mb_Name}">
 			</div>
 			
 			<div class="form-group">
 				<label for="mb_Pw">PassWord</label>
 				<input type="password" class="form-control" name="mb_Pw" id="mb_Pw" value="${dto.mb_Pw}">
-			</div>
-			
-			<div class="form-group">
-				<label for="mb_Name">이름</label>
-				<input class="form-control" name="mb_Name" id="mb_Name" value="${dto.mb_Name}">
 			</div>
 			
 			<div class="form-group">
@@ -80,10 +75,10 @@
 				<label for="mb_Account">계좌번호</label>
 				<input class="form-control" name="mb_Account" id="mb_Account" value="${dto.mb_Account}">
 			</div>
-			
+			<input id="up" type="submit" value="수정">	
 		</form>
 		
-		<input id="up" type="submit" value="수정">			
+				
 			
 		</div>
 	 </div>

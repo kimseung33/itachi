@@ -47,25 +47,17 @@
 	<update id="update">
 		update itachi_mb set
 
-		mb_pw=#{mb_Pw},
-		mb_name=#{mb_Name},
-		mb_zip=#{mb_Zip},
-		mb_addr1=#{mb_Addr1},
-		mb_addr2=#{mb_Addr2},
-		mb_addr3=#{mb_Addr3},
-		mb_email=#{mb_Email},
-		mb_bank=#{mb_Bank},
-		mb_account=#{mb_Account}
-		where
-		mb_id=#{mb_Id}
 		mb_Pw=#{mb_Pw},
+		mb_Name=#{mb_Name},
 		mb_Zip=#{mb_Zip},
 		mb_Addr1=#{mb_Addr1},
 		mb_Addr2=#{mb_Addr2},
 		mb_Addr3=#{mb_Addr3},
-		mb_Email=#{mb_Email}
-		where mb_Id=#{mb_Id}
-
+		mb_Email=#{mb_Email},
+		mb_Bank=#{mb_Bank},
+		mb_Account=#{mb_Account}
+		where
+		mb_Id=#{mb_Id}
 	</update>
 
 </mapper>

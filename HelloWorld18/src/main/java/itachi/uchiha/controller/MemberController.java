@@ -70,7 +70,7 @@ public class MemberController {
 
 		service.update(dto);
 
-		return "sp";
+		return "/member/login";
 	}
 	@RequestMapping("insert")
 	public String insertUI() {
