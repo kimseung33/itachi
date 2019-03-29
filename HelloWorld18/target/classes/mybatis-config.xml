@@ -2,19 +2,10 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
-  
-  <configuration>
-<<<<<<< HEAD
-  <typeAliases>
-<package name="itachi.uchiha.domain"/>  
-  </typeAliases>
-  
-  
-  
-  
-=======
-  	<typeAliases>
-		<package name="itachi.uchiha.domain"/>  
-  	</typeAliases>
->>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
-  </configuration>
+
+<configuration>
+
+	<typeAliases>
+		<package name="itachi.uchiha.domain" />
+	</typeAliases>
+</configuration>
