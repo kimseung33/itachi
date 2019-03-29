@@ -45,7 +45,10 @@ public class MemberDAOImpl implements MemberDAO{
 		sqlSession.update(NS+".update", dto);
 	}
 
-
+	@Override
+	public void insert(MemberDTO dto) {
+		sqlSession.insert(NS+".insert", dto);
+	}
 	
 
 	

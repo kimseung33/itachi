@@ -8,132 +8,247 @@ public class MemberDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private String mb_id;
-	private String mb_pw;
-	private String mb_birth;
-	private int mb_zip;
-	private String mb_addr1;
-	private String mb_addr2;
-	private String mb_addr3;
-	private int mb_hp;
-	private String mb_email;
-	private String mb_date;
+	private String mb_Id;
+	private String mb_Pw;
+	private String mb_Name;
+	private String mb_Birth;
+	private int mb_Zip;
+	private String mb_Addr1;
+	private String mb_Addr2;
+	private String mb_Addr3;
+	private int mb_Hp;
+	private String mb_Email;
+	private String mb_Date;
+	private String mb_Bank;
+	private String mb_Account;
 	
 	public MemberDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
 
-
-	public MemberDTO(String mb_id, String mb_pw, String mb_birth, int mb_zip, String mb_addr1, String mb_addr2,
-			String mb_addr3, int mb_hp, String mb_email, String mb_date) {
+	public MemberDTO(String mb_Id, String mb_Pw, String mb_Name, String mb_Birth, int mb_Zip, String mb_Addr1,
+			String mb_Addr2, String mb_Addr3, int mb_Hp, String mb_Email, String mb_Date, String mb_Bank,
+			String mb_Account) {
 		super();
-		this.mb_id = mb_id;
-		this.mb_pw = mb_pw;
-		this.mb_birth = mb_birth;
-		this.mb_zip = mb_zip;
-		this.mb_addr1 = mb_addr1;
-		this.mb_addr2 = mb_addr2;
-		this.mb_addr3 = mb_addr3;
-		this.mb_hp = mb_hp;
-		this.mb_email = mb_email;
-		this.mb_date = mb_date;
+		this.mb_Id = mb_Id;
+		this.mb_Pw = mb_Pw;
+		this.mb_Name = mb_Name;
+		this.mb_Birth = mb_Birth;
+		this.mb_Zip = mb_Zip;
+		this.mb_Addr1 = mb_Addr1;
+		this.mb_Addr2 = mb_Addr2;
+		this.mb_Addr3 = mb_Addr3;
+		this.mb_Hp = mb_Hp;
+		this.mb_Email = mb_Email;
+		this.mb_Date = mb_Date;
+		this.mb_Bank = mb_Bank;
+		this.mb_Account = mb_Account;
 	}
 
 
 
-	public String getMb_id() {
-		return mb_id;
+
+
+
+
+
+
+
+
+	public String getMb_Id() {
+		return mb_Id;
 	}
 
-	public void setMb_id(String mb_id) {
-		this.mb_id = mb_id;
+
+
+
+	public void setMb_Id(String mb_Id) {
+		this.mb_Id = mb_Id;
 	}
 
-	public String getMb_pw() {
-		return mb_pw;
+
+
+
+	public String getMb_Pw() {
+		return mb_Pw;
 	}
 
-	public void setMb_pw(String mb_pw) {
-		this.mb_pw = mb_pw;
+
+
+
+	public void setMb_Pw(String mb_Pw) {
+		this.mb_Pw = mb_Pw;
 	}
 
-	public String getMb_birth() {
-		return mb_birth;
+	
+
+
+	public String getMb_Name() {
+		return mb_Name;
 	}
 
-	public void setMb_birth(String mb_birth) {
-		this.mb_birth = mb_birth;
+
+	public void setMb_Name(String mb_Name) {
+		this.mb_Name = mb_Name;
 	}
 
-	public int getMb_zip() {
-		return mb_zip;
+
+	public String getMb_Birth() {
+		return mb_Birth;
 	}
 
-	public void setMb_zip(int mb_zip) {
-		this.mb_zip = mb_zip;
+
+
+
+	public void setMb_Birth(String mb_Birth) {
+		this.mb_Birth = mb_Birth;
 	}
 
-	public String getMb_addr1() {
-		return mb_addr1;
+
+
+
+	public int getMb_Zip() {
+		return mb_Zip;
 	}
 
-	public void setMb_addr1(String mb_addr1) {
-		this.mb_addr1 = mb_addr1;
+
+
+
+	public void setMb_Zip(int mb_Zip) {
+		this.mb_Zip = mb_Zip;
 	}
 
-	public String getMb_addr2() {
-		return mb_addr2;
+
+
+
+	public String getMb_Addr1() {
+		return mb_Addr1;
 	}
 
-	public void setMb_addr2(String mb_addr2) {
-		this.mb_addr2 = mb_addr2;
+
+
+
+	public void setMb_Addr1(String mb_Addr1) {
+		this.mb_Addr1 = mb_Addr1;
 	}
 
-	public String getMb_addr3() {
-		return mb_addr3;
+
+
+
+	public String getMb_Addr2() {
+		return mb_Addr2;
 	}
 
-	public void setMb_addr3(String mb_addr3) {
-		this.mb_addr3 = mb_addr3;
+
+
+
+	public void setMb_Addr2(String mb_Addr2) {
+		this.mb_Addr2 = mb_Addr2;
 	}
 
-	public int getMb_hp() {
-		return mb_hp;
+
+
+
+	public String getMb_Addr3() {
+		return mb_Addr3;
 	}
 
-	public void setMb_hp(int mb_hp) {
-		this.mb_hp = mb_hp;
+
+
+
+	public void setMb_Addr3(String mb_Addr3) {
+		this.mb_Addr3 = mb_Addr3;
 	}
 
-	public String getMb_email() {
-		return mb_email;
+
+
+
+	public int getMb_Hp() {
+		return mb_Hp;
 	}
 
-	public void setMb_email(String mb_email) {
-		this.mb_email = mb_email;
+
+
+
+	public void setMb_Hp(int mb_Hp) {
+		this.mb_Hp = mb_Hp;
 	}
 
-	public String getMb_date() {
-		return mb_date;
+
+
+
+	public String getMb_Email() {
+		return mb_Email;
 	}
 
-	public void setMb_date(String mb_date) {
-		this.mb_date = mb_date;
+
+
+
+	public void setMb_Email(String mb_Email) {
+		this.mb_Email = mb_Email;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+
+
+
+	public String getMb_Date() {
+		return mb_Date;
 	}
+
+
+
+
+	public void setMb_Date(String mb_Date) {
+		this.mb_Date = mb_Date;
+	}
+
+
+
+
+	public String getMb_Bank() {
+		return mb_Bank;
+	}
+
+
+
+
+	public void setMb_Bank(String mb_Bank) {
+		this.mb_Bank = mb_Bank;
+	}
+
+
+
+
+	public String getMb_Account() {
+		return mb_Account;
+	}
+
+
+
+
+	public void setMb_Account(String mb_Account) {
+		this.mb_Account = mb_Account;
+	}
+
+
+
+
+
+
+
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((mb_id == null) ? 0 : mb_id.hashCode());
-		result = prime * result + ((mb_pw == null) ? 0 : mb_pw.hashCode());
+		result = prime * result + ((mb_Id == null) ? 0 : mb_Id.hashCode());
+		result = prime * result + ((mb_Pw == null) ? 0 : mb_Pw.hashCode());
 		return result;
 	}
+
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -144,26 +259,34 @@ public class MemberDTO implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		MemberDTO other = (MemberDTO) obj;
-		if (mb_id == null) {
-			if (other.mb_id != null)
+		if (mb_Id == null) {
+			if (other.mb_Id != null)
 				return false;
-		} else if (!mb_id.equals(other.mb_id))
+		} else if (!mb_Id.equals(other.mb_Id))
 			return false;
-		if (mb_pw == null) {
-			if (other.mb_pw != null)
+		if (mb_Pw == null) {
+			if (other.mb_Pw != null)
 				return false;
-		} else if (!mb_pw.equals(other.mb_pw))
+		} else if (!mb_Pw.equals(other.mb_Pw))
 			return false;
 		return true;
 	}
 
+
 	@Override
 	public String toString() {
-		return "MemberDTO [mb_id=" + mb_id + ", mb_birth=" + mb_birth + ", mb_zip=" + mb_zip + ", mb_addr1=" + mb_addr1
-				+ ", mb_addr2=" + mb_addr2 + ", mb_addr3=" + mb_addr3 + ", mb_hp=" + mb_hp + ", mb_email=" + mb_email
-				+ ", mb_date=" + mb_date + "]";
+		return "MemberDTO [mb_Id=" + mb_Id + ", mb_Name=" + mb_Name + ", mb_Birth=" + mb_Birth + ", mb_Zip=" + mb_Zip
+				+ ", mb_Addr1=" + mb_Addr1 + ", mb_Addr2=" + mb_Addr2 + ", mb_Addr3=" + mb_Addr3 + ", mb_Hp=" + mb_Hp
+				+ ", mb_Email=" + mb_Email + ", mb_Date=" + mb_Date + ", mb_Bank=" + mb_Bank + ", mb_Account="
+				+ mb_Account + "]";
 	}
 
+
+
+
+	
+
+	
 	
 
 	

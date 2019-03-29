@@ -5,6 +5,19 @@
 
 
 <mapper namespace="itachi.uchiha.mapper.board">
+
+
+	<insert id="insert">
+		insert into itachi_mb
+		(mb_id, mb_pw, mb_name, mb_birth, mb_zip, mb_addr1, mb_addr2, mb_addr3,
+		mb_hp, mb_email, mb_bank, mb_account)
+		values
+		(#{mb_Id}, #{mb_Pw},
+		#{mb_Name}, #{mb_Birth}, #{mb_Zip}, #{mb_Addr1}, #{mb_Addr2},
+		#{mb_Addr3}, #{mb_Hp}, #{mb_Email}, #{mb_Bank},#{mb_Account})
+	</insert>
+	
+	
 	<select id="login" resultType="MemberDTO">
 		select * from itachi_mb
 		where

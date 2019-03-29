@@ -11,4 +11,6 @@ public interface MemberService {
 	String findId(MemberDTO dto);
 	MemberDTO updateui(String id);
 	void update(MemberDTO dto);
+	void insert(MemberDTO dto);
+
 }

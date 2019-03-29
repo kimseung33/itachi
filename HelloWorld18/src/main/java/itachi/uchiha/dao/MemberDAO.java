@@ -8,5 +8,7 @@ public interface MemberDAO {
 	String findId(MemberDTO dto);	
 	MemberDTO updateUI(String id);
 	void update(MemberDTO dto);
+	void insert(MemberDTO dto);
+
 }
 

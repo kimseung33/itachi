@@ -71,5 +71,15 @@ public class MemberController {
 
 		return "sp";
 	}
-
+	@RequestMapping("insert")
+	public String insertUI() {
+		
+		return "/member/insert";
+	}
+	
+	@RequestMapping(value="insert", method=RequestMethod.POST)
+	public String insert(MemberDTO dto) {
+		service.insert(dto);
+		return "sp";
+	}  
 }

@@ -37,4 +37,9 @@ public class MemberServiceImpl implements MemberService {
 	public void update(MemberDTO dto) {
 		dao.update(dto);
 	}
+	
+	@Override
+	public void insert(MemberDTO dto) {
+		dao.insert(dto);
+	}
 }
