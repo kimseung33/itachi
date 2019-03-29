@@ -7,10 +7,27 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../resources/css/reset.css" type="text/css" media="screen">
     <link rel="stylesheet" href="../resources/css/style.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="../resources/css/grid.css" type="text/css" media="screen"> 
-    <script src="../resources/js/jquery-1.6.2.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../resources/css/grid.css" type="text/css" media="screen">   
+    <script src="../resources/js/jquery-1.6.2.min.js" type="text/javascript"></script> 
+    <script src="../resources/js/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="../resources/js/jcarousellite_1.0.1.js" type="text/javascript"></script>
     <script src="../resources/js/jquery.galleriffic.js" type="text/javascript"></script>
-    <script src="../resources/js/jquery.opacityrollover.js" type="text/javascript"></script>      
+    <script src="../resources/js/jquery.opacityrollover.js" type="text/javascript"></script> 
+    <script type="text/javascript">
+		$(document).ready(function() { 
+			$(".jCarouselLite").jCarouselLite({
+				  btnNext: ".next",
+				  btnPrev: ".prev",		  
+				  speed: 400,		  
+				  vertical: false,
+				  circular: true,
+				  easing:'easeOutQuart',
+				  visible: 4,
+				  start: 0,
+				  scroll: 1
+			 });
+		});
+	</script>    
 	<!--[if lt IE 7]>
         <div style=' clear: both; text-align:center; position: relative;'>
             <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0"  alt="" /></a>
@@ -21,7 +38,7 @@
         <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
 	<![endif]-->
 </head>
-<body id="page1">
+<body id="page3">
 	<!--==============================header=================================-->
     <header>
     	<div class="row-1">
@@ -30,11 +47,11 @@
                 	<div class="grid_12">
                     	<nav>
                             <ul class="menu">
-                                <li><a class="active" href="/main.jsp">About Us</a></li>
-                                <li><a href="/services.jsp">Services</a></li>
-                                <li><a href="/catalogue.jsp">Catalogue</a></li>
-                                <li><a href="/pricing.jsp">Pricing</a></li>
-                                <li><a href="/member/login">Login</a></li>
+                                <li><a href="main.jsp">About Us</a></li>
+                                <li><a href="services.jsp">Services</a></li>
+                                <li><a class="active" href="catalogue.jsp">Catalogue</a></li>
+                                <li><a href="pricing.jsp">Pricing</a></li>
+                                <li><a href="contacts.jsp">Contacts</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -106,46 +123,26 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="inner">
+                                <div class="inner-2">
                                     <div class="wrapper">
-                                        <span class="title img-indent3">HELLO!</span>
+                                        <span class="title t2 img-indent3">2011</span>
                                         <div class="extra-wrap indent-top2">
-                                        	<strong>Interior Design</strong> is one of <a target="_blank" href="http://blog.templatemonster.com/free-website-templates/ ">free website templates</a> created by TemplateMonster.com team. This website template is opti mized for 1024X768 screen resolution. It is also XHTML &amp; CSS valid. It has several pages: <a class="color-3" href="index.html">About</a>, <a class="color-3" href="services.html">Services</a>, <a class="color-3" href="catalogue.html">Catalogue</a>, <a class="color-3" href="pricing.html">Pricing</a>, <a class="color-3" href="contacts.html">Contact Us</a> (note that contact us form _ doesn¡¯t work).
+                                        	Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam volup tatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="container_12">
-                            	<div class="wrapper">
-                                	<article class="grid_12">
-                                    	<h3 class="color-1">Our Services List</h3>
-                                        <div class="wrapper">
-                                        	<article class="grid_6 alpha">
-                                                <figure class="img-indent frame"><img src="../resources/images/page1-img1.jpg" alt="" /></figure>
-                                                <div class="extra-wrap">
-                                                    <div class="indent-top">
-                                                        <ul class="list-1">
-                                                             <li><a href="#">Interior Decorating Services</a></li>
-                                                             <li class="last"><a href="#">Complete Color <br>Analysis</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="clear"></div>
-                                            </article>
-                                            <article class="grid_6 omega">
-                                                <figure class="img-indent frame"><img src="../resources/images/page1-img2.jpg" alt="" /></figure>
-                                                <div class="extra-wrap">
-                                                    <div class="indent-top">
-                                                        <ul class="list-1">
-                                                             <li><a href="#">Design Services <br>for Home Construction</a></li>
-                                                             <li class="last"><a href="#">Interior Design Remodeling</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="clear"></div>
-                                            </article>
-                                        </div>
-                                    </article>
+                            <div class="carousel">
+                                <h3 class="color-1 p2">Projects Archive</h3>
+                                <a class="prev" href="#">Prev</a>
+                                <a class="next" href="#">Next</a>
+                                <div class="jCarouselLite">
+                                    <ul id="carousel">
+                                        <li><a href="#"><img src="../resources/images/page3-img1.jpg" alt="" /><span>2011</span></a></li>
+                                        <li><a href="#"><img src="../resources/images/page3-img2.jpg" alt="" /><span>2010</span></a></li>
+                                        <li><a href="#"><img src="../resources/images/page3-img3.jpg" alt="" /><span>2009</span></a></li>
+                                        <li><a href="#"><img src="../resources/images/page3-img4.jpg" alt="" /><span>2008</span></a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -158,24 +155,33 @@
             	<div class="container_12">
                 	<div class="wrapper">
                     	<article class="grid_4">
-                        	<h3 class="prev-indent-bot">About Us</h3>
-                            <p class="prev-indent-bot">This <a target="_blank" href="http://blog.templatemonster.com/2011/08/22/free-website-template-clean-style-interior/ ">Interior Design Template</a> goes with two pack ages: with PSD source files and without them.</p>
-                            PSD source files are available for free for the registered members of Templates.com. The basic package (without PSD source) is available for anyone without registration.
-                        </article>
-                        <article class="grid_4">
-                        	<h3 class="prev-indent-bot">Testimonials</h3>
-                            <div class="quote">
-                            	<p class="prev-indent-bot">At vero eos et accusamus et iusto odio tium voluptatum deleniti atque corrupti quos<br> dolores et quas molestias excepturi sint occaecati cupiditate.</p>
-                                <h5>James Reese</h5>
-                                Managing Director
+                        	<div class="indent-right2">
+                                <h3 class="prev-indent-bot">Publications</h3>
+                                <p class="color-4 prev-indent-bot">At vero eos et accusamus et iusto odio dignissi tum deleniti atque corrupti quos</p>
+                                <p>Dolores et quas molestias excepturi sint occae cati cupiditate non provident, similique sunt in culpa qui officia deserunt.</p>
+                                <a class="button" href="#">View More</a>
                             </div>
                         </article>
                         <article class="grid_4">
-                        	<h3 class="prev-indent-bot">What¡¯s New?</h3>
-                            <time class="tdate-1" datetime="2011-08-15"><a class="link" href="#">15.08.2011</a></time>
-                            <p class="prev-indent-bot">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
-                            <time class="tdate-1" datetime="2011-08-11"><a class="link" href="#">11.08.2011</a></time>
-                            Totam rem aperiam, eaque ipsa quae ab illo inven tore veritatis et quasi architecto.
+                        	<h3 class="p2">Art of Placement</h3>
+                            <div class="wrapper">
+                            	<figure class="img-indent frame2"><img src="images/page3-img5.jpg" alt="" /></figure>
+                                <div class="extra-wrap">
+                                	<p class="img-indent-bot">At vero eos eaccusa mus etusto odio tium voluptatum deleniti atque corrupti quos dolores et quas.</p>
+                                    <a class="button" href="#">View More</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="grid_4">
+                        	<h3 class="prev-indent-bot2">External Links</h3>
+                            <ul class="list-2">
+                            	<li><a href="#">Totam rem aperiam eaque ipsa quae abillo</a></li>
+                                <li><a href="#">Inventore veritatis quasi architecto beatae vitae</a></li>
+                                <li><a href="#">Nemo enim ipsam voluptatem quia</a></li>
+                                <li><a href="#">Voluptas sit aspernatur aut odit aut fugit</a></li>
+                                <li><a href="#">Sed quia consequuntur magni dolores eos</a></li>
+                                <li class="last-item"><a href="#">Ratione voluptatem sequi nesciunt</a></li>
+                            </ul>
                         </article>
                     </div>
                 </div>
@@ -263,4 +269,3 @@
 	</script>
 </body>
 </html>
-    
