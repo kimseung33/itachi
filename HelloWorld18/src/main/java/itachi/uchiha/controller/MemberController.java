@@ -31,15 +31,10 @@ public class MemberController {
 			return;
 		}
 		model.addAttribute("memberDTO", dto);
-		System.out.println("MemberControl loginPost부분 test입니다.");
-		System.out.println("MemberControl test입니다.");
-		System.out.println("MemberControl test입니다.");
-		System.out.println("MemberControl test입니다.");
 	}
 
 	@RequestMapping(value = "/loginpost", method = RequestMethod.GET)
 	public void loginPost() {
-		System.out.println("MemberControl loginGetPost부분 test입니다.");
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)

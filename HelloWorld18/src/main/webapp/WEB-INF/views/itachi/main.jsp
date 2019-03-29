@@ -34,7 +34,7 @@
                                 <li><a href="/services.jsp">Services</a></li>
                                 <li><a href="/catalogue.jsp">Catalogue</a></li>
                                 <li><a href="/pricing.jsp">Pricing</a></li>
-                                <li><a href="/contacts.jsp">Login</a></li>
+                                <li><a href="/member/login">Login</a></li>
                             </ul>
                         </nav>
                     </div>
