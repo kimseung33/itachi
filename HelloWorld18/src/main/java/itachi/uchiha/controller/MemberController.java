@@ -81,6 +81,6 @@ public class MemberController {
 	@RequestMapping(value="insert", method=RequestMethod.POST)
 	public String insert(MemberDTO dto) {
 		service.insert(dto);
-		return "redirect:/itachi/main";
+		return "/member/login";
 	}  
 }
