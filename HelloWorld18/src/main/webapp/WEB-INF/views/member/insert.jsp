@@ -78,6 +78,15 @@
 					<option value="농협은행">농협은행</option>
 					<option value="기업은행">기업은행</option>
 					<option value="하나은행">하나은행</option>
+					<option value="우리은행">우리은행</option>
+					<option value="신한은행">신한은행</option>
+					<option value="KEB은행">KEB은행</option>
+					<option value="SC은행">SC은행</option>
+					<option value="신협">신협</option>
+					<option value="수협">수협</option>
+					<option value="우체국">우체국</option>
+					<option value="새마을금고">새마을금고</option>
+					<option value="카카오뱅크">카카오뱅크</option>
 				</select>
 				
 			</div>
