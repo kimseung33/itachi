@@ -29,6 +29,11 @@
 			</div>
 			
 			<div class="form-group">
+				<label for="mb_Name">이름</label>
+				<input class="form-control" name="mb_Name" id="mb_Name" value="${dto.mb_Name}">
+			</div>
+			
+			<div class="form-group">
 				<label for="mb_Zip">우편번호</label>
 				<input class="form-control" name="mb_Zip" id="mb_Zip" value="${dto.mb_Zip}">
 				<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기">
