@@ -30,7 +30,7 @@
                 	<div class="grid_12">
                     	<nav>
                             <ul class="menu">
-                                <li><a class="active" href="/main.jsp">About Us</a></li>
+                                <li><a class="active" href="/main.jsp">home</a></li>
                                 <li><a href="/services.jsp">Services</a></li>
                                 <li><a href="/catalogue.jsp">Catalogue</a></li>
                                 <li><a href="/pricing.jsp">Pricing</a></li>
@@ -47,8 +47,8 @@
             	<div class="container_12">
                 	<div class="grid_9">
                     	<h1>
-                            <a class="logo" href="index.html">Int<strong>e</strong>rior</a>
-                            <span>Design</span>
+                            <a class="logo" href="index.html"><strong>A</strong>katsuki</a>
+                            <span>°æ¸Å(Itachi)</span>
                         </h1>
                     </div>
                     <div class="grid_3">
