@@ -47,16 +47,19 @@ public class MemberController {
 
 	}
 
-	@RequestMapping(value = "/findingId", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+	@RequestMapping(value = "/findid", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
 	public @ResponseBody String findingId(@ModelAttribute MemberDTO dto, Model model, HttpServletResponse response)
 			throws Exception {
-		String emailList = service.findId(dto);
-
-		String findEmail = "{\"user_email\":\"" + emailList + "\"}";
-
-		return findEmail;
+		model.addAttribute("id", service.findId(dto));
+		return "/member/findid";
 
 	}
+	
+	@RequestMapping(value = "/findid", method = RequestMethod.GET)
+	public void findid() {
+
+	}
+	
 
 	@RequestMapping("/update")
 	public String updateUI(Model model, String id) {
