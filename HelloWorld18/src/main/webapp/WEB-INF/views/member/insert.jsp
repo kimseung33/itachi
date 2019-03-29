@@ -1,64 +1,79 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
-
 	<div class="container">
 		<div class="row">
-		<form action="/member/update" method="post">
+			<form action="/member/insert" method="post">
 			<div class="form-group">
 				<label for="mb_Id">ID</label>
-				<input readonly="readonly" class="form-control" name="mb_Id" id="mb_Id" value="${dto.mb_Id}">
+				<input required placeholder="ID를 입력해주세요" class="form-control" name="mb_Id" id="mb_Id">
 			</div>
 			
 			<div class="form-group">
-				<label for="mb_Pw">PassWord</label>
-				<input type="password" class="form-control" name="mb_Pw" id="mb_Pw" value="${dto.mb_Pw}">
+				<label for="mb_Pw">비밀번호</label>
+				<input type="password" required placeholder="PassWord를 입력해주세요" class="form-control" name="mb_Pw" id="mb_Pw">
+			</div>
+			
+			<div class="form-group">
+				<label for="mb_Name">이름</label>
+				<input required placeholder="이름" class="form-control" name="mb_Name" id="mb_Name">
+			</div>
+			
+			<div class="form-group">
+				<label for="mb_Birth">생년월일</label>
+				<input placeholder="ex)1990101" class="form-control" name="mb_Birth" id="mb_Birth">
 			</div>
 			
 			<div class="form-group">
 				<label for="mb_Zip">우편번호</label>
-				<input class="form-control" name="mb_Zip" id="mb_Zip" value="${dto.mb_Zip}">
+				<input placeholder="우편번호" class="form-control" name="mb_Zip" id="mb_Zip">
 				<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기">
+			</div>			
+			
+			<div class="form-group">
+				<label for="mb_Addr1">주소</label>
+				<input placeholder="주소" class="form-control" name="mb_Addr1" id="mb_Addr1">
 			</div>
 			
 			<div class="form-group">
-				<label for="mb_Addr1">기본주소</label>
-				<input class="form-control" name="mb_Addr1" id="mb_Addr1" value="${dto.mb_Addr1}">
+				<label for="mb_Addr2">기타주소</label>
+				<input placeholder="기타주소" class="form-control" name="mb_Addr2" id="mb_Addr2">
 			</div>
 			
 			<div class="form-group">
-				<label for="mb_Addr2">상세주소</label>
-				<input class="form-control" name="mb_Addr2" id="mb_Addr2" value="${dto.mb_Addr2}">
+				<label for="mb_Addr3">상세주소</label>
+				<input placeholder="상세주소" class="form-control" name="mb_Addr3" id="mb_Addr3">
 			</div>
+			
 			
 			<div class="form-group">
-				<label for="mb_Addr3">기타주소</label>
-				<input class="form-control" name="mb_Addr3" id="mb_Addr3" value="${dto.mb_Addr3}">
+				<label for="mb_Hp">핸드폰번호</label>
+				<input type="tel" required placeholder="핸드폰번호를 입력해주세요" class="form-control" name="mb_Hp" id="mb_Hp">
 			</div>
-			
 			
 			<div class="form-group">
 				<label for="mb_Email">이메일</label>
-				<input class="form-control" name="mb_Email" id="mb_Email" value="${dto.mb_Email}">
+				<input type="email" placeholder="이메일를 입력해주세요" class="form-control" name="mb_Email" id="mb_Email">
 			</div>
 			
 			<div class="form-group">
 				<label for="mb_Bank">은행</label>
 				<br>
-				<input value="${dto.mb_Bank}">
 				<select name="mb_Bank" id="mb_Bank">
 					<option value="농협은행">농협은행</option>
 					<option value="기업은행">기업은행</option>
@@ -69,21 +84,20 @@
 			
 			<div class="form-group">
 				<label for="mb_Account">계좌번호</label>
-				<input class="form-control" name="mb_Account" id="mb_Account" value="${dto.mb_Account}">
+				<input placeholder="계좌번호" class="form-control" name="mb_Account" id="mb_Account">
 			</div>
 			
-		</form>
-		
-		<input id="up" type="submit" value="수정">			
+			</form>
+			
+			<input id="in" type="submit" value="확인">
 			
 		</div>
-	 </div>
-	 
+	</div>
+	
+	
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
-
-
-	function execDaumPostcode() {
+function execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -130,12 +144,13 @@
         }
     }).open();
     
-	$(document).ready(function() {
-		$("#up").click(function() {
+    $(document).ready(function() {
+		$("#in").click(function() {
 			$("form").submit();
 		});
-	});
-}
+     });
+     
+} 
 </script>
 </body>
 </html>
