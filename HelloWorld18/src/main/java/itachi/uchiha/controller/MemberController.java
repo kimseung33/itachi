@@ -42,11 +42,12 @@ public class MemberController {
 
 	}
 
-	@RequestMapping(value = "/findid", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
-	public @ResponseBody String findingId(@ModelAttribute MemberDTO dto, Model model, HttpServletResponse response)
+	@RequestMapping(value = "/findid", method = RequestMethod.POST)
+	public String findId(MemberDTO dto, Model model, HttpServletResponse response)
 			throws Exception {
 		model.addAttribute("id", service.findId(dto));
 		return "/member/findid";
+		
 
 	}
 	
@@ -69,7 +70,7 @@ public class MemberController {
 
 		service.update(dto);
 
-		return "sp";
+		return "/member/login";
 	}
 	@RequestMapping("insert")
 	public String insertUI() {
@@ -80,6 +81,6 @@ public class MemberController {
 	@RequestMapping(value="insert", method=RequestMethod.POST)
 	public String insert(MemberDTO dto) {
 		service.insert(dto);
-		return "sp";
+		return "redirect:/itachi/main";
 	}  
 }

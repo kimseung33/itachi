@@ -74,7 +74,7 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("#find").click(function() {
-				location.href = '/member/login';
+				
 			})
 
 			$("#final_check").html($("#check_email").html());
