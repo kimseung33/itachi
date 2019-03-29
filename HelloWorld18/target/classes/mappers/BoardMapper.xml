@@ -9,51 +9,43 @@
 
 	<insert id="insert">
 		insert into itachi_mb
-		(mb_Id, mb_Pw, mb_Name, mb_Birth, mb_Zip, mb_Addr1, mb_Addr2, mb_Addr3,
-		mb_Hp, mb_Email, mb_Bank, mb_Account)
+		(mb_Id, mb_Pw, mb_Name,
+		mb_Birth, mb_Zip, mb_Addr1, mb_Addr2, mb_Addr3,
+		mb_Hp, mb_Email,
+		mb_Bank, mb_Account)
 		values
 		(#{mb_Id}, #{mb_Pw},
-		#{mb_Name}, #{mb_Birth}, #{mb_Zip}, #{mb_Addr1}, #{mb_Addr2},
-		#{mb_Addr3}, #{mb_Hp}, #{mb_Email}, #{mb_Bank},#{mb_Account})
+		#{mb_Name}, #{mb_Birth},
+		#{mb_Zip}, #{mb_Addr1}, #{mb_Addr2},
+		#{mb_Addr3}, #{mb_Hp},
+		#{mb_Email}, #{mb_Bank},#{mb_Account})
 	</insert>
-	
-	
+
+
 	<select id="login" resultType="MemberDTO">
 		select * from itachi_mb
 		where
 		mb_Id=#{mb_Id} and mb_Pw=#{mb_Pw}
 	</select>
-	
+
 	<select id="selectid" resultType="String">
-<<<<<<< HEAD
-		select mb_Id from itachi_mb where mb_Hp=#{mb_Hp} and mb_Name=#{mb_Name} and mb_Email=#{mb_Email}
-=======
-		select mb_id from itachi_mb where mb_hp=#{mb_Hp} and mb_name=#{mb_Name} and mb_email=#{mb_Email}
->>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
+		select mb_Id from itachi_mb where mb_Hp=#{mb_Hp} and mb_Name=#{mb_Name} and
+		mb_Email=#{mb_Email}
+
 	</select>
-	
+
 	<select id="selectpw" resultType="String">
-<<<<<<< HEAD
 		select mb_Id from itachi_mb where mb_Id=#{mb_Id} and mb_Birth=#{mb_Birth}
-=======
-		select mb_id from itachi_mb where mb_id=#{mb_Id} and mb_birth=#{mb_Birth}
->>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
-	
-</select>
+	</select>
 
 	<select id="updateui" resultType="MemberDTO">
-<<<<<<< HEAD
-		select * from itachi_mb where mb_Id=#{mb_Id}
-=======
-		select * from itachi_mb where mb_id=#{mb_Id}
->>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
+		select * from itachi_mb where mb_Id=#{mb_Id}		
 	</select>
-	
+
 
 
 	<update id="update">
 		update itachi_mb set
-<<<<<<< HEAD
 		mb_Pw=#{mb_Pw},
 		mb_Zip=#{mb_Zip},
 		mb_Addr1=#{mb_Addr1},
@@ -61,27 +53,11 @@
 		mb_Addr3=#{mb_Addr3},
 		mb_Email=#{mb_Email}
 		where mb_Id=#{mb_Id}
-=======
-		mb_pw=#{mb_Pw},
-		mb_zip=#{mb_Zip},
-		mb_addr1=#{mb_Addr1},
-		mb_addr2=#{mb_Addr2},
-		mb_addr3=#{mb_Addr3},
-		mb_email=#{mb_Email},
-		mb_bank=#{mb_Bank},
-		mb_account=#{mb_Account}
-		where
-		mb_id=#{mb_Id}
->>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
+
 	</update>
 
 </mapper>
 
-<!-- <mapper namespace="itachi.uchiha.mapper.board">
-	<select id="login" resultType="MemberDTO">
-		select * from itachi_mb
-		where
-		mb_id=#{mb_Id} and mb_pw=#{mb_Pw}
->>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
-	</select>
-</mapper> -->
+<!-- <mapper namespace="itachi.uchiha.mapper.board"> <select id="login" resultType="MemberDTO"> 
+	select * from itachi_mb where mb_id=#{mb_Id} and mb_pw=#{mb_Pw} >>>>>>> branch 
+	'master' of https://github.com/kimseung33/itachi.git </select> </mapper> -->

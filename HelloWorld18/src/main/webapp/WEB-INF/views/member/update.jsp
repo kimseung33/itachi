@@ -22,6 +22,10 @@
 				<label for="mb_Id">ID</label>
 				<input readonly="readonly" class="form-control" name="mb_Id" id="mb_Id" value="${dto.mb_Id}">
 			</div>
+			<div class="form-group">
+				<label for="mb_Name">Name</label>
+				<input readonly="readonly" class="form-control" name="mb_Name" id="mb_Name" value="${dto.mb_Name}">
+			</div>
 			
 			<div class="form-group">
 				<label for="mb_Pw">PassWord</label>
