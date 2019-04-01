@@ -44,7 +44,7 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h3 class="card-title text-center">Sign In</h3>
-            <form class="form-signin">
+            <form class="form-signin" action="/member/loginpost" method="post">
               <div class="form-label-group">
                 <input type="text" id="mb_Id" name="mb_Id" class="form-control" placeholder="Login ID" required autofocus>
                 <label for="mb_Id">Login ID</label>
@@ -54,6 +54,7 @@
                 <input type="password" id="mb_Pw" name="mb_Pw" class="form-control" placeholder="Password" required>
                 <label for="mb_Pw">Password</label>
               </div>
+              <a href="/member/findid">ID찾기</a> 
 
               <!-- <div class="custom-control custom-checkbox mb-3">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">

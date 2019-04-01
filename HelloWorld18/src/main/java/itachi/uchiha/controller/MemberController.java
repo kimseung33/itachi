@@ -1,13 +1,11 @@
 package itachi.uchiha.controller;
 
-import java.util.ArrayList;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,6 +37,7 @@ public class MemberController {
 			return;
 		}
 		model.addAttribute("memberDTO", dto);
+
 	}
 
 	@RequestMapping(value = "/loginpost", method = RequestMethod.GET)
