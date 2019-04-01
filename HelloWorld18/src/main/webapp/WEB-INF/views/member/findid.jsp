@@ -30,7 +30,6 @@
 				<div id="final_check">
 				
 				</div>
-				
 	            <button id="find" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">아이디 찾기</button>
 	            <hr class="my-4">
 	            <a class="btn btn-lg btn-info btn-block text-uppercase" href="/member/login">로그인 하기</a>
