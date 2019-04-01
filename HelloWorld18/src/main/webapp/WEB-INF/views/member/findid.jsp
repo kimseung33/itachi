@@ -67,11 +67,11 @@
 
 	<div id="check_email" style="display:none;">
         <div class="form-label-group">
-          <input type="text" id="mb_name" name="mb_Name" class="form-control" placeholder="이름 입력">
+          <input type="text" id="mb_Name" name="mb_Name" class="form-control" placeholder="이름 입력">
           <label for="mb_Name">이름 입력</label>
         </div>
 		<div class="form-label-group">
-			<input class="form-control" id="mb_email" name="mb_Email" placeholder="E-mail 입력">
+			<input class="form-control" id="mb_Email" name="mb_Email" placeholder="E-mail 입력">
 			<label for="mb_Email">E-mail 입력</label> 
 
 		</div>
@@ -98,39 +98,34 @@
 				var mb_hp = $("#mb_hp").val();
 				var mb_email = $("#mb_email").val();				
 
-					$.ajax({
-						type : 'post',
-						url : '/member',						
-						data : JSON.stringify({
-							mb_name : mb_name,
-							mb_birth : mb_birth,
-							mb_hp : mb_hp,
-							mb_email : mb_email
+				$.ajax({
+					type : 'post',
+					url : '/member',						
+					data : JSON.stringify({
+						mb_name : mb_name,
+						mb_birth : mb_birth,
+						mb_hp : mb_hp,
+						mb_email : mb_email
 					}),
-						dataType : "text",
-						success : function(result) {
-							alert(result);
-							$("#mb_name").val("");
-							$("#mb_birth").val("");
-							$("#mb_hp").val("");
-							$("#mb_email").val("");
-							$("#myCollapsible").collapse("toggle");	
-						},
-							error : function(request, status, error) {
-								alert("code:" + request.status + "\n"
-										+ "msg:" + request.responseText
-										+ "\n" + "error:" + error);
-							},
-							complete : function() {
-								
-							}
-						});
-
-					});
-			
-			
-		});		
-		
+					dataType : "text",
+					success : function(result) {
+						alert(result);
+						$("#mb_name").val("");
+						$("#mb_birth").val("");
+						$("#mb_hp").val("");
+						$("#mb_email").val("");								
+					},
+					error : function(request, status, error) {
+						alert("code:" + request.status + "\n"
+								+ "msg:" + request.responseText
+								+ "\n" + "error:" + error);
+					},
+					complete : function() {
+						
+					}
+				});
+			});			
+		});			
 
 		
 		
