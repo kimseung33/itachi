@@ -51,12 +51,21 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/findid", method = RequestMethod.POST)
-	public String findIde(String name,String email,String birth,int hp, Model model){
+	public String findIde(String name,String email,String birth, int hp, String find_check, Model model){
+		
+		//공통으로 들어가는 이름
 		model.addAttribute("mb_Name",name);
-		model.addAttribute("mb_Email",email);
-		model.addAttribute("mb_Name",name);
-		model.addAttribute("mb_Birth",birth);
-		model.addAttribute("mb_Hp",hp);
+		
+		//이메일일때 이메일만 넣기
+		if(find_check.equals("email")) {
+			model.addAttribute("mb_Email",email);
+		//휴대폰번호일때 번호랑 생년월일 넣기
+		} else if(find_check.equals("hp")) {
+			model.addAttribute("mb_Birth",birth);
+			model.addAttribute("mb_Hp",hp);
+		}
+		
+		
 		return "/member/findid";		
 
 	}	

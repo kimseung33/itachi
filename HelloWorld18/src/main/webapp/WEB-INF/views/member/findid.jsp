@@ -47,23 +47,19 @@
 		<div class="form-label-group">
 			<input class="form-control" id="mb_name" name="mb_Name" placeholder="이름 입력">
 			<label for="mb_Name">이름 입력</label> 
-		</div>		
-
+		</div>
 		<div class="form-label-group"> 
 			<input class="form-control" type="number" id="mb_Birth" name="mb_Birth" placeholder="생년 월일 입력">
 			<label for="mb_birth">생년 월일 입력</label>
-		</div>	
-
+		</div>
 		<div class="form-label-group">
 			<input class="form-control" type="number" id="mb_hp" name="mb_Hp" placeholder="핸드폰 번호 입력">
 			<label for="mb_hp">핸드폰 번호 입력</label> 
-
 		</div>
 	</div>
-
 	<!-- 휴대전화로 찾기 -->
+	
 	<!-- 이메일로 찾기 -->
-
 	<div id="check_email" style="display:none;">
         <div class="form-label-group">
           <input type="text" id="mb_name" name="mb_Name" class="form-control" placeholder="이름 입력">
@@ -72,10 +68,10 @@
 		<div class="form-label-group">
 			<input class="form-control" id="mb_email" name="mb_Email" placeholder="E-mail 입력">
 			<label for="mb_Email">E-mail 입력</label> 
-
 		</div>
 	</div>
 	<!-- 이메일로 찾기 -->
+	
 	<script type="text/javascript">
 		$(document).ready(function() {				
 
@@ -92,19 +88,23 @@
 				}
 			});
 			$("#find").click(function() {
+				var sel = document.getElementById("find_check");
+				var find_check = sel.options[sel.selectedIndex].value;
+				f
 				var mb_name = $("#mb_name").val();
 				var mb_birth = $("#mb_birth").val();
 				var mb_hp = $("#mb_hp").val();
-				var mb_email = $("#mb_email").val();				
+				var mb_email = $("#mb_email").val();
 
 					$.ajax({
 						type : 'post',
-						url : '/member',						
+						url : '/member/findid',
 						data : JSON.stringify({
 							mb_name : mb_name,
 							mb_birth : mb_birth,
 							mb_hp : mb_hp,
-							mb_email : mb_email
+							mb_email : mb_email,
+							find_check : find_check
 					}),
 						dataType : "text",
 						success : function(result) {
@@ -113,19 +113,18 @@
 							$("#mb_birth").val("");
 							$("#mb_hp").val("");
 							$("#mb_email").val("");
-							$("#myCollapsible").collapse("toggle");	
 						},
-							error : function(request, status, error) {
-								alert("code:" + request.status + "\n"
-										+ "msg:" + request.responseText
-										+ "\n" + "error:" + error);
-							},
-							complete : function() {
-								
-							}
-						});
-
+						error : function(request, status, error) {
+							alert("code:" + request.status + "\n"
+									+ "msg:" + request.responseText
+									+ "\n" + "error:" + error);
+						},
+						complete : function() {
+							
+						}
 					});
+
+				});
 			
 			
 		});		
