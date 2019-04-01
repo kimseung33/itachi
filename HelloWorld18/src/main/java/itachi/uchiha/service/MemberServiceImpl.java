@@ -42,4 +42,9 @@ public class MemberServiceImpl implements MemberService {
 	public void insert(MemberDTO dto) {
 		dao.insert(dto);
 	}
+
+	@Override
+	public String idCheck(String id) {
+		 return dao.idCheck(id);
+	}
 }

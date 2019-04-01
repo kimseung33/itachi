@@ -62,20 +62,20 @@
 			<div class="form-group">
 				<label for="mb_Bank">은행</label>
 				<br>
-				<input value="${dto.mb_Bank}">
+				<input readonly value="${dto.mb_Bank}">
 				<select name="mb_Bank" id="mb_Bank">
-					<option value="농협은행">농협은행</option>
-					<option value="기업은행">기업은행</option>
-					<option value="하나은행">하나은행</option>
-					<option value="우리은행">우리은행</option>
-					<option value="신한은행">신한은행</option>
-					<option value="KEB은행">KEB은행</option>
-					<option value="SC은행">SC은행</option>
-					<option value="신협">신협</option>
-					<option value="수협">수협</option>
-					<option value="우체국">우체국</option>
-					<option value="새마을금고">새마을금고</option>
-					<option value="카카오뱅크">카카오뱅크</option>
+					<option value="농협은행" ${dto.mb_Bank=="농협은행"?"selected":""}>농협은행</option>
+					<option value="기업은행" ${dto.mb_Bank=="기업은행"?"selected":""}>기업은행</option>
+					<option value="하나은행" ${dto.mb_Bank=="하나은행"?"selected":""}>하나은행</option>
+					<option value="우리은행" ${dto.mb_Bank=="우리은행"?"selected":""}>우리은행</option>
+					<option value="신한은행" ${dto.mb_Bank=="신한은행"?"selected":""}>신한은행</option>
+					<option value="KEB은행" ${dto.mb_Bank=="KEB은행"?"selected":""}>KEB은행</option>
+					<option value="SC은행" ${dto.mb_Bank=="SC은행"?"selected":""}>SC은행</option>
+					<option value="신협" ${dto.mb_Bank=="신협"?"selected":""}>신협</option>
+					<option value="수협" ${dto.mb_Bank=="수협"?"selected":""}>수협</option>
+					<option value="우체국" ${dto.mb_Bank=="우체국"?"selected":""}>우체국</option>
+					<option value="새마을금고" ${dto.mb_Bank=="새마을금고"?"selected":""}>새마을금고</option>
+					<option value="카카오뱅크" ${dto.mb_Bank=="카카오뱅크"?"selected":""}>카카오뱅크</option>
 				</select>
 				
 			</div>
@@ -84,6 +84,7 @@
 				<label for="mb_Account">계좌번호</label>
 				<input class="form-control" name="mb_Account" id="mb_Account" value="${dto.mb_Account}">
 			</div>
+			
 			<input id="up" type="submit" value="수정">	
 		</form>
 		
