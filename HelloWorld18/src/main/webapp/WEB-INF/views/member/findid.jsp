@@ -30,7 +30,6 @@
 				<div id="final_check">
 				
 				</div>
-				
 	            <button id="find" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">아이디 찾기</button>
 	            <hr class="my-4">
 	            <a class="btn btn-lg btn-info btn-block text-uppercase" href="/member/login">로그인 하기</a>
@@ -48,35 +47,37 @@
 		<div class="form-label-group">
 			<input class="form-control" id="mb_name" name="mb_Name" placeholder="이름 입력">
 			<label for="mb_Name">이름 입력</label> 
-		</div>		
-
+		</div>
 		<div class="form-label-group"> 
 			<input class="form-control" type="number" id="mb_Birth" name="mb_Birth" placeholder="생년 월일 입력">
 			<label for="mb_birth">생년 월일 입력</label>
-		</div>	
-
+		</div>
 		<div class="form-label-group">
 			<input class="form-control" type="number" id="mb_hp" name="mb_Hp" placeholder="핸드폰 번호 입력">
 			<label for="mb_hp">핸드폰 번호 입력</label> 
-
 		</div>
 	</div>
-
 	<!-- 휴대전화로 찾기 -->
+	
 	<!-- 이메일로 찾기 -->
-
 	<div id="check_email" style="display:none;">
         <div class="form-label-group">
           <input type="text" id="mb_Name" name="mb_Name" class="form-control" placeholder="이름 입력">
           <label for="mb_Name">이름 입력</label>
         </div>
 		<div class="form-label-group">
+<<<<<<< HEAD
 			<input class="form-control" id="mb_Email" name="mb_Email" placeholder="E-mail 입력">
 			<label for="mb_Email">E-mail 입력</label> 
 
+=======
+			<input class="form-control" id="mb_email" name="mb_Email" placeholder="E-mail 입력">
+			<label for="mb_Email">E-mail 입력</label> 
+>>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
 		</div>
 	</div>
 	<!-- 이메일로 찾기 -->
+	
 	<script type="text/javascript">
 		$(document).ready(function() {				
 
@@ -93,20 +94,26 @@
 				}
 			});
 			$("#find").click(function() {
-				var mb_name = $("#mb_name").val();
-				var mb_birth = $("#mb_birth").val();
-				var mb_hp = $("#mb_hp").val();
-				var mb_email = $("#mb_email").val();				
+				var sel = document.getElementById("find_check");
+				var find_check = sel.options[sel.selectedIndex].value;
+				var mb_Name = $("#mb_Name").val();
+				var mb_Birth = $("#mb_Birth").val();
+				var mb_Hp = $("#mb_Hp").val();
+				var mb_Email = $("#mb_Email").val();
 
-				$.ajax({
-					type : 'post',
-					url : '/member',						
-					data : JSON.stringify({
-						mb_name : mb_name,
-						mb_birth : mb_birth,
-						mb_hp : mb_hp,
-						mb_email : mb_email
+
+					$.ajax({
+						type : 'post',
+						url : '/member/findid',
+						data : JSON.stringify({
+							mb_Name : mb_Name,
+							mb_Birth : mb_Birth,
+							mb_Hp : mb_hp,
+							mb_Email : mb_Email,
+							find_check : find_check
+
 					}),
+
 					dataType : "text",
 					success : function(result) {
 						alert(result);
@@ -126,6 +133,31 @@
 				});
 			});			
 		});			
+=======
+						dataType : "text",
+						success : function(result) {
+							alert(result);
+							$("#mb_name").val("");
+							$("#mb_birth").val("");
+							$("#mb_hp").val("");
+							$("#mb_email").val("");
+						},
+						error : function(request, status, error) {
+							alert("code:" + request.status + "\n"
+									+ "msg:" + request.responseText
+									+ "\n" + "error:" + error);
+						},
+						complete : function() {
+							
+						}
+					});
+
+				});
+			
+			
+		});		
+		
+>>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
 
 		
 		
