@@ -45,15 +45,15 @@
 	<div id="check_hp" style="display:none;">
 		<div class="form-group" style="width: 33%; display: inline-block;">
 			<label>이름 입력</label> 
-			<input class="form-control" id="mb_name" name="mb_name">
+			<input class="form-control" id="mb_name" name="mb_Name">
 		</div>
 		<div class="form-group" style="width: 33%; display: inline-block;">
 			<label>생년 월일 입력</label> 
-			<input class="form-control" id="mb_birth" name="mb_birth">
+			<input class="form-control" id="mb_birth" name="mb_Birth">
 		</div>
 		<div class="form-group" style="width: 33%; display: inline-block;">
 			<label>핸드폰 번호 입력</label> 
-			<input class="form-control" id="mb_hp" name="mb_hp">
+			<input class="form-control" id="mb_hp" name="mb_Hp">
 		</div>
 	</div>
 
@@ -63,19 +63,16 @@
 	<div id="check_email" style="display:none;">
 		<div class="form-group" style="width: 33%; display: inline-block;">
 			<label>이름 입력</label> 
-			<input class="form-control" id="mb_name" name="mb_name">
+			<input class="form-control" id="mb_name" name="mb_Name">
 		</div>
 		<div class="form-group" style="width: 33%; display: inline-block;">
 			<label>email 입력</label> 
-			<input class="form-control" id="mb_email" name="mb_email">
+			<input class="form-control" id="mb_email" name="mb_Email">
 		</div>
 	</div>
 	<!-- 이메일로 찾기 -->
 	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#find").click(function() {
-				
-			})
+		$(document).ready(function() {				
 
 			$("#final_check").html($("#check_email").html());
 			
@@ -89,7 +86,47 @@
 					$("#final_check").html(hp_form);
 				}
 			});
+			$("#find").click(function() {
+				var mb_name = $("#mb_name").val();
+				var mb_birth = $("#mb_birth").val();
+				var mb_hp = $("#mb_hp").val();
+				var mb_email = $("#mb_email").val();				
+
+					$.ajax({
+						type : 'post',
+						url : '/member',						
+						data : JSON.stringify({
+							mb_name : mb_name,
+							mb_birth : mb_birth,
+							mb_hp : mb_hp,
+							mb_email : mb_email
+					}),
+						dataType : "text",
+						success : function(result) {
+							alert(result);
+							$("#mb_name").val("");
+							$("#mb_birth").val("");
+							$("#mb_hp").val("");
+							$("#mb_email").val("");
+							$("#myCollapsible").collapse("toggle");	
+						},
+							error : function(request, status, error) {
+								alert("code:" + request.status + "\n"
+										+ "msg:" + request.responseText
+										+ "\n" + "error:" + error);
+							},
+							complete : function() {
+								
+							}
+						});
+
+					});
+			
+			
 		});
+		
+		
+
 		
 		
 		function check_form() {

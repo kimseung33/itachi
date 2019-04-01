@@ -43,13 +43,16 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/findid", method = RequestMethod.POST)
-	public String findId(MemberDTO dto, Model model, HttpServletResponse response)
-			throws Exception {
-		model.addAttribute("id", service.findId(dto));
-		return "/member/findid";
-		
+	public String findIde(String name,String email,String birth,int hp, Model model){
+		model.addAttribute("mb_Name",name);
+		model.addAttribute("mb_Email",email);
+		model.addAttribute("mb_Name",name);
+		model.addAttribute("mb_Birth",birth);
+		model.addAttribute("mb_Hp",hp);
+		return "/member/findid";		
 
-	}
+	}	
+	
 	
 	@RequestMapping(value = "/findid", method = RequestMethod.GET)
 	public void findid() {

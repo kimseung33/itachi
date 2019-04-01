@@ -1,6 +1,9 @@
 package itachi.uchiha.dao;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -28,9 +31,23 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public String findId(MemberDTO dto) {
+	public String findIde(String name,String email) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(NS+".selectid", dto);
+		Map<String , Object> map =new HashMap<String, Object>();
+		map.put("mb_Name", name);
+		map.put("mb_Email", email);
+		
+		return sqlSession.selectOne(NS+".selectide",map);
+	}
+	
+	@Override
+	public String findIdh(String name, String birth, int hp) {
+		// TODO Auto-generated method stub
+		Map<String , Object> map =new HashMap<String, Object>();
+		map.put("mb_Name", name);
+		map.put("mb_Birth", birth);
+		map.put("mb_Hp", hp);
+		return sqlSession.selectOne(NS+".selectidh", map);
 	}
 	
 	@Override
@@ -49,6 +66,8 @@ public class MemberDAOImpl implements MemberDAO{
 	public void insert(MemberDTO dto) {
 		sqlSession.insert(NS+".insert", dto);
 	}
+
+	
 	
 
 	
