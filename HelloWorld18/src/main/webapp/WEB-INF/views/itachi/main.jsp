@@ -23,11 +23,7 @@
                                 MemberDTO dto1=new MemberDTO();
                                 Object session1=session.getAttribute("login");
                                 
-                                System.out.println(session.getAttribute("login")+"session받아오는지 테스트입니다.");
-                                System.out.println(dto+"LoginDTO");
-                                System.out.println(dto1+"MemberDTO");
-                                System.out.println(session1);
-                             
+                              
                                 if(session1==null){
                                 %>
                                 	<li><a href="/member/login">Login</a></li>

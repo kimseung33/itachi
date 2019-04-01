@@ -109,6 +109,9 @@
 
 						</form>
 						<button id="in" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+						<hr class="my-4">
+						<a class="btn btn-lg btn-success btn-block text-uppercase" href="/member/login">로그인하기</a>
+						<a class="btn btn-lg btn-default btn-block text-uppercase" href="/">메인페이지로 돌아가기</a>
 					</div>
 				</div>
 			</div>

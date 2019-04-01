@@ -1,6 +1,5 @@
 package itachi.uchiha.controller;
 
-import java.util.ArrayList;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
@@ -8,7 +7,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -47,7 +45,11 @@ public class MemberController {
 		}
 		
 		model.addAttribute("memberDTO", dto);
+
 		return "/itachi/main";
+
+
+
 	}
 
 	@RequestMapping(value = "/loginpost", method = RequestMethod.GET)
@@ -61,13 +63,27 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/findid", method = RequestMethod.POST)
-	public String findId(MemberDTO dto, Model model, HttpServletResponse response)
-			throws Exception {
-		model.addAttribute("id", service.findId(dto));
-		return "/member/findid";
+	public String findIde(String name,String email,String birth, int hp, String find_check, Model model){
 		
+	
+		model.addAttribute("mb_Name",name);
+		
+	
+		if(find_check.equals("email")) {
+			model.addAttribute("mb_Email",email);
+			service.findIde(name, email);
+	
+		} else if(find_check.equals("hp")) {
+			model.addAttribute("mb_Birth",birth);
+			model.addAttribute("mb_Hp",hp);
+			service.findIdh(name, birth, hp);
+		}
+		
+		
+		return "/member/findid";		
 
-	}
+	}	
+	
 	
 	@RequestMapping(value = "/findid", method = RequestMethod.GET)
 	public void findid() {

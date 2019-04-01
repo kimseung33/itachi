@@ -31,9 +31,13 @@
 		mb_Id=#{mb_Id} and mb_Pw=#{mb_Pw}
 	</select>
 
-	<select id="selectid" resultType="String">
-		select mb_Id from itachi_mb where mb_Hp=#{mb_Hp} and mb_Name=#{mb_Name} and
-		mb_Email=#{mb_Email}
+	<select id="selectide" resultType="String">
+		select mb_Id from itachi_mb where mb_Name=#{mb_Name} and mb_Email=#{mb_Email}
+
+	</select>
+
+	<select id="selectidh" resultType="String">
+		select mb_Id from itachi_mb where mb_Name=#{mb_Name} and mb_Birth=#{mb_Birth} and mb_Hp=#{mb_Hp}
 
 	</select>
 
