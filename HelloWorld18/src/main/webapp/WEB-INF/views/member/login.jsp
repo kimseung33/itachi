@@ -62,8 +62,11 @@
               </div> -->
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
               <a class="btn btn-lg btn-success btn-block text-uppercase" href="/member/insert">Register</a>
-              <!-- <hr class="my-4">
-              <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
+              <hr class="my-4">
+              <a class="btn btn-lg btn-info btn-block text-uppercase" href="/member/findid">아이디 찾기</a>
+              <hr class="my-4">
+              <a class="btn btn-lg btn-default btn-block text-uppercase" href="/">메인페이지로 돌아가기</a>
+              <!-- <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
               <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button> -->
             </form>
           </div>

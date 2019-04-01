@@ -22,10 +22,17 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public String findId(MemberDTO dto) {
+	public String findIde(String name,String email) {
 		// TODO Auto-generated method stub
-		return dao.findId(dto);
+		return dao.findIde(name,email);
 	}
+	
+	@Override
+	public String findIdh(String name, String birth, int hp) {
+		// TODO Auto-generated method stub
+		return dao.findIdh(name, birth, hp);
+	}
+	
 	@Override
 	public MemberDTO updateui(String id) {
 		
@@ -42,8 +49,10 @@ public class MemberServiceImpl implements MemberService {
 		dao.insert(dto);
 	}
 
+
 	@Override
 	public String idCheck(String id) {
 		 return dao.idCheck(id);
 	}
+
 }
