@@ -50,5 +50,10 @@ public class MemberServiceImpl implements MemberService {
 		dao.insert(dto);
 	}
 
-	
+
+	@Override
+	public String idCheck(String id) {
+		 return dao.idCheck(id);
+	}
+
 }

@@ -67,7 +67,12 @@ public class MemberDAOImpl implements MemberDAO{
 		sqlSession.insert(NS+".insert", dto);
 	}
 
-	
+
+	@Override
+	public String idCheck(String id) {
+		return sqlSession.selectOne(NS+".idCheck", id);
+	}
+
 	
 
 	

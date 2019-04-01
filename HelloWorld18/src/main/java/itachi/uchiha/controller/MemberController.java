@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,7 +24,14 @@ public class MemberController {
 
 	@Inject
 	private MemberService service;
-
+	
+	@ResponseBody
+	@RequestMapping(value="/idCheck", method=RequestMethod.POST)
+	public String idCheck(@RequestBody MemberDTO dto, Model model) {
+		String idck = service.idCheck(dto.getMb_Id());
+		return idck;
+	}
+	
 	@RequestMapping(value = "/loginpost", method = RequestMethod.POST)
 	public void loginPost(LoginDTO dto, Model model) throws Exception {
 		MemberDTO memberDTO = service.login(dto);
@@ -84,6 +92,9 @@ public class MemberController {
 	@RequestMapping(value="insert", method=RequestMethod.POST)
 	public String insert(MemberDTO dto) {
 		service.insert(dto);
-		return "/member/login";
-	}  
+		return "redirect:/member/login";
+	} 
+	
+
+
 }

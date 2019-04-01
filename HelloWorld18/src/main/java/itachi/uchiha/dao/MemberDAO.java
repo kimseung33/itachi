@@ -10,6 +10,6 @@ public interface MemberDAO {
 	MemberDTO updateUI(String id);
 	void update(MemberDTO dto);
 	void insert(MemberDTO dto);
-
+	String idCheck (String id);
 }
 
