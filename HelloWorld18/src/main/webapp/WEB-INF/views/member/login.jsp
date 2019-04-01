@@ -44,7 +44,7 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h3 class="card-title text-center">Sign In</h3>
-            <form class="form-signin">
+            <form class="form-signin" action="/member/loginpost" method="post">
               <div class="form-label-group">
                 <input type="text" id="mb_Id" name="mb_Id" class="form-control" placeholder="Login ID" required autofocus>
                 <label for="mb_Id">Login ID</label>
@@ -59,7 +59,7 @@
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Remember password</label>
               </div> -->
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+              <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase">Sign in</button>
               <a class="btn btn-lg btn-success btn-block text-uppercase" href="/member/insert">Register</a>
               <!-- <hr class="my-4">
               <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>

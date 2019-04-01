@@ -33,8 +33,16 @@
 
 	<beans:bean class="java.lang.String" id="uploadPath">
 		<beans:constructor-arg value="C:\\supload"></beans:constructor-arg>
-
+		
 	</beans:bean>
+	<beans:bean id="loginInterceptor" class="kr.co.interceptor.LoginInterceptor"></beans:bean>
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/loginpost"/>
+			<beans:ref bean="loginInterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 	<context:component-scan base-package="kr.co.ca" />
 	<context:component-scan

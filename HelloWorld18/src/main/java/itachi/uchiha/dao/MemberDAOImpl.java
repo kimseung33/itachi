@@ -2,6 +2,7 @@ package itachi.uchiha.dao;
 
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -24,7 +25,11 @@ public class MemberDAOImpl implements MemberDAO{
 
 	@Override
 	public MemberDTO login(LoginDTO dto) {
+		HttpSession session = null;
+		System.out.println(dto+":::::::::::::::::::::::::::::::::::::::");
+		
 		return sqlSession.selectOne(NS+".login", dto);
+		
 	}
 
 	@Override
@@ -48,6 +53,11 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public void insert(MemberDTO dto) {
 		sqlSession.insert(NS+".insert", dto);
+	}
+
+	@Override
+	public String idCheck(String id) {
+		return sqlSession.selectOne(NS+".idCheck", id);
 	}
 	
 

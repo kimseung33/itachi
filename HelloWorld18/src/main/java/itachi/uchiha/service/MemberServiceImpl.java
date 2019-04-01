@@ -19,6 +19,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberDTO login(LoginDTO dto) {
 		System.out.println("memberserviceImpl Test입니다.");
+		
 		return dao.login(dto);
 	}
 
@@ -41,5 +42,10 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void insert(MemberDTO dto) {
 		dao.insert(dto);
+	}
+
+	@Override
+	public String idCheck(String id) {
+		 return dao.idCheck(id);
 	}
 }

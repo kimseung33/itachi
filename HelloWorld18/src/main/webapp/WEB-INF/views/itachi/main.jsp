@@ -1,26 +1,10 @@
+<%@page import="itachi.uchiha.domain.LoginDTO"%>
+<%@page import="itachi.uchiha.domain.MemberDTO"%>
+<%@page import="org.springframework.ui.Model"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title></title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../resources/css/reset.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="../resources/css/style.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="../resources/css/grid.css" type="text/css" media="screen"> 
-    <script src="../resources/js/jquery-1.6.2.min.js" type="text/javascript"></script>
-    <script src="../resources/js/jquery.galleriffic.js" type="text/javascript"></script>
-    <script src="../resources/js/jquery.opacityrollover.js" type="text/javascript"></script>      
-	<!--[if lt IE 7]>
-        <div style=' clear: both; text-align:center; position: relative;'>
-            <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0"  alt="" /></a>
-        </div>
-	<![endif]-->
-    <!--[if lt IE 9]>
-   		<script type="text/javascript" src="js/html5.js"></script>
-        <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
-	<![endif]-->
-</head>
+<jsp:include page="/WEB-INF/views/include/header.jsp"/>
+
 <body id="page1">
 	<!--==============================header=================================-->
     <header>
@@ -30,11 +14,33 @@
                 	<div class="grid_12">
                     	<nav>
                             <ul class="menu">
-                                <li><a class="active" href="/main.jsp">About Us</a></li>
+                                <li><a class="active" href="/main.jsp">home</a></li>
                                 <li><a href="/services.jsp">Services</a></li>
                                 <li><a href="/catalogue.jsp">Catalogue</a></li>
                                 <li><a href="/pricing.jsp">Pricing</a></li>
-                                <li><a href="/member/login">Login</a></li>
+                                <%
+                                LoginDTO dto=new LoginDTO();
+                                MemberDTO dto1=new MemberDTO();
+                                Object session1=session.getAttribute("login");
+                                
+                                System.out.println(session.getAttribute("login")+"session받아오는지 테스트입니다.");
+                                System.out.println(dto+"LoginDTO");
+                                System.out.println(dto1+"MemberDTO");
+                                System.out.println(session1);
+                             
+                                if(session1==null){
+                                %>
+                                	<li><a href="/member/login">Login</a></li>
+                                <%
+                                }else{
+                                %>
+                                	<li><a href="/member/logout">Logout</a></li>
+                                <%
+                                }
+                                %>
+                               
+                                
+                               
                             </ul>
                         </nav>
                     </div>
@@ -47,8 +53,8 @@
             	<div class="container_12">
                 	<div class="grid_9">
                     	<h1>
-                            <a class="logo" href="index.html">Int<strong>e</strong>rior</a>
-                            <span>Design</span>
+                            <a class="logo" href="index.html"><strong>A</strong>katsuki</a>
+                            <span>경매(Itachi)</span>
                         </h1>
                     </div>
                     <div class="grid_3">
