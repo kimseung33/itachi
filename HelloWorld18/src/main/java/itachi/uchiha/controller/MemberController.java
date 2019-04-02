@@ -102,6 +102,7 @@ public class MemberController {
 
 		return "/member/login";
 	}
+	
 	@RequestMapping("insert")
 	public String insertUI() {
 		

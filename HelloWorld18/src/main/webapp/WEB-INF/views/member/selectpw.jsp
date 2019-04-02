@@ -33,7 +33,7 @@
 						</div>
 						<div class="form-label-group"> 
 							<input class="form-control" type="number" id="mb_Birth" name="mb_Birth" placeholder="생년 월일 입력">
-							<label for="mb_birth">생년 월일 입력</label>
+							<label for="mb_Birth">생년 월일 입력</label>
 						</div>
 						<button id="find" class="btn btn-primary btn-block text-uppercase" type="submit">비밀번호 찾기</button>
 					</form>
