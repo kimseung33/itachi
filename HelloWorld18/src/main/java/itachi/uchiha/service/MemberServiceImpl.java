@@ -1,5 +1,9 @@
 package itachi.uchiha.service;
 
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,14 +12,13 @@ import itachi.uchiha.dao.MemberDAO;
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
 
-
 @Service
 @Transactional
 public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	private MemberDAO dao;
-	
+
 	@Override
 	public MemberDTO login(LoginDTO dto) {
 		System.out.println("memberserviceImpl Test입니다.");
@@ -23,20 +26,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public String findIde(String name,String email) {
-		// TODO Auto-generated method stub
-		return dao.findIde(name,email);
-	}
-	
-	@Override
-	public String findIdh(String name, String birth, int hp) {
-		// TODO Auto-generated method stub
-		return dao.findIdh(name, birth, hp);
-	}
-	
-	@Override
 	public MemberDTO updateui(String id) {
-		
+
 		return dao.updateUI(id);
 	}
 
@@ -44,16 +35,33 @@ public class MemberServiceImpl implements MemberService {
 	public void update(MemberDTO dto) {
 		dao.update(dto);
 	}
-	
+
 	@Override
 	public void insert(MemberDTO dto) {
 		dao.insert(dto);
 	}
 
-
 	@Override
 	public String idCheck(String id) {
-		 return dao.idCheck(id);
+		return dao.idCheck(id);
+	}
+
+	@Override
+	public String findId(String mb_Email, String mb_Name, HttpServletResponse response) throws Exception {
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String id = dao.findId(mb_Email, mb_Name);
+
+		if (id == null) {
+			out.println("<script>");
+			out.println("alert('가입된 아이디가 없습니다.');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close();
+			return null;
+		} else {
+			return id;
+		}
 	}
 
 }

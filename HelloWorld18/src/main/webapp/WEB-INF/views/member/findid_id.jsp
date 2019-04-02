@@ -26,46 +26,26 @@
 			<div class="card-main mx-auto">
 				<div class="card card-signin my-5">
 					<div class="card-body">
-						<h3 class="card-title text-center">아이디 찾기</h3>
-						<form class="form-signin" action="/member/findid_id" method="post">
-							<div>
-								<label>이름</label> <input class="form-control" type="text"
-									id="mb_Name" name="mb_Name" required>
-							</div>
-							<div>
-								<label>Email</label> <input class="form-control" type="text"
-									id="mb_Email" name="mb_Email" required>
-							</div>
-							<br>
-							<button id="find"
-								class="btn btn-lg btn-primary btn-block text-uppercase"
-								type="submit">아이디 찾기</button>
-							<hr class="my-4">
+						<h3 class="card-title text-center">아이디 찾기 검색결과</h3>
+						<h3 class="card-title text-center">${id}</h3>
+
+						<div>
 							<a class="btn btn-lg btn-info btn-block text-uppercase"
 								href="/member/login">로그인 하기</a> <a
 								class="btn btn-lg btn-default btn-block text-uppercase" href="/">메인페이지로
 								돌아가기</a>
-						</form>
+						</div>
 					</div>
+
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-
-
-
 	<script type="text/javascript">
 		$(document).ready(function() {
-			
-			$("#find").click(function() {
-				alert(${id});
-			});	
-		
+					
 		
 		};
 	</script>
 </body>
-
 </html>
