@@ -22,20 +22,7 @@
 </head>
 <body>
 	<div class="container">
-<<<<<<< HEAD
-	  <div class="row">
-	    <div class="card-main mx-auto">
-	      <div class="card card-signin my-5">
-	        <div class="card-body">
-	          <h3 class="card-title text-center">아이디 찾기</h3>
-	          <form class="form-signin" action="/member/find_id" method="post">
-	          	<select id="find_check" class="form-control" style="width:40%;margin:10px 0;">
-					<option value="email">이메일로 찾기</option>
-					<option value="hp">휴대폰번호로 찾기</option>
-				</select>
-				<div id="final_check">
-				
-=======
+		=
 		<div class="row">
 			<div class="card-main mx-auto">
 				<div class="card card-signin my-5">
@@ -59,9 +46,9 @@
 								href="/member/login">로그인 하기</a> <a
 								class="btn btn-lg btn-default btn-block text-uppercase" href="/">메인페이지로
 								돌아가기</a>
+
 						</form>
 					</div>
->>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
 				</div>
 			</div>
 		</div>
@@ -75,8 +62,6 @@
 
 			});
 		});
-
-
 	</script>
 </body>
 
