@@ -53,18 +53,15 @@
 	</div>
 
 
-
-
-
 	<script type="text/javascript">
 		$(document).ready(function() {
-			
+
 			$("#find").click(function() {
-				alert(${id});
-			});	
-		
-		
-		};
+
+			});
+		});
+
+
 	</script>
 </body>
 

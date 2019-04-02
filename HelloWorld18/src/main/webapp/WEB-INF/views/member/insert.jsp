@@ -13,7 +13,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
-<title>Insert title here</title>
+<title>회원가입</title>
 </head>
 <body>
 	<div class="container">
@@ -26,10 +26,13 @@
 
 							<div class="form-group">
 								<label for="mb_Id">ID</label>
-								<input required placeholder="ID를 입력해주세요" class="form-control" name="mb_Id" id="mb_Id">
-								<a href="javascript:void(0);" id="idck">중복확인</a>
-								
-								
+								<div class="input-group">
+									<input required placeholder="ID를 입력해주세요" class="form-control" name="mb_Id" id="mb_Id">
+									<div class="input-group-btn">
+								      <button class="btn btn-danger" id="idck">중복확인</button>
+								      <!-- <a href="javascript:void(0);"  id="idck">중복확인</a> -->
+								    </div>
+							    </div>
 							</div>
 
 							<div class="form-group">
@@ -53,8 +56,17 @@
 							</div>
 
 							<div class="form-group">
-								<label for="mb_Zip">우편번호 <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"></label> 
-								<input placeholder="우편번호" class="form-control" readonly name="mb_Zip" id="mb_Zip"> 
+								<label for="mb_Zip">우편번호 </label> 
+								
+								<div class="input-group">
+								<input placeholder="우편번호" class="form-control" readonly name="mb_Zip" id="mb_Zip">
+									<div class="input-group-btn">
+								      <button class="btn btn-warning" onClick="execDaumPostcode();">우편번호 찾기</button>
+								      <!-- <a onclick="execDaumPostcode()">우편번호 찾기</a> -->
+								    </div>
+							    </div>
+							    
+								
 							</div>
 
 							<div class="form-group">
@@ -110,8 +122,11 @@
 						</form>
 						<button id="in" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
 						<hr class="my-4">
+						
+						<div class="btn-group btn-group-justified">
 						<a class="btn btn-lg btn-success btn-block text-uppercase" href="/member/login">로그인하기</a>
 						<a class="btn btn-lg btn-default btn-block text-uppercase" href="/">메인페이지로 돌아가기</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -176,7 +191,8 @@
 			});
 			
 			//선택자
-			$("#idck").click(function() {
+			$("#idck").click(function(event) {
+				event.preventDefault();
 				var mb_Id = $("#mb_Id").val();
 							
 				$.ajax({
@@ -194,6 +210,9 @@
 					success : function(result) {
 						if (result==null || result=="") {
 							alert("사용 가능한 아이디 입니다.");
+							$("#mb_Id").attr("readonly", "readonly");
+							//$("#idck").removeClass("btn-danger");
+							$("#idck").addClass("disabled");
 						}else {
 							alert("중복된 아이디 입니다.");
 						}

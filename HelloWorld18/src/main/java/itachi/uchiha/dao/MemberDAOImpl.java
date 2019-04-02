@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -22,7 +23,12 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public MemberDTO login(LoginDTO dto) {
-		return sqlSession.selectOne(NS + ".login", dto);
+		HttpSession session = null;
+		System.out.println(dto+":::::::::::::::::::::::::::::::::::::::");
+		
+		return sqlSession.selectOne(NS+".login", dto);
+		
+
 	}
 
 	

@@ -1,3 +1,6 @@
+<%@page import="itachi.uchiha.domain.LoginDTO"%>
+<%@page import="itachi.uchiha.domain.MemberDTO"%>
+<%@page import="org.springframework.ui.Model"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <jsp:include page="/WEB-INF/views/include/header.jsp"/>
@@ -15,7 +18,25 @@
                                 <li><a href="/services.jsp">Services</a></li>
                                 <li><a href="/catalogue.jsp">Catalogue</a></li>
                                 <li><a href="/pricing.jsp">Pricing</a></li>
-                                <li><a href="/member/login">Login</a></li>
+                                <%
+                                LoginDTO dto=new LoginDTO();
+                                MemberDTO dto1=new MemberDTO();
+                                Object session1=session.getAttribute("login");
+                                
+                              
+                                if(session1==null){
+                                %>
+                                	<li><a href="/member/login">Login</a></li>
+                                <%
+                                }else{
+                                %>
+                                	<li><a href="/member/logout">Logout</a></li>
+                                <%
+                                }
+                                %>
+                               
+                                
+                               
                             </ul>
                         </nav>
                     </div>

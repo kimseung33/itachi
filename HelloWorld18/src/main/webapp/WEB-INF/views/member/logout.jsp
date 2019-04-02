@@ -15,15 +15,17 @@
 </head>
 <body>
 
-	<div class="container">
+<div class="container">
 		<div class="row">
-		
+			<form action="/member/logout">
+				
+			</form>
 		</div>
-	 </div>
+	</div>
 <script type="text/javascript">
-	$(document).ready(function() {
-		
-	});
-</script>
+		$(document).ready(function(){
+			
+		});
+	</script>
 </body>
 </html>
