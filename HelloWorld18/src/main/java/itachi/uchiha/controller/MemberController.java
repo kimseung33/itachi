@@ -1,6 +1,5 @@
 package itachi.uchiha.controller;
 
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,64 +23,58 @@ public class MemberController {
 
 	@Inject
 	private MemberService service;
-	
-	 
-	
+
 	@RequestMapping(value = "/find_idUI")
-	public String find_idUI(){
+	public String find_idUI() {
 		return "/member/find_idUI";
-	}	
-	@RequestMapping(value="/selectpw", method=RequestMethod.GET)
+	}
+
+	@RequestMapping(value = "/selectpw", method = RequestMethod.GET)
 	public String selectpw() {
 		return "/member/selectpw";
 	}
-	
-	
+
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "itachi/main";
 	}
-	
+
 	@ResponseBody
-	@RequestMapping(value="/idCheck", method=RequestMethod.POST)
+	@RequestMapping(value = "/idCheck", method = RequestMethod.POST)
 	public String idCheck(@RequestBody MemberDTO dto, Model model) {
 		String idck = service.idCheck(dto.getMb_Id());
 		return idck;
 	}
-	
+
 	@ResponseBody
-	@RequestMapping(value="/emailCheck", method=RequestMethod.POST)
+	@RequestMapping(value = "/emailCheck", method = RequestMethod.POST)
 	public String emailCheck(@RequestBody MemberDTO dto) {
-		String emailck= service.emailCheck(dto.getMb_Email());
-		
-		return emailck;		
+		String emailck = service.emailCheck(dto.getMb_Email());
+
+		return emailck;
 	}
-	
-	
+
 	@RequestMapping(value = "/loginpost", method = RequestMethod.POST)
 	public String loginPost(LoginDTO dto, Model model) throws Exception {
 		MemberDTO memberDTO = service.login(dto);
 		if (memberDTO == null) {
 			return null;
 
-		}	
-		
-		
+		}
+
 		model.addAttribute("memberDTO", dto);
 		return "/itachi/main";
-		}
-		
-	
+	}
 
 	@RequestMapping(value = "/loginpost", method = RequestMethod.GET)
 	public void loginPost() {
-		
+
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public void loginGet() {
-		
+
 	}
 
 	@RequestMapping(value = "/findid_id", method = RequestMethod.POST)
@@ -89,13 +82,12 @@ public class MemberController {
 			@RequestParam("mb_Name") String mb_Name, Model md) throws Exception {
 		md.addAttribute("id", service.findId(mb_Email, mb_Name, response));
 		return "/member/findid_id";
-	}	
-	
+	}
+
 	@RequestMapping(value = "/findid")
-	public String find_id_form() throws Exception{
+	public String find_id_form() throws Exception {
 		return "/member/findid";
 	}
-	
 
 	@RequestMapping("/update")
 	public String updateUI(Model model, String id) {
@@ -112,17 +104,17 @@ public class MemberController {
 
 		return "/member/login";
 	}
-	
+
 	@RequestMapping("insert")
 	public String insertUI() {
-		
+
 		return "/member/insert";
 	}
-	
-	@RequestMapping(value="insert", method=RequestMethod.POST)
+
+	@RequestMapping(value = "insert", method = RequestMethod.POST)
 	public String insert(MemberDTO dto) {
 		System.out.println(dto);
 		service.insert(dto);
 		return "redirect:/member/login";
-	} 
+	}
 }
