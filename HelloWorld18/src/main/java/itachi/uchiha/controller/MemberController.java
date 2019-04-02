@@ -23,7 +23,14 @@ public class MemberController {
 
 	@Inject
 	private MemberService service;
-
+	
+	 
+	
+	@RequestMapping(value = "/find_idUI")
+	public String find_idUI(){
+		return "/member/find_idUI";
+	}
+	
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
@@ -46,9 +53,6 @@ public class MemberController {
 		}
 		
 		model.addAttribute("memberDTO", dto);
-		System.out.println("=======================");
-		System.out.println(dto.getMb_Id());
-		System.out.println("=======================");
 		return "/itachi/main";
 
 

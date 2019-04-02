@@ -25,11 +25,11 @@ public class MemberDAOImpl implements MemberDAO{
 	private SqlSession sqlSession;
 	
 	private String NS="itachi.uchiha.mapper.board";
-
+	
+	
 	@Override
 	public MemberDTO login(LoginDTO dto) {
 		HttpSession session = null;
-		System.out.println(dto+":::::::::::::::::::::::::::::::::::::::");
 		
 		return sqlSession.selectOne(NS+".login", dto);
 		

@@ -6,9 +6,8 @@
 
 <mapper namespace="itachi.uchiha.mapper.board">
 	
-	<select id="idCheck" resultType="String">
-		select mb_id from itachi_mb where mb_id=#{id}
-	</select>
+	
+
 
 	<insert id="insert">
 		insert into itachi_mb

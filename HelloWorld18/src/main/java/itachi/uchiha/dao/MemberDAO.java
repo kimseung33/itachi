@@ -11,5 +11,6 @@ public interface MemberDAO {
 	void update(MemberDTO dto);
 	void insert(MemberDTO dto);
 	String idCheck (String id);
+
 }
 
