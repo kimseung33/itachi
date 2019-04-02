@@ -24,6 +24,11 @@ public class MemberController {
 	@Inject
 	private MemberService service;
 	
+	@RequestMapping(value="/selectpw", method=RequestMethod.GET)
+	public String selectpw() {
+		return "/member/selectpw";
+	}
+	
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {

@@ -33,9 +33,6 @@
 								      <!-- <a href="javascript:void(0);"  id="idck">중복확인</a> -->
 								    </div>
 							    </div>
-								
-								
-								
 							</div>
 
 							<div class="form-group">

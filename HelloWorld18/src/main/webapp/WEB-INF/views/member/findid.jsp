@@ -31,10 +31,12 @@
 				
 				</div>
 	            <button id="find" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">아이디 찾기</button>
-	            <hr class="my-4">
-	            <a class="btn btn-lg btn-info btn-block text-uppercase" href="/member/login">로그인 하기</a>
-	            <a class="btn btn-lg btn-default btn-block text-uppercase" href="/">메인페이지로 돌아가기</a>
 	          </form>
+				<hr class="my-4">
+				<div class="btn-group btn-group-justified">
+					<a class="btn btn-info btn-block text-uppercase" href="/member/login">로그인 하기</a>
+					<a class="btn btn-default btn-block text-uppercase" href="/">메인페이지로 돌아가기</a>
+				</div>
 	        </div>
 	      </div>
 	    </div>
