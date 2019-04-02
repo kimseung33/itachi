@@ -64,4 +64,10 @@ public class MemberServiceImpl implements MemberService {
 		}
 	}
 
+	@Override
+	public String emailCheck(String email) {
+		// TODO Auto-generated method stub
+		return dao.emailCheck(email);
+	}
+
 }

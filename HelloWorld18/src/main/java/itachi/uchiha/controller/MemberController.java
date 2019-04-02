@@ -44,19 +44,23 @@ public class MemberController {
 		return idck;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/emailCheck", method=RequestMethod.POST)
+	public String emailCheck(@RequestBody MemberDTO dto) {
+		String emailck= service.emailCheck(dto.getMb_Email());
+		
+		return emailck;		
+	}
+	
+	
 	@RequestMapping(value = "/loginpost", method = RequestMethod.POST)
 	public String loginPost(LoginDTO dto, Model model) throws Exception {
 		MemberDTO memberDTO = service.login(dto);
 		if (memberDTO == null) {
 			return null;
-		}
-		
+		}		
 		model.addAttribute("memberDTO", dto);
-
 		return "/itachi/main";
-
-
-
 	}
 
 	@RequestMapping(value = "/loginpost", method = RequestMethod.GET)
@@ -109,7 +113,4 @@ public class MemberController {
 		service.insert(dto);
 		return "redirect:/member/login";
 	} 
-	
-
-
 }
