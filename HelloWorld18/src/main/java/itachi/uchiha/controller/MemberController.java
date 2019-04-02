@@ -23,7 +23,7 @@ public class MemberController {
 
 	@Inject
 	private MemberService service;
-	
+
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
@@ -31,6 +31,7 @@ public class MemberController {
 		return "itachi/main";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="/idCheck", method=RequestMethod.POST)
 	public String idCheck(@RequestBody MemberDTO dto, Model model) {
 		String idck = service.idCheck(dto.getMb_Id());
@@ -45,7 +46,9 @@ public class MemberController {
 		}
 		
 		model.addAttribute("memberDTO", dto);
-
+		System.out.println("=======================");
+		System.out.println(dto.getMb_Id());
+		System.out.println("=======================");
 		return "/itachi/main";
 
 
