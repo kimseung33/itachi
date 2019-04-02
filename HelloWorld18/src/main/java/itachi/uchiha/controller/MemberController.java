@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import itachi.uchiha.domain.LoginDTO;
@@ -29,6 +30,10 @@ public class MemberController {
 	@RequestMapping(value = "/find_idUI")
 	public String find_idUI(){
 		return "/member/find_idUI";
+	}	
+	@RequestMapping(value="/selectpw", method=RequestMethod.GET)
+	public String selectpw() {
+		return "/member/selectpw";
 	}
 	
 	
@@ -69,32 +74,16 @@ public class MemberController {
 		
 	}
 
-	@RequestMapping(value = "/findid", method = RequestMethod.POST)
-	public String findIde(String name,String email,String birth, int hp, String find_check, Model model){
-		
-	
-		model.addAttribute("mb_Name",name);
-		
-	
-		if(find_check.equals("email")) {
-			model.addAttribute("mb_Email",email);
-			service.findIde(name, email);
-	
-		} else if(find_check.equals("hp")) {
-			model.addAttribute("mb_Birth",birth);
-			model.addAttribute("mb_Hp",hp);
-			service.findIdh(name, birth, hp);
-		}
-		
-		
-		return "/member/findid";		
-
+	@RequestMapping(value = "/findid_id", method = RequestMethod.POST)
+	public String find_id(HttpServletResponse response, @RequestParam("mb_Email") String mb_Email,
+			@RequestParam("mb_Name") String mb_Name, Model md) throws Exception {
+		md.addAttribute("id", service.findId(mb_Email, mb_Name, response));
+		return "/member/findid_id";
 	}	
 	
-	
-	@RequestMapping(value = "/findid", method = RequestMethod.GET)
-	public void findid() {
-
+	@RequestMapping(value = "/findid")
+	public String find_id_form() throws Exception{
+		return "/member/findid";
 	}
 	
 

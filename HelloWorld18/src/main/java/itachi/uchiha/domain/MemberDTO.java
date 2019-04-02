@@ -46,16 +46,6 @@ public class MemberDTO implements Serializable {
 		this.mb_Account = mb_Account;
 	}
 
-
-
-
-
-
-
-
-
-
-
 	public String getMb_Id() {
 		return mb_Id;
 	}
