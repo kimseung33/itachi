@@ -6,6 +6,7 @@
 
 <mapper namespace="itachi.uchiha.mapper.board">
 	
+<<<<<<< HEAD
 	<select id="idCheck" resultType="String">
 		select mb_id from itachi_mb where mb_id=#{id}
 	</select>
@@ -13,6 +14,10 @@
 	<select id="emailCheck" resultType="String">
 		select mb_email from itachi_mb where mb_email=#{mb_email}
 	</select>
+=======
+	
+
+>>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
 
 	<insert id="insert">
 		insert into itachi_mb

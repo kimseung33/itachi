@@ -25,6 +25,12 @@ public class MemberController {
 	@Inject
 	private MemberService service;
 	
+	 
+	
+	@RequestMapping(value = "/find_idUI")
+	public String find_idUI(){
+		return "/member/find_idUI";
+	}	
 	@RequestMapping(value="/selectpw", method=RequestMethod.GET)
 	public String selectpw() {
 		return "/member/selectpw";
@@ -58,10 +64,15 @@ public class MemberController {
 		MemberDTO memberDTO = service.login(dto);
 		if (memberDTO == null) {
 			return null;
-		}		
+
+		}	
+		
+		
 		model.addAttribute("memberDTO", dto);
 		return "/itachi/main";
-	}
+		}
+		
+	
 
 	@RequestMapping(value = "/loginpost", method = RequestMethod.GET)
 	public void loginPost() {
@@ -110,6 +121,7 @@ public class MemberController {
 	
 	@RequestMapping(value="insert", method=RequestMethod.POST)
 	public String insert(MemberDTO dto) {
+		System.out.println(dto);
 		service.insert(dto);
 		return "redirect:/member/login";
 	} 

@@ -22,8 +22,7 @@
                                 LoginDTO dto=new LoginDTO();
                                 MemberDTO dto1=new MemberDTO();
                                 Object session1=session.getAttribute("login");
-                                
-                              
+                         
                                 if(session1==null){
                                 %>
                                 	<li><a href="/member/login">Login</a></li>
@@ -34,7 +33,16 @@
                                 <%
                                 }
                                 %>
-                               
+                                
+                           		<%
+                           		if(session1!=null){
+                           		%>
+                           		<li><a href="/member/update?id=${memberDTO.mb_Id}">개인정보수정</a></li>
+                           		<%	
+                           		}
+                           		%>
+                                
+
                                 
                                
                             </ul>

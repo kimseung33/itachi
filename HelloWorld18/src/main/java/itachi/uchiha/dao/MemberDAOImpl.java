@@ -18,13 +18,13 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Inject
 	private SqlSession sqlSession;
-
-	private String NS = "itachi.uchiha.mapper.board";
-
+	
+	private String NS="itachi.uchiha.mapper.board";
+	
+	
 	@Override
 	public MemberDTO login(LoginDTO dto) {
 		HttpSession session = null;
-		System.out.println(dto+":::::::::::::::::::::::::::::::::::::::");
 		
 		return sqlSession.selectOne(NS+".login", dto);
 		
