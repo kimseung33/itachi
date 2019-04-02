@@ -111,6 +111,7 @@ public class MemberController {
 	
 	@RequestMapping(value="insert", method=RequestMethod.POST)
 	public String insert(MemberDTO dto) {
+		System.out.println(dto);
 		service.insert(dto);
 		return "redirect:/member/login";
 	} 
