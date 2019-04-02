@@ -31,6 +31,7 @@ public class MemberController {
 		return "itachi/main";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="/idCheck", method=RequestMethod.POST)
 	public String idCheck(@RequestBody MemberDTO dto, Model model) {
 		String idck = service.idCheck(dto.getMb_Id());

@@ -66,14 +66,8 @@
           <label for="mb_Name">이름 입력</label>
         </div>
 		<div class="form-label-group">
-<<<<<<< HEAD
 			<input class="form-control" id="mb_Email" name="mb_Email" placeholder="E-mail 입력">
-			<label for="mb_Email">E-mail 입력</label> 
-
-=======
-			<input class="form-control" id="mb_email" name="mb_Email" placeholder="E-mail 입력">
-			<label for="mb_Email">E-mail 입력</label> 
->>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
+			<label for="mb_Email">E-mail 입력</label>
 		</div>
 	</div>
 	<!-- 이메일로 찾기 -->
@@ -132,33 +126,7 @@
 					}
 				});
 			});			
-		});			
-=======
-						dataType : "text",
-						success : function(result) {
-							alert(result);
-							$("#mb_name").val("");
-							$("#mb_birth").val("");
-							$("#mb_hp").val("");
-							$("#mb_email").val("");
-						},
-						error : function(request, status, error) {
-							alert("code:" + request.status + "\n"
-									+ "msg:" + request.responseText
-									+ "\n" + "error:" + error);
-						},
-						complete : function() {
-							
-						}
-					});
-
-				});
-			
-			
-		});		
-		
->>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
-
+		});
 		
 		
 		function check_form() {
