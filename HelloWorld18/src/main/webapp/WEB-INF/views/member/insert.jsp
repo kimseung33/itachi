@@ -93,6 +93,10 @@
 							<div class="form-group">
 								<label for="mb_Email">이메일</label> 
 								<input type="email" placeholder="이메일를 입력해주세요" class="form-control" name="mb_Email" id="mb_Email">
+								<div class="input-group-btn">
+								      <button class="btn btn-danger" id="emailck">중복확인</button>
+								      <!-- <a href="javascript:void(0);"  id="idck">중복확인</a> -->
+								    </div>
 							</div>
 
 							<div class="form-group">
@@ -215,6 +219,44 @@
 							$("#idck").addClass("disabled");
 						}else {
 							alert("중복된 아이디 입니다.");
+						}
+					},
+					error : function(request, status, error) {
+						alert("fail");
+						alert("code:" + request.status + "\n"
+								+ "msg:" + request.reponseText
+								+ "\n" + "error:" + error)
+					},
+					complete : function() {
+					}
+				})
+			});
+			
+			//선택자
+			$("#emailck").click(function(event) {
+				event.preventDefault();
+				var mb_Email = $("#mb_Email").val();
+							
+				$.ajax({
+					type : 'post',
+					url : '/member/emailCheck',
+					headers : {
+						"Content-Type" : "application/json",
+						"X-HTTP-Method-Override" : "POST"
+					},
+					data : JSON.stringify({
+						mb_Email : mb_Email 
+			//  컨트롤러에넘어가는애 	var mb_Id 임
+					}),
+					dataType : "text",
+					success : function(result) {
+						if (result==null || result=="") {
+							alert("사용 가능한 Email 입니다.");
+							$("#mb_Email").attr("readonly", "readonly");
+							//$("#idck").removeClass("btn-danger");
+							$("#emailck").addClass("disabled");
+						}else {
+							alert("중복된 email 입니다.");
 						}
 					},
 					error : function(request, status, error) {

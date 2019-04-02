@@ -64,4 +64,11 @@ public class MemberDAOImpl implements MemberDAO {
 		return sqlSession.selectOne(NS+".findid", map);
 	}
 
+
+	@Override
+	public String emailCheck(String email) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(NS+".emailCheck", email);
+	}
+
 }

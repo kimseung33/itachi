@@ -18,5 +18,7 @@ public interface MemberService {
 	void insert(MemberDTO dto);
 
 	String idCheck(String id);
+	
+	String emailCheck (String email);
 
 }
