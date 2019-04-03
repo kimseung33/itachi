@@ -74,7 +74,14 @@ public class MemberController {
 			
 		}
 
+
 		model.addAttribute("memberDTO", dto);
+
+
+		
+		model.addAttribute("login", dto);
+		System.out.println(dto+"로그인포스트컨트롤러");
+		System.out.println("로그인포스트컨트롤러id가져와"+dto.getMb_Id());
 
 		return "/itachi/main";
 
@@ -106,6 +113,7 @@ public class MemberController {
 	public String updateUI(Model model, String id) {
 
 		MemberDTO dto = service.updateui(id);
+		System.out.println(id+"업데이트유아이 아이디받아와라");
 		model.addAttribute("dto", dto);
 		return "/member/update";
 	}
