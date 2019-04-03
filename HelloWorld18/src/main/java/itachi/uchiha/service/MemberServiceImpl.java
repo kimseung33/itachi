@@ -18,7 +18,12 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	private MemberDAO dao;
-
+	@Override
+	public void selectpw(MemberDTO dto){
+		System.out.println("MemberServiceImpl selectpw: "+dto);
+		dao.selectpw(dto);
+		
+	}
 	@Override
 	public MemberDTO login(LoginDTO dto) {
 

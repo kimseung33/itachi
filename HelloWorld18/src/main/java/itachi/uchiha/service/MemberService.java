@@ -20,5 +20,5 @@ public interface MemberService {
 	String idCheck(String id);
 	
 	String emailCheck (String email);
-
+	void selectpw(MemberDTO dto) ;
 }

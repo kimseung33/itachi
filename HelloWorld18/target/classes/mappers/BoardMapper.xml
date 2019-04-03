@@ -26,7 +26,10 @@
 		#{mb_Addr3}, #{mb_Hp},
 		#{mb_Email}, #{mb_Bank},#{mb_Account})
 	</insert>
-
+	
+	<update id="selectpw">
+		update itachi_mb set mb_Pw=#{mb_Pw} where mb_Id=#{mb_Id} and mb_email=#{mb_Email} and mb_birth=#{mb_Birth}
+	</update>
 
 	<select id="login" resultType="MemberDTO">
 		select * from itachi_mb
@@ -38,9 +41,7 @@
 		select mb_Id from itachi_mb where mb_Name=#{mb_Name} and mb_Email=#{mb_Email}
 	</select>
 
-	<select id="selectpw" resultType="String">
-		select mb_Id from itachi_mb where mb_Id=#{mb_Id} and mb_Birth=#{mb_Birth}
-	</select>
+	
 
 	<select id="updateui" resultType="MemberDTO">
 		select * from itachi_mb where mb_Id=#{mb_Id}		

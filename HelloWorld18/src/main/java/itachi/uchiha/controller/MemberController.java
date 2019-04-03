@@ -28,7 +28,13 @@ public class MemberController {
 	public String find_idUI() {
 		return "/member/find_idUI";
 	}
-
+	@RequestMapping(value="/selectpw", method=RequestMethod.POST)
+	public String selectpw(Model model,MemberDTO dto)throws Exception {
+		
+		service.selectpw(dto);
+		
+		return "member/login";
+	}
 	@RequestMapping(value = "/selectpw", method = RequestMethod.GET)
 	public String selectpw() {
 		return "/member/selectpw";
@@ -62,11 +68,10 @@ public class MemberController {
 		
 		MemberDTO memberDTO = service.login(dto);
 		if (memberDTO == null) {
-			System.out.println(memberDTO);
-			System.out.println("로그인포스트");
-			return "member/login";
+			System.out.println("비밀번호틀림");
+			return "member/memberalert";
 		}else {
-			System.out.println(":::::MemberController:::::::loginpost::::::::::::::::::::::"+memberDTO);
+			
 		}
 
 		model.addAttribute("memberDTO", dto);
@@ -81,7 +86,8 @@ public class MemberController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public void loginGet() {
-
+		
+		
 	}
 
 	@RequestMapping(value = "/findid_id", method = RequestMethod.POST)

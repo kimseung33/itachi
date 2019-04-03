@@ -12,6 +12,8 @@ import org.springframework.stereotype.Repository;
 import itachi.uchiha.domain.LoginDTO;
 
 import itachi.uchiha.domain.MemberDTO;
+import kr.co.function.CheckNumberGenerator;
+import kr.co.function.MailExam;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
@@ -30,6 +32,16 @@ public class MemberDAOImpl implements MemberDAO {
 		return sqlSession.selectOne(NS+".login", dto);
 		
 
+	}
+	@Override
+	public void selectpw(MemberDTO dto) {
+		String email=dto.getMb_Email();
+		
+		String sentence=CheckNumberGenerator.checknumber();
+		MailExam.main(email, sentence);
+		dto.setMb_Pw(sentence);		//임시비밀번호 넣음
+		
+		sqlSession.update(NS+".selectpw", dto);
 	}
 
 	
