@@ -91,12 +91,13 @@
 							</div>
 
 							<div class="form-group">
-								<label for="mb_Email">이메일</label> 
-								<input type="email" placeholder="이메일를 입력해주세요" class="form-control" name="mb_Email" id="mb_Email">
-								<div class="input-group-btn">
-								      <button class="btn btn-danger" id="emailck">중복확인</button>
-								      <!-- <a href="javascript:void(0);"  id="idck">중복확인</a> -->
-								    </div>
+								<label for="mb_Email">이메일</label>
+								<div class="input-group"> 
+									<input type="email" placeholder="이메일를 입력해주세요" class="form-control" name="mb_Email" id="mb_Email">
+									<div class="input-group-btn">
+									      <button class="btn btn-danger" id="emailck">중복확인</button>
+									 </div>
+								 </div>
 							</div>
 
 							<div class="form-group">
