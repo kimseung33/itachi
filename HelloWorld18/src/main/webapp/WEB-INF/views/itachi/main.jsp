@@ -37,7 +37,7 @@
                            		<%
                            		if(session1!=null){
                            		%>
-                           		<li><a href="/member/update?id=${memberDTO.mb_Id}">개인정보수정</a></li>
+                           		<li><a href="/member/update?id=${login.mb_Id}">개인정보수정</a></li>
                            		<%	
                            		}
                            		%>
