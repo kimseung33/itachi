@@ -46,47 +46,8 @@
 				</div>
 			</div>
 		</div>
-<<<<<<< HEAD
-	</div> -->
-  <div class="container">
-    <div class="row">
-      <div class="card-main mx-auto">
-        <div class="card card-signin my-5">
-          <div class="card-body">
-            <h3 class="card-title text-center">Sign In</h3>
-            <form class="form-signin" action="/member/loginpost" method="post">
-              <div class="form-label-group">
-                <input type="text" id="mb_Id" name="mb_Id" class="form-control" placeholder="Login ID" required autofocus>
-                <label for="mb_Id">Login ID</label>
-              </div>
-
-              <div class="form-label-group">
-                <input type="password" id="mb_Pw" name="mb_Pw" class="form-control" placeholder="Password" required>
-                <label for="mb_Pw">Password</label>
-              </div>
-
-              <!-- <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">Remember password</label>
-              </div> -->
-              <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase">Sign in</button>
-              <a class="btn btn-lg btn-success btn-block text-uppercase" href="/member/insert">Register</a>
-              <hr class="my-4">
-              <a class="btn btn-lg btn-info btn-block text-uppercase" href="/member/findid">아이디 찾기</a>
-              <hr class="my-4">
-              <a class="btn btn-lg btn-default btn-block text-uppercase" href="/">메인페이지로 돌아가기</a>
-              <!-- <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
-              <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button> -->
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-=======
 	</div>
 </div>
->>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
 <script type="text/javascript">
 		$(document).ready(function(){
 			
