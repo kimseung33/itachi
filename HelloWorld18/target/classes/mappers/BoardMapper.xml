@@ -12,7 +12,7 @@
 	<select id="emailCheck" resultType="String">
 		select mb_email from itachi_mb where mb_email=#{mb_email}
 	</select>
-
+	
 	<insert id="insert">
 		insert into itachi_mb
 		(mb_Id, mb_Pw, mb_Name,
