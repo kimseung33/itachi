@@ -23,7 +23,7 @@ public class MemberController {
 
 	@Inject
 	private MemberService service;
-
+ 
 	@RequestMapping(value = "/find_idUI")
 	public String find_idUI() {
 		return "/member/find_idUI";
