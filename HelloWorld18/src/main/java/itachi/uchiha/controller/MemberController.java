@@ -60,7 +60,7 @@ public class MemberController {
 
 		return emailck;
 	}
-
+	//왜안되에에에에에에ㅔ
 	@RequestMapping(value = "/loginpost", method = RequestMethod.POST)
 	public String loginPost(LoginDTO dto, Model model) throws Exception {
 		
