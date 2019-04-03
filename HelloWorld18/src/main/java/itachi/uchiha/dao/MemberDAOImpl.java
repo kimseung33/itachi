@@ -24,7 +24,8 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	@Override
 	public MemberDTO login(LoginDTO dto) {
-		HttpSession session = null;
+		
+		System.out.println(":MemberDAOImpl:::login:"+dto.getMb_Id()+":"+dto.getMb_Pw());
 		
 		return sqlSession.selectOne(NS+".login", dto);
 		

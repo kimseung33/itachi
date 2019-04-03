@@ -57,20 +57,27 @@ public class MemberController {
 
 	@RequestMapping(value = "/loginpost", method = RequestMethod.POST)
 	public String loginPost(LoginDTO dto, Model model) throws Exception {
+		
+		System.out.println(":::::MemberController:::::::loginpost::::::::::::::::::::::"+dto.getMb_Id()+":"+dto.getMb_Pw());
+		
 		MemberDTO memberDTO = service.login(dto);
 		if (memberDTO == null) {
-			return null;
-
+			System.out.println(memberDTO);
+			System.out.println("로그인포스트");
+			return "member/login";
+		}else {
+			System.out.println(":::::MemberController:::::::loginpost::::::::::::::::::::::"+memberDTO);
 		}
 
 		model.addAttribute("memberDTO", dto);
+
 		return "/itachi/main";
-	}
 
-	@RequestMapping(value = "/loginpost", method = RequestMethod.GET)
-	public void loginPost() {
+
 
 	}
+
+
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public void loginGet() {
