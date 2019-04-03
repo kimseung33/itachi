@@ -113,7 +113,6 @@ public class MemberController {
 	public String updateUI(Model model, String id) {
 
 		MemberDTO dto = service.updateui(id);
-		System.out.println(id+"업데이트유아이 아이디받아와라");
 		model.addAttribute("dto", dto);
 		return "/member/update";
 	}
@@ -123,7 +122,7 @@ public class MemberController {
 
 		service.update(dto);
 
-		return "/member/login";
+		return "/itachi/main";
 	}
 
 	@RequestMapping("insert")
