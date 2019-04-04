@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import itachi.uchiha.dao.MemberDAO;
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
+import itachi.uchiha.domain.SellDTO;
 
 @Service
 @Transactional
@@ -68,6 +69,12 @@ public class MemberServiceImpl implements MemberService {
 	public String emailCheck(String email) {
 		// TODO Auto-generated method stub
 		return dao.emailCheck(email);
+	}
+
+	@Override
+	public void insertin(SellDTO dto) {
+		// TODO Auto-generated method stub
+		dao.insertin(dto);
 	}
 
 }

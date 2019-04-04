@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import itachi.uchiha.domain.LoginDTO;
 
 import itachi.uchiha.domain.MemberDTO;
+import itachi.uchiha.domain.SellDTO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
@@ -69,6 +70,13 @@ public class MemberDAOImpl implements MemberDAO {
 	public String emailCheck(String email) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(NS+".emailCheck", email);
+	}
+
+
+	@Override
+	public void insertin(SellDTO dto) {
+		sqlSession.insert(NS+".sellin", dto);
+		
 	}
 
 }

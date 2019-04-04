@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
+import itachi.uchiha.domain.SellDTO;
 
 public interface MemberService {
 
@@ -20,5 +21,7 @@ public interface MemberService {
 	String idCheck(String id);
 	
 	String emailCheck (String email);
+	
+	void insertin(SellDTO dto);
 
 }

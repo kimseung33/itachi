@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
-
+import itachi.uchiha.domain.SellDTO;
 import itachi.uchiha.service.MemberService;
 
 @Controller
@@ -93,6 +93,7 @@ public class MemberController {
 	public String updateUI(Model model, String id) {
 
 		MemberDTO dto = service.updateui(id);
+		
 		model.addAttribute("dto", dto);
 		return "/member/update";
 	}
@@ -116,5 +117,16 @@ public class MemberController {
 		System.out.println(dto);
 		service.insert(dto);
 		return "redirect:/member/login";
+	}
+	
+	@RequestMapping("/sellin")
+	public String sellIn() {
+		return "/sell/sellin";
+	}
+	
+	@RequestMapping(value="/sellin",method=RequestMethod.POST)
+	public String sellIn(SellDTO dto) {
+		service.insertin(dto);
+		return "/";
 	}
 }
