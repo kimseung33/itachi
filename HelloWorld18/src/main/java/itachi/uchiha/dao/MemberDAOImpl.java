@@ -123,7 +123,7 @@ public class MemberDAOImpl implements MemberDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(NS+".emailCheck", email);
 	}
-<<<<<<< HEAD
+
 
 
 	@Override
@@ -132,7 +132,5 @@ public class MemberDAOImpl implements MemberDAO {
 		
 	}
 
-=======
-	
->>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
+
 }

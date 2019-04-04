@@ -175,5 +175,5 @@ public class RegistrationDTO implements Serializable{
 	}
 
 	
->>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
+
 }

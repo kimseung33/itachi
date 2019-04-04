@@ -2,9 +2,7 @@ package itachi.uchiha.dao;
 
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
-<<<<<<< HEAD
 import itachi.uchiha.domain.SellDTO;
-=======
 import itachi.uchiha.domain.RegistrationDTO;
 
 public interface MemberDAO {
@@ -19,9 +17,10 @@ public interface MemberDAO {
 	String idCheck(String id);
 
 	String findId(String mb_Email, String mb_Name);
+	
 	void selectpw(MemberDTO dto);
+	
 	String emailCheck(String email);
-
 	
 	void insertin(SellDTO dto);
 
