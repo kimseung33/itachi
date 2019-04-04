@@ -1,8 +1,11 @@
 package itachi.uchiha.dao;
 
+import java.util.List;
+
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
 import itachi.uchiha.domain.RegistrationDTO;
+import itachi.uchiha.domain.SearchCriteria;
 
 public interface MemberDAO {
 	MemberDTO login(LoginDTO dto);
@@ -20,6 +23,10 @@ public interface MemberDAO {
 	String emailCheck(String email);
 
 	void registration(RegistrationDTO dto2);
-
+	
+	List<RegistrationDTO> search(SearchCriteria cri);
+	
+	int getSearchAmount(SearchCriteria cri);
+	
 	
 }

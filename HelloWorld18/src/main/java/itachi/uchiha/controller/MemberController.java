@@ -1,5 +1,7 @@
 package itachi.uchiha.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
 import itachi.uchiha.domain.RegistrationDTO;
+import itachi.uchiha.domain.SearchCriteria;
 import itachi.uchiha.service.MemberService;
 
 @Controller
@@ -23,6 +26,16 @@ public class MemberController {
 
 	@Inject
 	private MemberService service;
+	
+	@RequestMapping(value = "/search")
+	public String search(SearchCriteria cri, Model model) {
+		List<RegistrationDTO> list = service.search(cri);
+		model.addAttribute("list", list);
+		
+		int amount = service.getSearchtAmount(cri);
+		
+		return "/member/search";
+	}
 	
 	@RequestMapping("/Registration")
 	public void Registration() {

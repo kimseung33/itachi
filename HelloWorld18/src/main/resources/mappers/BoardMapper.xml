@@ -6,6 +6,30 @@
 
 <mapper namespace="itachi.uchiha.mapper.board">
 	
+	<sql id="searchIf">
+			<if test="searchType != null">
+				where upper(title) like '%'||upper(#{keyword})||'%'
+			</if>	
+	</sql>
+
+	<select id="search" resultType="RegistrationDTO">
+			<![CDATA[
+		select * from sasuke_mb 
+		]]>
+		<include refid="searchIf"></include> 
+		<!-- 인클루드 태그 시작종료 떨어져있으면 안되더라 크흠.. -->
+		<![CDATA[
+		 order by productNumber desc
+		 ]]>
+		 
+	</select>
+	
+	<select id="getSearchAmount" resultType="Integer">
+	select count(productNumber) from sasuke_mb
+	<include refid="searchIf"></include>
+	order by productNumber desc
+	</select>
+	
 	<update id="registration2">
 		update sasuke_mb set endDate=writedate+deadline where productNumber=#{productNumber}
 	</update>

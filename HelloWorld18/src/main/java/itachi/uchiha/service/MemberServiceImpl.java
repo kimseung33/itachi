@@ -1,6 +1,7 @@
 package itachi.uchiha.service;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,6 +13,7 @@ import itachi.uchiha.dao.MemberDAO;
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
 import itachi.uchiha.domain.RegistrationDTO;
+import itachi.uchiha.domain.SearchCriteria;
 
 @Service
 @Transactional
@@ -19,6 +21,17 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	private MemberDAO dao;
+	
+	@Override
+	public int getSearchtAmount(SearchCriteria cri) {
+		return dao.getSearchAmount(cri);
+	}
+	
+	@Override
+	public List<RegistrationDTO> search(SearchCriteria cri) {
+		return dao.search(cri);
+	}
+
 	
 	@Override
 	public void registration(RegistrationDTO dto2) {
