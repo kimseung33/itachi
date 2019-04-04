@@ -174,6 +174,4 @@ public class RegistrationDTO implements Serializable{
 				+ ", setence=" + setence + ", category=" + category + ", nowMoney=" + nowMoney + "]";
 	}
 
-	
-
 }

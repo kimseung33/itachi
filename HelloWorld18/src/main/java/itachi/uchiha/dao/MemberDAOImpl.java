@@ -1,6 +1,7 @@
 package itachi.uchiha.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -16,6 +17,7 @@ import itachi.uchiha.domain.MemberDTO;
 import itachi.uchiha.domain.SellDTO;
 
 import itachi.uchiha.domain.RegistrationDTO;
+import itachi.uchiha.domain.SearchCriteria;
 import kr.co.function.CheckNumberGenerator;
 import kr.co.function.CheckNumberGenerator2;
 import kr.co.function.MailExam;
@@ -28,6 +30,16 @@ public class MemberDAOImpl implements MemberDAO {
 	private SqlSession sqlSession;
 	
 	private String NS="itachi.uchiha.mapper.board";
+	
+	@Override
+	public int getSearchAmount(SearchCriteria cri) {
+		return sqlSession.selectOne(NS+".getSearchAmount",cri);
+	}
+	
+	@Override
+	public List<RegistrationDTO> search(SearchCriteria cri) {
+		return sqlSession.selectList(NS+".search", cri);
+	}
 	
 	@Override
 	public void registration(RegistrationDTO dto2) {
@@ -131,6 +143,5 @@ public class MemberDAOImpl implements MemberDAO {
 		sqlSession.insert(NS+".sellin", dto);
 		
 	}
-
 
 }

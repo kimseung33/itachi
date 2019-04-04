@@ -4,27 +4,54 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <jsp:include page="/WEB-INF/views/include/header.jsp"/>
-
+<style type="text/css">
+	#gnb {/*width:250px; background:#ccc;*/}
+#gnb > li {/* display:inline-block; */}
+#gnb > li > a {/* display:block; line-height:25px; width:80px; text-align:center; */}
+#gnb > li.on a {background:#777; color:#fff;}
+#gnb li ul {position:absolute; width:100%; height:0; overflow:hidden;}
+#gnb li.on ul {height:auto; background:#777; z-index:9999;}
+#gnb li ul li a {margin:3px 0; color:#fff;}
+#gnb li ul li a:hover {background:#fff; color:#000;}
+</style>
 <body id="page1">
 	<!--==============================header=================================-->
     <header>
+    	<div class="test">
+			<ul>
+		    
+			</ul>
+		</div>
+    		
     	<div class="row-1">
         	<div class="main">
             	<div class="container_12">
                 	<div class="grid_12">
                     	<nav>
-                            <ul class="menu">
-                                <li><a class="active" href="/main.jsp">home</a></li>
-                                <li><a href="/services.jsp">Services</a></li>
-                                <li><a href="/catalogue.jsp">Catalogue</a></li>
-                                <li><a href="/pricing.jsp">Pricing</a></li>
-                                <%
-                                LoginDTO dto=new LoginDTO();
-                                MemberDTO dto1=new MemberDTO();
-                                Object session1=session.getAttribute("login");
-                         
-                                if(session1==null){
-                                %>
+                    	<div class="container">
+		
+						</div>
+                            <ul class="menu" id="gnb">
+                                <li><a href="/main.jsp" class="active">home</a></li>
+	                            <li>
+							        <a href="#">Category</a>
+							        <ul>
+							            <li><a href="#">의류</a></li>
+							            <li><a href="#">뷰티 잡화</a></li>
+							            <li><a href="#">가전제품</a></li>
+							            <li><a href="#">도서 티켓</a></li>
+							        </ul>
+							    </li>
+                                <li><a href="#">AAAAA</a></li>
+                                <li><a href="#">BBBBBB</a></li>
+								<%
+									LoginDTO dto = new LoginDTO();
+									MemberDTO dto1 = new MemberDTO();
+									Object session1 = session.getAttribute("login");
+
+									if (session1 == null) {
+								%>
+		
                                 	<li><a href="/member/login">Login</a></li>
                                 <%
                                 }else{
@@ -41,17 +68,53 @@
                            		<%	
                            		}
                            		%>
-                                <li><a href="/member/Registration">물품등록</a></li>
-
+                         
                                 
                                
                             </ul>
+                            
                         </nav>
                     </div>
                 </div>
                 <div class="clear"></div>
             </div>
         </div>
+        
+     
+        
+        
+        
+        <!-- 검색창 -->
+          <div class="row">
+
+        <form action="/member/search">
+			
+			<!--
+			<div class="col-xs-3 col-sm-2">
+				<select class="form-control" id="ssel" name="searchType">
+					<option disabled>검색 기준</option>
+					<option value="title">제목</option>
+					<option value="writer">작성자</option>
+					<option value="content">내용</option>
+			</div>
+		         -->
+			
+			<input type="hidden" name="searchType" id="searchType" value="title">	
+				
+			<div class="input-group col-xs-9 col-sm-10">
+			<input class="form-control" id="keyword" name="keyword"> 
+			<span class="input-group-btn">
+				<button class="btn btn-success">검색</button>
+			</span>
+			</div>
+			
+			
+			</form>
+			
+		</div>
+                  
+         
+        
         <div class="row-2">
         	<div class="main">
             	<div class="container_12">
@@ -65,7 +128,11 @@
                     	<form id="search-form" method="post" enctype="multipart/form-data">
                             <fieldset>	
                                 <div class="search-field">
+                                
                                     <input name="search" type="text" />
+                                    
+                                    
+                                    
                                     <a class="search-button" href="#" onClick="document.getElementById('search-form').submit()"><span>search</span></a>	
                                 </div>						
                             </fieldset>
@@ -217,8 +284,21 @@
                 </div>
             </div>
         </div>
+        
+        
     </footer>
     <script type="text/javascript">
+    $(document).ready(function() {
+		$("#gnb > li").bind("mouseenter focusin", function() {
+			//현재 선택된 곳에 on클래스를 넣고 나머지 형제 요소들에서 on클래스 삭제
+		    $(this).addClass("on").siblings().removeClass("on");
+		});
+		$("#gnb > li").bind("mouseleave focusout", function() {
+		    $(this).removeClass("on");
+		});
+
+	});		
+    
 			$(window).load(function() {
 			// We only want these styles applied when javascript is enabled
 			$('div.navigation').css({'width' : '320px', 'float' : 'right'});
@@ -269,8 +349,10 @@
 					this.find('ul.thumbs li span').css({display:'none'});
 				}
 			});
+			
 		});
-	</script>
+			
+				</script>
 </body>
 </html>
     

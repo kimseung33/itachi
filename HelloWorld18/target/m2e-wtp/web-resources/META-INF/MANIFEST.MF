@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: Administrator
+=======
+Built-By: 502
+>>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
 Build-Jdk: 1.8.0_191
 Created-By: Maven Integration for Eclipse
 

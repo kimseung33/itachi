@@ -1,5 +1,7 @@
 package itachi.uchiha.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 
 import itachi.uchiha.domain.LoginDTO;
@@ -8,6 +10,7 @@ import itachi.uchiha.domain.MemberDTO;
 import itachi.uchiha.domain.SellDTO;
 
 import itachi.uchiha.domain.RegistrationDTO;
+import itachi.uchiha.domain.SearchCriteria;
 
 public interface MemberService {
 
@@ -30,5 +33,10 @@ public interface MemberService {
 	void selectpw(MemberDTO dto);
 
 	void registration(RegistrationDTO dto2);
+	
+	List<RegistrationDTO> search(SearchCriteria cri);
+	
+	int getSearchtAmount(SearchCriteria cri);
+	
 
 }
