@@ -68,7 +68,13 @@
                            		<%	
                            		}
                            		%>
-                         
+                         		<%
+                           		if(session1!=null){
+                           		%>
+                           		<li><a href="/board/Registration">글쓰기</a></li>
+                           		<%	
+                           		}
+                           		%>
                                 
                                
                             </ul>
@@ -87,7 +93,7 @@
         <!-- 검색창 -->
           <div class="row">
 
-        <form action="/member/search">
+        <form action="/board/search">
 			
 			<!--
 			<div class="col-xs-3 col-sm-2">

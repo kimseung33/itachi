@@ -27,10 +27,4 @@ public interface MemberDAO {
 
 	void insertin(SellDTO dto);
 
-	void registration(RegistrationDTO dto2);
-
-	List<RegistrationDTO> search(SearchCriteria cri);
-
-	int getSearchAmount(SearchCriteria cri);
-
 }

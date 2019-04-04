@@ -1,6 +1,5 @@
 package itachi.uchiha.controller;
 
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
@@ -31,30 +30,7 @@ public class MemberController {
 	@Inject
 	private MemberService service;
 	
-	@RequestMapping(value = "/search")
-	public String search(SearchCriteria cri, Model model) {
-		List<RegistrationDTO> list = service.search(cri);
-		model.addAttribute("list", list);
-		
-		int amount = service.getSearchtAmount(cri);
-		
-		return "/member/search";
-	}
 	
-
-	@RequestMapping("/Registration")
-	public void Registration() {
-
-	}
-
-	@RequestMapping("/registrationC")
-	public String registration(RegistrationDTO dto2) {
-		System.out.println("RegistrationDTO컨트롤러:::::::::::::::::::::");
-		System.out.println("멤버컨트롤러 dtp2 전" + dto2 + ":::::::::::::::::::::::::::::::::::::::");
-		service.registration(dto2);
-		System.out.println("멤버컨트롤러 dtp2 후" + dto2 + ":::::::::::::::::::::::::::::::::::::::");
-		return "itachi/main";
-	}
 
 	@RequestMapping(value = "/find_idUI")
 	public String find_idUI() {

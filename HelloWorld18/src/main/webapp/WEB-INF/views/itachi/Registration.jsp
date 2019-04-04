@@ -24,7 +24,7 @@
 				<div class="card card-signin my-5">
 					<div class="card-body">
 						<h3 class="card-title text-center">경매물품 등록하기</h3>
-						<form class="form-signin" action="/member/registrationC" method="post">
+						<form class="form-signin" action="/board/registrationC" method="post">
 							<div>
 								항목을 선택해주세여
 								<input type="radio" name="category" value="clothing">의류

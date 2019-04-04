@@ -25,21 +25,7 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberDAO dao;
 
-	@Override
-	public int getSearchtAmount(SearchCriteria cri) {
-		return dao.getSearchAmount(cri);
-	}
-
-	@Override
-	public List<RegistrationDTO> search(SearchCriteria cri) {
-		return dao.search(cri);
-	}
-
-	@Override
-	public void registration(RegistrationDTO dto2) {
-		dao.registration(dto2);
-	}
-
+	
 	@Override
 	public void selectpw(MemberDTO dto) {
 		System.out.println("MemberServiceImpl selectpw: " + dto);

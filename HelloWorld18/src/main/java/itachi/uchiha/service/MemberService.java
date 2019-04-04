@@ -32,11 +32,6 @@ public interface MemberService {
 
 	void selectpw(MemberDTO dto);
 
-	void registration(RegistrationDTO dto2);
-	
-	List<RegistrationDTO> search(SearchCriteria cri);
-	
-	int getSearchtAmount(SearchCriteria cri);
 	
 
 }
