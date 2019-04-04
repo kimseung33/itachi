@@ -41,7 +41,7 @@
                            		<%	
                            		}
                            		%>
-                                
+                                <li><a href="/member/Registration">물품등록</a></li>
 
                                 
                                

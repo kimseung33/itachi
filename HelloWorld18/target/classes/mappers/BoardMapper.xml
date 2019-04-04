@@ -5,6 +5,18 @@
 
 
 <mapper namespace="itachi.uchiha.mapper.board">
+	
+	<update id="registration2">
+		update sasuke_mb set endDate=writedate+deadline where productNumber=#{productNumber}
+	</update>
+	
+	<insert id="registration">
+		insert into sasuke_mb
+		(productNumber,deadline,startMoney,directMoney,title,setence)
+		values
+		(#{productNumber},#{deadline},#{startMoney},#{directMoney},#{title},#{setence})
+	</insert>
+
 	<select id="idCheck" resultType="String">
 		select mb_id from itachi_mb where mb_id=#{id}
 	</select>

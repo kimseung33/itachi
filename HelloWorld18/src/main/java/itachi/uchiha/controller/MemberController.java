@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
-
+import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.service.MemberService;
 
 @Controller
@@ -23,7 +23,21 @@ public class MemberController {
 
 	@Inject
 	private MemberService service;
- 
+	
+	@RequestMapping("/Registration")
+	public void Registration() {
+		
+	}
+	
+	@RequestMapping("/registrationC")
+	public String registration(RegistrationDTO dto2) {
+		System.out.println("RegistrationDTO컨트롤러:::::::::::::::::::::");
+		System.out.println("멤버컨트롤러 dtp2 전"+dto2+":::::::::::::::::::::::::::::::::::::::");
+		service.registration(dto2);
+		System.out.println("멤버컨트롤러 dtp2 후"+dto2+":::::::::::::::::::::::::::::::::::::::");
+		return "itachi/main";
+	}
+	
 	@RequestMapping(value = "/find_idUI")
 	public String find_idUI() {
 		return "/member/find_idUI";
