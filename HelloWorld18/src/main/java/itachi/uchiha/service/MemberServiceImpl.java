@@ -12,6 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 import itachi.uchiha.dao.MemberDAO;
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
+
+import itachi.uchiha.domain.SellDTO;
+
 import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.domain.SearchCriteria;
 
@@ -21,7 +24,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	private MemberDAO dao;
-	
+
 	@Override
 	public int getSearchtAmount(SearchCriteria cri) {
 		return dao.getSearchAmount(cri);
@@ -37,13 +40,14 @@ public class MemberServiceImpl implements MemberService {
 	public void registration(RegistrationDTO dto2) {
 		dao.registration(dto2);
 	}
-	
+
 	@Override
-	public void selectpw(MemberDTO dto){
-		System.out.println("MemberServiceImpl selectpw: "+dto);
+	public void selectpw(MemberDTO dto) {
+		System.out.println("MemberServiceImpl selectpw: " + dto);
 		dao.selectpw(dto);
-		
+
 	}
+
 	@Override
 	public MemberDTO login(LoginDTO dto) {
 
@@ -94,5 +98,11 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return dao.emailCheck(email);
 	}
-	
+
+	@Override
+	public void insertin(SellDTO dto) {
+		// TODO Auto-generated method stub
+		dao.insertin(dto);
+	}
+
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
+import itachi.uchiha.domain.SellDTO;
 import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.domain.SearchCriteria;
 
@@ -22,6 +23,9 @@ public interface MemberDAO {
 	void selectpw(MemberDTO dto);
 	String emailCheck(String email);
 
+	
+	void insertin(SellDTO dto);
+
 	void registration(RegistrationDTO dto2);
 	
 	List<RegistrationDTO> search(SearchCriteria cri);
@@ -29,4 +33,5 @@ public interface MemberDAO {
 	int getSearchAmount(SearchCriteria cri);
 	
 	
+
 }

@@ -1,19 +1,6 @@
 package itachi.uchiha.domain;
 
 import java.io.Serializable;
-/*
- * create table sasuke_mb( productNumber varchar2(30) primary key,
- *  endDate date,
- * deadline number not null,
- *  writedate date default sysdate, 
- *  startMoney number not null,
- *  directMoney number not null,
- *  fileOriginame varchar2(1000),
- * fileOriginame2 varchar2(1000),
- *  title varchar2(500) not null, 
- *  setencevarchar2(1000) not null );
- * 
- */
 
 public class RegistrationDTO implements Serializable{
 	

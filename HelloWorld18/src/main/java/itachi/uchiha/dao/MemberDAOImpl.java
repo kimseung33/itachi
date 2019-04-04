@@ -13,11 +13,15 @@ import org.springframework.stereotype.Repository;
 import itachi.uchiha.domain.LoginDTO;
 
 import itachi.uchiha.domain.MemberDTO;
+
+import itachi.uchiha.domain.SellDTO;
+
 import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.domain.SearchCriteria;
 import kr.co.function.CheckNumberGenerator;
 import kr.co.function.CheckNumberGenerator2;
 import kr.co.function.MailExam;
+
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
@@ -131,5 +135,13 @@ public class MemberDAOImpl implements MemberDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(NS+".emailCheck", email);
 	}
+
+
+	@Override
+	public void insertin(SellDTO dto) {
+		sqlSession.insert(NS+".sellin", dto);
+		
+	}
+
 	
 }

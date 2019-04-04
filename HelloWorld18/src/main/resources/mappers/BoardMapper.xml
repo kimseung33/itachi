@@ -101,7 +101,16 @@
 		mb_Id=#{mb_Id}
 	</update>
 	
+	<insert id="sellin">
+		insert into sell_mb
+		(sellNumber,sellId,nowMoney)
+		values
+		(#{sellNumber},#{sellId},#{nowMoney})
+	</insert>
 	
+	<update id="umoney">	
+		update sasuke_mb set nowMoney=#{nowMoney} where productNumber=#{productNumber}
+	</update>
 		
 
 
