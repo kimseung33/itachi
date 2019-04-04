@@ -24,8 +24,8 @@
 					<h3 class="card-title text-center">비밀번호 찾기</h3>
 					<form class="form-signin" action="/member/selectpw" method="post">
 						<div class="form-label-group">
-							<input type="text" id="mb_Name" name="mb_Name" class="form-control" placeholder="이름 입력">
-							<label for="mb_Name">이름 입력</label>
+							<input type="text" id="mb_Id" name="mb_Id" class="form-control" placeholder="이름 입력">
+							<label for="mb_Name">아이디 입력</label>
 						</div>
 						<div class="form-label-group">
 							<input class="form-control" id="mb_Email" name="mb_Email" placeholder="E-mail 입력">
@@ -33,7 +33,7 @@
 						</div>
 						<div class="form-label-group"> 
 							<input class="form-control" type="number" id="mb_Birth" name="mb_Birth" placeholder="생년 월일 입력">
-							<label for="mb_Birth">생년 월일 입력</label>
+							<label for="mb_birth">생년 월일 입력</label>
 						</div>
 						<button id="find" class="btn btn-primary btn-block text-uppercase" type="submit">비밀번호 찾기</button>
 					</form>
@@ -67,7 +67,8 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#find").click(function() {
+		/* $("#find").click(function(event) {
+			event.preventDefault();
 			var mb_Name = $("#mb_Name").val();
 			var mb_Birth = $("#mb_Birth").val();
 			var mb_Email = $("#mb_Email").val();
@@ -80,7 +81,7 @@
 						mb_Name : mb_Name,
 						mb_Birth : mb_Birth,
 						mb_Email : mb_Email
-				}),
+						}),
 
 				dataType : "text",
 				success : function(result) {
@@ -96,7 +97,7 @@
 				}
 			});
 		});
-		
+		 */
 	});
 	</script>
 </body>

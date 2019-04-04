@@ -14,7 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
+
 import itachi.uchiha.domain.SellDTO;
+
+import itachi.uchiha.domain.RegistrationDTO;
+
 import itachi.uchiha.service.MemberService;
 
 @Controller
@@ -24,9 +28,31 @@ public class MemberController {
 	@Inject
 	private MemberService service;
 
+	@RequestMapping("/Registration")
+	public void Registration() {
+
+	}
+
+	@RequestMapping("/registrationC")
+	public String registration(RegistrationDTO dto2) {
+		System.out.println("RegistrationDTO컨트롤러:::::::::::::::::::::");
+		System.out.println("멤버컨트롤러 dtp2 전" + dto2 + ":::::::::::::::::::::::::::::::::::::::");
+		service.registration(dto2);
+		System.out.println("멤버컨트롤러 dtp2 후" + dto2 + ":::::::::::::::::::::::::::::::::::::::");
+		return "itachi/main";
+	}
+
 	@RequestMapping(value = "/find_idUI")
 	public String find_idUI() {
 		return "/member/find_idUI";
+	}
+
+	@RequestMapping(value = "/selectpw", method = RequestMethod.POST)
+	public String selectpw(Model model, MemberDTO dto) throws Exception {
+
+		service.selectpw(dto);
+
+		return "member/login";
 	}
 
 	@RequestMapping(value = "/selectpw", method = RequestMethod.GET)
@@ -55,20 +81,28 @@ public class MemberController {
 		return emailck;
 	}
 
+	// 왜안되에에에에에에ㅔ
 	@RequestMapping(value = "/loginpost", method = RequestMethod.POST)
 	public String loginPost(LoginDTO dto, Model model) throws Exception {
+
+		System.out.println(
+				":::::MemberController:::::::loginpost::::::::::::::::::::::" + dto.getMb_Id() + ":" + dto.getMb_Pw());
+
 		MemberDTO memberDTO = service.login(dto);
 		if (memberDTO == null) {
-			return null;
+			System.out.println("비밀번호틀림");
+			return "member/memberalert";
+		} else {
 
 		}
 
 		model.addAttribute("memberDTO", dto);
-		return "/itachi/main";
-	}
 
-	@RequestMapping(value = "/loginpost", method = RequestMethod.GET)
-	public void loginPost() {
+		model.addAttribute("login", dto);
+		System.out.println(dto + "로그인포스트컨트롤러");
+		System.out.println("로그인포스트컨트롤러id가져와" + dto.getMb_Id());
+
+		return "/itachi/main";
 
 	}
 
@@ -93,7 +127,7 @@ public class MemberController {
 	public String updateUI(Model model, String id) {
 
 		MemberDTO dto = service.updateui(id);
-		
+
 		model.addAttribute("dto", dto);
 		return "/member/update";
 	}
@@ -103,7 +137,7 @@ public class MemberController {
 
 		service.update(dto);
 
-		return "/member/login";
+		return "/itachi/main";
 	}
 
 	@RequestMapping("insert")
@@ -118,13 +152,13 @@ public class MemberController {
 		service.insert(dto);
 		return "redirect:/member/login";
 	}
-	
+
 	@RequestMapping("/sellin")
 	public String sellIn() {
 		return "/sell/sellin";
 	}
-	
-	@RequestMapping(value="/sellin",method=RequestMethod.POST)
+
+	@RequestMapping(value = "/sellin", method = RequestMethod.POST)
 	public String sellIn(SellDTO dto) {
 		service.insertin(dto);
 		return "/";

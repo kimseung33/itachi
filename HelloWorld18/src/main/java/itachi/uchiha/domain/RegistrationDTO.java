@@ -2,29 +2,30 @@ package itachi.uchiha.domain;
 
 import java.io.Serializable;
 
-public class RegistrationDTO implements Serializable {
+public class RegistrationDTO implements Serializable{
+	
 	
 	private static final long serialVersionUID = 1L;
-	
-	private String productNumber; // 상품번호
-	private String endDate; // 경매기간+등록시간(sysdate)
-	private int deadline; // 경매기간
-	private String writedate; // default로 sysdate가 넘어오기 위해서 추가
-	private int startMoney; // 경매시작가
-	private int directMoney; // 즉시구입가
-	private String fileOriginame; // 파일명1
-	private String fileOriginame2; // 파일명2
-	private String title; // 제목
-	private String setence; // 내용
+	private String productNumber;	//상품번호
+	private String endDate;		//경매기간+등록시간(sysdate)
+	private int deadline;	//경매기간	not null
+	private String writedate;	//default로 sysdate가 넘어오기 위해서 추가
+	private int startMoney;		//경매시작가	not null
+	private int directMoney;	//즉시구입가	not null
+	private String fileOriginame;	//파일명1
+	private String fileOriginame2;	//파일명2
+	private String title;	//제목	not null
+	private String setence;	//내용	not null
+	private String category; //항목
+	private int nowMoney;
 	
 	public RegistrationDTO() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 	public RegistrationDTO(String productNumber, String endDate, int deadline, String writedate, int startMoney,
-			int directMoney, String fileOriginame, String fileOriginame2, String title, String setence) {
+			int directMoney, String fileOriginame, String fileOriginame2, String title, String setence, String category,
+			int nowMoney) {
 		super();
 		this.productNumber = productNumber;
 		this.endDate = endDate;
@@ -36,6 +37,8 @@ public class RegistrationDTO implements Serializable {
 		this.fileOriginame2 = fileOriginame2;
 		this.title = title;
 		this.setence = setence;
+		this.category = category;
+		this.nowMoney = nowMoney;
 	}
 
 	public String getProductNumber() {
@@ -118,6 +121,26 @@ public class RegistrationDTO implements Serializable {
 		this.setence = setence;
 	}
 
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public int getNowMoney() {
+		return nowMoney;
+	}
+
+	public void setNowMoney(int nowMoney) {
+		this.nowMoney = nowMoney;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -148,8 +171,9 @@ public class RegistrationDTO implements Serializable {
 		return "RegistrationDTO [productNumber=" + productNumber + ", endDate=" + endDate + ", deadline=" + deadline
 				+ ", writedate=" + writedate + ", startMoney=" + startMoney + ", directMoney=" + directMoney
 				+ ", fileOriginame=" + fileOriginame + ", fileOriginame2=" + fileOriginame2 + ", title=" + title
-				+ ", setence=" + setence + "]";
+				+ ", setence=" + setence + ", category=" + category + ", nowMoney=" + nowMoney + "]";
 	}
-	 
 
+	
+>>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
 }

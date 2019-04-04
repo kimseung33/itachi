@@ -11,7 +11,10 @@ import org.springframework.transaction.annotation.Transactional;
 import itachi.uchiha.dao.MemberDAO;
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
+
 import itachi.uchiha.domain.SellDTO;
+
+import itachi.uchiha.domain.RegistrationDTO;
 
 @Service
 @Transactional
@@ -19,6 +22,18 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	private MemberDAO dao;
+
+	@Override
+	public void registration(RegistrationDTO dto2) {
+		dao.registration(dto2);
+	}
+
+	@Override
+	public void selectpw(MemberDTO dto) {
+		System.out.println("MemberServiceImpl selectpw: " + dto);
+		dao.selectpw(dto);
+
+	}
 
 	@Override
 	public MemberDTO login(LoginDTO dto) {

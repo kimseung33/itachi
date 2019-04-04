@@ -4,7 +4,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
+
 import itachi.uchiha.domain.SellDTO;
+
+import itachi.uchiha.domain.RegistrationDTO;
 
 public interface MemberService {
 
@@ -19,9 +22,13 @@ public interface MemberService {
 	void insert(MemberDTO dto);
 
 	String idCheck(String id);
-	
-	String emailCheck (String email);
-	
+
+	String emailCheck(String email);
+
 	void insertin(SellDTO dto);
+
+	void selectpw(MemberDTO dto);
+
+	void registration(RegistrationDTO dto2);
 
 }

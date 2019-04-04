@@ -5,6 +5,18 @@
 
 
 <mapper namespace="itachi.uchiha.mapper.board">
+	
+	<update id="registration2">
+		update sasuke_mb set endDate=writedate+deadline where productNumber=#{productNumber}
+	</update>
+	
+	<insert id="registration">
+		insert into sasuke_mb
+		(productNumber,deadline,startMoney,directMoney,title,setence)
+		values
+		(#{productNumber},#{deadline},#{startMoney},#{directMoney},#{title},#{setence})
+	</insert>
+
 	<select id="idCheck" resultType="String">
 		select mb_id from itachi_mb where mb_id=#{id}
 	</select>
@@ -12,7 +24,7 @@
 	<select id="emailCheck" resultType="String">
 		select mb_email from itachi_mb where mb_email=#{mb_email}
 	</select>
-
+	
 	<insert id="insert">
 		insert into itachi_mb
 		(mb_Id, mb_Pw, mb_Name,
@@ -26,7 +38,10 @@
 		#{mb_Addr3}, #{mb_Hp},
 		#{mb_Email}, #{mb_Bank},#{mb_Account})
 	</insert>
-
+	
+	<update id="selectpw">
+		update itachi_mb set mb_Pw=#{mb_Pw} where mb_Id=#{mb_Id} and mb_email=#{mb_Email} and mb_birth=#{mb_Birth}
+	</update>
 
 	<select id="login" resultType="MemberDTO">
 		select * from itachi_mb
@@ -38,9 +53,7 @@
 		select mb_Id from itachi_mb where mb_Name=#{mb_Name} and mb_Email=#{mb_Email}
 	</select>
 
-	<select id="selectpw" resultType="String">
-		select mb_Id from itachi_mb where mb_Id=#{mb_Id} and mb_Birth=#{mb_Birth}
-	</select>
+	
 
 	<select id="updateui" resultType="MemberDTO">
 		select * from itachi_mb where mb_Id=#{mb_Id}		
