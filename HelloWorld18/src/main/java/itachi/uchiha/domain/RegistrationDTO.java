@@ -6,6 +6,7 @@ public class RegistrationDTO implements Serializable{
 	
 	
 	private static final long serialVersionUID = 1L;
+	private String mb_Id;
 	private String productNumber;	//상품번호
 	private String endDate;		//경매기간+등록시간(sysdate)
 	private int deadline;	//경매기간	not null
@@ -23,10 +24,13 @@ public class RegistrationDTO implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public RegistrationDTO(String productNumber, String endDate, int deadline, String writedate, int startMoney,
-			int directMoney, String fileOriginame, String fileOriginame2, String title, String setence, String category,
-			int nowMoney) {
+	
+
+	public RegistrationDTO(String mb_Id, String productNumber, String endDate, int deadline, String writedate,
+			int startMoney, int directMoney, String fileOriginame, String fileOriginame2, String title, String setence,
+			String category, int nowMoney) {
 		super();
+		this.mb_Id = mb_Id;
 		this.productNumber = productNumber;
 		this.endDate = endDate;
 		this.deadline = deadline;
@@ -40,6 +44,20 @@ public class RegistrationDTO implements Serializable{
 		this.category = category;
 		this.nowMoney = nowMoney;
 	}
+
+	
+
+	public String getMb_Id() {
+		return mb_Id;
+	}
+
+
+
+	public void setMb_Id(String mb_Id) {
+		this.mb_Id = mb_Id;
+	}
+
+
 
 	public String getProductNumber() {
 		return productNumber;
@@ -166,12 +184,17 @@ public class RegistrationDTO implements Serializable{
 		return true;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "RegistrationDTO [productNumber=" + productNumber + ", endDate=" + endDate + ", deadline=" + deadline
-				+ ", writedate=" + writedate + ", startMoney=" + startMoney + ", directMoney=" + directMoney
-				+ ", fileOriginame=" + fileOriginame + ", fileOriginame2=" + fileOriginame2 + ", title=" + title
-				+ ", setence=" + setence + ", category=" + category + ", nowMoney=" + nowMoney + "]";
+		return "RegistrationDTO [mb_Id=" + mb_Id + ", productNumber=" + productNumber + ", endDate=" + endDate
+				+ ", deadline=" + deadline + ", writedate=" + writedate + ", startMoney=" + startMoney
+				+ ", directMoney=" + directMoney + ", fileOriginame=" + fileOriginame + ", fileOriginame2="
+				+ fileOriginame2 + ", title=" + title + ", setence=" + setence + ", category=" + category
+				+ ", nowMoney=" + nowMoney + "]";
 	}
+
+	
 
 }

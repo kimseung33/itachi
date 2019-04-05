@@ -6,9 +6,15 @@
 
 <mapper namespace="itachi.uchiha.mapper.board">
 	
+	<select id="writeui" resultType="MemberDTO">
+		select * from itachi_mb where mb_Id=#{mb_Id}	
+	</select>
+	
 	<sql id="searchIf">
 			<if test="searchType != null">
 				where upper(title) like '%'||upper(#{keyword})||'%'
+				or upper(setence) like '%'||upper(#{keyword})||'%'
+				or upper(mb_Id) like '%'||upper(#{keyword})||'%'
 			</if>	
 	</sql>
 
@@ -36,9 +42,9 @@
 	
 	<insert id="registration">
 		insert into sasuke_mb
-		(productNumber,deadline,startMoney,directMoney,title,setence)
+		(mb_id,productNumber,deadline,startMoney,directMoney,title,setence)
 		values
-		(#{productNumber},#{deadline},#{startMoney},#{directMoney},#{title},#{setence})
+		(#{mb_Id},#{productNumber},#{deadline},#{startMoney},#{directMoney},#{title},#{setence})
 	</insert>
 
 	<select id="idCheck" resultType="String">

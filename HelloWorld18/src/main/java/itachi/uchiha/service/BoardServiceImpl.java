@@ -9,7 +9,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import itachi.uchiha.dao.BoardDAO;
+<<<<<<< HEAD
 import itachi.uchiha.dao.MemberDAO;
+=======
+import itachi.uchiha.domain.MemberDTO;
+>>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
 import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.domain.SearchCriteria;
 import itachi.uchiha.domain.SellDTO;
@@ -40,10 +44,16 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
+
 	public void insertin(SellDTO dto) {
 		// TODO Auto-generated method stub
 		dao.insertin(dto);
 		
+
+	public MemberDTO wtriteui(String id) {
+		// TODO Auto-generated method stub
+		return dao.writeui(id);
+
 	}
 	
 	

@@ -8,8 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-
-
+import itachi.uchiha.domain.MemberDTO;
 import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.domain.SearchCriteria;
 import itachi.uchiha.domain.SellDTO;
@@ -67,6 +66,13 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public List<RegistrationDTO> search(SearchCriteria cri) {
 		return sqlSession.selectList(NS+".search", cri);
+	}
+
+	@Override
+	public MemberDTO writeui(String id) {
+		// TODO Auto-generated method stub
+		System.out.println(id+"디에이오임플아이딘마와라");
+		return sqlSession.selectOne(NS+".writeui", id);
 	}
 	
 	@Override
