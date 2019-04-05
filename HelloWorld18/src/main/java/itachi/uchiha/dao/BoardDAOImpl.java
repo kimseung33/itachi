@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.domain.SearchCriteria;
+import itachi.uchiha.domain.SellDTO;
 import kr.co.function.CheckNumberGenerator2;
 
 
@@ -68,6 +69,11 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectList(NS+".search", cri);
 	}
 	
-	
+	@Override
+	public void insertin(SellDTO dto) {
+		sqlSession.insert(NS + ".sellin", dto);
+
+	}
+
 	
 }

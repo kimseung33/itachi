@@ -88,10 +88,5 @@ public class MemberDAOImpl implements MemberDAO {
 		return sqlSession.selectOne(NS + ".emailCheck", email);
 	}
 
-	@Override
-	public void insertin(SellDTO dto) {
-		sqlSession.insert(NS + ".sellin", dto);
-
-	}
-
+	
 }

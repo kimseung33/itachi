@@ -6,10 +6,11 @@ import java.util.List;
 
 import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.domain.SearchCriteria;
+import itachi.uchiha.domain.SellDTO;
 
 public interface BoardService {
 
-	
+	void insertin(SellDTO dto);
 	
 	List<RegistrationDTO> search(SearchCriteria cri);
 	

@@ -28,7 +28,7 @@ public interface MemberService {
 
 	String emailCheck(String email);
 
-	void insertin(SellDTO dto);
+	
 
 	void selectpw(MemberDTO dto);
 

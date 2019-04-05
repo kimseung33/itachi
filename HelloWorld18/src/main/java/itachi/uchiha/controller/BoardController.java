@@ -9,11 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-
-
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.domain.SearchCriteria;
+import itachi.uchiha.domain.SellDTO;
 import itachi.uchiha.service.BoardService;
 
 
@@ -23,15 +23,10 @@ public class BoardController {
 
 	@Inject
 	private BoardService service;
-	
-	
 
 
 	@RequestMapping("/main")
-	public String main(Model model, RegistrationDTO dto) {
-		
-		
-		
+	public String main(Model model, RegistrationDTO dto) {		
 		return "/itachi/main";
 	}
 	
@@ -57,8 +52,20 @@ public class BoardController {
 		System.out.println("RegistrationDTO컨트롤러:::::::::::::::::::::");
 		System.out.println("멤버컨트롤러 dtp2 전" + dto2 + ":::::::::::::::::::::::::::::::::::::::");
 		service.registration(dto2);
+		
 		System.out.println("멤버컨트롤러 dtp2 후" + dto2 + ":::::::::::::::::::::::::::::::::::::::");
 		return "itachi/main";
+	}
+	
+	@RequestMapping("/sellin")
+	public String sellIn() {
+		return "/sell/sellin";
+	}
+
+	@RequestMapping(value = "/sellin", method = RequestMethod.POST)
+	public String sellIn(SellDTO dto) {
+		service.insertin(dto);
+		return "/";
 	}
 	
 }
