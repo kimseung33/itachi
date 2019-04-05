@@ -10,8 +10,7 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-
+import itachi.uchiha.domain.MemberDTO;
 import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.domain.SearchCriteria;
 import itachi.uchiha.service.BoardService;
@@ -46,8 +45,12 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/Registration")
-	public String Registration() {
+	public String Registration(Model model, String id) {
 		System.out.println("글좀쓰자이놈아");
+		System.out.println(id);
+		
+		MemberDTO dto = service.wtriteui(id);
+		model.addAttribute("write", dto);
 		
 		return "/itachi/Registration";
 	}

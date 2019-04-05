@@ -71,7 +71,7 @@
                          		<%
                            		if(session1!=null){
                            		%>
-                           		<li><a href="/board/Registration">글쓰기</a></li>
+                           		<li><a href="/board/Registration?id=${login.mb_Id}">글쓰기</a></li>
                            		<%	
                            		}
                            		%>
@@ -93,7 +93,7 @@
         <!-- 검색창 -->
           <div class="row">
 
-        <form action="/board/search">
+        <form action="/board/search" method="get">
 			
 			<!--
 			<div class="col-xs-3 col-sm-2">
@@ -108,7 +108,7 @@
 			<input type="hidden" name="searchType" id="searchType" value="title">	
 				
 			<div class="input-group col-xs-9 col-sm-10">
-			<input class="form-control" id="keyword" name="keyword"> 
+			<input class="form-control" id="keyword" name="keyword" type="text"> 
 			<span class="input-group-btn">
 				<button class="btn btn-success">검색</button>
 			</span>

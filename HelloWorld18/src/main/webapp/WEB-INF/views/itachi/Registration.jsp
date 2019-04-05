@@ -33,16 +33,19 @@
 								<input type="radio" name="category" value="appliances">가전제품
 								<input type="radio" name="category" value="bookorticket">도서/티켓
 							</div>
-							<label for="title">제목을 정해주세여</label>
-							<input type="text" id="title" name="title" class="form-control" placeholder="title" required autofocus>
+							<label for="mb_Id">ID</label>
+							<input type="text" id="mb_Id" name="mb_Id" class="form-control" value="${write.mb_Id}" readonly="readonly">
 							
-							<label for="setence">내용을 작성해주세여 </label>
-							<input type="text" id="setence" name="setence" class="form-control" placeholder="setence" required autofocus>
+							<label for="title">제목</label>
+							<input type="text" id="title" name="title" class="form-control" placeholder="제목" required autofocus>
+							
+							<label for="setence">내용</label>
+							<input type="text" id="setence" name="setence" class="form-control" placeholder="내용" required autofocus>
 							
 							<!-- <label for="endDate">경매기간을 입력해주세여</label>
 							<input type="text" id="endDate" name="endDate" class="form-control" placeholder="endDate" required autofocus>
 							 -->
-							<label for="deadline">경매기간을 입력해주세여</label>
+							<label for="deadline">경매기간</label>
 							<select name="deadline" class="form-control">
 								<option value="1">24시간</option>
 								<option value="2">48시간</option>
@@ -51,11 +54,11 @@
 								<option value="5">120시간</option>
 							</select>
 							
-							<label for="startMoney">경매시작액을 정해주세여</label>
-							<input type="text" id="startMoney" name="startMoney" class="form-control" placeholder="startMoney" required autofocus>
+							<label for="startMoney">경매시작액</label>
+							<input type="text" id="startMoney" name="startMoney" class="form-control" placeholder="경매시작액" required autofocus>
 							
-							<label for="directMoney">즉구가를 정해주세여</label>
-							<input type="text" id="directMoney" name="directMoney" class="form-control" placeholder="directMoney" required autofocus>
+							<label for="directMoney">즉구가</label>
+							<input type="text" id="directMoney" name="directMoney" class="form-control" placeholder="즉구가" required autofocus>
 							
 							
 							<button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase">물품등록</button>

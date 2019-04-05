@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import itachi.uchiha.dao.BoardDAO;
-
-
-
+import itachi.uchiha.domain.MemberDTO;
 import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.domain.SearchCriteria;
 
@@ -34,6 +32,12 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void registration(RegistrationDTO dto2) {
 		dao.registration(dto2);
+	}
+
+	@Override
+	public MemberDTO wtriteui(String id) {
+		// TODO Auto-generated method stub
+		return dao.writeui(id);
 	}
 	
 	

@@ -28,6 +28,7 @@
 
 					<tr>
 						<th>파일이름</th>
+						<th>작성자</th>						
 						<th>제목</th>
 					</tr>
 
@@ -36,6 +37,7 @@
 					<c:forEach var="src" items="${list}">
 						<tr>
 							<td>|${src.fileOriginame}|파일이름</td>
+							<td>|${src.mb_Id}|작성자</td>
 							<td>|${src.title}|제목</td>
 						</tr>
 					</c:forEach>
