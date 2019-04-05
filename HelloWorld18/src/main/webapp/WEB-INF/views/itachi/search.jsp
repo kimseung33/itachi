@@ -34,13 +34,22 @@
 
 				</thead>
 				<tbody>
+					<c:if test="${not empty list}">
 					<c:forEach var="src" items="${list}">
 						<tr>
 							<td>|${src.fileOriginame}|파일이름</td>
 							<td>|${src.mb_Id}|작성자</td>
 							<td>|${src.title}|제목</td>
 						</tr>
+						
 					</c:forEach>
+					</c:if>
+					
+					<c:if test="${empty list}">
+						<tr>
+							<td>검색한 결과가 없습니다</td>						
+						</tr>
+					</c:if>
 
 				</tbody>
 			
