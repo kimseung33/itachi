@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import itachi.uchiha.dao.BoardDAO;
-<<<<<<< HEAD
+
 import itachi.uchiha.dao.MemberDAO;
-=======
+
 import itachi.uchiha.domain.MemberDTO;
->>>>>>> branch 'master' of https://github.com/kimseung33/itachi.git
+
 import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.domain.SearchCriteria;
 import itachi.uchiha.domain.SellDTO;
@@ -24,7 +24,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Autowired
 	private BoardDAO dao;
-	
+
 	@Inject
 	private MemberDAO mdao;
 
@@ -32,12 +32,12 @@ public class BoardServiceImpl implements BoardService {
 	public int getSearchtAmount(SearchCriteria cri) {
 		return dao.getSearchAmount(cri);
 	}
-	
+
 	@Override
 	public List<RegistrationDTO> search(SearchCriteria cri) {
 		return dao.search(cri);
 	}
-	
+
 	@Override
 	public void registration(RegistrationDTO dto2) {
 		dao.registration(dto2);
@@ -48,14 +48,12 @@ public class BoardServiceImpl implements BoardService {
 	public void insertin(SellDTO dto) {
 		// TODO Auto-generated method stub
 		dao.insertin(dto);
-		
+	}
 
 	public MemberDTO wtriteui(String id) {
 		// TODO Auto-generated method stub
 		return dao.writeui(id);
 
 	}
-	
-	
 
 }

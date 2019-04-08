@@ -71,7 +71,7 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public MemberDTO writeui(String id) {
 		// TODO Auto-generated method stub
-		System.out.println(id+"디에이오임플아이딘마와라");
+		
 		return sqlSession.selectOne(NS+".writeui", id);
 	}
 	

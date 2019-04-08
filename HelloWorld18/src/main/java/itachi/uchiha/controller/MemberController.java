@@ -1,6 +1,5 @@
 package itachi.uchiha.controller;
 
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -29,8 +28,6 @@ public class MemberController {
 
 	@Inject
 	private MemberService service;
-	
-	
 
 	@RequestMapping(value = "/find_idUI")
 	public String find_idUI() {
@@ -75,23 +72,14 @@ public class MemberController {
 	@RequestMapping(value = "/loginpost", method = RequestMethod.POST)
 	public String loginPost(LoginDTO dto, Model model) throws Exception {
 
-		System.out.println(
-				":::::MemberController:::::::loginpost::::::::::::::::::::::" + dto.getMb_Id() + ":" + dto.getMb_Pw());
-
 		MemberDTO memberDTO = service.login(dto);
 		if (memberDTO == null) {
 			System.out.println("비밀번호틀림");
 			return "member/memberalert";
 		} else {
-
 		}
-
 		model.addAttribute("memberDTO", dto);
-
 		model.addAttribute("login", dto);
-		System.out.println(dto + "로그인포스트컨트롤러");
-		System.out.println("로그인포스트컨트롤러id가져와" + dto.getMb_Id());
-
 		return "/itachi/main";
 
 	}

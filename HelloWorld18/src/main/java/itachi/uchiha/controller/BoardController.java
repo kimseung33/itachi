@@ -42,7 +42,6 @@ public class BoardController {
 
 	@RequestMapping("/Registration")
 	public String Registration(Model model, String id) {
-		System.out.println("글좀쓰자이놈아");
 		System.out.println(id);
 
 		MemberDTO dto = service.wtriteui(id);
@@ -53,11 +52,7 @@ public class BoardController {
 
 	@RequestMapping("/registrationC")
 	public String registration(RegistrationDTO dto2) {
-		System.out.println("RegistrationDTO컨트롤러:::::::::::::::::::::");
-		System.out.println("멤버컨트롤러 dtp2 전" + dto2 + ":::::::::::::::::::::::::::::::::::::::");
 		service.registration(dto2);
-
-		System.out.println("멤버컨트롤러 dtp2 후" + dto2 + ":::::::::::::::::::::::::::::::::::::::");
 		return "itachi/main";
 	}
 
