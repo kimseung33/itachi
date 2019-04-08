@@ -84,10 +84,6 @@ public class MemberServiceImpl implements MemberService {
 		return dao.emailCheck(email);
 	}
 
-	@Override
-	public void insertin(SellDTO dto) {
-		// TODO Auto-generated method stub
-		dao.insertin(dto);
-	}
+	
 
 }

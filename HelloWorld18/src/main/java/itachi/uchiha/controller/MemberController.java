@@ -143,14 +143,4 @@ public class MemberController {
 		return "redirect:/member/login";
 	}
 
-	@RequestMapping("/sellin")
-	public String sellIn() {
-		return "/sell/sellin";
-	}
-
-	@RequestMapping(value = "/sellin", method = RequestMethod.POST)
-	public String sellIn(SellDTO dto) {
-		service.insertin(dto);
-		return "/";
-	}
 }

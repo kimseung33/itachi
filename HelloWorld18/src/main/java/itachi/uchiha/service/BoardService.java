@@ -5,10 +5,12 @@ import java.util.List;
 import itachi.uchiha.domain.MemberDTO;
 import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.domain.SearchCriteria;
+import itachi.uchiha.domain.SellDTO;
 
 public interface BoardService {
 
 	List<String> getAttach(String productNumber);
+	void insertin(SellDTO dto);
 	
 	List<RegistrationDTO> search(SearchCriteria cri);
 	

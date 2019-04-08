@@ -5,6 +5,7 @@ import java.util.List;
 import itachi.uchiha.domain.MemberDTO;
 import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.domain.SearchCriteria;
+import itachi.uchiha.domain.SellDTO;
 
 public interface BoardDAO {
 	
@@ -13,6 +14,9 @@ public interface BoardDAO {
 	int getSearchAmount(SearchCriteria cri);
 	
 	void registration(RegistrationDTO dto2);
+
+
+	void insertin(SellDTO dto);
 
 	MemberDTO writeui(String id);
 	
