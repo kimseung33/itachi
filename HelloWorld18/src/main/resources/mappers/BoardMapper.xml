@@ -6,6 +6,26 @@
 
 <mapper namespace="itachi.uchiha.mapper.board">
 	
+	<select id="getAttach" resultType="String">
+	select fullName from
+	itachi_attach where at_productNumber=#{at_productNumber}
+	</select>
+
+	<select id="getAt_id" resultType="Integer">
+		select max(at_id) from itachi_attach
+	</select>
+
+	<insert id="addAttach">
+		insert into itachi_attach
+		(at_id,fullName,productNumber)
+		values
+		(#{at_id},#{fullName},#{productNumber})
+	</insert>
+
+	<select id="createBno" resultType="String">
+		select max(at_productNumber) from itachi_attach
+	</select>
+	
 	<select id="writeui" resultType="MemberDTO">
 		select * from itachi_mb where mb_Id=#{mb_Id}	
 	</select>

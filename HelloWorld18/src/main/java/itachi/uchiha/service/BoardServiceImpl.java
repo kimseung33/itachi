@@ -18,7 +18,13 @@ public class BoardServiceImpl implements BoardService {
 
 	@Autowired
 	private BoardDAO dao;
-
+	
+	@Override
+	public List<String> getAttach(String productNumber) {
+		return dao.getAttach(productNumber);
+	}
+	
+	
 	@Override
 	public int getSearchtAmount(SearchCriteria cri) {
 		return dao.getSearchAmount(cri);
@@ -32,6 +38,13 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void registration(RegistrationDTO dto2) {
 		dao.registration(dto2);
+		String[] arr =dto2.getFiles();
+		if(arr==null) {
+			return;
+		}
+		for(int i=0;i<arr.length;i++) {
+		dao.addAttach(arr[i], dto2.getProductNumber());
+		}
 	}
 
 	@Override

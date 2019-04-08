@@ -8,7 +8,7 @@ import itachi.uchiha.domain.SearchCriteria;
 
 public interface BoardService {
 
-	
+	List<String> getAttach(String productNumber);
 	
 	List<RegistrationDTO> search(SearchCriteria cri);
 	
