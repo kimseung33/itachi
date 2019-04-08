@@ -27,7 +27,7 @@ public class BoardServiceImpl implements BoardService {
 		return dao.getAttach(productNumber);
 	}
 	
-	
+
 	@Inject
 	private MemberDAO mdao;
 
@@ -53,12 +53,13 @@ public class BoardServiceImpl implements BoardService {
 		}
 	}
 
+
 	@Override
 	public void insertin(SellDTO dto) {
 		// TODO Auto-generated method stub
 		dao.insertin(dto);
+		
 	}
-
 	public MemberDTO wtriteui(String id) {
 		// TODO Auto-generated method stub
 		return dao.writeui(id);
