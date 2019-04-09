@@ -9,11 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import itachi.uchiha.dao.BoardDAO;
-
 import itachi.uchiha.dao.MemberDAO;
-
 import itachi.uchiha.domain.MemberDTO;
-
 import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.domain.SearchCriteria;
 import itachi.uchiha.domain.SellDTO;
@@ -24,9 +21,15 @@ public class BoardServiceImpl implements BoardService {
 
 	@Autowired
 	private BoardDAO dao;
-
+	
 	@Inject
 	private MemberDAO mdao;
+
+	
+	@Override
+	public List<String> getAttach(String productNumber) {
+		return dao.getAttach(productNumber);
+	}		
 
 	@Override
 	public int getSearchtAmount(SearchCriteria cri) {
@@ -41,19 +44,25 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void registration(RegistrationDTO dto2) {
 		dao.registration(dto2);
+		String[] arr =dto2.getFiles();
+		if(arr==null) {
+			return;
+		}
+		for(int i=0;i<arr.length;i++) {
+		dao.addAttach(arr[i], dto2.getProductNumber());
+		}
 	}
 
 	@Override
-
 	public void insertin(SellDTO dto) {
 		// TODO Auto-generated method stub
 		dao.insertin(dto);
-	}
+
+	}		
 
 	public MemberDTO wtriteui(String id) {
 		// TODO Auto-generated method stub
 		return dao.writeui(id);
-
 	}
 
 }

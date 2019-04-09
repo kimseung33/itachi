@@ -1,6 +1,7 @@
 package itachi.uchiha.domain;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class RegistrationDTO implements Serializable{
 	
@@ -13,22 +14,24 @@ public class RegistrationDTO implements Serializable{
 	private String writedate;	//default로 sysdate가 넘어오기 위해서 추가
 	private int startMoney;		//경매시작가	not null
 	private int directMoney;	//즉시구입가	not null
-	private String fileOriginame;	//파일명1
-	private String fileOriginame2;	//파일명2
 	private String title;	//제목	not null
 	private String setence;	//내용	not null
 	private String category; //항목
 	private int nowMoney;
-	
+	private String[] files;
+
 	public RegistrationDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
 	
 
+	
+	
+
 	public RegistrationDTO(String mb_Id, String productNumber, String endDate, int deadline, String writedate,
-			int startMoney, int directMoney, String fileOriginame, String fileOriginame2, String title, String setence,
-			String category, int nowMoney) {
+			int startMoney, int directMoney, String title, String setence, String category, int nowMoney,
+			String[] files) {
 		super();
 		this.mb_Id = mb_Id;
 		this.productNumber = productNumber;
@@ -37,15 +40,17 @@ public class RegistrationDTO implements Serializable{
 		this.writedate = writedate;
 		this.startMoney = startMoney;
 		this.directMoney = directMoney;
-		this.fileOriginame = fileOriginame;
-		this.fileOriginame2 = fileOriginame2;
 		this.title = title;
 		this.setence = setence;
 		this.category = category;
 		this.nowMoney = nowMoney;
+		this.files = files;
 	}
 
-	
+
+
+
+
 
 	public String getMb_Id() {
 		return mb_Id;
@@ -107,21 +112,25 @@ public class RegistrationDTO implements Serializable{
 		this.directMoney = directMoney;
 	}
 
-	public String getFileOriginame() {
-		return fileOriginame;
+	
+
+	public String[] getFiles() {
+		return files;
 	}
 
-	public void setFileOriginame(String fileOriginame) {
-		this.fileOriginame = fileOriginame;
+
+
+
+
+
+	public void setFiles(String[] files) {
+		this.files = files;
 	}
 
-	public String getFileOriginame2() {
-		return fileOriginame2;
-	}
 
-	public void setFileOriginame2(String fileOriginame2) {
-		this.fileOriginame2 = fileOriginame2;
-	}
+
+
+
 
 	public String getTitle() {
 		return title;
@@ -186,15 +195,20 @@ public class RegistrationDTO implements Serializable{
 
 
 
+
+
+
 	@Override
 	public String toString() {
 		return "RegistrationDTO [mb_Id=" + mb_Id + ", productNumber=" + productNumber + ", endDate=" + endDate
 				+ ", deadline=" + deadline + ", writedate=" + writedate + ", startMoney=" + startMoney
-				+ ", directMoney=" + directMoney + ", fileOriginame=" + fileOriginame + ", fileOriginame2="
-				+ fileOriginame2 + ", title=" + title + ", setence=" + setence + ", category=" + category
-				+ ", nowMoney=" + nowMoney + "]";
+				+ ", directMoney=" + directMoney + ", title=" + title + ", setence=" + setence + ", category="
+				+ category + ", nowMoney=" + nowMoney + ", files=" + Arrays.toString(files) + "]";
 	}
 
+
+
+	
 	
 
 }

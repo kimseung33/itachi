@@ -1,7 +1,9 @@
 package itachi.uchiha.dao;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -18,11 +20,41 @@ import kr.co.function.CheckNumberGenerator2;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
-
+	
+	
 	@Inject
 	private SqlSession sqlSession;
 	
 	private String NS="itachi.uchiha.mapper.board";
+	
+	
+	@Override
+	public void addAttach(String fullName, String productNumber) {
+		int id=getAt_id();
+		Map<String , Object> map=new HashMap<String, Object>();
+		map.put("at_id", id);
+		map.put("fullName",fullName);
+		map.put("productNumber", productNumber);
+		sqlSession.insert(NS+".addAttach", map);
+		
+	}
+	
+	private int getAt_id() {
+		Integer at_id= sqlSession.selectOne(NS+".getAt_id");
+		if(at_id==null) {
+			at_id=0;
+		}
+		return ++at_id;
+	}
+
+
+
+	@Override
+	public List<String> getAttach(String productNumber) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(NS+".getAttach",productNumber);
+	}
+	
 	
 	@Override
 	public void registration(RegistrationDTO dto2) {

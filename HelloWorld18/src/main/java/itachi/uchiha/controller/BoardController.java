@@ -50,7 +50,7 @@ public class BoardController {
 		return "/itachi/Registration";
 	}
 
-	@RequestMapping("/registrationC")
+	@RequestMapping(value="/registrationC",method=RequestMethod.POST)
 	public String registration(RegistrationDTO dto2) {
 		service.registration(dto2);
 		return "itachi/main";
@@ -62,8 +62,11 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/sellin", method = RequestMethod.POST)
-	public String sellIn(SellDTO dto) {
+	public String sellIn(SellDTO dto,Model model) {
 		service.insertin(dto);
+		RegistrationDTO rdto =new RegistrationDTO();
+		System.out.println(rdto);
+		model.addAttribute("list",rdto);
 		return "/";
 	}
 
