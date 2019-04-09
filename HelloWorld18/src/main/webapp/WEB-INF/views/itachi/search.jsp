@@ -27,9 +27,10 @@
 				<thead>
 
 					<tr>
-						<th>파일이름</th>
 						<th>작성자</th>						
 						<th>제목</th>
+						<th>이미지파일</th>
+						
 					</tr>
 
 				</thead>
@@ -37,11 +38,12 @@
 					<c:if test="${not empty list}">
 					<c:forEach var="src" items="${list}">
 						<tr>
-							<td>|${src.fileOriginame}|파일이름</td>
-							<td>|${src.mb_Id}|작성자</td>
-							<td>|${src.title}|제목</td>
-						</tr>
-						
+
+							<td>파일이름</td>							
+							<td>${src.mb_Id}</td>
+							<td>${src.title}</td>
+							<td><img src="/displayfile?fileName=${src.files[0]}"> </td>
+						</tr>						
 					</c:forEach>
 					</c:if>
 					

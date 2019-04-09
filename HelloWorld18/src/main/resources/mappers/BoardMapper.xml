@@ -10,6 +10,10 @@
 		select count(*) from sell_mb where sellNumber=#{productNumber}
 	</select>
 	
+	<select id="mainView" resultType="RegistrationDTO">
+		select * from sasuke_mb 
+	</select>
+	
 	<select id="getAttach" resultType="String">
 	select fullName from
 	itachi_attach where productNumber=#{productNumber}
@@ -27,7 +31,7 @@
 	</insert>
 
 	<select id="createBno" resultType="String">
-		select max(at_productNumber) from itachi_attach
+		select max(productNumber) from itachi_attach
 	</select>
 	
 	<select id="writeui" resultType="MemberDTO">

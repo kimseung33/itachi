@@ -27,7 +27,9 @@ public class BoardController {
 	private BoardService service;
 
 	@RequestMapping("/main")
-	public String main(Model model, RegistrationDTO dto) {
+	public String main(Model model) {
+		List<RegistrationDTO> dto = service.mainView();
+		model.addAttribute("view", dto);
 		return "/itachi/main";
 	}
 
@@ -43,7 +45,6 @@ public class BoardController {
 
 	@RequestMapping("/Registration")
 	public String Registration(Model model, String id) {
-		System.out.println("글좀쓰자이놈아");
 		System.out.println(id);
 
 		MemberDTO dto = service.wtriteui(id);
@@ -52,13 +53,10 @@ public class BoardController {
 		return "/itachi/Registration";
 	}
 
-	@RequestMapping("/registrationC")
-	public String registration(RegistrationDTO dto2) {
-		System.out.println("RegistrationDTO컨트롤러:::::::::::::::::::::");
-		System.out.println("멤버컨트롤러 dtp2 전" + dto2 + ":::::::::::::::::::::::::::::::::::::::");
-		service.registration(dto2);
 
-		System.out.println("멤버컨트롤러 dtp2 후" + dto2 + ":::::::::::::::::::::::::::::::::::::::");
+	@RequestMapping(value="/registrationC", method=RequestMethod.POST)
+	public String registration(RegistrationDTO dto2) {
+		service.registration(dto2);
 		return "itachi/main";
 	}
 
@@ -68,8 +66,11 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/sellin", method = RequestMethod.POST)
-	public String sellIn(SellDTO dto) {
+	public String sellIn(SellDTO dto,Model model) {
 		service.insertin(dto);
+		RegistrationDTO rdto =new RegistrationDTO();
+		System.out.println(rdto);
+		model.addAttribute("list",rdto);
 		return "/";
 	}
 	
