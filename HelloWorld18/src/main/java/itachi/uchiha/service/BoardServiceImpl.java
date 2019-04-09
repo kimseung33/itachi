@@ -75,9 +75,13 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
+
 	public List<RegistrationDTO> mainView() {
-		// TODO Auto-generated method stub
 		return dao.mainView();
+	}
+		
+	public RegistrationDTO view(String productNumber) {
+		return dao.view(productNumber);
 	}
 	
 	

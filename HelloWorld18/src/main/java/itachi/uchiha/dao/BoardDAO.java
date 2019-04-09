@@ -27,4 +27,7 @@ public interface BoardDAO {
 	List<RegistrationDTO> mainView();
 
 	
+
+	RegistrationDTO view(String productNumber);
+
 }
