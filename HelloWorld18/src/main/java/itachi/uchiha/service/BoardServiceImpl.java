@@ -22,15 +22,15 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardDAO dao;
 	
+
 	@Inject
 	private MemberDAO mdao;
-
 	
 	@Override
 	public List<String> getAttach(String productNumber) {
 		return dao.getAttach(productNumber);
 	}		
-
+	
 	@Override
 	public int getSearchtAmount(SearchCriteria cri) {
 		return dao.getSearchAmount(cri);
@@ -38,7 +38,14 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<RegistrationDTO> search(SearchCriteria cri) {
-		return dao.search(cri);
+		List<RegistrationDTO> list = dao.search(cri);
+		
+		for (RegistrationDTO dto : list) {
+		List<String> fileList = dao.getAttach(dto.getProductNumber());
+		String[] files = fileList.toArray(new String[fileList.size()]);
+		dto.setFiles(files);
+		}
+		return list;
 	}
 
 	@Override
@@ -65,4 +72,12 @@ public class BoardServiceImpl implements BoardService {
 		return dao.writeui(id);
 	}
 
+	@Override
+	public List<RegistrationDTO> mainView() {
+		return dao.mainView();
+	}
+		
+	public RegistrationDTO view(String productNumber) {
+		return dao.view(productNumber);
+	}
 }

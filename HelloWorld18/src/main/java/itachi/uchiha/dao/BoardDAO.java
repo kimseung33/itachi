@@ -23,5 +23,11 @@ public interface BoardDAO {
 	void addAttach(String fullName,String productNumber);
 	
 	List<String> getAttach(String productNumber);
+	
+	List<RegistrationDTO> mainView();
+
+	
+
+	RegistrationDTO view(String productNumber);
 
 }

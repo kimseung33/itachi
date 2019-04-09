@@ -113,5 +113,14 @@ public class BoardDAOImpl implements BoardDAO {
 
 	}
 
+	@Override
+	public List<RegistrationDTO> mainView() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(NS+".mainView");
+	}
+	public RegistrationDTO view(String productNumber) {
+		return sqlSession.selectOne(NS + ".select_view", productNumber);
+	}
+
 	
 }

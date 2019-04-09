@@ -140,6 +140,7 @@
 
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script type="text/javascript">
+	
 		function execDaumPostcode() {
 			new daum.Postcode({ oncomplete : function(data) {
 					// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -192,7 +193,92 @@
 		}
 		$(document).ready(function() {
 			$("#in").click(function() {
-				$("form").submit();
+				    
+				    var mb_Id = $("#mb_Id").val();
+				    var mb_Pw = $("#mb_Pw").val();
+				    var mb_Pw_ok = $("#mb_Pw_ok").val();
+				    var mb_Name = $("#mb_Name").val();
+				    var mb_Birth = $("#mb_Birth").val();
+				    var mb_Zip = $("#mb_Zip").val();
+				    var mb_Addr1 = $("#mb_Addr1").val();
+				    var mb_Addr2 = $("#mb_Addr2").val();
+				    var mb_Addr3 = $("#mb_Addr3").val();
+				    var mb_Hp = $("#mb_Hp").val();
+				    var mb_Email = $("#mb_Email").val();
+				    var mb_Bank = $("#mb_Bank").val();
+				    var mb_Account = $("#mb_Account").val();
+				    
+				    if(mb_Id.length == 0){
+				        alert("아이디를 입력해 주세요"); 
+				        $("#mb_Id").focus();
+				        return false;
+				    }
+				    
+				    if(mb_Pw.length == 0){
+				        alert("비밀번호를 입력해 주세요"); 
+				        $("#mb_Pw").focus();
+				        return false;
+				    }
+				 
+				    if(mb_Pw != mb_Pw_ok){
+				        alert("비밀번호가 서로 다릅니다. 비밀번호를 확인해 주세요."); 
+				        $("#mb_Pw_ok").focus();
+				        return false; 
+				    }
+				 
+				    if(mb_Name.length == 0){
+				        alert("이름을 입력해주세요");
+				        $("#mb_Name").focus();
+				        return false;
+				    }
+				    
+				    if(mb_Zip.length == 0){
+				        alert("우편번호를 입력해주세요");
+				        $("#mb_Zip").focus();
+				        return false;
+				    }
+
+				    
+				    
+				    if(mb_Addr1.length == 0 || mb_Addr2.length == 0 || mb_Addr3.length == 0 ){
+				        alert("주소를 입력해주세요");
+				        $("#mb_Addr3").focus();
+				        return false;
+				    }
+				    
+				    if(mb_Hp.length == 0){
+				        alert("핸드폰번호를 입력해주세요");
+				        $("#mb_Hp").focus();
+				        return false;
+				    }
+				    
+				    if(mb_Email.length == 0){
+				        alert("이메일을 입력해주세요");
+				        $("#mb_Email").focus();
+				        return false;
+				    }
+				    
+				    if(mb_Bank.length == 0){
+				        alert("은행을 선택해주세요");
+				        $("#mb_Bank").focus();
+				        return false;
+				    }
+				    
+				    if(mb_Account.length == 0){
+				        alert("계좌번호를 입력해주세요");
+				        $("#mb_Account").focus();
+				        return false;
+				    }
+				    
+				    if(confirm("회원가입을 하시겠습니까?")){
+				        alert("회원가입을 축하합니다");
+				        return true;
+				    }
+				    
+					$("form").submit();
+
+				    
+				
 			});
 			
 			//선택자
