@@ -6,9 +6,13 @@
 
 <mapper namespace="itachi.uchiha.mapper.board">
 	
+	<select id="mainView" resultType="RegistrationDTO">
+		select * from sasuke_mb <!--order by desc sellId-->
+	</select>
+	
 	<select id="getAttach" resultType="String">
 	select fullName from
-	itachi_attach where at_productNumber=#{at_productNumber}
+	itachi_attach where productNumber=#{productNumber}
 	</select>
 
 	<select id="getAt_id" resultType="Integer">
@@ -23,7 +27,7 @@
 	</insert>
 
 	<select id="createBno" resultType="String">
-		select max(at_productNumber) from itachi_attach
+		select max(productNumber) from itachi_attach
 	</select>
 	
 	<select id="writeui" resultType="MemberDTO">

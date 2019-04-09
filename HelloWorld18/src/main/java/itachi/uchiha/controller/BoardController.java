@@ -26,7 +26,9 @@ public class BoardController {
 	private BoardService service;
 
 	@RequestMapping("/main")
-	public String main(Model model, RegistrationDTO dto) {
+	public String main(Model model) {
+		List<RegistrationDTO> dto = service.mainView();
+		model.addAttribute("view", dto);
 		return "/itachi/main";
 	}
 
@@ -51,7 +53,7 @@ public class BoardController {
 		return "/itachi/Registration";
 	}
 
-	@RequestMapping("/registrationC")
+	@RequestMapping(value="/registrationC", method=RequestMethod.POST)
 	public String registration(RegistrationDTO dto2) {
 		System.out.println("RegistrationDTO컨트롤러:::::::::::::::::::::");
 		System.out.println("멤버컨트롤러 dtp2 전" + dto2 + ":::::::::::::::::::::::::::::::::::::::");
