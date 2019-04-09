@@ -16,7 +16,6 @@
 <title>경매 입찰</title>
 </head>
 <body>
-${list }
 	<div class="container">
 		<div class="row">
 			<form action="sellin" method="post">
@@ -46,7 +45,7 @@ ${list }
 						<thead>
 							<tr>
 								<th>현재가</th>
-								<th>입찰 급액</th>								
+								<th>입찰 금액</th>								
 							</tr>
 
 						</thead>

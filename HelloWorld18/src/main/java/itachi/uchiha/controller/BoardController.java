@@ -61,7 +61,11 @@ public class BoardController {
 	}
 
 	@RequestMapping("/sellin")
-	public String sellIn() {
+	public String sellIn(String productNumber, Model model) {
+		//경매물품에 대한 정보
+		RegistrationDTO dto = service.view(productNumber);
+		model.addAttribute("list", dto);
+		
 		return "/sell/sellin";
 	}
 
