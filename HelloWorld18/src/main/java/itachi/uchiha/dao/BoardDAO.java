@@ -24,4 +24,6 @@ public interface BoardDAO {
 	
 	List<String> getAttach(String productNumber);
 
+	RegistrationDTO view(String productNumber);
+
 }

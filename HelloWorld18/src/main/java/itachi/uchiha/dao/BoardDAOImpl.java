@@ -113,5 +113,10 @@ public class BoardDAOImpl implements BoardDAO {
 
 	}
 
+	@Override
+	public RegistrationDTO view(String productNumber) {
+		return sqlSession.selectOne(NS + ".select_view", productNumber);
+	}
+
 	
 }

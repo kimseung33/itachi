@@ -71,5 +71,14 @@ public class BoardController {
 		service.insertin(dto);
 		return "/";
 	}
+	
+	@RequestMapping(value="/view", method=RequestMethod.GET)
+	public String view_page(String productNumber, Model model) {
+		
+		RegistrationDTO dto = service.view(productNumber);
+		model.addAttribute("view", dto);
+		
+		return "/itachi/view";
+	}
 
 }

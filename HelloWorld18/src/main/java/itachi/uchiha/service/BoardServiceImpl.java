@@ -65,6 +65,11 @@ public class BoardServiceImpl implements BoardService {
 		return dao.writeui(id);
 
 	}
+
+	@Override
+	public RegistrationDTO view(String productNumber) {
+		return dao.view(productNumber);
+	}
 	
 	
 

@@ -137,7 +137,10 @@
 	<update id="umoney">	
 		update sasuke_mb set nowMoney=#{nowMoney} where productNumber=#{productNumber}
 	</update>
-		
+	
+	<select resultType="itachi.uchiha.domain.RegistrationDTO" id="select_view"> 
+		select * from sasuke_mb where productNumber = #{productNumber} 
+	</select>
 
 
 </mapper>
