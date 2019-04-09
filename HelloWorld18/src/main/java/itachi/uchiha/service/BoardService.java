@@ -10,6 +10,7 @@ import itachi.uchiha.domain.SellDTO;
 public interface BoardService {
 
 	List<String> getAttach(String productNumber);
+	
 	void insertin(SellDTO dto);
 	
 	List<RegistrationDTO> search(SearchCriteria cri);
@@ -21,5 +22,7 @@ public interface BoardService {
 	MemberDTO wtriteui(String id);
 	
 	RegistrationDTO view(String productNumber);
+
+	int sellCount(String productNumber);
 
 }

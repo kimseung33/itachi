@@ -26,4 +26,6 @@ public interface BoardDAO {
 
 	RegistrationDTO view(String productNumber);
 
+	int sellCount(String productNumber);
+
 }

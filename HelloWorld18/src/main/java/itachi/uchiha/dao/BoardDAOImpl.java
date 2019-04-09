@@ -118,5 +118,14 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectOne(NS + ".select_view", productNumber);
 	}
 
+	@Override
+	public int sellCount(String productNumber) {
+		Integer sellcount= sqlSession.selectOne(NS + ".sellCount", productNumber);
+		if(sellcount==null) {
+			sellcount=0;
+		}
+		return sellcount;
+	}
+
 	
 }

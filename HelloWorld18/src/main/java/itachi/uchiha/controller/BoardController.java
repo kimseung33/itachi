@@ -6,10 +6,11 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import itachi.uchiha.domain.MemberDTO;
 
@@ -75,10 +76,22 @@ public class BoardController {
 	@RequestMapping(value="/view", method=RequestMethod.GET)
 	public String view_page(String productNumber, Model model) {
 		
+		//경매물품에 대한 정보
 		RegistrationDTO dto = service.view(productNumber);
 		model.addAttribute("view", dto);
 		
+		//입찰 수 구하기
+		int sellcount = service.sellCount(productNumber);
+				
+		model.addAttribute("sellCount", sellcount);
+		
 		return "/itachi/view";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/getAttach/{productNumber}", method=RequestMethod.GET)
+	public List<String> getAttach(@PathVariable("productNumber") String productNumber){
+		return service.getAttach(productNumber);
 	}
 
 }

@@ -70,6 +70,11 @@ public class BoardServiceImpl implements BoardService {
 	public RegistrationDTO view(String productNumber) {
 		return dao.view(productNumber);
 	}
+
+	@Override
+	public int sellCount(String productNumber) {
+		return dao.sellCount(productNumber);
+	}
 	
 	
 
