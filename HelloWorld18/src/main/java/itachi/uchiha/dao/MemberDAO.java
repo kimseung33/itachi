@@ -20,6 +20,8 @@ public interface MemberDAO {
 
 	String emailCheck(String email);
 
-	
+	void cash(MemberDTO dto);
+
+
 
 }

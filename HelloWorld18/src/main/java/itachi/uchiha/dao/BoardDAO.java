@@ -26,10 +26,12 @@ public interface BoardDAO {
 	
 	List<RegistrationDTO> mainView();
 
-	
-
 	RegistrationDTO view(String productNumber);
 
+
+	List<RegistrationDTO> category(String productNumber);
+
 	int sellCount(String productNumber);
+
 
 }

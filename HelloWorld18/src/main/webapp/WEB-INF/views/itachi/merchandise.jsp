@@ -34,7 +34,7 @@
 		
 						</div>
                             <ul class="menu" id="gnb">
-                                <li><a href="redirect:/board/main" class="active">home</a></li>
+                                <li><a href="/board/main" class="active">home</a></li>
 	                            <li>
 							        <a href="#">Category</a>
 							        <ul>
@@ -78,24 +78,7 @@
                            		<%	
                            		}
                            		%>
-                                 <%
-                           		if(session1!=null){
-                           		%>
-                           		<li><a href="/member/cashui">케시충전</a></li>
-                           		<%	
-                           		}
-                           		%>
-                           		
-                                <%
-                           		if(session1!=null){
-             
-                           		%>
-                           		
-                           		<li>|${memberDTO.mb_Id}|</li>
-                           		
-                           		<%	
-                           		}
-                           		%>
+                                
                                
                             </ul>
                             
@@ -189,13 +172,13 @@
                                     <div id="thumbs" class="navigation">
                                         <ul class="thumbs noscript">
                                         
-											<c:forEach var="view" items="${view}">
+											<c:forEach var="ctgrview" items="${ctgrview}">
 												<li>
-	                                               <img src="/displayfile?fileName=${view.files[0]}"/>
+	                                               <img src="/displayfile?fileName=${ctgrview.files[0]}"/>
 	                                             
-	                                               ${view.title}
-	                                               	즉구가${view.directMoney}
-	                                               ${view.endDate}
+	                                               ${ctgrview.title}
+	                                               	즉구가${ctgrview.directMoney}
+	                                               ${ctgrview.endDate}
 	                                   
 	                                            </li> 
 												 

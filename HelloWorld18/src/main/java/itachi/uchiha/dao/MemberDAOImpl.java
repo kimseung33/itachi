@@ -19,7 +19,12 @@ public class MemberDAOImpl implements MemberDAO {
 	private SqlSession sqlSession;
 
 	private String NS = "itachi.uchiha.mapper.board";	
-
+	
+	@Override
+	public void cash(MemberDTO dto) {
+		sqlSession.update(NS+".cash", dto);
+	}
+	
 	@Override
 	public MemberDTO login(LoginDTO dto) {
 

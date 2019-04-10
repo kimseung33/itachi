@@ -29,6 +29,18 @@ public class MemberController {
 	@Inject
 	private MemberService service;
 
+	/*
+	 * @RequestMapping("cash") public String cash(MemberDTO dto, HttpSession
+	 * session) { LoginDTO login = (LoginDTO) session.getAttribute("login"); String
+	 * id = login.getMb_Id(); dto.setMb_Id(id);
+	 * 
+	 * service.cash(dto);
+	 * 
+	 * return "itachi/main"; }
+	 * 
+	 * @RequestMapping("cashui") public String cashui() { return "member/cash"; }
+	 */
+
 	@RequestMapping(value = "/find_idUI")
 	public String find_idUI() {
 		return "/member/find_idUI";
@@ -78,7 +90,9 @@ public class MemberController {
 			return "member/memberalert";
 		} else {
 		}
-		model.addAttribute("memberDTO", dto);
+		System.out.println(memberDTO);
+		model.addAttribute("memberDTO", memberDTO);
+		System.out.println(memberDTO + "멤버컨트롤러 테스트입니다~~~~~~~");
 		model.addAttribute("login", dto);
 		return "/itachi/main";
 
