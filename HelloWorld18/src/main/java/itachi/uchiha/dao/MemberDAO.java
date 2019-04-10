@@ -1,12 +1,7 @@
 package itachi.uchiha.dao;
 
-import java.util.List;
-
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
-import itachi.uchiha.domain.SellDTO;
-import itachi.uchiha.domain.RegistrationDTO;
-import itachi.uchiha.domain.SearchCriteria;
 
 public interface MemberDAO {
 	MemberDTO login(LoginDTO dto);

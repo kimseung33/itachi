@@ -108,7 +108,7 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public MemberDTO writeui(String id) {
 		// TODO Auto-generated method stub
-		System.out.println(id+"디에이오임플아이딘마와라");
+		
 		return sqlSession.selectOne(NS+".writeui", id);
 	}
 	
@@ -123,8 +123,19 @@ public class BoardDAOImpl implements BoardDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(NS+".mainView");
 	}
+	
+	@Override
 	public RegistrationDTO view(String productNumber) {
 		return sqlSession.selectOne(NS + ".select_view", productNumber);
+	}
+
+	@Override
+	public int sellCount(String productNumber) {
+		Integer sellcount= sqlSession.selectOne(NS + ".sellCount", productNumber);
+		if(sellcount==null) {
+			sellcount=0;
+		}
+		return sellcount;
 	}
 
 	

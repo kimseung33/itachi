@@ -10,8 +10,13 @@
 		select * from sasuke_mb where productNumber like '%'||#{productNumber}||'%'
 	</select>
 	
+	
+	<select id="sellCount" resultType="Integer">
+		select count(*) from sell_mb where sellNumber=#{productNumber}
+	</select>
+	
 	<select id="mainView" resultType="RegistrationDTO">
-		select * from sasuke_mb <!--order by desc sellId-->
+		select * from sasuke_mb 
 	</select>
 	
 	<select id="getAttach" resultType="String">

@@ -68,7 +68,7 @@
 
 							<div class="form-group">
 								<label for="mb_Email">이메일</label> <input class="form-control"
-									name="mb_Email" id="mb_Email" value="${dto.mb_Email}">
+									name="mb_Email" id="mb_Email" value="${dto.mb_Email}" readonly="readonly">
 							</div>
 
 							<div class="form-group">

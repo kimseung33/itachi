@@ -42,13 +42,13 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<String> getAttach(String productNumber) {
 		return dao.getAttach(productNumber);
-	}
+	}		
 	
 	@Override
 	public int getSearchtAmount(SearchCriteria cri) {
 		return dao.getSearchAmount(cri);
 	}
-	
+
 	@Override
 	public List<RegistrationDTO> search(SearchCriteria cri) {
 		List<RegistrationDTO> list = dao.search(cri);
@@ -61,7 +61,7 @@ public class BoardServiceImpl implements BoardService {
 		
 		return list;
 	}
-	
+
 	@Override
 	public void registration(RegistrationDTO dto2) {
 		dao.registration(dto2);
@@ -74,29 +74,32 @@ public class BoardServiceImpl implements BoardService {
 		}
 	}
 
-
 	@Override
 	public void insertin(SellDTO dto) {
 		// TODO Auto-generated method stub
 		dao.insertin(dto);
-		
-	}
+
+	}		
+	
+	@Override
 	public MemberDTO wtriteui(String id) {
 		// TODO Auto-generated method stub
 		return dao.writeui(id);
-
 	}
 
 	@Override
-
 	public List<RegistrationDTO> mainView() {
 		return dao.mainView();
 	}
-		
+	
+	@Override
 	public RegistrationDTO view(String productNumber) {
 		return dao.view(productNumber);
 	}
-	
-	
 
+	@Override
+	public int sellCount(String productNumber) {
+		return dao.sellCount(productNumber);
+	}
+	
 }

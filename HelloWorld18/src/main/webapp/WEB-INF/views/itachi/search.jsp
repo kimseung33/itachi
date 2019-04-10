@@ -38,11 +38,12 @@
 					<c:if test="${not empty list}">
 					<c:forEach var="src" items="${list}">
 						<tr>
+
+							<td>파일이름</td>							
 							<td>${src.mb_Id}</td>
 							<td>${src.title}</td>
 							<td><img src="/displayfile?fileName=${src.files[0]}"> </td>
-						</tr>
-						
+						</tr>						
 					</c:forEach>
 					</c:if>
 					

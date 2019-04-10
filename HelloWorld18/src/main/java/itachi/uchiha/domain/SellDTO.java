@@ -8,10 +8,10 @@ public class SellDTO implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String sellNumber;
-	private String sellId;
-	private String sellDate;
-	private int nowMoney;
+	private String sellNumber;	//입찰하는 경매 물품number(productNumber)
+	private String sellId;		//입찰자 id
+	private String sellDate;	//입찰날
+	private int nowMoney;		//현재금액
 	
 	public SellDTO() {
 		// TODO Auto-generated constructor stub

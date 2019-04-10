@@ -16,7 +16,6 @@
 <title>경매 입찰</title>
 </head>
 <body>
-
 	<div class="container">
 		<div class="row">
 			<form action="sellin" method="post">
@@ -24,7 +23,6 @@
 					<h5>입찰 상품</h5>
 					<table class="table table-hober">
 						<thead>
-
 							<tr>
 								<th>상품명</th>
 								<th>상품 번호</th>
@@ -47,7 +45,7 @@
 						<thead>
 							<tr>
 								<th>현재가</th>
-								<th>입찰 급액</th>								
+								<th>입찰 금액</th>								
 							</tr>
 
 						</thead>

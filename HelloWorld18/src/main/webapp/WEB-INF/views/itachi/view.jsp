@@ -10,11 +10,12 @@
 <link rel="stylesheet" type="text/css" href="//script.auction.co.kr/pc/style/css/common.css ">
 <link rel="stylesheet" type="text/css" href="http://script.auction.co.kr/style/css/frame/vip_all.css">
 <script src="../../resources/js/upload.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js" type="text/javascript"></script>
 </head>
 <body>
-
-
-<pre>${view}</pre>
 
 <div id="locbar" class="crop">
 	<div class="holder">
@@ -40,167 +41,26 @@
 	<div id="body">
 		<!-- CONTENTS -->
 		<div id="contents">
-
-			<iframe id="iframeCart" style="DISPLAY: none" frameborder="0"
-				width="0" height="0" scrolling="no"
-				src="http://buy.auction.co.kr/buy/AutoGoCart.aspx?itemno=B034919150&amp;WeblogYN=N"></iframe>
-			<script type="text/javascript">
-	var frmsearchValue = "";
-
-	var referrerValue = document.referrer;
-	var locationValue = document.location.href;
-
-	try {
-		if (parent != window && parent.location.href.toLowerCase().indexOf("detailview.aspx") > 0) {
-			referrerValue = parent.document.referrer;
-			locationValue = parent.document.location.href;
-		}
-	} catch (ex) { }
-
-
-	if (referrerValue.length > 0
-	&& (referrerValue.toLowerCase().split("/")[2] == "search.auction.co.kr" || referrerValue.toLowerCase().split("/")[2] == "listings.auction.co.kr")
-	&& (locationValue.indexOf("keyword=") > 0 || locationValue.indexOf("acode=") > 0)) {
-		var refValue = referrerValue.toLowerCase().split("?")[1];
-		var locValue = locationValue.toLowerCase().split("?")[1];
-
-		refValue = unescape(refValue);
-		locValue = unescape(locValue);
-
-		var splitRefValue = refValue.split("&");
-		var splitLocValue = locValue.split("&");
-
-		frmsearchValue = "";
-
-		for (var i = 0; i < splitRefValue.length; i++) {
-			if (splitRefValue[i].indexOf("keyword=") != 0) {
-				if (splitRefValue[i].indexOf("=") > 0) {
-					if (frmsearchValue == "") frmsearchValue = splitRefValue[i];
-					else frmsearchValue = frmsearchValue + "^" + splitRefValue[i];
-				}
-				else {
-					if (frmsearchValue == "") frmsearchValue = splitRefValue[i];
-					else frmsearchValue = frmsearchValue + "+" + splitRefValue[i];
-				}
-			}
-		}
-		for (var i = 0; i < splitLocValue.length; i++) {
-			if (splitLocValue[i].indexOf("keyword=") == 0) {
-				frmsearchValue = frmsearchValue + "^" + splitLocValue[i];
-			}
-			else if (splitLocValue[i].indexOf("scoredtype=") == 0) {
-				frmsearchValue = frmsearchValue + "^" + splitLocValue[i];
-			}
-			else if (splitLocValue[i].indexOf("acode=") == 0) {
-				frmsearchValue = frmsearchValue + "^" + splitLocValue[i];
-			}
-		}
-		frmsearchValue = "&frmsearch=" + escape(frmsearchValue);
-	}
-
-	document.getElementById("iframeCart").src = "http://buy.auction.co.kr/buy/AutoGoCart.aspx?itemno=B034919150&WeblogYN=N" + frmsearchValue;
-</script>
-			<form method="post"
-				action="./DetailView.aspx?ItemNo=B034919150&amp;scoredtype=0&amp;frm3=V3"
-				id="frmMain" style="DISPLAY: inline"
-				onsubmit="javascript:return false">
-				<div class="aspNetHidden">
-					<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
-						value="/wEPDwUKLTUxOTEzNzk3MGRk6JiMgfKODkzEoLx9eA+oO8Kh0Kw=">
-				</div>
-
-
-				<script language="javascript">
-	<!--
-		function Patrol() { }
-		Patrol.submit = function (actionUrl) {
-			var form = document.getElementById("frmMain1");
-			if (!form) throw new "No form element exist.";
-			form.action = actionUrl;
-			form.submit();
-		}
-
-		//-->
-	</script>
-
-				<div class="aspNetHidden">
-
-					<input type="hidden" name="__VIEWSTATEGENERATOR"
-						id="__VIEWSTATEGENERATOR" value="8F40308D">
-				</div>
-				<script type="text/javascript">
-	<!--
-		System.loadFile("http://script.auction.co.kr/sell/favoriteitem.js");
-		System.loadFile("http://script.auction.co.kr/sell/favoritestore.js");
-	//-->
-	</script>
-				<script type="text/javascript"
-					src="http://script.auction.co.kr/sell/favoriteitem.js"></script>
-				<div id="_FavoriteItemLayer"
-					style="display: none; position: absolute; z-index: 11000;"></div>
-				<div id="_FavoriteItemGroupManageLayer"
-					style="display: none; position: absolute; z-index: 11000; left: 249px; top: 142px;"></div>
-				<div id="_FavoriteItemClosingAlarmRegistLayer"
-					style="display: none; position: absolute; z-index: 11000;"></div>
-				<input type="hidden" id="hdnData" name="hdnBulkRegistInfo">
-				<input type="hidden" id="hdnCaller" name="hdnCaller">
-				<script type="text/javascript"
-					src="http://script.auction.co.kr/sell/favoritestore.js"></script>
-				<div id="_FavoriteStoreLayer"
-					style="display: none; position: absolute; z-index: 1000;"></div>
-				<div id="_FavoriteStoreGroupManageLayer"
-					style="display: none; position: absolute; z-index: 1000;"></div>
-
-				<input type="hidden" id="imporidx" value=""> <input
-					type="hidden" id="importy" value="">
-
-				<script type="text/javascript">
-<!--
-document.domain = 'auction.co.kr';//-->
-</script>
-			</form>
-
 			<!-- 상품상세정보 & 상품관련정보 -->
 			<div class="mainarea">
 				<!-- 좌측 상품상세정보 -->
 				<div class="info">
-					<!-- 이미지 -->
-
-					<script type="text/javascript">
-<!--
-	if (typeof (System) == "undefined")
-		document.writeln("<script type='text/javascript' src='http://script.auction.co.kr/arche.main.js'></" + "script>");
-//-->
-</script>
-					<script type="text/javascript">
-<!--
-	System.loadFile("http://script.auction.co.kr/itempage/arche.itempage.js");
-	System.loadFile("http://script.auction.co.kr/style/js/common.js");
-//-->
-</script>
-					<input type="hidden" id="htxtShortCutName"
-						value="삼성고사양슬림데스크탑6코어16램SSD_원_20190405"> <input
-						type="hidden" id="htxtTargetImagePath"
-						value="http://image.auction.co.kr/itemimage/18/82/5d/18825df700.jpg">
-					<!-- 이미지 -->
 					<div class="image">
 
 						<!-- 큰 이미지 -->
 						<div class="big01">
-							<div class="biglbtn" style="display: inline">
+							<!-- <div class="biglbtn" style="display: inline">
 								<img id="himgLeftArrow"
 									src="http://pics.auction.co.kr/itempage/bigimg_lbtn.png"
 									class="png24" alt="이전" title="이전"
-									onclick="javascript:ItemImageObject.PrevItemImage('ucImageNavigator_himgBig', 'himgLeftArrow', 'himgRightArrow');"
 									style="cursor: pointer">
 							</div>
 							<div class="bigrbtn" style="display: inline">
 								<img id="himgRightArrow"
 									src="http://pics.auction.co.kr/itempage/bigimg_rbtn.png"
 									class="png24" alt="다음" title="다음"
-									onclick="javascript:ItemImageObject.NextItemImage('ucImageNavigator_himgBig', 'himgLeftArrow', 'himgRightArrow');"
 									style="cursor: pointer">
-							</div>
+							</div> -->
 							<img
 								src="http://image.auction.co.kr/itemimage/18/82/5d/18825df720.jpg"
 								id="ucImageNavigator_himgBig" width="300" height="300"
@@ -217,23 +77,6 @@ document.domain = 'auction.co.kr';//-->
 							frameborder="0" scrolling="no"></iframe>
 					</div>
 					<!-- 바탕화면에 저장 //-->
-
-					<script type="text/javascript" language="javascript">
-	var ItemImageObject = new SummaryItemImage();
-	
-	function InitSummaryItemImage() 
-	{			
-		if (!ItemImageObject.bItemImageLoaded) ItemImageObject.LoadItemImages('http://image.auction.co.kr/itemimage/18/82/5d/18825df700.jpg','http://image.auction.co.kr/itemimage/18/82/5d/18825df720.jpg','http://image.auction.co.kr/itemimage/18/82/5d/18825df740.jpg');			
-		ItemImageObject.InitItemImage('ucImageNavigator_himgBig', 'himgLeftArrow', 'himgRightArrow');			
-	}
-
-	function shortCut_Click()
-	{
-		document.getElementById("frmShortCut").src = "http://itempage3.auction.co.kr/Popup/CreateShortCut.html";
-		openLayer("saveBatangLayer");
-	}
-	
-</script>
 					<!-- 이미지 //-->
 					<div id="hdivBnnerLayer"
 						style="Z-INDEX: 1; position: absolute; left: 585px; top: 48px; width: 122px;"></div>
@@ -254,56 +97,6 @@ document.domain = 'auction.co.kr';//-->
 						<!-- 해외쇼핑 -->
 
 						<!-- 해외쇼핑 // -->
-
-						<script type="text/javascript">
-<!--
-	document.domain = "auction.co.kr";
-
-	if (typeof (System) == "undefined")
-		document.writeln("<script type='text/javascript' src='http://script.auction.co.kr/arche.main.js'></" + "script>");
-//-->
-</script>
-						<script type="text/javascript">
-<!--
-	System.loadFile("http://script.auction.co.kr/style/js/common.js");
-//-->
-</script>
-
-						<script type="text/javascript" language="javascript">
-	function OpenCouponDownload(itemno, category, methodCode, price) {
-		window.open("http://reward.auction.co.kr/Coupon/CouponDownload.aspx?itemno=" + itemno + "&category=" + category + "&method=" + methodCode + "&buyPrice=" + price, 'CouponDownloadPopup', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no, resizable=yes,copyhistory=no ,width=342, height=288, left=200,top=260').focus();
-	}
-
-	function openCalculator() {
-		if (window.OrderRequest && document.getElementById(OrderRequest.RequestClientID) != null && document.getElementsByName("htxtSelectedRequestStock").length == 0) {
-			alert("주문옵션을 선택하시기 바랍니다.");
-			return;
-		}
-
-		var queryString = "itemno=B034919150&MethodCode=4410&AsrtCode=22310101&SellerID=jkgg21&SellPricceControlID=ucSellPrice";
-		var prePayShipping = document.getElementById("hddlPrePaidCost");
-		var itemInfo = document.getElementById("htxtItem");
-
-		if (itemInfo != null) {
-			queryString += "&Price=" + itemInfo.getAttribute("Price");
-		}
-
-		if (prePayShipping != null) {
-			if (prePayShipping.value == "2") {
-				queryString += "&IsPrePaid=N";
-			} else {
-				queryString += "&IsPrePaid=Y";
-			}
-		} else {
-			queryString += "&IsPrePaid=N";
-		}
-
-		if (queryString != "") {
-			var url = "http://itempage.auction.co.kr/Popup/PreCalculator.aspx?" + encodeURI(queryString);
-			window.open(url, 'Coupon', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no ,width=450, height=605, left=100,top=100');
-		}
-	}
-</script>
 						<!-- 미리계산하기 Data -->
 
 						<!-- 미리계산하기 Data -->
@@ -327,8 +120,8 @@ document.domain = 'auction.co.kr';//-->
 						<dl class="nv3">
 							<dt>입찰수</dt>
 							<dd>
-								<span class="fss"><span class="num_thm">27</span>회 </span> 
-								<a href="javascript:checkEnd('/bidlist.aspx?ItemNo=B034919150');">
+								<span class="fss"><span class="num_thm">0</span>회 </span> 
+								<a href="#">
 									<span class="sf01 uline">경매기록</span>
 								</a>
 							</dd>
@@ -342,89 +135,7 @@ document.domain = 'auction.co.kr';//-->
 							</dd>
 
 						</dl>
-
-
-						<script type="text/javascript">
-	function DeliveryGridShippingInfo(val) {
-		var valArray = val.split(",");
-
-		this.ShippingTypeCode = valArray[0];
-		this.IsFree = valArray[1];
-		this.IsPrePayable = valArray[2];
-		this.IsArrival = valArray[3];
-		this.IsBundle = valArray[4];
-		this.HasAddition = valArray[5];
-		this.ShippingPaymentType = valArray[6];
-		this.ShippingFee = valArray[7];
-		this.IsMandatory = valArray[8];
-
-		this.SetDeliveryAttribute = function() {
-			var deliveryElement = document.getElementById("htxtDeliveryAndQty");
-			if (deliveryElement == null)
-				return;
-			deliveryElement.setAttribute("PaymentType", this.ShippingPaymentType);
-			deliveryElement.setAttribute("IsPrePayable", this.IsPrePayable == "1" ? "Y" : "N");
-			deliveryElement.setAttribute("IsBundle", this.IsBundle == "1" ? "Y" : "N");
-			deliveryElement.setAttribute("HasAddition", this.HasAddition == "1" ? "Y" : "N");
-			deliveryElement.setAttribute("Fee", this.ShippingFee);
-		}
-	}
-	
-	function onShippingChange(onload) {
-		var sShippingTypeCtrl = document.getElementById("sShippingType");
-
-		if (sShippingTypeCtrl == null)
-			return;
-
-		var selectedIndex = sShippingTypeCtrl.selectedIndex;
-		for (var i = 0; i < sShippingTypeCtrl.options.length; i++) {
-			var dgsi = new DeliveryGridShippingInfo(sShippingTypeCtrl.options[i].value);
-			if (i == selectedIndex) {
-				dgsi.SetDeliveryAttribute();
-				document.getElementById("st" + dgsi.ShippingTypeCode).style.display = "inline";
-				if (dgsi.IsMandatory == "1")
-					document.getElementById("additionalShippingTypeCode").value = "";
-				else
-					document.getElementById("additionalShippingTypeCode").value = dgsi.ShippingTypeCode;
-					
-				if (document.getElementById("selectPrePaidCost") == null)
-					continue;
-
-				if (dgsi.IsPrePayable == "1" && dgsi.IsArrival == "1" && dgsi.IsFree == "0") {
-					document.getElementById("hdivPrePaidCost").style.display = "inline";
-					document.getElementById("selectPrePaidCost").style.display = "inline";
-					if (onload == null)
-						document.getElementById("selectPrePaidCost").selectedIndex = 0;
-				}
-				else {
-					document.getElementById("hdivPrePaidCost").style.display = "none";
-					document.getElementById("selectPrePaidCost").style.display = "none";
-					if (dgsi.IsFree == "1") document.getElementById("selectPrePaidCost").selectedIndex = 0;
-					else if (dgsi.IsPrePayable == "1") document.getElementById("selectPrePaidCost").selectedIndex = 2;
-					else if (dgsi.IsArrival == "1") document.getElementById("selectPrePaidCost").selectedIndex = 3;
-					else document.getElementById("selectPrePaidCost").selectedIndex = 0;
-				}
-			}
-			else
-				document.getElementById("st" + dgsi.ShippingTypeCode).style.display = "none";
-		}
-	}
-
-	var baseonload = window.onload;
-
-	window.onload = function() {
-		onShippingChange(true);
-		baseonload();
-	}
-
-	function OpenStorePickupAddress(url) {
-		window.open(url, 'StorePickupAddress', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,opyhistory=no,width=600,height=385').focus();
-	}
-
-	function OpenQuickServiceInfo(url) {
-		window.open(url, 'QuickServiceInfo', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,opyhistory=no,width=600,height=335').focus();
-	}
-</script>
+						
 						<dl class="nv3">
 
 							<dt>즉시구매가</dt>
@@ -436,25 +147,6 @@ document.domain = 'auction.co.kr';//-->
 						<!-- 구매버튼-->
 
 
-						<script type="text/javascript">
- 	function FavoriteItemOpenSingleRegist(obj, catalogID, sell3URL, frameID) {
- 		this.GetCookie = function(name) {
- 			var prefix = name + "=";
- 			var cookieStartIndex = document.cookie.indexOf(prefix);
- 			if (cookieStartIndex == -1) { return (null); };
- 			var cookieEndIndex = document.cookie.indexOf(";", cookieStartIndex + prefix.length);
- 			if (cookieEndIndex == -1) { cookieEndIndex = document.cookie.length; };
- 			return (unescape(document.cookie.substring(cookieStartIndex + prefix.length, cookieEndIndex)));
- 		};
- 		var loginCheck = (GetCookie("auction") != null) ? true : false;
- 		if (!loginCheck) {
- 			FavoriteItem.Login('http://www.auction.co.kr/login/?SELLER=AUCTION_HELP&url=http%3a%2f%2ffavorite.auction.co.kr%2fBuyerTools%2fFavorites%2fPopups%2fAfterLogin.html%3fWeblogYN%3dN');
- 			return;
- 		}
- 		FavoriteItem.OpenSingleRegist(obj, catalogID, sell3URL, frameID);
- 	}
-</script>
-
 						<p class="no-activex" style="display: none;">
 							<img
 								src="http://pics.auction.co.kr/vip/2013/no_activex_small.gif"
@@ -462,7 +154,7 @@ document.domain = 'auction.co.kr';//-->
 						</p>
 						<div id="ucControls_hdivUpper" class="mainbtnv3">
 							<a id="ucControls_btn1"
-								href="javascript:checkEnd('/bid.aspx?itemno=B034919150')"><img
+								href="/board/sellin?productNumber=${view.productNumber}"><img
 								src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif"
 								alt=""></a><a id="ucControls_btn8"
 								href="javascript:FavoriteItemOpenSingleRegist(document.getElementById('ucControls_btn8'), 'B034919150', '4410', 'http://sell3.auction.co.kr')"><img
@@ -516,10 +208,10 @@ document.domain = 'auction.co.kr';//-->
 							src="http://pics.auction.co.kr/itempage/gtab_061.gif"
 							onclick="javascript:fnGoSellerTalk();" alt="판매자가 받은 상품평/상품후기"></a></li> -->
 
-					<li><a href="#product_qna" class="stab"><img
+					<!-- <li><a href="#product_qna" class="stab"><img
 							src="http://pics.auction.co.kr/itempage/gtab_03.gif" class="txt"
-							alt="상품문의" onclick="javascript:fnGoQuestion();"><!-- <span
-							class="txt" id="spnQNA1">1</span> --></a></li>
+							alt="상품문의" onclick="javascript:fnGoQuestion();"><span
+							class="txt" id="spnQNA1">1</span></a></li> -->
 				</ul>
 				<!-- 탭 //-->
 
@@ -610,36 +302,6 @@ document.domain = 'auction.co.kr';//-->
 			<!-- 판매자 스토어의 다른 물품 //-->
 			<div id="pnlUccBoard">
 
-				<!-- 상품문의 -->
-				<div id="product_qna">
-					<!-- 탭 -->
-					<a name="Question"></a>
-					<ul class="gtab gtab3">
-						<li class="fir"><a href="#product_info"><img
-								src="http://pics.auction.co.kr/itempage/gtab_01.gif" alt="상품정보"
-								onclick="javascript:fnGoQuestion2();"></a></li>
-
-						<!-- <li><a href="#product_comment" class="btab"><img
-								src="http://pics.auction.co.kr/itempage/gtab_061.gif"
-								alt="판매자가 받은 상품평" onclick="javascript:fnGoSellerTalk();"></a>
-						</li> -->
-
-						<li class="active"><strong><img
-								src="http://pics.auction.co.kr/itempage/bktxt_tab02on.gif"
-								class="txt" alt="상품문의"><!-- <span class="txt" id="spnQNA2">1</span> --><a
-								href="#product_qna"></a></strong></li>
-					</ul>
-					<!-- 탭 //-->
-					<!-- 상품문의 보기 -->
-					<div id="divQuestion">
-						<iframe id="iframeQuestion"
-							src="http://buy.auction.co.kr/buy/QnA/ItemQna.aspx?ItemNo=B034919150&amp;CategoryName=브랜드 데스크탑&amp;WeblogYN=N&amp;c2c=1&amp;vipC2CType=itempage"
-							frameborder="0" scrolling="no" cellspacing="0" cellpadding="0"
-							width="100%" marginwidth="0" marginheight="0"
-							style="height: 178px;"></iframe>
-					</div>
-				</div>
-				<!-- 상품문의 -->
 
 			</div>
 
@@ -657,7 +319,6 @@ document.domain = 'auction.co.kr';//-->
 	</li>
  -->
 	<script id="sourceAttach" type="text/x-handlebars-template">
-
 	<li>
 		<div class="view">
 			<a href="{{getLink}}" target={{target}}> 
@@ -666,26 +327,31 @@ document.domain = 'auction.co.kr';//-->
 		</div>
 		<div>
 			<a href="{{getLink}}" target={{target}}> 
-				<img id="imgStand1" src="{{imgsrc}}" alt="" width="400">
+				<img id="imgStand1" src="{{getLink}}" alt="" width="400">
 			</a>
 		</div>
 	</li>
 	</script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			var productNumber = ${view.productNumber};
+			var productNumber = "${view.productNumber}";
 			getAllAttach(productNumber);
 		})
 		
 		function getAllAttach(productNumber){
-			$.getJSON("/board_s/getAttach/"+productNumber, function(data) {
+			$.getJSON("/board/getAttach/"+productNumber, function(data) {
 				var source=$("#sourceAttach").html();
 				var template = Handlebars.compile(source);
 				
-				$(data).each(function(){
+				$(data).each(function(index){
 					var data2 = getFileInfo(this);
 					$(".uploadedList").append(template(data2));
+					
+					if(index == 0){
+						$("#ucImageNavigator_himgBig").attr("src", data2.getLink);
+					}
 				});
+				
 				
 			});
 		}
