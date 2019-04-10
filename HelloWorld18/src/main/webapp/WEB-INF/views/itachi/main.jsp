@@ -32,7 +32,7 @@
 		
 						</div>
                             <ul class="menu" id="gnb">
-                                <li><a href="/main.jsp" class="active">home</a></li>
+                                <li><a href="/board/main" class="active">home</a></li>
 	                            <li>
 							        <a href="#">Category</a>
 							        <ul>
