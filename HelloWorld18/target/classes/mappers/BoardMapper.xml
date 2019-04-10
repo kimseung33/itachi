@@ -6,6 +6,10 @@
 
 <mapper namespace="itachi.uchiha.mapper.board">
 	
+	<select id="category" resultType="RegistrationDTO">
+		select * from sasuke_mb where productNumber like '%'||#{productNumber}||'%'
+	</select>
+	
 	<select id="mainView" resultType="RegistrationDTO">
 		select * from sasuke_mb <!--order by desc sellId-->
 	</select>

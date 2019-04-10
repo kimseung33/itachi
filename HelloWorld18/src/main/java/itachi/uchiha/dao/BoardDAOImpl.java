@@ -27,6 +27,11 @@ public class BoardDAOImpl implements BoardDAO {
 	
 	private String NS="itachi.uchiha.mapper.board";
 	
+	@Override
+	public List<RegistrationDTO> category(String productNumber) {
+		
+		return sqlSession.selectList(NS+".category", productNumber);
+	}
 	
 	@Override
 	public void addAttach(String fullName, String productNumber) {

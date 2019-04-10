@@ -26,6 +26,18 @@ public class BoardServiceImpl implements BoardService {
 	@Inject
 	private MemberDAO mdao;
 
+	@Override
+	public List<RegistrationDTO> category(String productNumber) {
+		List<RegistrationDTO> list = dao.category(productNumber);
+		
+		for (RegistrationDTO dto : list) {
+		List<String> fileList = dao.getAttach(dto.getProductNumber());
+		String[] files = fileList.toArray(new String[fileList.size()]);
+		dto.setFiles(files);
+		}
+		
+		return list;
+	}
 	
 	@Override
 	public List<String> getAttach(String productNumber) {
@@ -46,6 +58,7 @@ public class BoardServiceImpl implements BoardService {
 		String[] files = fileList.toArray(new String[fileList.size()]);
 		dto.setFiles(files);
 		}
+		
 		return list;
 	}
 	

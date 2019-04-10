@@ -21,6 +21,9 @@ public interface BoardService {
 	MemberDTO wtriteui(String id);
 	
 	List<RegistrationDTO> mainView();
+	
 	RegistrationDTO view(String productNumber);
+
+	List<RegistrationDTO> category(String productNumber);
 
 }

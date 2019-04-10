@@ -24,7 +24,57 @@ public class BoardController {
 
 	@Inject
 	private BoardService service;
-
+	
+	@RequestMapping("/bookorticket")
+	public String bookorticket(String productNumber,Model model) {
+		List<RegistrationDTO> category=service.category(productNumber);
+		
+		model.addAttribute("ctgrview", category);
+		
+		
+		return "/itachi/bookorticket";
+	}
+	
+	@RequestMapping("/appliances")
+	public String appliances(String productNumber,Model model) {
+		List<RegistrationDTO> category=service.category(productNumber);
+		
+		model.addAttribute("ctgrview", category);
+		
+		
+		return "/itachi/appliances";
+	}
+	
+	@RequestMapping("/merchandise")
+	public String merchandise(String productNumber,Model model) {
+		List<RegistrationDTO> category=service.category(productNumber);
+		
+		model.addAttribute("ctgrview", category);
+		
+		
+		return "/itachi/merchandise";
+	}
+	
+	@RequestMapping("/beauty")
+	public String beauty(String productNumber ,Model model) {
+		List<RegistrationDTO> category=service.category(productNumber);
+		
+		model.addAttribute("ctgrview", category);
+		
+		
+		return "/itachi/beauty";
+	}
+	
+	@RequestMapping("/clothing")
+	public String clothing(String productNumber ,Model model) {
+		List<RegistrationDTO> category=service.category(productNumber);
+		
+		model.addAttribute("ctgrview", category);
+		
+		
+		return "/itachi/clothing";
+	}
+	
 	@RequestMapping("/main")
 	public String main(Model model) {
 		List<RegistrationDTO> dto = service.mainView();

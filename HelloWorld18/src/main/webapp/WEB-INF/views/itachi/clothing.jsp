@@ -3,6 +3,8 @@
 <%@page import="org.springframework.ui.Model"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <jsp:include page="/WEB-INF/views/include/header.jsp"/>
 <style type="text/css">
 	#gnb {/*width:250px; background:#ccc;*/}
@@ -32,11 +34,11 @@
 		
 						</div>
                             <ul class="menu" id="gnb">
-                                <li><a href="/main.jsp" class="active">home</a></li>
+                                <li><a href="/board/main" class="active">home</a></li>
 	                            <li>
 							        <a href="#">Category</a>
 							        <ul>
-							          <li><a href="/board/clothing?productNumber=A">의류</a></li>
+							            <li><a href="/board/clothing?productNumber=A">의류</a></li>
 							            <li><a href="/board/beauty?productNumber=B">뷰티</a></li>
 							            <li><a href="/board/merchandise?productNumber=C">잡화</a></li>
 							            <li><a href="/board/appliances?productNumber=D">가전제품</a></li>
@@ -169,9 +171,18 @@
                                     </div>
                                     <div id="thumbs" class="navigation">
                                         <ul class="thumbs noscript">
-                                            <li>
-                                                <a class="thumb" href="../resources/images/gallery-img1.jpg" title=""> <img src="../resources/images/thumb-1.jpg" alt="" /><span></span> </a>
-                                            </li> 
+                                        
+											<c:forEach var="ctgrview" items="${ctgrview}">
+												<li>
+	                                               <img src="/displayfile?fileName=${ctgrview.files[0]}"/>
+	                                             
+	                                               ${ctgrview.title}
+	                                               	즉구가${ctgrview.directMoney}
+	                                               ${ctgrview.endDate}
+	                                   
+	                                            </li> 
+												 
+											</c:forEach>
                                             <li>
                                                 <a class="thumb" href="../resources/images/gallery-img2.jpg" title=""> <img src="../resources/images/thumb-2.jpg" alt="" /> <span></span></a>
                                             </li> 

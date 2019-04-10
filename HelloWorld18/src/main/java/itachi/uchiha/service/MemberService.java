@@ -28,10 +28,8 @@ public interface MemberService {
 
 	String emailCheck(String email);
 
-	
-
 	void selectpw(MemberDTO dto);
 
-	
+
 
 }

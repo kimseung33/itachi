@@ -25,6 +25,6 @@ public interface MemberDAO {
 
 	String emailCheck(String email);
 
-	
+
 
 }
