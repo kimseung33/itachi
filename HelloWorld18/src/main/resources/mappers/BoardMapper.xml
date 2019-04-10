@@ -6,10 +6,12 @@
 
 <mapper namespace="itachi.uchiha.mapper.board">
 	
+
 	<update id="cash">
 		update itachi_mb set mb_cash=mb_cash+#{mb_cash} where mb_id=#{mb_Id}
 	</update>
 	
+
 	<select id="category" resultType="RegistrationDTO">
 		select * from sasuke_mb where productNumber like '%'||#{productNumber}||'%'
 	</select>

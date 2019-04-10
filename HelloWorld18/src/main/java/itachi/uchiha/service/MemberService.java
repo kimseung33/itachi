@@ -30,8 +30,8 @@ public interface MemberService {
 
 	void selectpw(MemberDTO dto);
 
-	void cash(MemberDTO dto);
 
+	void cash(MemberDTO dto);
 
 
 }

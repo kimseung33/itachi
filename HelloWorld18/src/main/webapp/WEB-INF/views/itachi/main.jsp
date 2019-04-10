@@ -34,11 +34,19 @@
 		
 						</div>
                             <ul class="menu" id="gnb">
+
                                 <li><a href="redirect:/board/main" class="active">home</a></li>
+
+                                <li><a href="/board/main" class="active">home</a></li>
+
 	                            <li>
 							        <a href="#">Category</a>
 							        <ul>
+
 							            <li><a href="/board/clothing?productNumber=A">의류</a></li>
+
+							          <li><a href="/board/clothing?productNumber=A">의류</a></li>
+
 							            <li><a href="/board/beauty?productNumber=B">뷰티</a></li>
 							            <li><a href="/board/merchandise?productNumber=C">잡화</a></li>
 							            <li><a href="/board/appliances?productNumber=D">가전제품</a></li>
