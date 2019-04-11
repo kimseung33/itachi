@@ -79,8 +79,13 @@ public class BoardController {
 	
 	@RequestMapping("/main")
 	public String main(Model model) {
+		// 맵퍼에  sellid (입찰자) 조인 해오면 dto에 sellid(입찰자)가 들어가나요??
 		List<RegistrationDTO> dto = service.mainView();	
+		
 		model.addAttribute("view", dto);
+		//dto에 view.sellid가 안되지않을까
+		//RegistrationDTO sellid를 추가하면 조인에서 가져온 sellid를 get메서드로 사용해서 쓸수있나??
+		
 		return "/itachi/main";
 	}
 
