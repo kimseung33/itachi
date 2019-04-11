@@ -41,7 +41,7 @@
 
 							<td>파일이름</td>							
 							<td>${src.mb_Id}</td>
-							<td>${src.title}</td>
+							<td><a href="/board/view?productNumber=${src.productNumber}">${src.title}</a></td>
 							<td><img src="/displayfile?fileName=${src.files[0]}"> </td>
 						</tr>						
 					</c:forEach>

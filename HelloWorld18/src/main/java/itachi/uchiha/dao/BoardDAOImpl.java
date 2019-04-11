@@ -114,8 +114,12 @@ public class BoardDAOImpl implements BoardDAO {
 	
 	@Override
 	public void insertin(SellDTO dto) {
-		sqlSession.insert(NS + ".sellin", dto);
 
+		System.out.println("=##########################=");
+		System.out.println(dto);
+		System.out.println("=##########################=");
+		
+		sqlSession.insert(NS + ".sellin", dto);
 	}
 
 	@Override
@@ -137,6 +141,14 @@ public class BoardDAOImpl implements BoardDAO {
 		}
 		return sellcount;
 	}
+	
+
+	@Override
+	public void umoney(RegistrationDTO rdto) {
+		sqlSession.update(NS+".umoney", rdto);
+		
+	}
+  
 
 	
 }

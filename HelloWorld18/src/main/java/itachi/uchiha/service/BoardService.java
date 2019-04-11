@@ -29,4 +29,6 @@ public interface BoardService {
 	
 	int sellCount(String productNumber);
 
+	void umoney(RegistrationDTO rdto);
+
 }

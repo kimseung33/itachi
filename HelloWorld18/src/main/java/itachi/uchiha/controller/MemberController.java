@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
-import itachi.uchiha.domain.RegistrationDTO;
 import itachi.uchiha.service.MemberService;
 
 @Controller
