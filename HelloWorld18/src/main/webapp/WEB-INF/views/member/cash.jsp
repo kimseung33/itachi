@@ -20,12 +20,25 @@
 			<form action="/member/cash" method="post">
 				ID:<input readonly="readonly" id="mb_Id" name="mb_Id" value="${readid.mb_Id}">
 				케시잔액:<input id="mb_cash" type="number" name="mb_cash">
-				<input type="submit" value="충전">
 			</form>
+				<input id="ca" type="submit" value="충전">
 		</div>
 	 </div>
 <script type="text/javascript">
 	$(document).ready(function() {
+		$("#ca").click(function() {
+			var mb_cash = $("#mb_cash").val();
+			
+			if(mb_cash.length == 0){
+				alert("입력된 정보가 없습니다.")
+				return false;
+			}
+			
+			
+			$("form").submit();
+			
+		});
+		
 		
 	});
 </script>

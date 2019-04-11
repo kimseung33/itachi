@@ -106,10 +106,10 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public MemberDTO writeui(String id) {
+	public MemberDTO readId(String id) {
 		// TODO Auto-generated method stub
 		
-		return sqlSession.selectOne(NS+".writeui", id);
+		return sqlSession.selectOne(NS+".readid", id);
 	}
 	
 	@Override

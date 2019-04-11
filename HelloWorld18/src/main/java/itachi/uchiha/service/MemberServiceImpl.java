@@ -26,9 +26,9 @@ public class MemberServiceImpl implements MemberService {
 	private MemberDAO dao;
 
 	@Override
-	public MemberDTO readid(String id) {
+	public MemberDTO readId(String id) {
 		// TODO Auto-generated method stub
-		return dao.readid(id);
+		return dao.readId(id);
 	}
 	
 	@Override

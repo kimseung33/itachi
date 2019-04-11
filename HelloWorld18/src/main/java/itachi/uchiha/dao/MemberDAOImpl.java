@@ -21,17 +21,14 @@ public class MemberDAOImpl implements MemberDAO {
 	private String NS = "itachi.uchiha.mapper.board";	
 	
 	@Override
-	public MemberDTO readid(String id) {
+	public MemberDTO readId(String id) {
 		// TODO Auto-generated method stub
 		
-		return sqlSession.selectOne(NS+".writeui", id);
+		return sqlSession.selectOne(NS+".readid", id);
 	}
 	
 	@Override
 	public void cash(MemberDTO dto) {
-		System.out.println("===============================");
-		System.out.println(dto+"멤버dao임플 캐쉬");
-		System.out.println("===============================");
 
 		sqlSession.update(NS+".cash", dto);
 	}

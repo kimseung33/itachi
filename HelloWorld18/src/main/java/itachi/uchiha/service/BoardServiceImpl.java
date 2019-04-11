@@ -74,22 +74,21 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void insertin(SellDTO dto) {
-		// TODO Auto-generated method stub
-		dao.insertin(dto);
-		RegistrationDTO rdto = dao.view(dto.getSellNumber());
-		if (dto.getNowMoney() > rdto.getNowMoney()) {
-			dao.umoney(rdto);
-		}
+	   public void insertin(SellDTO dto) {
+	      dao.insertin(dto);
+	      RegistrationDTO rdto = dao.view(dto.getSellNumber());
+	      if (dto.getNowMoney() > rdto.getNowMoney()) {
+	         dao.umoney(rdto);
+	      }
+	   }	
+	
+	@Override
+	public MemberDTO readId(String id) {
+
+		return dao.readId(id);
 	}
 
-	@Override
-	public MemberDTO wtriteui(String id) {
-		// TODO Auto-generated method stub
-		return dao.writeui(id);
-	}
-
-	@Override
+		@Override
 	public List<RegistrationDTO> mainView() {
 		List<RegistrationDTO> list = dao.mainView();
 
