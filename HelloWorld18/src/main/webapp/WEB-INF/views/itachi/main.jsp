@@ -89,7 +89,7 @@
                                  <%
                            		if(session1!=null){
                            		%>
-                           		<li><a href="/member/cashui">케시충전</a></li>
+                           		<li><a href="/member/cashui?id=${login.mb_Id}">케시충전</a></li>
                            		<%	
                            		}
                            		%>
@@ -99,7 +99,7 @@
              
                            		%>
                            		
-                           		<li>|${memberDTO.mb_Id}|</li>
+                           		<li>|${memberDTO.mb_cash}|</li>
                            		
                            		<%	
                            		}

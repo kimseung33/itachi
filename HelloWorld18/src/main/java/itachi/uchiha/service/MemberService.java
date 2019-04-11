@@ -32,6 +32,8 @@ public interface MemberService {
 
 
 	void cash(MemberDTO dto);
+	
+	MemberDTO readid(String id);
 
 
 }

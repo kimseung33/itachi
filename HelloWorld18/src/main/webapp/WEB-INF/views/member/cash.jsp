@@ -17,8 +17,9 @@
 
 	<div class="container">
 		<div class="row">
-			<form action="/member/cash">
-				케시잔액<input id="cash" type="number" name="mb_cash">
+			<form action="/member/cash" method="post">
+				ID:<input readonly="readonly" id="mb_Id" name="mb_Id" value="${readid.mb_Id}">
+				케시잔액:<input id="mb_cash" type="number" name="mb_cash">
 				<input type="submit" value="충전">
 			</form>
 		</div>

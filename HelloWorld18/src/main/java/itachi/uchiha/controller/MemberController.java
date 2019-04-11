@@ -14,12 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
-
-import itachi.uchiha.domain.SellDTO;
-
 import itachi.uchiha.domain.RegistrationDTO;
-import itachi.uchiha.domain.SearchCriteria;
-
 import itachi.uchiha.service.MemberService;
 
 @Controller
@@ -29,17 +24,21 @@ public class MemberController {
 	@Inject
 	private MemberService service;
 
-	/*
-	 * @RequestMapping("cash") public String cash(MemberDTO dto, HttpSession
-	 * session) { LoginDTO login = (LoginDTO) session.getAttribute("login"); String
-	 * id = login.getMb_Id(); dto.setMb_Id(id);
-	 * 
-	 * service.cash(dto);
-	 * 
-	 * return "itachi/main"; }
-	 * 
-	 * @RequestMapping("cashui") public String cashui() { return "member/cash"; }
-	 */
+	@RequestMapping(value = "cash", method=RequestMethod.POST)
+	public String cash(MemberDTO dto) {
+		
+		service.cash(dto);
+		System.out.println(dto.getMb_cash()+"컨트롤러 돈나와");
+
+		return "/itachi/main";
+	}
+
+	@RequestMapping("cashui")
+	public String cashui(Model model, String id) {
+		MemberDTO readid = service.readid(id);
+		model.addAttribute("readid", readid);
+		return "/member/cash";
+	}
 
 	@RequestMapping(value = "/find_idUI")
 	public String find_idUI() {
@@ -92,7 +91,6 @@ public class MemberController {
 		}
 		System.out.println(memberDTO);
 		model.addAttribute("memberDTO", memberDTO);
-		System.out.println(memberDTO + "멤버컨트롤러 테스트입니다~~~~~~~");
 		model.addAttribute("login", dto);
 		return "/itachi/main";
 

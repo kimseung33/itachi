@@ -25,7 +25,12 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberDAO dao;
 
-
+	@Override
+	public MemberDTO readid(String id) {
+		// TODO Auto-generated method stub
+		return dao.readid(id);
+	}
+	
 	@Override
 	public void cash(MemberDTO dto) {
 		dao.cash(dto);

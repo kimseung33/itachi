@@ -21,7 +21,7 @@
 			<div class="card-main mx-auto">
 				<div class="card card-signin my-5">
 					<div class="card-body">
-						<h3 class="card-title text-center">REGISTER</h3>
+						<h3 class="card -title text-center">REGISTER</h3>
 						<form action="/member/insert" method="post">
 
 							<div class="form-group">
