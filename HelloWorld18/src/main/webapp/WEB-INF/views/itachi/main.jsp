@@ -87,15 +87,11 @@
                            		<li><a href="/member/cashui?id=${login.mb_Id}">케시충전</a></li>
                            		<%	
                            		}
-                           		%>
-                           		
+                           		%>                           		
                                 <%
-                           		if(session1!=null){
-             
-                           		%>
-                           		
-                           		<li>|${memberDTO.mb_cash}|</li>
-                           		
+                           		if(session1!=null){             
+                           		%>                           		
+                           		<li>${memberDTO.mb_cash}</li>                           		
                            		<%	
                            		}
                            		%>

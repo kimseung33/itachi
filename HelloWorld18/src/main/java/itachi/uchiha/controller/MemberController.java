@@ -25,11 +25,11 @@ public class MemberController {
 	private MemberService service;
 
 	@RequestMapping(value = "cash", method=RequestMethod.POST)
-	public String cash(MemberDTO dto) {
+	public String cash(MemberDTO dto,Model model) {
 		
 		service.cash(dto);
 		System.out.println(dto.getMb_cash()+"컨트롤러 돈나와");
-
+		
 		return "/itachi/main";
 	}
 

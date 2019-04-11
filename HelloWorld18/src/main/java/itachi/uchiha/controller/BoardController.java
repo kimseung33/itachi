@@ -122,11 +122,14 @@ public class BoardController {
 
 	@RequestMapping(value = "/sellin", method = RequestMethod.POST)
 	public String sellIn(SellDTO dto,Model model) {
+		System.out.println("===========================");
+		System.out.println(dto);
+		System.out.println("===========================");
 		service.insertin(dto);
-		RegistrationDTO rdto =new RegistrationDTO();
-		System.out.println(rdto);
-		model.addAttribute("list",rdto);
-		return "/";
+		//RegistrationDTO rdto = new RegistrationDTO(dto.getSellId(), dto.getSellNumber(), null, 0, null, 0, 0, null, null, null, dto.getNowMoney(), null);
+        //service.umoney(rdto);   
+		model.addAttribute("productNumber", dto.getSellNumber());
+		return "redirect:/board/view";
 	}
 	
 	@RequestMapping(value="/view", method=RequestMethod.GET)
