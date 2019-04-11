@@ -35,7 +35,6 @@
 						</div>
                             <ul class="menu" id="gnb">
 
-                                <li><a href="redirect:/board/main" class="active">home</a></li>
 
                                 <li><a href="/board/main" class="active">home</a></li>
 
