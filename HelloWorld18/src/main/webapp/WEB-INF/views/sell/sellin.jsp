@@ -17,9 +17,9 @@
 <title>경매 입찰</title>
 </head>
 <body>
-<%
-MemberDTO dto = (MemberDTO)session.getAttribute("login");
-%>
+	<%
+		MemberDTO dto = (MemberDTO) session.getAttribute("login");
+	%>
 	<div class="container">
 		<div class="row">
 			<form action="/board/sellin" id="frm" method="post">
@@ -51,14 +51,31 @@ MemberDTO dto = (MemberDTO)session.getAttribute("login");
 						<thead>
 							<tr>
 								<th>현재가</th>
-								<th>입찰 금액</th>								
+								<th>입찰 금액</th>
 							</tr>
 
 						</thead>
 						<tbody>
 							<tr>
+								<c:choose>
+									<c:when test="${list.nowMoney<list.startMoney}">
+										<td>${list.startMoney}</td>
+									</c:when>
+									<c:otherwise>
+										<td>${list.nowMoney}</td>
+									</c:otherwise>
+								</c:choose>
 								<td>${list.nowMoney}</td>
-								<td>현재${list.nowMoney+1}원 부터 입찰 하실수 있습니다.<br><input min="${list.nowMoney+1}" value="${list.nowMoney+1}" type="number" id="nowMoney" name="nowMoney">원</td>								
+								<td>현재${list.nowMoney+1}원 부터 입찰 하실수 있습니다.<br> <c:choose>
+										<c:when test="${list.nowMoney<list.startMoney}">
+											<input min="${list.startMoney}" value="${list.startMoney}"
+												type="number" id="nowMoney" name="nowMoney">원</td>
+								</c:when>
+								<c:otherwise>
+									<input min="${list.nowMoney+1}" value="${list.nowMoney+1}"
+										type="number" id="nowMoney" name="nowMoney">원</td>
+								</c:otherwise>
+								</c:choose>
 							</tr>
 						</tbody>
 					</table>
@@ -69,7 +86,7 @@ MemberDTO dto = (MemberDTO)session.getAttribute("login");
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$("#frm_submit").on("click", function(){
+			$("#frm_submit").on("click", function() {
 				$("#frm").submit();
 			})
 		});

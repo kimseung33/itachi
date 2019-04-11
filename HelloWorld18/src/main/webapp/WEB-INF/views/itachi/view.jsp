@@ -106,7 +106,14 @@
 
 							<dd class="redprice">
 								<div class="present_price" id="Price">
-									<span class="present_num"><fmt:formatNumber value="${view.nowMoney}" pattern="#,###"/></span> 원
+								<c:choose>
+									<c:when test="${view.nowMoney<view.startMoney}">
+										<span class="present_num"><fmt:formatNumber value="${view.startMoney}" pattern="#,###"/></span> 원
+									</c:when>
+									<c:otherwise>
+										<span class="present_num"><fmt:formatNumber value="${view.nowMoney}" pattern="#,###"/></span> 원
+									</c:otherwise>
+								</c:choose>									
 								</div>
 								<div class="point">
 									<span class="sf fc6">시작가 <span class="num_thm"><fmt:formatNumber value="${view.startMoney}" pattern="#,###"/></span>원

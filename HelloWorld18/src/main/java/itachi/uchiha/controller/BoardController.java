@@ -121,10 +121,7 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/sellin", method = RequestMethod.POST)
-	public String sellIn(SellDTO dto,Model model) {
-		System.out.println("===========================");
-		System.out.println(dto);
-		System.out.println("===========================");
+	public String sellIn(SellDTO dto,Model model) {		
 		service.insertin(dto);
 		//RegistrationDTO rdto = new RegistrationDTO(dto.getSellId(), dto.getSellNumber(), null, 0, null, 0, 0, null, null, null, dto.getNowMoney(), null);
         //service.umoney(rdto);   
