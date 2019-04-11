@@ -41,17 +41,13 @@
 	                            <li>
 							        <a href="#">Category</a>
 							        <ul>
-
-							            <li><a href="/board/clothing?productNumber=A">의류</a></li>
-
-							          <li><a href="/board/clothing?productNumber=A">의류</a></li>
-
-							            <li><a href="/board/beauty?productNumber=B">뷰티</a></li>
-							            <li><a href="/board/merchandise?productNumber=C">잡화</a></li>
-							            <li><a href="/board/appliances?productNumber=D">가전제품</a></li>
-							            <li><a href="/board/bookorticket?productNumber=E">도서 티켓</a></li>
-							        </ul>
-							    </li>
+										<li><a href="/board/clothing?productNumber=A">의류</a></li>
+										<li><a href="/board/beauty?productNumber=B">뷰티</a></li>
+										<li><a href="/board/merchandise?productNumber=C">잡화</a></li>
+										<li><a href="/board/appliances?productNumber=D">가전제품</a></li>
+										<li><a href="/board/bookorticket?productNumber=E">도서 티켓</a></li>
+									</ul>
+								</li>
                                 <li><a href="#">AAAAA</a></li>
                                 <li><a href="#">BBBBBB</a></li>
 								<%
