@@ -1,5 +1,8 @@
 package itachi.uchiha.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -28,8 +31,6 @@ public class MemberController {
 	public String cash(MemberDTO dto) {
 		
 		service.cash(dto);
-		System.out.println(dto.getMb_cash()+"컨트롤러 돈나와");
-
 		return "/itachi/main";
 	}
 
@@ -87,11 +88,20 @@ public class MemberController {
 		if (memberDTO == null) {
 			System.out.println("비밀번호틀림");
 			return "member/memberalert";
-		} else {
 		}
-		System.out.println(memberDTO);
+		
+		Map<String , Object> map=new HashMap<String, Object>();
+		
+		
+		int cash = memberDTO.getMb_cash();
+		
+		
+		
+		map.put("cash", cash);
+		map.put("login", dto);		
+		
 		model.addAttribute("memberDTO", memberDTO);
-		model.addAttribute("login", dto);
+		model.addAttribute("login", map);
 		return "/itachi/main";
 
 	}
@@ -138,7 +148,6 @@ public class MemberController {
 
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
 	public String insert(MemberDTO dto) {
-		System.out.println(dto);
 		service.insert(dto);
 		return "redirect:/member/login";
 	}

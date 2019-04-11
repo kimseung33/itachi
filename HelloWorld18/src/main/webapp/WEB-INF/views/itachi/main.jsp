@@ -94,7 +94,8 @@
              
                            		%>
                            		
-                           		<li>|${memberDTO.mb_cash}|</li>
+                           		<li>${login.mb_Id} ´Ô È¯¿µÇÕ´Ï´Ù</li>
+                           		<li>ÀÜ¾×:${login.mb_cash}</li>
                            		
                            		<%	
                            		}

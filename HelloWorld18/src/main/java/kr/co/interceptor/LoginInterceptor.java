@@ -47,6 +47,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 				response.sendRedirect("/");
 			}
 			
+		}else {
+			System.out.println("회원정보가없습니다");
+
 		}
 		
 	}
