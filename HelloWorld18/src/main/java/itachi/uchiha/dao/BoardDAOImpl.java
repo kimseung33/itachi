@@ -113,12 +113,7 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 	
 	@Override
-	public void insertin(SellDTO dto) {
-
-		System.out.println("=##########################=");
-		System.out.println(dto);
-		System.out.println("=##########################=");
-		
+	public void insertin(SellDTO dto) {		
 		sqlSession.insert(NS + ".sellin", dto);
 	}
 
