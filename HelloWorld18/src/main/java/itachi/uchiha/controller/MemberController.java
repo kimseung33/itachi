@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -28,15 +29,22 @@ public class MemberController {
 	private MemberService service;
 
 	@RequestMapping(value = "cash", method=RequestMethod.POST)
-	public String cash(MemberDTO dto) {
+	public String cash(MemberDTO dto, HttpServletRequest request) {
 		
-		service.cash(dto);
-		return "/itachi/main";
+		service.cash(dto);		
+		HttpSession session=request.getSession(false);
+		if(session != null) {
+			MemberDTO dto2 = service.readId(dto.getMb_Id());
+			
+			session.setAttribute("login", dto2);
+		}
+		
+		return "redirect:/board/main";
 	}
 
 	@RequestMapping("cashui")
 	public String cashui(Model model, String id) {
-		MemberDTO readid = service.readid(id);
+		MemberDTO readid = service.readId(id);
 		model.addAttribute("readid", readid);
 		return "/member/cash";
 	}

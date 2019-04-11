@@ -23,6 +23,6 @@ public interface MemberDAO {
 
 	void cash(MemberDTO dto);
 
-	MemberDTO readid(String id);
+	MemberDTO readId(String id);
 
 }

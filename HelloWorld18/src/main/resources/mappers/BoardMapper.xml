@@ -45,7 +45,7 @@
 		select max(productNumber) from itachi_attach
 	</select>
 	
-	<select id="writeui" resultType="MemberDTO">
+	<select id="readid" resultType="MemberDTO">
 		select * from itachi_mb where mb_Id=#{mb_Id}	
 	</select>
 	

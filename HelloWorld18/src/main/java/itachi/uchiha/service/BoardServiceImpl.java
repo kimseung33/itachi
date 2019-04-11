@@ -82,9 +82,9 @@ public class BoardServiceImpl implements BoardService {
 	}		
 	
 	@Override
-	public MemberDTO wtriteui(String id) {
+	public MemberDTO readId(String id) {
 		// TODO Auto-generated method stub
-		return dao.writeui(id);
+		return dao.readId(id);
 	}
 
 	@Override

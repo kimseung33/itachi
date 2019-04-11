@@ -3,6 +3,7 @@ package itachi.uchiha.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -78,8 +79,7 @@ public class BoardController {
 	
 	@RequestMapping("/main")
 	public String main(Model model) {
-		List<RegistrationDTO> dto = service.mainView();
-		System.out.println(dto);
+		List<RegistrationDTO> dto = service.mainView();	
 		model.addAttribute("view", dto);
 		return "/itachi/main";
 	}
@@ -98,7 +98,7 @@ public class BoardController {
 	public String Registration(Model model, String id) {
 		System.out.println(id);
 
-		MemberDTO dto = service.wtriteui(id);
+		MemberDTO dto = service.readId(id);
 		model.addAttribute("write", dto);
 
 		return "/itachi/Registration";

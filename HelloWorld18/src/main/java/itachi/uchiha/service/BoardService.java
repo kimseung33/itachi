@@ -19,7 +19,7 @@ public interface BoardService {
 	
 	void registration(RegistrationDTO dto2);
 
-	MemberDTO wtriteui(String id);
+	MemberDTO readId(String id);
 	
 	List<RegistrationDTO> mainView();
 	

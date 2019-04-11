@@ -18,7 +18,7 @@ public interface BoardDAO {
 
 	void insertin(SellDTO dto);
 
-	MemberDTO writeui(String id);
+	MemberDTO readId(String id);
 	
 	void addAttach(String fullName,String productNumber);
 	
