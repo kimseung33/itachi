@@ -169,38 +169,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="thumbs" class="navigation">
-                                        <ul class="thumbs noscript">
-                                        
-											<c:forEach var="ctgrview" items="${ctgrview}">
-												<li>
-	                                               <img src="/displayfile?fileName=${ctgrview.files[0]}"/>
-	                                             
-	                                               ${ctgrview.title}
-	                                               	즉구가${ctgrview.directMoney}
-	                                               ${ctgrview.endDate}
-	                                   
-	                                            </li> 
-												 
-											</c:forEach>
-                                            <li>
-                                                <a class="thumb" href="../resources/images/gallery-img2.jpg" title=""> <img src="../resources/images/thumb-2.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="../resources/images/gallery-img3.jpg" title=""> <img src="../resources/images/thumb-3.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="../resources/images/gallery-img4.jpg" title=""> <img src="../resources/images/thumb-4.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="../resources/images/gallery-img5.jpg" title=""> <img src="../resources/images/thumb-5.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="../resources/images/gallery-img6.jpg" title=""> <img src="../resources/images/thumb-6.jpg" alt="" /> <span></span></a>
-                                            </li>           
-                                        </ul>
-                                    </div>
-                                </div>
+
+									<c:forEach var="ctgrview" items="${ctgrview}">
+										<div id="thumbs" class="navigation">
+											<ul class="thumbs noscript">
+												<li><img src="/displayfile?fileName=${ctgrview.files[0]}" /></li>
+												<li>${ctgrview.title} 즉구가:${ctgrview.directMoney} ${ctgrview.endDate}</li>
+											</ul>
+										</div>
+									</c:forEach>
+								</div>
                                 <div class="inner">
                                     <div class="wrapper">
                                         <span class="title img-indent3">HELLO!</span>

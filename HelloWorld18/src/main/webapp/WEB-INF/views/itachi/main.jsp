@@ -189,38 +189,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="thumbs" class="navigation">
-                                        <ul class="thumbs noscript">
-                                        
-											<c:forEach var="view" items="${view}">
-												<li>
-	                                               <img src="/displayfile?fileName=${view.files[0]}"/>
-	                                             
-	                                               ${view.title}
-	                                               	즉구가${view.directMoney}
-	                                               ${view.endDate}
-	                                   
-	                                            </li> 
-												 
-											</c:forEach>
-                                            <li>
-                                                <a class="thumb" href="../resources/images/gallery-img2.jpg" title=""> <img src="../resources/images/thumb-2.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="../resources/images/gallery-img3.jpg" title=""> <img src="../resources/images/thumb-3.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="../resources/images/gallery-img4.jpg" title=""> <img src="../resources/images/thumb-4.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="../resources/images/gallery-img5.jpg" title=""> <img src="../resources/images/thumb-5.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="../resources/images/gallery-img6.jpg" title=""> <img src="../resources/images/thumb-6.jpg" alt="" /> <span></span></a>
-                                            </li>           
-                                        </ul>
-                                    </div>
-                                </div>
+
+									<c:forEach var="view" items="${view}">
+										<div id="thumbs" class="navigation">
+											<ul class="thumbs noscript">
+												<li><img src="/displayfile?fileName=${view.files[0]}" /></li>
+												<li>${view.title} 즉구가:${view.directMoney} ${view.endDate}</li>
+											</ul>
+										</div>
+									</c:forEach>
+								</div>
                                 <div class="inner">
                                     <div class="wrapper">
                                         <span class="title img-indent3">HELLO!</span>
