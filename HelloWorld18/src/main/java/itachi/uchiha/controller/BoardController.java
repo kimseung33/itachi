@@ -127,9 +127,7 @@ public class BoardController {
 
 	@RequestMapping(value = "/sellin", method = RequestMethod.POST)
 	public String sellIn(SellDTO dto,Model model) {		
-		service.insertin(dto);
-		//RegistrationDTO rdto = new RegistrationDTO(dto.getSellId(), dto.getSellNumber(), null, 0, null, 0, 0, null, null, null, dto.getNowMoney(), null);
-        //service.umoney(rdto);   
+		service.insertin(dto);	
 		model.addAttribute("productNumber", dto.getSellNumber());
 		return "redirect:/board/view";
 	}

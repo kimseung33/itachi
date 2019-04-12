@@ -182,7 +182,7 @@
 													<a href="/board/view?productNumber=${list.productNumber}"><img
 														src="/displayfile?fileName=${list.files[0]}" /></a>
 													<li><a
-														href="/board/view?productNumber=${list.productNumber}">${view.title}</a>
+														href="/board/view?productNumber=${list.productNumber}">${list.title}</a>
 														¡Ô±∏∞°:${list.directMoney} ${list.endDate}</li>
 
 

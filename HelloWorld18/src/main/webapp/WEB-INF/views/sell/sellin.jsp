@@ -69,11 +69,11 @@
 								<td>현재${list.nowMoney+1}원 부터 입찰 하실수 있습니다.<br> <c:choose>
 										<c:when test="${list.nowMoney<list.startMoney}">
 											<input min="${list.startMoney}" value="${list.startMoney}"
-												type="number" id="nowMoney" name="nowMoney">원</td>
+												type="number" id="nowMoney" name="nowMoney" max="${list.directMoney}">원</td>
 								</c:when>
 								<c:otherwise>
 									<input min="${list.nowMoney+1}" value="${list.nowMoney+1}"
-										type="number" id="nowMoney" name="nowMoney">원</td>
+										type="number" id="nowMoney" name="nowMoney" max="${list.directMoney}">원</td>
 								</c:otherwise>
 								</c:choose>
 							</tr>
