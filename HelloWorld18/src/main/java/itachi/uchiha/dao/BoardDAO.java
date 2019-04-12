@@ -18,7 +18,7 @@ public interface BoardDAO {
 
 	void insertin(SellDTO dto);
 
-	MemberDTO writeui(String id);
+	MemberDTO readId(String id);
 	
 	void addAttach(String fullName,String productNumber);
 	
@@ -26,12 +26,15 @@ public interface BoardDAO {
 	
 	List<RegistrationDTO> mainView();
 
-	
-
 	RegistrationDTO view(String productNumber);
 
-	int sellCount(String productNumber);
+	List<RegistrationDTO> category(String productNumber);
 
+	int sellCount(String productNumber);
+	
 	List<SellDTO> auctionHistory(String productNumber);
+	
+	
+	void umoney(RegistrationDTO rdto);
 
 }

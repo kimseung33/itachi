@@ -174,31 +174,20 @@
 						<div class="main">
 							<div class="gallery p3">
 								<div class="wrapper indent-bot">
-								<c:if test="${not empty list}">
-								<c:forEach var="list" items="${list}">
-										<div id="thumbs" class="navigation">
+								<c:forEach var="ctgrview" items="${ctgrview}">
+										<div class="navigation">
 											<ul class="thumbs noscript">
 												<div>
-													<a href="/board/view?productNumber=${list.productNumber}"><img
-														src="/displayfile?fileName=${list.files[0]}" /></a>
+													<a href="/board/view?productNumber=${ctgrview.productNumber}"><img
+														src="/displayfile?fileName=${ctgrview.files[0]}" /></a>
 													<li><a
-														href="/board/view?productNumber=${list.productNumber}">${list.title}</a>
-														즉구가:${list.directMoney} ${list.endDate}</li>
-
-
-												
-
+														href="/board/view?productNumber=${view.productNumber}">${view.title}</a>
+														즉구가:${ctgrview.directMoney} ${ctgrview.endDate}</li>
 												</div>
 											</ul>
 										</div>
-									</c:forEach>
-									</c:if>
-									<c:if test="${empty list}">
-														
-									검색한 결과가 없습니다
-														
-									</c:if>
-
+									</c:forEach>				
+								
 									<div id="gallery" class="content">
 										<div class="wrapper">
 											<div class="slideshow-container">

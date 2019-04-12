@@ -27,6 +27,11 @@ public class BoardDAOImpl implements BoardDAO {
 	
 	private String NS="itachi.uchiha.mapper.board";
 	
+	@Override
+	public List<RegistrationDTO> category(String productNumber) {
+		
+		return sqlSession.selectList(NS+".category", productNumber);
+	}
 	
 	@Override
 	public void addAttach(String fullName, String productNumber) {
@@ -101,16 +106,15 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public MemberDTO writeui(String id) {
+	public MemberDTO readId(String id) {
 		// TODO Auto-generated method stub
 		
-		return sqlSession.selectOne(NS+".writeui", id);
+		return sqlSession.selectOne(NS+".readid", id);
 	}
 	
 	@Override
-	public void insertin(SellDTO dto) {
+	public void insertin(SellDTO dto) {		
 		sqlSession.insert(NS + ".sellin", dto);
-
 	}
 
 	@Override
@@ -132,6 +136,14 @@ public class BoardDAOImpl implements BoardDAO {
 		}
 		return sellcount;
 	}
+	
+
+	@Override
+	public void umoney(RegistrationDTO rdto) {
+		sqlSession.update(NS+".umoney", rdto);
+		
+	}
+  
 
 	@Override
 	public List<SellDTO> auctionHistory(String productNumber) {

@@ -25,7 +25,17 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberDAO dao;
 
+	@Override
+	public MemberDTO readId(String id) {
+		// TODO Auto-generated method stub
+		return dao.readId(id);
+	}
 	
+	@Override
+	public void cash(MemberDTO dto) {
+		dao.cash(dto);
+	}
+
 	@Override
 	public void selectpw(MemberDTO dto) {
 		System.out.println("MemberServiceImpl selectpw: " + dto);
@@ -83,7 +93,5 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return dao.emailCheck(email);
 	}
-
-	
 
 }

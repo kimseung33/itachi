@@ -1,6 +1,10 @@
 package itachi.uchiha.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -14,12 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
-
-import itachi.uchiha.domain.SellDTO;
-
-import itachi.uchiha.domain.RegistrationDTO;
-import itachi.uchiha.domain.SearchCriteria;
-
 import itachi.uchiha.service.MemberService;
 
 @Controller
@@ -28,6 +26,27 @@ public class MemberController {
 
 	@Inject
 	private MemberService service;
+
+	@RequestMapping(value = "cash", method=RequestMethod.POST)
+	public String cash(MemberDTO dto, HttpServletRequest request) {
+		
+		service.cash(dto);		
+		HttpSession session=request.getSession(false);
+		if(session != null) {
+			MemberDTO dto2 = service.readId(dto.getMb_Id());
+			
+			session.setAttribute("login", dto2);
+		}
+		
+		return "redirect:/board/main";
+	}
+
+	@RequestMapping("cashui")
+	public String cashui(Model model, String id) {
+		MemberDTO readid = service.readId(id);
+		model.addAttribute("readid", readid);
+		return "/member/cash";
+	}
 
 	@RequestMapping(value = "/find_idUI")
 	public String find_idUI() {
@@ -76,10 +95,20 @@ public class MemberController {
 		if (memberDTO == null) {
 			System.out.println("비밀번호틀림");
 			return "member/memberalert";
-		} else {
 		}
-		model.addAttribute("memberDTO", dto);
-		model.addAttribute("login", dto);
+		
+		Map<String , Object> map=new HashMap<String, Object>();
+		
+		
+		int cash = memberDTO.getMb_cash();
+		
+		
+		
+		map.put("cash", cash);
+		map.put("login", dto);		
+		
+		model.addAttribute("memberDTO", memberDTO);
+		model.addAttribute("login", map);
 		return "/itachi/main";
 
 	}
@@ -125,9 +154,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
-	public String insert(MemberDTO dto) {		
-		System.out.println("member/insert/ok?================================");
-		System.out.println(dto);
+	public String insert(MemberDTO dto) {
 		service.insert(dto);
 		return "redirect:/member/login";
 	}

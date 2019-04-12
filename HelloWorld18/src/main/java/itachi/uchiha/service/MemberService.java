@@ -28,10 +28,12 @@ public interface MemberService {
 
 	String emailCheck(String email);
 
-	
-
 	void selectpw(MemberDTO dto);
 
+
+	void cash(MemberDTO dto);
 	
+	MemberDTO readId(String id);
+
 
 }

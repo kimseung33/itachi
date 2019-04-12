@@ -21,7 +21,7 @@
 			<div class="card-main mx-auto">
 				<div class="card card-signin my-5">
 					<div class="card-body">
-						<h3 class="card-title text-center">REGISTER</h3>
+						<h3 class="card -title text-center">REGISTER</h3>
 						<form action="/member/insert" method="post">
 
 							<div class="form-group">
@@ -239,8 +239,7 @@
 				    }
 
 				    
-				    
-				    if(mb_Addr1.length == 0  || mb_Addr3.length == 0 ){
+				    if(mb_Addr1.length == 0 || mb_Addr3.length == 0 ){
 				        alert("주소를 입력해주세요");
 				        $("#mb_Addr3").focus();
 				        return false;
@@ -274,7 +273,6 @@
 				        alert("회원가입을 축하합니다");
 				        $("form").submit();
 				    }
-				
 			});
 			
 			//선택자

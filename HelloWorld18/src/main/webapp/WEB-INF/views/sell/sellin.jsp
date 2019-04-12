@@ -1,3 +1,4 @@
+<%@page import="itachi.uchiha.domain.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -16,11 +17,14 @@
 <title>경매 입찰</title>
 </head>
 <body>
+	<%
+		MemberDTO dto = (MemberDTO) session.getAttribute("login");
+	%>
 	<div class="container">
 		<div class="row">
-			<form action="/board/sellin" method="post">
-				<input type="hidden" value="${list.productNumber}" name="sellNumber">
-         		<input type="hidden" value="${list.mb_Id}" name="sellId">			
+			<form action="/board/sellin" id="frm" method="post">
+				<input type="hidden" name="sellId" value="<%=dto.getMb_Id()%>">
+				<input type="hidden" name="sellNumber" value="${list.productNumber}">
 				<div>
 					<h5>입찰 상품</h5>
 					<table class="table table-hober">
@@ -47,25 +51,45 @@
 						<thead>
 							<tr>
 								<th>현재가</th>
-								<th>입찰 금액</th>								
+								<th>입찰 금액</th>
 							</tr>
 
 						</thead>
 						<tbody>
 							<tr>
+								<c:choose>
+									<c:when test="${list.nowMoney<list.startMoney}">
+										<td>${list.startMoney}</td>
+									</c:when>
+									<c:otherwise>
+										<td>${list.nowMoney}</td>
+									</c:otherwise>
+								</c:choose>
 								<td>${list.nowMoney}</td>
-								<td>현재${list.nowMoney}원 부터 입찰 하실수 있습니다.<br><input type="number" id="nowMoney" name="nowMoney">원</td>								
+								<td>현재${list.nowMoney+1}원 부터 입찰 하실수 있습니다.<br> 
+								<c:choose>
+										<c:when test="${list.nowMoney<list.startMoney}">
+											<input min="${list.startMoney}" value="${list.startMoney}"
+												type="number" id="nowMoney" name="nowMoney" max="${list.directMoney}">원</td>
+										</c:when>
+									<c:otherwise>
+										<input min="${list.nowMoney+1}" value="${list.nowMoney+1}"
+											type="number" id="nowMoney" name="nowMoney" max="${list.directMoney}">원</td>
+									</c:otherwise>
+								</c:choose>
 							</tr>
 						</tbody>
 					</table>
 				</div>
-				<button>입찰하기</button>
 			</form>
+			<button id="frm_submit">입찰하기</button>
 		</div>
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
-
+			$("#frm_submit").on("click", function() {
+				$("#frm").submit();
+			})
 		});
 	</script>
 </body>

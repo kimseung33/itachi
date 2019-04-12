@@ -19,13 +19,18 @@ public interface BoardService {
 	
 	void registration(RegistrationDTO dto2);
 
-	MemberDTO wtriteui(String id);
+	MemberDTO readId(String id);
 	
 	List<RegistrationDTO> mainView();
+	
 	RegistrationDTO view(String productNumber);
 
+	List<RegistrationDTO> category(String productNumber);
+	
 	int sellCount(String productNumber);
 
 	List<SellDTO> auctionHistory(String productNumber);
+	
+	void umoney(RegistrationDTO rdto);
 
 }

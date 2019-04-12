@@ -1,3 +1,5 @@
+<%@page import="itachi.uchiha.domain.MemberDTO"%>
+<%@page import="itachi.uchiha.domain.LoginDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -105,7 +107,14 @@
 
 							<dd class="redprice">
 								<div class="present_price" id="Price">
-									<span class="present_num"><fmt:formatNumber value="${view.nowMoney}" pattern="#,###"/></span> 원
+								<c:choose>
+									<c:when test="${view.nowMoney<view.startMoney}">
+										<span class="present_num"><fmt:formatNumber value="${view.startMoney}" pattern="#,###"/></span> 원
+									</c:when>
+									<c:otherwise>
+										<span class="present_num"><fmt:formatNumber value="${view.nowMoney}" pattern="#,###"/></span> 원
+									</c:otherwise>
+								</c:choose>									
 								</div>
 								<div class="point">
 									<span class="sf fc6">시작가 <span class="num_thm"><fmt:formatNumber value="${view.startMoney}" pattern="#,###"/></span>원
@@ -151,14 +160,36 @@
 								alt="회원님! 크롬, 사파리, 파이어폭스, 오페라에서도 주문할 수 있습니다.">
 						</p>
 						<div id="ucControls_hdivUpper" class="mainbtnv3">
-							<a id="ucControls_btn1"
-								href="/board/sellin?productNumber=${view.productNumber}"><img
-								src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif"
-								alt=""></a><a id="ucControls_btn8"
-								href="javascript:FavoriteItemOpenSingleRegist(document.getElementById('ucControls_btn8'), 'B034919150', '4410', 'http://sell3.auction.co.kr')"><img
-								src="http://pics.auction.co.kr/listing/used/2014/btn_interest.gif"
-								alt=""></a>
-						</div>
+                  <%
+                           LoginDTO dto = new LoginDTO();
+                           MemberDTO dto1 = new MemberDTO();
+                           Object session1 = session.getAttribute("login");
+
+                           if (session1 == null) {
+                        %>
+                        <a id="ucControls_btn1"
+                        href="/member/login"><img
+                        src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif"
+                        alt=""></a><a id="ucControls_btn8"
+                        href="javascript:FavoriteItemOpenSingleRegist(document.getElementById('ucControls_btn8'), 'B034919150', '4410', 'http://sell3.auction.co.kr')"><img
+                        src="http://pics.auction.co.kr/listing/used/2014/btn_interest.gif"
+                        alt=""></a>                        
+                        <%
+                           } else {
+                        %>
+                        <a id="ucControls_btn1"
+                        href="/board/sellin?productNumber=${view.productNumber}"><img
+                        src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif"
+                        alt=""></a><a id="ucControls_btn8"
+                        href="javascript:FavoriteItemOpenSingleRegist(document.getElementById('ucControls_btn8'), 'B034919150', '4410', 'http://sell3.auction.co.kr')"><img
+                        src="http://pics.auction.co.kr/listing/used/2014/btn_interest.gif"
+                        alt=""></a>
+                        <%
+                           }
+                        %>
+                  
+                     
+                  </div>
 
 						<!-- 주버튼 -->
 

@@ -9,13 +9,22 @@
 	<select id="selectSellBySellId" resultType="itachi.uchiha.domain.SellDTO">
 		select * from sell_mb where sellNumber=#{productNumber} order by sellDate desc 
 	</select>
+
+	<update id="cash">
+		update itachi_mb set mb_cash = mb_cash+ #{mb_cash} where mb_Id=#{mb_Id}
+	</update>
+	
+
+	<select id="category" resultType="itachi.uchiha.domain.RegistrationDTO">
+		select * from sasuke_mb where productNumber like '%'||#{productNumber}||'%'
+	</select>
 	
 	<select id="sellCount" resultType="Integer">
 		select count(*) from sell_mb where sellNumber=#{productNumber}
 	</select>
 	
-	<select id="mainView" resultType="RegistrationDTO">
-		select * from sasuke_mb 
+	<select id="mainView" resultType="itachi.uchiha.domain.RegistrationDTO">
+		select * from sasuke_mb
 	</select>
 	
 	<select id="getAttach" resultType="String">
@@ -38,7 +47,7 @@
 		select max(productNumber) from itachi_attach
 	</select>
 	
-	<select id="writeui" resultType="MemberDTO">
+	<select id="readid" resultType="MemberDTO">
 		select * from itachi_mb where mb_Id=#{mb_Id}	
 	</select>
 	
@@ -50,7 +59,7 @@
 			</if>	
 	</sql>
 
-	<select id="search" resultType="RegistrationDTO">
+	<select id="search" resultType="itachi.uchiha.domain.RegistrationDTO">
 			<![CDATA[
 		select * from sasuke_mb 
 		]]>
@@ -105,7 +114,7 @@
 		update itachi_mb set mb_Pw=#{mb_Pw} where mb_Id=#{mb_Id} and mb_email=#{mb_Email} and mb_birth=#{mb_Birth}
 	</update>
 
-	<select id="login" resultType="MemberDTO">
+	<select id="login" resultType="itachi.uchiha.domain.MemberDTO">
 		select * from itachi_mb
 		where
 		mb_Id=#{mb_Id} and mb_Pw=#{mb_Pw}
@@ -117,7 +126,7 @@
 
 	
 
-	<select id="updateui" resultType="MemberDTO">
+	<select id="updateui" resultType="itachi.uchiha.domain.MemberDTO">
 		select * from itachi_mb where mb_Id=#{mb_Id}		
 	</select>
 
@@ -147,11 +156,13 @@
 	</insert>
 	
 	<update id="umoney">	
-		update sasuke_mb set nowMoney=#{nowMoney} where productNumber=#{productNumber}
+		update sasuke_mb set nowMoney = (select max(nowMoney) from sell_mb where sellNumber = #{productNumber}) where productNumber = #{productNumber}
 	</update>
 	
+	
+	
 	<select resultType="itachi.uchiha.domain.RegistrationDTO" id="select_view"> 
-		select * from sasuke_mb where productNumber = #{productNumber} 
+		select * from sasuke_mb where productNumber=#{productNumber} 
 	</select>
 
 

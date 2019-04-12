@@ -3,6 +3,7 @@ package itachi.uchiha.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,10 +40,65 @@ public class BoardController {
 		return "itachi/auctionHistory";
 	}
 
+	@RequestMapping("/bookorticket")
+	public String bookorticket(String productNumber,Model model) {
+		List<RegistrationDTO> category=service.category(productNumber);
+		
+		model.addAttribute("ctgrview", category);
+		
+		
+		return "/itachi/bookorticket";
+	}
+	
+	@RequestMapping("/appliances")
+	public String appliances(String productNumber,Model model) {
+		List<RegistrationDTO> category=service.category(productNumber);
+		
+		model.addAttribute("ctgrview", category);
+		
+		
+		return "/itachi/appliances";
+	}
+	
+	@RequestMapping("/merchandise")
+	public String merchandise(String productNumber,Model model) {
+		List<RegistrationDTO> category=service.category(productNumber);
+		
+		model.addAttribute("ctgrview", category);
+		
+		
+		return "/itachi/merchandise";
+	}
+	
+	@RequestMapping("/beauty")
+	public String beauty(String productNumber ,Model model) {
+		List<RegistrationDTO> category=service.category(productNumber);
+		
+		model.addAttribute("ctgrview", category);
+		
+		
+		return "/itachi/beauty";
+	}
+	
+	@RequestMapping("/clothing")
+	public String clothing(String productNumber ,Model model) {
+		List<RegistrationDTO> category=service.category(productNumber);
+		
+		model.addAttribute("ctgrview", category);
+		
+		
+		return "/itachi/clothing";
+	}
+	
 	@RequestMapping("/main")
 	public String main(Model model) {
-		List<RegistrationDTO> dto = service.mainView();
+		// 맵퍼에  sellid (입찰자) 조인 해오면 dto에 sellid(입찰자)가 들어가나요??
+		List<RegistrationDTO> dto = service.mainView();	
+		
 		model.addAttribute("view", dto);
+		//dto에 view.sellid가 안되지않을까
+		//RegistrationDTO sellid를 추가하면 조인에서 가져온 sellid를 get메서드로 사용해서 쓸수있나??
+		
 		return "/itachi/main";
 	}
 
@@ -60,7 +116,7 @@ public class BoardController {
 	public String Registration(Model model, String id) {
 		System.out.println(id);
 
-		MemberDTO dto = service.wtriteui(id);
+		MemberDTO dto = service.readId(id);
 		model.addAttribute("write", dto);
 
 		return "/itachi/Registration";
