@@ -18,7 +18,9 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<form action="sellin" method="post">
+			<form action="/board/sellin" method="post">
+				<input type="hidden" value="${list.productNumber}" name="sellNumber">
+         		<input type="hidden" value="${list.mb_Id}" name="sellId">			
 				<div>
 					<h5>입찰 상품</h5>
 					<table class="table table-hober">

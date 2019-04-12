@@ -240,7 +240,7 @@
 
 				    
 				    
-				    if(mb_Addr1.length == 0 || mb_Addr2.length == 0 || mb_Addr3.length == 0 ){
+				    if(mb_Addr1.length == 0  || mb_Addr3.length == 0 ){
 				        alert("주소를 입력해주세요");
 				        $("#mb_Addr3").focus();
 				        return false;
@@ -272,12 +272,8 @@
 				    
 				    if(confirm("회원가입을 하시겠습니까?")){
 				        alert("회원가입을 축하합니다");
-				        return true;
+				        $("form").submit();
 				    }
-				    
-					$("form").submit();
-
-				    
 				
 			});
 			

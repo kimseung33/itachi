@@ -87,5 +87,10 @@ public class BoardServiceImpl implements BoardService {
 	public int sellCount(String productNumber) {
 		return dao.sellCount(productNumber);
 	}
+
+	@Override
+	public List<SellDTO> auctionHistory(String productNumber) {
+		return dao.auctionHistory(productNumber);
+	}
 	
 }

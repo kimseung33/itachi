@@ -6,6 +6,10 @@
 
 <mapper namespace="itachi.uchiha.mapper.board">
 	
+	<select id="selectSellBySellId" resultType="itachi.uchiha.domain.SellDTO">
+		select * from sell_mb where sellNumber=#{productNumber} order by sellDate desc 
+	</select>
+	
 	<select id="sellCount" resultType="Integer">
 		select count(*) from sell_mb where sellNumber=#{productNumber}
 	</select>

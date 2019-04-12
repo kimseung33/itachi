@@ -133,5 +133,10 @@ public class BoardDAOImpl implements BoardDAO {
 		return sellcount;
 	}
 
+	@Override
+	public List<SellDTO> auctionHistory(String productNumber) {
+		return sqlSession.selectList(NS + ".selectSellBySellId", productNumber);
+	}
+
 	
 }

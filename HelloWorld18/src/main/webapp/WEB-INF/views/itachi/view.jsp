@@ -16,7 +16,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js" type="text/javascript"></script>
 </head>
 <body>
-
 <div id="locbar" class="crop">
 	<div class="holder">
 		<div class="loc">
@@ -62,7 +61,7 @@
 									style="cursor: pointer">
 							</div> -->
 							<img
-								src="http://image.auction.co.kr/itemimage/18/82/5d/18825df720.jpg"
+								src=""
 								id="ucImageNavigator_himgBig" width="300" height="300"
 								style="display: inline">
 						</div>
@@ -121,17 +120,16 @@
 							<dt>입찰수</dt>
 							<dd>
 								<span class="fss"><span class="num_thm">0</span>회 </span> 
-								<a href="#">
+								<a href="javascript:void(0);" onclick="auction_history('${view.productNumber}');">
 									<span class="sf01 uline">경매기록</span>
 								</a>
 							</dd>
 
 							<dt>남은시간</dt>
 							<dd style="margin-top: 1px;">
-								<span class="fss" id="txtLeftPeriod">1일 21시간 38분 37초 (종료 : 19-04-07 12:33)</span> 
-								<a href="javascript:HelpPop('A', 'D01015');">
-									<span class="sf01 uline" id="txtExtendMessage"> 마감연장</span>
-								</a>
+								<span class="fss" id="txtLeftPeriod"></span>
+								<span> (종료 : ${view.endDate} ) </span>
+								<!-- 1일 21시간 38분 37초 (종료 : 19-04-07 12:33) -->
 							</dd>
 
 						</dl>
@@ -296,14 +294,6 @@
 				</div>
 			</div>
 			<!-- 상품정보 -->
-			<!-- 판매자 스토어의 다른 물품 //-->
-			<div id="pnlItemsInStore"></div>
-
-			<!-- 판매자 스토어의 다른 물품 //-->
-			<div id="pnlUccBoard">
-
-
-			</div>
 
 		</div>
 		<!-- CONTENTS //-->
@@ -336,6 +326,10 @@
 		$(document).ready(function(){
 			var productNumber = "${view.productNumber}";
 			getAllAttach(productNumber);
+
+			//var seconds = "80000";
+			var seconds = setSeconds();
+			countdown('txtLeftPeriod', seconds);	 // second base
 		})
 		
 		function getAllAttach(productNumber){
@@ -354,6 +348,75 @@
 				
 				
 			});
+		}
+		
+		/* seconds 계산 */
+		function setSeconds(){
+			//var deadLine = ${view.deadline};
+			var n = new Date();
+
+			//2019-04-09 16:29:17
+			var endDate = "${view.endDate}";	//마감날짜,시간
+			var endDate2 = endDate.split(" ");	//마감날짜와 시간 나누기
+			
+			var strDate1 = endDate2[0];			//마감날짜만 지정
+			var arr1 = strDate1.split('-');		//마감날짜 년,월,일 나누기
+			var dat1 = new Date(arr1[0], arr1[1], arr1[2]);		//date함수에 지정
+			var dat2= new Date(n.getFullYear(), n.getMonth(), n.getDate());	//현재 date
+			
+			var diff = dat2 - dat1;
+			var currDay = 24 * 60 * 60 * 1000;// 시 * 분 * 초 * 밀리세컨
+			var deadLine_date = parseInt(diff/currDay);
+			
+			
+			var strTime1 = endDate2[1];
+			var arr2 = strTime1.split(":");
+			var tim1 = new Date(arr1[0], arr1[1], arr1[2], arr2[0], arr2[1], arr2[2]);
+			var tim2 = new Date(n.getFullYear(), n.getMonth(), n.getDate(), n.getHours(), n.getMinutes(), n.getSeconds());
+			
+			var deadLine= Math.floor(tim1.getTime() - tim2.getTime() ) / 1000;
+			
+			return deadLine;
+			//일이 안나와ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ
+			
+			/* 
+			var deadLine_time = "";
+			
+			if(deadLine > 0){
+				var time = 60 * 60 * 24 * deadLine;
+			}  */
+			//return time;
+		}
+		
+		/* Timer */
+		function countdown( elementId, seconds ){
+		  var element, endTime, hours, mins, msLeft, time;
+
+		  function updateTimer(){
+		    msLeft = endTime - (+new Date);
+		    if ( msLeft < 0 ) {
+		      console.log('done');
+		    } else {
+		      time = new Date( msLeft );
+		      hours = time.getUTCHours();
+		      mins = time.getUTCMinutes();
+		      //1일 21시간 38분 37초
+		      element.innerHTML = (hours ? hours + '시간 ' + ('0' + mins).slice(-2) : mins) + '분 ' + ('0' + time.getUTCSeconds()).slice(-2) + '초';
+		      setTimeout( updateTimer, time.getUTCMilliseconds());
+		      // if you want this to work when you unfocus the tab and refocus or after you sleep your computer and come back, you need to bind updateTimer to a $(window).focus event^^
+		    }
+		  }
+
+		  element = document.getElementById( elementId );
+		  endTime = (+new Date) + 1000 * seconds;
+		  updateTimer();
+		}
+		
+		function auction_history(productNumber){
+			//alert(productNumber);
+			//var ret = window.open(url, name, specs, replace);
+			var win = window.open("/board/auctionHistory?productNumber="+productNumber, "actionHistory", "width=600,height=700");
+			
 		}
 	</script>
 

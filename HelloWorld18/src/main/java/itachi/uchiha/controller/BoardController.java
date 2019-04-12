@@ -25,6 +25,19 @@ public class BoardController {
 
 	@Inject
 	private BoardService service;
+	
+	@RequestMapping("/auctionHistory")
+	public String auctionHistory(String productNumber, Model model) {
+		//입찰자 list
+		List<SellDTO> list =  service.auctionHistory(productNumber);
+		model.addAttribute("list", list);
+		
+		//경매 물품info
+		RegistrationDTO dto = service.view(productNumber);
+		model.addAttribute("view", dto);
+		
+		return "itachi/auctionHistory";
+	}
 
 	@RequestMapping("/main")
 	public String main(Model model) {
@@ -72,10 +85,8 @@ public class BoardController {
 	@RequestMapping(value = "/sellin", method = RequestMethod.POST)
 	public String sellIn(SellDTO dto,Model model) {
 		service.insertin(dto);
-		RegistrationDTO rdto =new RegistrationDTO();
-		System.out.println(rdto);
-		model.addAttribute("list",rdto);
-		return "/";
+		model.addAttribute("productNumber", dto.getSellNumber());
+		return "redirect:/board/view";
 	}
 	
 	@RequestMapping(value="/view", method=RequestMethod.GET)
