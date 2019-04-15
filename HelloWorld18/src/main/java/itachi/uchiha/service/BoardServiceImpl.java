@@ -87,7 +87,7 @@ public class BoardServiceImpl implements BoardService {
 		dao.usellCount(usellCount, dto.getSellNumber());
 
 	}
-	
+
 	@Override
 	public MemberDTO readId(String id) {
 
