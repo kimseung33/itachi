@@ -115,7 +115,6 @@ public class BoardController {
 
 	@RequestMapping("/Registration")
 	public String Registration(Model model, String id) {
-		System.out.println(id);
 
 		MemberDTO dto = service.readId(id);
 		model.addAttribute("write", dto);

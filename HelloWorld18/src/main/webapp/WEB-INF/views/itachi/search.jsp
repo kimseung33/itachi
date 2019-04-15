@@ -181,6 +181,11 @@
                                                 	<h3 class="p0">${fn:length(list)} <span style="font-size:25px;">개의 검색 결과</span></h3>
                                                 </div>
                                                 <div class="wrapper p4">
+                                                <c:choose>
+                                                <c:when test="${list.size()==0}">
+													검색결과가 없습니다.
+                                                </c:when>
+                                                <c:otherwise>
 	                                                <c:forEach var="view" items="${list}">
 														<article class="grid_4 alpha" style="margin-bottom: 20px;">
 	                                                        <div class="indent3">
@@ -194,6 +199,8 @@
 	                                                        </div>
                                                     	</article>
 													</c:forEach>
+													</c:otherwise>
+													</c:choose>
                                                 </div>
                                             </div>
                                         </div>

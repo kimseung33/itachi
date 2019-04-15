@@ -204,6 +204,11 @@
 	                                                            </div>
 	                                                        </div>
                                                     	</article>
+                                                    	
+                                                    	<c:if test="${ctgview.title ne }">
+                                                    		
+                                                    	</c:if>
+                                                    	
 													</c:forEach>
                                                 </div>
                                             </div>
