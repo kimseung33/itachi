@@ -178,7 +178,7 @@
                                         <div class="wrapper">
                                             <div class="grid_12">
                                             	<div class="indent-left p2">
-                                                	<h3 class="p0">${fn:length(list)}개의 검색 결과</h3>
+                                                	<h3 class="p0">${fn:length(list)} <span style="font-size:25px;">개의 검색 결과</span></h3>
                                                 </div>
                                                 <div class="wrapper p4">
 	                                                <c:forEach var="view" items="${list}">

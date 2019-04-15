@@ -5,6 +5,7 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <jsp:include page="/WEB-INF/views/include/header.jsp" />
 <style type="text/css">
 #gnb { /*width:250px; background:#ccc;*/
@@ -113,7 +114,7 @@
 								<%
 									if (session1 != null) {
 								%>
-								<li><a href="/member/cashui?id=${login.mb_Id}">케시충전</a></li>
+								<li><a href="/member/cashui?id=${login.mb_Id}">캐쉬충전</a></li>
 								<%
 									}
 								%>
@@ -139,7 +140,7 @@
 				<div class="container_12">
 					<div class="grid_9">
 						<h1>
-							<a class="logo" href="index.html"><strong>A</strong>katsuki</a> <span>경매(Itachi)</span>
+							<a class="logo" href="#"><strong>A</strong>katsuki</a> <span>경매(Itachi)</span>
 						</h1>
 					</div>
 					<div class="grid_3">
@@ -162,153 +163,108 @@
 			</div>
 		</div>
 	</header>
-	<div class="ic">More Website Templates @ TemplateMonster.com -
-		August22nd 2011!</div>
+	
+	
+<!-- content -->
+    <section id="content">
+        <div class="bg-top">
+        	<div class="bg-top-2">
+                <div class="bg">
+                    <div class="bg-top-shadow">
+                        <div class="main">
+                            <div class="box">
+                                <div class="padding">
+                                    <div class="container_12">
+                                        <div class="wrapper">
+                                            <div class="grid_12">
+                                            	<div class="indent-left p2">
+                                                	<h3 class="p0">뷰티</h3>
+                                                </div>
+                                                <div class="wrapper p4">
+	                                                <c:forEach var="ctgrview" items="${ctgrview}">
+														<%-- <div class="navigation">
+															<ul class="thumbs noscript">
+																<div>
+																<a href="/board/view?productNumber=${view.productNumber}"><img
+																src="/displayfile?fileName=${view.files[0]}" /></a>
+																<li><a
+																href="/board/view?productNumber=${view.productNumber}">${view.title}</a>
+																즉구가:${view.directMoney} ${view.endDate}</li>
+															</div>
+															</ul>
+														</div> --%>
+														<article class="grid_4 alpha" style="margin-bottom: 20px;">
+	                                                        <div class="indent3">
+	                                                            <figure class="frame2 p2" style="text-align:center;"><img src="/displayfile?fileName=${ctgrview.files[0]}" width="200px" /></figure>
+	                                                            <p class="color-4 prev-indent-bot">${ctgrview.title}</p>
+	                                                            <p style="font-size:">경매 종료 : ${ctgrview.endDate} 입찰수:${ctgrview.usellCount}</p>
+	                                                            <div class="wrapper">
+	                                                            	<span class="price fleft">즉매가:${ctgrview.directMoney}</span> <span style="font-size:25px;">원</span>
+	                                                                <a class="button fright" href="/board/view?productNumber=${ctgrview.productNumber}">자세히보기</a>
+	                                                            </div>
+	                                                        </div>
+                                                    	</article>
+													</c:forEach>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+        </div>
+        <div class="bg-bot">
+        	<div class="main">
+            	<div class="container_12">
+                	<div class="wrapper">
+                    	<article class="grid_4">
+                        	<h3 class="p2">New Furniture</h3>
+                            <div class="wrapper">
+                            	<figure class="img-indent frame2"><img src="../resources/images/page4-img7.jpg" alt="" /></figure>
+                                <p class="prev-indent-bot color-4">At vero eos eaccusa mus etusto odio.</p>
+                                <p class="prev-indent-bot">Tium voluptatum del eniti atque corrupti quos dolores.</p>
+                                <a class="button" href="#">View More</a>
+                            </div>
+                        </article>
+                        <article class="grid_8">
+                        	<h3 class="prev-indent-bot2">Our Pricing</h3>
+                            <div class="wrapper">
+                            	<div class="grid_4 alpha">
+                                	<div class="indent-right2">
+                                        <ul class="price-list">
+                                            <li><span>$6700.00</span><a href="#">Totam rem aperiam eaque</a><strong>&nbsp;</strong></li>
+                                            <li><span>$4370.00</span><a href="#">Inventore veritatis quasi</a><strong>&nbsp;</strong></li>
+                                            <li><span>$5780.00</span><a href="#">Nemo enim ipsam voluptatem</a><strong>&nbsp;</strong></li>
+                                            <li><span>$2300.00</span><a href="#">Voluptas sit aspernatur aut</a><strong>&nbsp;</strong></li>
+                                            <li><span>$3650.00</span><a href="#">Sed quia consequuntur magni</a><strong>&nbsp;</strong></li>
+                                            <li class="last"><span>$7900.00</span><a href="#">Ratione voluptatem sequi</a><strong>&nbsp;</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="grid_4 omega">
+                                	<div class="indent-right2">
+                                        <ul class="price-list">
+                                            <li><span>$6700.00</span><a href="#">Totam rem aperiam eaque</a><strong>&nbsp;</strong></li>
+                                            <li><span>$4370.00</span><a href="#">Inventore veritatis quasi</a><strong>&nbsp;</strong></li>
+                                            <li><span>$5780.00</span><a href="#">Nemo enim ipsam voluptatem</a><strong>&nbsp;</strong></li>
+                                            <li><span>$2300.00</span><a href="#">Voluptas sit aspernatur aut</a><strong>&nbsp;</strong></li>
+                                            <li><span>$3650.00</span><a href="#">Sed quia consequuntur magni</a><strong>&nbsp;</strong></li>
+                                            <li class="last"><span>$7900.00</span><a href="#">Ratione voluptatem sequi</a><strong>&nbsp;</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 
-	<!-- content -->
-	<section id="content">
-		<div class="bg-top">
-			<div class="bg-top-2">
-				<div class="bg">
-					<div class="bg-top-shadow">
-						<div class="main">
-							<div class="gallery p3">
-								<div class="wrapper indent-bot">
-								<c:forEach var="ctgrview" items="${ctgrview}">
-										<div class="navigation">
-											<ul class="thumbs noscript">
-												<div>
-													<a href="/board/view?productNumber=${ctgrview.productNumber}"><img
-														src="/displayfile?fileName=${ctgrview.files[0]}" /></a>
-													<li><a
-														href="/board/view?productNumber=${view.productNumber}">${view.title}</a>
-														즉구가:${ctgrview.directMoney} ${ctgrview.endDate}</li>
-												</div>
-											</ul>
-										</div>
-									</c:forEach>				
-								
-									<div id="gallery" class="content">
-										<div class="wrapper">
-											<div class="slideshow-container">
-												<div id="slideshow" class="slideshow"></div>
-											</div>
-										</div>
-									</div>
-
-									
-								</div>
-								<div class="inner">
-									<div class="wrapper">
-										<span class="title img-indent3">HELLO!</span>
-										<div class="extra-wrap indent-top2">
-											<strong>Interior Design</strong> is one of <a target="_blank"
-												href="http://blog.templatemonster.com/free-website-templates/ ">free
-												website templates</a> created by TemplateMonster.com team. This
-											website template is opti mized for 1024X768 screen
-											resolution. It is also XHTML &amp; CSS valid. It has several
-											pages: <a class="color-3" href="index.html">About</a>, <a
-												class="color-3" href="services.html">Services</a>, <a
-												class="color-3" href="catalogue.html">Catalogue</a>, <a
-												class="color-3" href="pricing.html">Pricing</a>, <a
-												class="color-3" href="contacts.html">Contact Us</a> (note
-											that contact us form _ doesn’t work).
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="container_12">
-								<div class="wrapper">
-									<article class="grid_12">
-										<h3 class="color-1">Our Services List</h3>
-										<div class="wrapper">
-											<article class="grid_6 alpha">
-												<figure class="img-indent frame">
-													<img src="../resources/images/page1-img1.jpg" alt="" />
-												</figure>
-												<div class="extra-wrap">
-													<div class="indent-top">
-														<ul class="list-1">
-															<li><a href="#">Interior Decorating Services</a></li>
-															<li class="last"><a href="#">Complete Color <br>Analysis
-															</a></li>
-														</ul>
-													</div>
-												</div>
-												<div class="clear"></div>
-											</article>
-											<article class="grid_6 omega">
-												<figure class="img-indent frame">
-													<img src="../resources/images/page1-img2.jpg" alt="" />
-												</figure>
-												<div class="extra-wrap">
-													<div class="indent-top">
-														<ul class="list-1">
-															<li><a href="#">Design Services <br>for
-																	Home Construction
-															</a></li>
-															<li class="last"><a href="#">Interior Design
-																	Remodeling</a></li>
-														</ul>
-													</div>
-												</div>
-												<div class="clear"></div>
-											</article>
-										</div>
-									</article>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="bg-bot">
-			<div class="main">
-				<div class="container_12">
-					<div class="wrapper">
-						<article class="grid_4">
-							<h3 class="prev-indent-bot">About Us</h3>
-							<p class="prev-indent-bot">
-								This <a target="_blank"
-									href="http://blog.templatemonster.com/2011/08/22/free-website-template-clean-style-interior/ ">Interior
-									Design Template</a> goes with two pack ages: with PSD source files
-								and without them.
-							</p>
-							PSD source files are available for free for the registered
-							members of Templates.com. The basic package (without PSD source)
-							is available for anyone without registration.
-						</article>
-						<article class="grid_4">
-							<h3 class="prev-indent-bot">Testimonials</h3>
-							<div class="quote">
-								<p class="prev-indent-bot">
-									At vero eos et accusamus et iusto odio tium voluptatum deleniti
-									atque corrupti quos<br> dolores et quas molestias
-									excepturi sint occaecati cupiditate.
-								</p>
-								<h5>James Reese</h5>
-								Managing Director
-							</div>
-						</article>
-						<article class="grid_4">
-							<h3 class="prev-indent-bot">What’s New?</h3>
-							<time class="tdate-1" datetime="2011-08-15">
-								<a class="link" href="#">15.08.2011</a>
-							</time>
-							<p class="prev-indent-bot">Sed ut perspiciatis unde omnis
-								iste natus error sit voluptatem accusantium doloremque.</p>
-							<time class="tdate-1" datetime="2011-08-11">
-								<a class="link" href="#">11.08.2011</a>
-							</time>
-							Totam rem aperiam, eaque ipsa quae ab illo inven tore veritatis
-							et quasi architecto.
-						</article>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 
 	<!--==============================footer=================================-->
 	<footer>
@@ -363,58 +319,8 @@
 				'width' : '320px',
 				'float' : 'right'
 			});
+			
 			$('div.content').css('display', 'block');
-
-			// Initially set opacity on thumbs and add
-			// additional styling for hover effect on thumbs
-			var onMouseOutOpacity = 0.5;
-			$('#thumbs ul.thumbs li span').opacityrollover({
-				mouseOutOpacity : onMouseOutOpacity,
-				mouseOverOpacity : 0.0,
-				fadeSpeed : 'fast',
-				exemptionSelector : '.selected'
-			});
-
-			// Initialize Advanced Galleriffic Gallery
-			var gallery = $('#thumbs').galleriffic({
-				delay : 7000,
-				numThumbs : 12,
-				preloadAhead : 6,
-				enableTopPager : false,
-				enableBottomPager : false,
-				imageContainerSel : '#slideshow',
-				controlsContainerSel : '',
-				captionContainerSel : '',
-				loadingContainerSel : '',
-				renderSSControls : true,
-				renderNavControls : true,
-				playLinkText : 'Play Slideshow',
-				pauseLinkText : 'Pause Slideshow',
-				prevLinkText : 'Prev',
-				nextLinkText : 'Next',
-				nextPageLinkText : 'Next',
-				prevPageLinkText : 'Prev',
-				enableHistory : true,
-				autoStart : 7000,
-				syncTransitions : true,
-				defaultTransitionDuration : 900,
-				onSlideChange : function(prevIndex, nextIndex) {
-					// 'this' refers to the gallery, which is an extension of $('#thumbs')
-					this.find('ul.thumbs li span').css({
-						opacity : 0.5
-					})
-				},
-				onPageTransitionOut : function(callback) {
-					this.find('ul.thumbs li span').css({
-						display : 'block'
-					});
-				},
-				onPageTransitionIn : function() {
-					this.find('ul.thumbs li span').css({
-						display : 'none'
-					});
-				}
-			});
 
 		});
 	</script>
