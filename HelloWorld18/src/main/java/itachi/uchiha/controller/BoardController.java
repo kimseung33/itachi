@@ -104,10 +104,12 @@ public class BoardController {
 	@RequestMapping(value = "/search")
 	public String search(SearchCriteria cri, Model model) {
 		List<RegistrationDTO> list = service.search(cri);
+		
 		model.addAttribute("list", list);
 
 		int amount = service.getSearchtAmount(cri);
 
+		
 		return "/itachi/search";
 	}
 

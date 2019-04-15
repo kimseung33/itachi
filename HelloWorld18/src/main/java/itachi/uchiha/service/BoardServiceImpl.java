@@ -51,7 +51,8 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<RegistrationDTO> search(SearchCriteria cri) {
 		List<RegistrationDTO> list = dao.search(cri);
-
+		
+		
 		for (RegistrationDTO dto : list) {
 			List<String> fileList = dao.getAttach(dto.getProductNumber());
 			String[] files = fileList.toArray(new String[fileList.size()]);
@@ -74,16 +75,19 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	   public void insertin(SellDTO dto) {	      
-	      RegistrationDTO rdto = dao.view(dto.getSellNumber());
-	      if(dto.getNowMoney()<rdto.getDirectMoney()) {
-	    	  dao.insertin(dto);
-	      } else if (dto.getNowMoney() > rdto.getNowMoney()) {
-	         dao.umoney(rdto);
-	      }	   
-	      
-	   }	
-	
+	public void insertin(SellDTO dto) {
+		RegistrationDTO rdto = dao.view(dto.getSellNumber());
+		if (dto.getNowMoney() < rdto.getDirectMoney()) {
+			dao.insertin(dto);
+		}
+		if (dto.getNowMoney() > rdto.getNowMoney()) {
+			dao.umoney(rdto);
+		}
+		int usellCount = dao.sellCount(dto.getSellNumber());
+		dao.usellCount(usellCount, dto.getSellNumber());
+
+	}
+
 	@Override
 	public MemberDTO readId(String id) {
 
