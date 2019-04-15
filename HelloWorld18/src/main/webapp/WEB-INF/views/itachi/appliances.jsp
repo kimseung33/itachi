@@ -178,16 +178,11 @@
                                         <div class="wrapper">
                                             <div class="grid_12">
                                             	<div class="indent-left p2">
-                                                	<h3 class="p0">전자 제품</h3>
+                                                	<h3 class="p0">전자제품</h3>
                                                 </div>
                                                 <div class="wrapper p4">
-                                                
-                                                <c:choose>
-                                                <c:when test="${crgrciew.size()==0}">
-                                                	해당카테고리가 없습니다.
-                                                </c:when>
-                                                <c:otherwise>
-	                                                <c:forEach var="ctgrview" items="${ctgrview}">														
+                                                	<c:if test="${not empty ctgrview}">
+	                                                <c:forEach var="ctgrview" items="${ctgrview}">
 														<article class="grid_4 alpha" style="margin-bottom: 20px;">
 	                                                        <div class="indent3">
 	                                                            <figure class="frame2 p2" style="text-align:center;"><img src="/displayfile?fileName=${ctgrview.files[0]}" width="200px" /></figure>
@@ -200,8 +195,12 @@
 	                                                        </div>
                                                     	</article>
 													</c:forEach>
-													</c:otherwise>
-                                                </c:choose>
+                                                	</c:if>
+                                                	
+                                                	<c:if test="${empty ctgrview}">
+                                                		카테고리에 해당하는 글이 없습니다.
+                                                	</c:if>
+                                                	
                                                 </div>
                                             </div>
                                         </div>
