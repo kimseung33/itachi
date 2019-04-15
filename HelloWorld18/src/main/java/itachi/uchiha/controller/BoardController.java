@@ -3,7 +3,6 @@ package itachi.uchiha.controller;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -126,7 +125,7 @@ public class BoardController {
 	@RequestMapping(value="/registrationC", method=RequestMethod.POST)
 	public String registration(RegistrationDTO dto2) {
 		service.registration(dto2);
-		return "itachi/main";
+		return "redirect:/board/main";
 	}
 
 	@RequestMapping("/sellin")

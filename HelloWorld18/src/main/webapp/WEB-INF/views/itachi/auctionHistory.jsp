@@ -79,8 +79,7 @@
 							</c:choose>
 							<td>${item.sellDate}</td>
 							<td>${item.nowMoney } 원</td>
-							<td>1 <!-- 적은 수량 입찰 허용 --> 개
-							</td>
+							<td>1 개</td>
 						</tr>
 					</c:forEach>
 				</tbody>

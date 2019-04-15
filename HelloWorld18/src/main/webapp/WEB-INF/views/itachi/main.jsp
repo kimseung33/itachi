@@ -113,7 +113,7 @@
 								<%
 									if (session1 != null) {
 								%>
-								<li><a href="/member/cashui?id=${login.mb_Id}">케시충전</a></li>
+								<li><a href="/member/cashui?id=${login.mb_Id}">캐쉬충전</a></li>
 								<%
 									}
 								%>
