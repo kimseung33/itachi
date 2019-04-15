@@ -97,11 +97,6 @@ public class UploadController {
 		
 		String id=request.getParameter("id");
 		
-		System.out.println(file.getOriginalFilename());
-		System.out.println(file.getSize());
-		System.out.println(file.getContentType());
-		System.out.println(id);
-		
 		UUID uid=UUID.randomUUID();
 		String savedName = uid.toString()+"_"+file.getOriginalFilename();
 		

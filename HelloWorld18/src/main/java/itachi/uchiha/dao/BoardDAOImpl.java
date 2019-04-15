@@ -67,7 +67,6 @@ public class BoardDAOImpl implements BoardDAO {
 		switch (dto2.getCategory()) {
 		case "clothing":
 			dto2.setProductNumber("A"+CheckNumberGenerator2.checknumber());
-			System.out.println("A번쨰 기본키입니다.");
 			break;
 		case "beauty":
 			dto2.setProductNumber("B"+CheckNumberGenerator2.checknumber());
@@ -83,14 +82,10 @@ public class BoardDAOImpl implements BoardDAO {
 			break;
 			
 		default:
-			System.out.println("제품번호 생성기 항목에따른 번호 안넘어온듯합니다~");
 			dto2.setProductNumber("F"+CheckNumberGenerator2.checknumber());
 			break;
 		}
 		
-	
-		
-		System.out.println("daoImpl dto확인"+dto2+":::::::::::::::::::::::::::::::::::::::");
 		sqlSession.insert(NS+".registration",dto2);
 		sqlSession.update(NS+".registration2", dto2);
 	}

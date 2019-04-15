@@ -93,7 +93,7 @@ public class MemberController {
 
 		MemberDTO memberDTO = service.login(dto);
 		if (memberDTO == null) {
-			System.out.println("비밀번호틀림");
+			//System.out.println("비밀번호틀림");
 			return "member/memberalert";
 		}
 		
