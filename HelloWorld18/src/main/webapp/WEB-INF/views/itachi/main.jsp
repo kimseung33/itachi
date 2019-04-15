@@ -198,7 +198,7 @@
 	                                                            <p class="color-4 prev-indent-bot">${view.title}</p>
 	                                                            <p style="font-size:">경매 종료 : ${view.endDate} 입찰수:${view.usellCount}</p>
 	                                                            <div class="wrapper">
-	                                                            	<span class="price fleft">${view.directMoney}</span> <span style="font-size:25px;">원</span>
+	                                                            	<span class="price fleft">즉매가:${view.directMoney}</span> <span style="font-size:25px;">원</span>
 	                                                                <a class="button fright" href="/board/view?productNumber=${view.productNumber}">자세히보기</a>
 	                                                            </div>
 	                                                        </div>

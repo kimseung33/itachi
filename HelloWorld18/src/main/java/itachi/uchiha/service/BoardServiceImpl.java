@@ -51,7 +51,8 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<RegistrationDTO> search(SearchCriteria cri) {
 		List<RegistrationDTO> list = dao.search(cri);
-
+		
+		
 		for (RegistrationDTO dto : list) {
 			List<String> fileList = dao.getAttach(dto.getProductNumber());
 			String[] files = fileList.toArray(new String[fileList.size()]);
