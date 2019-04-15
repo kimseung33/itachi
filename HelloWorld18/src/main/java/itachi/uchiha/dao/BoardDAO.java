@@ -33,8 +33,8 @@ public interface BoardDAO {
 	int sellCount(String productNumber);
 	
 	List<SellDTO> auctionHistory(String productNumber);
-	
-	
+		
 	void umoney(RegistrationDTO rdto);
-
+	
+	void usellCount(int usellCount,String productNumber); 
 }

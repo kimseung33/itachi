@@ -6,6 +6,10 @@
 
 <mapper namespace="itachi.uchiha.mapper.board">
 	
+	<update id="usellCount">
+      update sasuke_mb set usellCount=#{usellCount} where productNumber=#{productNumber}
+   </update>
+	
 	<select id="selectSellBySellId" resultType="itachi.uchiha.domain.SellDTO">
 		select * from sell_mb where sellNumber=#{productNumber} order by sellDate desc 
 	</select>
@@ -24,7 +28,7 @@
 	</select>
 	
 	<select id="mainView" resultType="itachi.uchiha.domain.RegistrationDTO">
-		select * from sasuke_mb
+		select * from sasuke_mb order by usellCount desc
 	</select>
 	
 	<select id="getAttach" resultType="String">

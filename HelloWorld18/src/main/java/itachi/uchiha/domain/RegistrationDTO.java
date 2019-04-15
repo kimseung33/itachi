@@ -3,35 +3,30 @@ package itachi.uchiha.domain;
 import java.io.Serializable;
 import java.util.Arrays;
 
-public class RegistrationDTO implements Serializable{
-	
-	
+public class RegistrationDTO implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	private String mb_Id;
-	private String productNumber;	//상품번호
-	private String endDate;		//경매기간+등록시간(sysdate)
-	private int deadline;	//경매기간	not null
-	private String writedate;	//default로 sysdate가 넘어오기 위해서 추가
-	private int startMoney;		//경매시작가	not null
-	private int directMoney;	//즉시구입가	not null
-	private String title;	//제목	not null
-	private String setence;	//내용	not null
-	private String category; //항목
+	private String productNumber; // 상품번호
+	private String endDate; // 경매기간+등록시간(sysdate)
+	private int deadline; // 경매기간 not null
+	private String writedate; // default로 sysdate가 넘어오기 위해서 추가
+	private int startMoney; // 경매시작가 not null
+	private int directMoney; // 즉시구입가 not null
+	private String title; // 제목 not null
+	private String setence; // 내용 not null
+	private String category; // 항목
 	private int nowMoney;
 	private String[] files;
+	private int usellCount;
 
 	public RegistrationDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
-	
-	
-
 	public RegistrationDTO(String mb_Id, String productNumber, String endDate, int deadline, String writedate,
 			int startMoney, int directMoney, String title, String setence, String category, int nowMoney,
-			String[] files) {
+			String[] files, int usellCount) {
 		super();
 		this.mb_Id = mb_Id;
 		this.productNumber = productNumber;
@@ -45,24 +40,24 @@ public class RegistrationDTO implements Serializable{
 		this.category = category;
 		this.nowMoney = nowMoney;
 		this.files = files;
+		this.usellCount = usellCount;
 	}
 
+	public int getUsellCount() {
+		return usellCount;
+	}
 
-
-
-
+	public void setUsellCount(int usellCount) {
+		this.usellCount = usellCount;
+	}
 
 	public String getMb_Id() {
 		return mb_Id;
 	}
 
-
-
 	public void setMb_Id(String mb_Id) {
 		this.mb_Id = mb_Id;
 	}
-
-
 
 	public String getProductNumber() {
 		return productNumber;
@@ -112,25 +107,13 @@ public class RegistrationDTO implements Serializable{
 		this.directMoney = directMoney;
 	}
 
-	
-
 	public String[] getFiles() {
 		return files;
 	}
 
-
-
-
-
-
 	public void setFiles(String[] files) {
 		this.files = files;
 	}
-
-
-
-
-
 
 	public String getTitle() {
 		return title;
@@ -193,22 +176,13 @@ public class RegistrationDTO implements Serializable{
 		return true;
 	}
 
-
-
-
-
-
 	@Override
 	public String toString() {
 		return "RegistrationDTO [mb_Id=" + mb_Id + ", productNumber=" + productNumber + ", endDate=" + endDate
 				+ ", deadline=" + deadline + ", writedate=" + writedate + ", startMoney=" + startMoney
 				+ ", directMoney=" + directMoney + ", title=" + title + ", setence=" + setence + ", category="
-				+ category + ", nowMoney=" + nowMoney + ", files=" + Arrays.toString(files) + "]";
+				+ category + ", nowMoney=" + nowMoney + ", files=" + Arrays.toString(files) + ", usellCount="
+				+ usellCount + "]";
 	}
-
-
-
-	
-	
 
 }

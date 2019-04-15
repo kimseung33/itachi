@@ -27,6 +27,18 @@ public class BoardDAOImpl implements BoardDAO {
 	
 	private String NS="itachi.uchiha.mapper.board";
 	
+	
+	
+	@Override
+	   public void usellCount(int usellCount,String productNumber) {
+	      // TODO Auto-generated method stub
+	      Map<String, Object> map = new HashMap<String, Object>();
+	      map.put("usellCount", usellCount);
+	      map.put("productNumber", productNumber);      
+	      sqlSession.update(NS+".usellCount", map);
+	      
+	   }
+	
 	@Override
 	public List<RegistrationDTO> category(String productNumber) {
 		
