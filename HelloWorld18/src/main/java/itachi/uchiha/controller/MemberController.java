@@ -60,7 +60,7 @@ public class MemberController {
 		}
 		return "/itachi/main";
 	}
-	
+	//mm
 	@RequestMapping(value="/cashback",method=RequestMethod.GET)
 	public String cashback() {
 		return "/member/cashback";
