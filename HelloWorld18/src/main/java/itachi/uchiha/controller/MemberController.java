@@ -48,6 +48,29 @@ public class MemberController {
 		return "/member/cash";
 	}
 
+	@RequestMapping(value="/cashback",method=RequestMethod.POST)
+	public String cashback(MemberDTO dto,HttpServletRequest request){
+		
+		service.cashback(dto);
+		HttpSession session=request.getSession(false);
+		if(session != null) {
+			MemberDTO dto2 = service.readId(dto.getMb_Id());
+			
+			session.setAttribute("login", dto2);
+		}
+		return "/itachi/main";
+	}
+	
+	@RequestMapping(value="/cashback",method=RequestMethod.GET)
+	public String cashback() {
+		return "/member/cashback";
+	}
+	
+	@RequestMapping("/cashlist")
+	public String cashlist() {
+		return "/member/cashlist";
+	}
+	
 	@RequestMapping(value = "/find_idUI")
 	public String find_idUI() {
 		return "/member/find_idUI";

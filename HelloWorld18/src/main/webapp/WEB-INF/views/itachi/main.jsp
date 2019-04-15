@@ -92,40 +92,16 @@
 									} else {
 								%>
 								<li><a href="/member/logout">Logout</a></li>
-								<%
-									}
-								%>
-
-								<%
-									if (session1 != null) {
-								%>
 								<li><a href="/member/update?id=${login.mb_Id}">개인정보수정</a></li>
-								<%
-									}
-								%>
-								<%
-									if (session1 != null) {
-								%>
 								<li><a href="/board/Registration?id=${login.mb_Id}">글쓰기</a></li>
-								<%
-									}
-								%>
-								<%
-									if (session1 != null) {
-								%>
-								<li><a href="/member/cashui?id=${login.mb_Id}">캐쉬충전</a></li>
-								<%
-									}
-								%>
-								<%
-									if (session1 != null) {
-								%>
+								<li><a href="/member/cashlist">케시</a></li>
 								<li>${login.mb_Id}님환영합니다</li>
 								<li>잔액:${login.mb_cash}</li>
 								<%
 									}
 								%>
 
+								
 							</ul>
 
 						</nav>

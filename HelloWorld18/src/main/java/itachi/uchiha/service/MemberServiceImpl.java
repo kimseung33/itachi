@@ -26,6 +26,11 @@ public class MemberServiceImpl implements MemberService {
 	private MemberDAO dao;
 
 	@Override
+	public void cashback(MemberDTO dto) {
+		dao.cashback(dto);
+	}
+	
+	@Override
 	public MemberDTO readId(String id) {
 		// TODO Auto-generated method stub
 		return dao.readId(id);

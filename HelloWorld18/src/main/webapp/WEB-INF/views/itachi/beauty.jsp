@@ -204,6 +204,8 @@
 	                                                            </div>
 	                                                        </div>
                                                     	</article>
+                                                    	
+                                                    	
 													</c:forEach>
                                                 </div>
                                             </div>

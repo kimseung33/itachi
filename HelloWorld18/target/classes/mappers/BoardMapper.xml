@@ -6,6 +6,10 @@
 
 <mapper namespace="itachi.uchiha.mapper.board">
 	
+	<update id="cashback">
+		update itachi_mb set mb_cash=mb_cash-#{mb_cashback} where mb_Id=#{mb_Id}
+	</update>
+	
 	<update id="usellCount">
       update sasuke_mb set usellCount=#{usellCount} where productNumber=#{productNumber}
    </update>
