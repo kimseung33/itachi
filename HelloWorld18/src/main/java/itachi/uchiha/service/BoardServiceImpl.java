@@ -76,12 +76,12 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	   public void insertin(SellDTO dto) {	      
 	      RegistrationDTO rdto = dao.view(dto.getSellNumber());
-	      if (dto.getNowMoney() > rdto.getNowMoney()) {
-	         dao.umoney(rdto);
-	      }	   
 	      if(dto.getNowMoney()<rdto.getDirectMoney()) {
 	    	  dao.insertin(dto);
-	      }
+	      } else if (dto.getNowMoney() > rdto.getNowMoney()) {
+	         dao.umoney(rdto);
+	      }	   
+	      
 	   }	
 	
 	@Override

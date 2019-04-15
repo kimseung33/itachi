@@ -24,7 +24,7 @@
 	</select>
 	
 	<select id="mainView" resultType="itachi.uchiha.domain.RegistrationDTO">
-		select * from sasuke_mb
+		select * from sasuke_mb order by writedate desc
 	</select>
 	
 	<select id="getAttach" resultType="String">
