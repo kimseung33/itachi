@@ -17,7 +17,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		
 		HttpSession session=request.getSession(true);
 		Object login=session.getAttribute("login");
-		System.out.println("LoginInterceptor preHandle: "+login);
 
 		if (login!=null) {
 			

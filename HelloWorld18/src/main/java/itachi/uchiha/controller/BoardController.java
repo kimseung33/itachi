@@ -26,6 +26,24 @@ public class BoardController {
 	@Inject
 	private BoardService service;
 	
+	//글등록수정 jsp
+	@RequestMapping("Rupdateui")
+	public String Rupdateui(String id, Model model,String productNumber) {
+	
+		RegistrationDTO dto=service.Rupdateui(id,productNumber);
+		model.addAttribute("rid", dto);
+		
+		return "/itachi/rUpdate";
+	}
+	//글등록수정
+	@RequestMapping(value="Rupdate", method=RequestMethod.POST)
+	public String Rupdate(RegistrationDTO dto) {
+		
+		service.Rupdate(dto);
+	
+		return "redirect:/board/main";
+	}
+	
 	@RequestMapping("/auctionHistory")
 	public String auctionHistory(String productNumber, Model model) {
 		//입찰자 list
@@ -91,10 +109,8 @@ public class BoardController {
 	
 	@RequestMapping("/main")
 	public String main(Model model) {
-		System.out.println("11111111111컨트롤러");
 		// 맵퍼에  sellid (입찰자) 조인 해오면 dto에 sellid(입찰자)가 들어가나요??
 		List<RegistrationDTO> dto = service.mainView();	
-		System.out.println("22222222222222컨트롤러");
 		
 		model.addAttribute("view", dto);
 		//dto에 view.sellid가 안되지않을까

@@ -6,6 +6,14 @@
 
 <mapper namespace="itachi.uchiha.mapper.board">
 	
+	<update id="Rupdate">
+			update sasuke_mb set title=#{title}, setence=#{setence}, nowmoney=#{nowMoney} where mb_id=#{mb_Id} and productNumber=#{productNumber}
+	</update>
+	
+	<select id="Rupdateui" resultType="RegistrationDTO">
+		select * from sasuke_mb where mb_Id=#{mb_Id} and productNumber=#{productNumber}	
+	</select>
+	
 	<update id="cashback">
 		update itachi_mb set mb_cash=mb_cash-#{mb_cashback} where mb_Id=#{mb_Id}
 	</update>

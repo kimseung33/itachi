@@ -37,4 +37,8 @@ public interface BoardDAO {
 	void umoney(RegistrationDTO rdto);
 	
 	void usellCount(int usellCount,String productNumber); 
+	
+	RegistrationDTO Rupdateui(String id,String productNumber);
+
+	void Rupdate(RegistrationDTO dto); 
 }

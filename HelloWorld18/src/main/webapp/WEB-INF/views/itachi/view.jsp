@@ -168,6 +168,9 @@
                         <%
                            } else {
                         %>
+                         <c:if test="${login.mb_Id eq view.mb_Id}">                      	
+                        	<li><a href="/board/Rupdateui?id=${login.mb_Id}&productNumber=${view.productNumber}">글수정</a></li>
+                      	</c:if>
                         <a id="ucControls_btn1"
                         href="/board/sellin?productNumber=${view.productNumber}"><img
                         src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif"

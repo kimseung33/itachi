@@ -24,7 +24,17 @@ public class BoardServiceImpl implements BoardService {
 
 	@Inject
 	private MemberDAO mdao;
+	
+	@Override
+	public RegistrationDTO Rupdateui(String id,String productNumber) {
+		return dao.Rupdateui(id,productNumber);
+	}
 
+	@Override
+	public void Rupdate(RegistrationDTO dto) {
+		dao.Rupdate(dto);
+	}
+	
 	@Override
 	public List<RegistrationDTO> category(String productNumber) {
 		List<RegistrationDTO> list = dao.category(productNumber);
