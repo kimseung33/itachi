@@ -111,6 +111,7 @@
 									<li><a href="/member/update?id=${login.mb_Id}">개인정보수정</a></li>
 									<li><a href="/member/cashui?id=${login.mb_Id}">캐쉬충전</a></li>
 									<li><a href="/board/Registration?id=${login.mb_Id}">글쓰기</a></li>
+									<li><a href="/board/mylist?id=${login.mb_Id}">경매 리스트</a></li>
 									
 									
 									<li>
