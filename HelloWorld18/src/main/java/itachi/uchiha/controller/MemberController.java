@@ -28,7 +28,7 @@ public class MemberController {
 	private MemberService service;
 
 	@RequestMapping(value = "cash", method=RequestMethod.POST)
-	public String cash(MemberDTO dto, HttpServletRequest request) {
+	public void cash(MemberDTO dto, HttpServletRequest request, Model model) {
 		
 		service.cash(dto);		
 		HttpSession session=request.getSession(false);
@@ -37,8 +37,8 @@ public class MemberController {
 			
 			session.setAttribute("login", dto2);
 		}
-		
-		return "redirect:/board/main";
+		model.addAttribute("form_ok", "ok");
+		//return "redirect:/board/main";
 	}
 
 	@RequestMapping("cashui")

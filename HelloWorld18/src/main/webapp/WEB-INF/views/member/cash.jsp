@@ -43,6 +43,11 @@
 			
 		});
 		
+		if("${form_ok}" == "ok"){
+			opener.document.location.reload();
+			window.close();
+		}
+		
 		
 	});
 </script>

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,6 +47,30 @@ ul li {
 					<div class="card-body">
 						<h3 class="card-title text-center">경매물품 수정하기</h3>
 						<form class="form-signin" action="/board/Rupdate" method="post">
+							<p>
+								<strong>카테고리 :
+									<c:choose>
+										<c:when test="${fn:substring(rid.productNumber, 0, 1) eq 'A'}">
+											의류
+										</c:when>
+										<c:when test="${fn:substring(rid.productNumber, 0, 1) eq 'B'}">
+											뷰티
+										</c:when>
+										<c:when test="${fn:substring(rid.productNumber, 0, 1) eq 'C'}">
+											잡화
+										</c:when>
+										<c:when test="${fn:substring(rid.productNumber, 0, 1) eq 'D'}">
+											가전(전자)제품
+										</c:when>
+										<c:when test="${fn:substring(rid.productNumber, 0, 1) eq 'E'}">
+											도서/티켓
+										</c:when>
+										<c:otherwise>
+											기타
+										</c:otherwise>
+									</c:choose>
+								</strong>
+							</p>
 							<label for="mb_Id">ID</label> 
 							<input type="text" id="mb_Id"	name="mb_Id" class="form-control" value="${rid.mb_Id}" readonly="readonly">
 							 

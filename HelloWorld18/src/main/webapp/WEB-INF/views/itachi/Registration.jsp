@@ -48,9 +48,10 @@ ul li {
 						<form class="form-signin" action="/board/registrationC"
 							method="post">
 							<div>
-								항목을 선택해주세여 <input type="radio" name="category" value="clothing">의류
-								<input type="radio" name="category" value="beauty">뷰티 <input
-									type="radio" name="category" value="merchandise">잡화<br>
+								<p>항목을 선택해주세여</p>
+								<input type="radio" name="category" value="clothing">의류
+								<input type="radio" name="category" value="beauty">뷰티
+								<input type="radio" name="category" value="merchandise">잡화
 								<input type="radio" name="category" value="appliances">가전제품
 								<input type="radio" name="category" value="bookorticket">도서/티켓
 							</div>
