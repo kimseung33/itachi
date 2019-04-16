@@ -116,7 +116,7 @@
 									
 									
 									<li>
-										<a href="javascrit:void(0);" style="width:752px !important">
+										<a href="javascrit:void(0);" style="width:564px !important">
 											${login.mb_Id}님 환영합니다
 											<br>
 											잔액:<fmt:formatNumber value="${login.mb_cash}" pattern="#,###"/> 원

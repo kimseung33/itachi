@@ -26,6 +26,12 @@ public class BoardServiceImpl implements BoardService {
 	private MemberDAO mdao;
 	
 	@Override
+	public List<RegistrationDTO> mylist(String id) {
+		
+		return dao.mylist(id);
+	}
+	
+	@Override
 	public RegistrationDTO Rupdateui(String id,String productNumber) {
 		return dao.Rupdateui(id,productNumber);
 	}

@@ -22,11 +22,16 @@ import kr.co.function.CheckNumberGenerator2;
 public class BoardDAOImpl implements BoardDAO {
 	
 	
+	
 	@Inject
 	private SqlSession sqlSession;
 	
 	private String NS="itachi.uchiha.mapper.board";
 	
+	@Override
+	public List<RegistrationDTO> mylist(String id) {
+		return sqlSession.selectList(NS+".mylist", id);
+	}
 	
 	@Override
 	public RegistrationDTO Rupdateui(String id,String productNumber) {

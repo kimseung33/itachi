@@ -6,6 +6,10 @@
 
 <mapper namespace="itachi.uchiha.mapper.board">
 	
+	<select id="mylist" resultType="itachi.uchiha.domain.RegistrationDTO">
+		select * from sasuke_mb where mb_id=#{mb_Id} order by usellCount desc
+	</select>
+	
 	<update id="Rupdate">
 			update sasuke_mb set title=#{title}, setence=#{setence}, nowmoney=#{nowMoney} where mb_id=#{mb_Id} and productNumber=#{productNumber}
 	</update>
