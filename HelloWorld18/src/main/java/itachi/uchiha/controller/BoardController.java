@@ -163,6 +163,7 @@ public class BoardController {
 	public String sellIn(SellDTO dto,Model model) {
 		service.insertin(dto);
 		model.addAttribute("productNumber", dto.getSellNumber());
+		
 		return "redirect:/board/view";
 	}
 	
@@ -171,7 +172,6 @@ public class BoardController {
 		
 		
 		//경매물품에 대한 정보
-		MemberDTO login=(MemberDTO)session.getAttribute("login");
 		RegistrationDTO dto = service.view(productNumber);
 		
 		model.addAttribute("view", dto);

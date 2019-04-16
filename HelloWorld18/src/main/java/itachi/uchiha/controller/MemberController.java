@@ -92,7 +92,9 @@ public class MemberController {
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "itachi/main";
+		
+		//return new BoardController().main(null);
+		return "redirect:/board/main";
 	}
 
 	@ResponseBody

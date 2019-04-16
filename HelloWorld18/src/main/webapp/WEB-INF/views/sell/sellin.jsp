@@ -15,8 +15,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="http://script.auction.co.kr/style/css/myauction/popup.css">
 	<script type="text/javascript" src="http://script.auction.co.kr/style/js/common.js"></script>
-	<!-- <SCRIPT language="javascript" src="http://Script.auction.co.kr/common/itemLeftTime.js"></SCRIPT>
-	<script type="text/javascript" src="http://script.auction.co.kr/arche.js"></script> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </HEAD>
 <body>

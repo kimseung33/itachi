@@ -5,6 +5,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,21 +25,33 @@
 		<div class="loc">
 			<a href="/" class="home">홈</a>
 			<span class="sep">&gt;</span>
-			<a href="#">노트북/PC</a>
-			<span class="sep">&gt;</span>
-			<a href="#">브랜드 데스크탑</a>
-			<span class="sep">&gt;</span>
-			<a href="#;">삼성</a>
-			<span class="sep">&gt;</span>
-			<a href="#"><strong>본체</strong></a>
+			<a href="#">
+				<strong>
+					<c:choose>
+						<c:when test="${fn:substring(view.productNumber, 0, 1) eq 'A'}">
+							의류
+						</c:when>
+						<c:when test="${fn:substring(view.productNumber, 0, 1) eq 'B'}">
+							뷰티
+						</c:when>
+						<c:when test="${fn:substring(view.productNumber, 0, 1) eq 'C'}">
+							잡화
+						</c:when>
+						<c:when test="${fn:substring(view.productNumber, 0, 1) eq 'D'}">
+							가전(전자)제품
+						</c:when>
+						<c:when test="${fn:substring(view.productNumber, 0, 1) eq 'E'}">
+							도서/티켓
+						</c:when>
+						<c:otherwise>
+							기타
+						</c:otherwise>
+					</c:choose>
+				</strong>
+			</a>
 		</div>
 	</div>
 </div>
-
-
-
-
-
 
 	<div id="body">
 		<!-- CONTENTS -->
@@ -94,6 +107,7 @@
 							<h2 id="hdivItemTitle">${view.title}</h2>
 							<div class="stitev3">
 								<em class="first">상품번호 : <span>${view.productNumber}</span></em>
+								<em class="first" style="float:right">판매자 : <span>${view.mb_Id}</span></em>
 							</div>
 						</div>
 						<!-- 해외쇼핑 -->
@@ -157,7 +171,7 @@
 						
 					
 						<div id="ucControls_hdivUpper" class="mainbtnv3">
-                  <%
+                  		<%
                            RegistrationDTO view=(RegistrationDTO)request.getAttribute("view");
                            LoginDTO dto=new LoginDTO();
                            MemberDTO dto1=(MemberDTO)session.getAttribute("login");
@@ -165,15 +179,17 @@
                            
                            if (session1 == null) {
                         %>
-                        <a id="ucControls_btn1"
-                        href="/member/login"><img
-                        src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif"
-                        alt=""></a>                      
+	                        <a id="ucControls_btn1"
+	                        href="/member/login"><img
+	                        src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif"
+	                        alt=""></a>                      
                         <%
+
                            } else {
                         %>
 
-                        
+
+
                         <c:if test="${login.mb_Id ne view.mb_Id}">
                         	 <a id="ucControls_btn1"
                       			 href="/board/sellin?productNumber=${view.productNumber}"><img
@@ -185,6 +201,7 @@
                         	<a href="/board/Rupdateui?id=${login.mb_Id}&productNumber=${view.productNumber}">글수정</a>
                         	<div>판매자는 입찰이 불가능합니다.</div>
                         </c:if>	
+
                         <%
                            }
                         %>
@@ -492,13 +509,6 @@
 			}
 		}	
 		
-		
-			
-			
-			
-			
-			
-			
 			
 		function auction_history(productNumber){
 			//alert(productNumber);
