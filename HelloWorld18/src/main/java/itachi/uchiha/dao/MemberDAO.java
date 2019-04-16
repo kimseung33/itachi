@@ -24,5 +24,6 @@ public interface MemberDAO {
 	void cash(MemberDTO dto);
 
 	MemberDTO readId(String id);
-
+	
+	void cashback(MemberDTO dto);
 }

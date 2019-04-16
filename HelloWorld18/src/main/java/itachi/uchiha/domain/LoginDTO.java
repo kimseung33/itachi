@@ -3,7 +3,7 @@ package itachi.uchiha.domain;
 import java.io.Serializable;
 
 public class LoginDTO implements Serializable{
-
+//왜완되
 	private static final long serialVersionUID = 1L;
 	private String mb_Id;
 	private String mb_Pw;

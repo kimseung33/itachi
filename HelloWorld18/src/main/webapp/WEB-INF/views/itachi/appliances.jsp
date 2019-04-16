@@ -18,21 +18,11 @@
                                         <div class="wrapper">
                                             <div class="grid_12">
                                             	<div class="indent-left p2">
-                                                	<h3 class="p0">전자 제품</h3>
+                                                	<h3 class="p0">전자제품</h3>
                                                 </div>
                                                 <div class="wrapper p4">
+                                                	<c:if test="${not empty ctgrview}">
 	                                                <c:forEach var="ctgrview" items="${ctgrview}">
-														<%-- <div class="navigation">
-															<ul class="thumbs noscript">
-																<div>
-																<a href="/board/view?productNumber=${view.productNumber}"><img
-																src="/displayfile?fileName=${view.files[0]}" /></a>
-																<li><a
-																href="/board/view?productNumber=${view.productNumber}">${view.title}</a>
-																즉구가:${view.directMoney} ${view.endDate}</li>
-															</div>
-															</ul>
-														</div> --%>
 														<article class="grid_4 alpha" style="margin-bottom: 20px;">
 	                                                        <div class="indent3">
 	                                                            <figure class="frame2 p2" style="text-align:center;"><img src="/displayfile?fileName=${ctgrview.files[0]}" width="200px" /></figure>
@@ -45,6 +35,12 @@
 	                                                        </div>
                                                     	</article>
 													</c:forEach>
+                                                	</c:if>
+                                                	
+                                                	<c:if test="${empty ctgrview}">
+                                                		카테고리에 해당하는 글이 없습니다.
+                                                	</c:if>
+                                                	
                                                 </div>
                                             </div>
                                         </div>

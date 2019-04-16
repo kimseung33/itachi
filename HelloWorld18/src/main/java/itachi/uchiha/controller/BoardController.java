@@ -3,6 +3,7 @@ package itachi.uchiha.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -91,8 +92,10 @@ public class BoardController {
 	
 	@RequestMapping("/main")
 	public String main(Model model) {
+		System.out.println("11111111111컨트롤러");
 		// 맵퍼에  sellid (입찰자) 조인 해오면 dto에 sellid(입찰자)가 들어가나요??
 		List<RegistrationDTO> dto = service.mainView();	
+		System.out.println("22222222222222컨트롤러");
 		
 		model.addAttribute("view", dto);
 		//dto에 view.sellid가 안되지않을까
@@ -115,7 +118,6 @@ public class BoardController {
 
 	@RequestMapping("/Registration")
 	public String Registration(Model model, String id) {
-		System.out.println(id);
 
 		MemberDTO dto = service.readId(id);
 		model.addAttribute("write", dto);
@@ -133,7 +135,9 @@ public class BoardController {
 	@RequestMapping("/sellin")
 	public String sellIn(String productNumber, Model model) {
 		//경매물품에 대한 정보
+		
 		RegistrationDTO dto = service.view(productNumber);
+		
 		model.addAttribute("list", dto);
 		
 		return "/sell/sellin";
@@ -148,10 +152,12 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/view", method=RequestMethod.GET)
-	public String view_page(String productNumber, Model model) {
+	public String view_page(String productNumber, Model model,HttpSession session) {
+		
 		
 		//경매물품에 대한 정보
 		RegistrationDTO dto = service.view(productNumber);
+		
 		model.addAttribute("view", dto);
 		
 		//입찰 수 구하기

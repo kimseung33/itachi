@@ -116,7 +116,6 @@
 									<li>
 										<a href="javascrit:void(0);" style="width:752px !important">
 											${login.mb_Id}님 환영합니다
-											${requestScope["javax.servlet.forward.request_uri"]}
 											<br>
 											잔액:<fmt:formatNumber value="${login.mb_cash}" pattern="#,###"/> 원
 										</a>

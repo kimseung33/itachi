@@ -1,3 +1,4 @@
+<%@page import="itachi.uchiha.domain.RegistrationDTO"%>
 <%@page import="itachi.uchiha.domain.MemberDTO"%>
 <%@page import="itachi.uchiha.domain.LoginDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -166,12 +167,16 @@
 						</dl>
 
 						<!-- 구매버튼-->
-
+						
+						
+					
 						<div id="ucControls_hdivUpper" class="mainbtnv3">
                   		<%
-                           LoginDTO dto = new LoginDTO();
-                           MemberDTO dto1 = new MemberDTO();
-                           Object session1 = session.getAttribute("login");
+                           RegistrationDTO view=(RegistrationDTO)request.getAttribute("view");
+                           LoginDTO dto=new LoginDTO();
+                           MemberDTO dto1=(MemberDTO)session.getAttribute("login");
+                           Object session1=session.getAttribute("login");
+                           
                            if (session1 == null) {
                         %>
 	                        <a id="ucControls_btn1"
@@ -182,15 +187,18 @@
                            } else {
 	                    %>
 	                    	<c:if test="${sessionScope.login.mb_Id ne view.mb_Id}">
-	                        <a id="ucControls_btn1" href="/board/sellin?productNumber=${view.productNumber}">
-	                        	<img src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif">
-	                        </a>
+		                        <a id="ucControls_btn1" href="/board/sellin?productNumber=${view.productNumber}">
+		                        	<img src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif">
+		                        </a>
 	                        </c:if>
-	                     <%
-	                     	}
-                         %>
-                  
-                     
+                        
+	                        <c:if test="${sessionScope.login.mb_Id eq view.mb_Id}">
+	                        	판매자는 입찰이 불가능합니다.
+	                        </c:if>	
+                        <%
+                           }
+                        %>
+                 
                   </div>
 
 						<!-- 주버튼 -->
@@ -494,13 +502,6 @@
 			}
 		}	
 		
-		
-			
-			
-			
-			
-			
-			
 			
 		function auction_history(productNumber){
 			//alert(productNumber);

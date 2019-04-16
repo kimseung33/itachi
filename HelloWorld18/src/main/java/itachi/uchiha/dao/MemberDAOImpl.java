@@ -21,6 +21,13 @@ public class MemberDAOImpl implements MemberDAO {
 	private String NS = "itachi.uchiha.mapper.board";	
 	
 	@Override
+	public void cashback(MemberDTO dto) {
+		
+		sqlSession.update(NS+".cashback", dto);
+	
+	}
+	
+	@Override
 	public MemberDTO readId(String id) {
 		// TODO Auto-generated method stub
 		

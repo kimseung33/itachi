@@ -96,13 +96,14 @@ public class BoardServiceImpl implements BoardService {
 
 		@Override
 	public List<RegistrationDTO> mainView() {
+	
 		List<RegistrationDTO> list = dao.mainView();
-
+		
 		for (RegistrationDTO dto : list) {
 			List<String> fileList = dao.getAttach(dto.getProductNumber());
 			String[] files = fileList.toArray(new String[fileList.size()]);
-			//System.out.println(files[0]);
 			dto.setFiles(files);
+			
 		}
 
 		return list;
