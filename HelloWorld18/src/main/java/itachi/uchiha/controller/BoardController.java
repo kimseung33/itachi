@@ -27,6 +27,17 @@ public class BoardController {
 	@Inject
 	private BoardService service;
 	
+	//나의 경매 리스트에요
+	@RequestMapping("/mylist")
+	public String mylist(String id, Model model) {
+
+		List<RegistrationDTO> dto = service.mylist(id);
+		
+		model.addAttribute("mylist", dto);
+
+		return "itachi/mylist";
+	}
+	
 	//글등록수정 jsp
 	@RequestMapping("Rupdateui")
 	public String Rupdateui(String id, Model model,String productNumber) {

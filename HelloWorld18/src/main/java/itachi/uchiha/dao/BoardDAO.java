@@ -40,5 +40,7 @@ public interface BoardDAO {
 	
 	RegistrationDTO Rupdateui(String id,String productNumber);
 
-	void Rupdate(RegistrationDTO dto); 
+	void Rupdate(RegistrationDTO dto);
+	
+	List<RegistrationDTO> mylist(String id); 
 }

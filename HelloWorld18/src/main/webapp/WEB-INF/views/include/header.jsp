@@ -112,10 +112,11 @@
 									<li><a href="/member/update?id=${login.mb_Id}">개인정보수정</a></li>
 									<li><a href="javascript:void(0)" onclick="cashui('${login.mb_Id}')">캐쉬충전</a></li>
 									<li><a href="/board/Registration?id=${login.mb_Id}">글쓰기</a></li>
+									<li><a href="/board/mylist?id=${login.mb_Id}">경매 리스트</a></li>
 									
 									
 									<li>
-										<a href="javascrit:void(0);" style="width:752px !important">
+										<a href="javascrit:void(0);" style="width:564px !important">
 											${login.mb_Id}님 환영합니다
 											<br>
 											잔액:<fmt:formatNumber value="${login.mb_cash}" pattern="#,###"/> 원
