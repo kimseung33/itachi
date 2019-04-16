@@ -89,10 +89,10 @@
 					<nav>
 						<div class="container"></div>
 						<ul class="menu" id="gnb">
-							<li><a href="/board/main" class="active">home</a></li>
+							<li><a href="/board/main" ${requestScope["javax.servlet.forward.request_uri"] eq "/board/main" ? "class='active'" : ""}>home</a></li>
 
 							<li>
-								<a href="javascrit:void(0);">Category</a>
+								<a href="javascrit:void(0);" ${ (requestScope["javax.servlet.forward.request_uri"] ne "/board/main") && (requestScope["javax.servlet.forward.request_uri"] ne "/board/search") ? "class='active'" : ""}>Category</a>
 								<ul>
 									<li><a href="/board/clothing?productNumber=A">의류</a></li>
 									<li><a href="/board/beauty?productNumber=B">뷰티</a></li>
@@ -116,6 +116,7 @@
 									<li>
 										<a href="javascrit:void(0);" style="width:752px !important">
 											${login.mb_Id}님 환영합니다
+											${requestScope["javax.servlet.forward.request_uri"]}
 											<br>
 											잔액:<fmt:formatNumber value="${login.mb_cash}" pattern="#,###"/> 원
 										</a>
