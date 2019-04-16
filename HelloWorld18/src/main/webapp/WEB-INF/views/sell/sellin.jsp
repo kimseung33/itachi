@@ -170,7 +170,25 @@ $(document).ready(function() {
 		alert("로그인이 필요합니다.");
 		location.href="/member/login";
 	}
+	
 	$("#frm_submit").on("click", function() {
+		var nowMoney=$("#nowMoney").val();
+		
+		if(nowMoney.length==0){
+			alert("입력된 정보가 없습니다.")
+			return false;
+		}
+		
+		if((nowMoney%100)!=0){
+			alert("100원 단위로만 입력해주세요")
+			return false;
+		}
+		
+		if(nowMoney<${list.nowMoney+100}){
+			alert("현재 가장 높은 입찰가격보다 +100원부터 입찰이 가능합니다.")
+			return false;
+		}
+		
 		$("#frm").submit();
 	})
 });

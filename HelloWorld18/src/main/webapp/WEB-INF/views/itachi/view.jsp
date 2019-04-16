@@ -180,10 +180,10 @@
                         		 src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif"
                         		 alt=""></a>
                         </c:if>
-                        
+                                             
                         <c:if test="${login.mb_Id eq view.mb_Id}">
-                        <a href="/board/Rupdateui?id=${login.mb_Id}&productNumber=${view.productNumber}">글수정</a>
-                        	판매자는 입찰이 불가능합니다.
+                        	<a href="/board/Rupdateui?id=${login.mb_Id}&productNumber=${view.productNumber}">글수정</a>
+                        	<div>판매자는 입찰이 불가능합니다.</div>
                         </c:if>	
                         <%
                            }
