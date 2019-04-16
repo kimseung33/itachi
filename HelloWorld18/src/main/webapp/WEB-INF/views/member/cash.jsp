@@ -34,6 +34,10 @@
 				return false;
 			}
 			
+			if ((mb_cash%10)!=0) {
+				alert("1의자리가 0이 아닙니다.")
+				return false;
+			}
 			
 			$("form").submit();
 			

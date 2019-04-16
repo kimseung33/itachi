@@ -1,3 +1,5 @@
+<%@page import="itachi.uchiha.domain.RegistrationDTO"%>
+<%@page import="itachi.uchiha.domain.LoginDTO"%>
 <%@page import="itachi.uchiha.domain.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -68,8 +70,17 @@ MemberDTO dto = (MemberDTO) session.getAttribute("login");
 
 		    <!-- 입찰하기 -->
 		    <div id="pnlBid">
-	
-			    <h2 class="bid mt">입찰하기</h2>
+			   
+		  <%--   <%
+			LoginDTO login=(LoginDTO)session.getAttribute("login");
+			String mbId=login.getMb_Id();
+			if(mbId==null){
+			%> --%>
+			<h2 class="bid mt">입찰하기</h2>
+			<%-- <%
+			}
+			%> --%>
+			
 						 
 				<div class="mtxxs">
 			        <table cellpadding="0" cellspacing="0" class="bid_tbl">
@@ -89,7 +100,10 @@ MemberDTO dto = (MemberDTO) session.getAttribute("login");
 						    <td><fmt:formatNumber value="${list.directMoney}" pattern="#,###"/>원</td>
 					    </tr>
 					    <tr>
+					 
 						    <th>입찰금액</th>
+					
+			    
 						    <td colspan="3">
 							    <b class="name">현재							    
 								    <c:choose>
@@ -127,7 +141,8 @@ MemberDTO dto = (MemberDTO) session.getAttribute("login");
 			</form>
     										
 	        <div class="ac mtxs">
-		        <input type="image" name="buttonBid" id="frm_submit" alt="입찰하기" src="http://pics.auction.co.kr/popup/btn_bid.gif" />
+	    
+		    <input type="image" name="buttonBid" id="frm_submit" alt="입찰하기" src="http://pics.auction.co.kr/popup/btn_bid.gif" />
 	        </div>
 
 	        <div class="mt bid_ul">
@@ -150,6 +165,7 @@ MemberDTO dto = (MemberDTO) session.getAttribute("login");
 <script>
 
 $(document).ready(function() {
+	
 	if(!"<%=dto.getMb_Id()%>" || "<%=dto.getMb_Id()%>" == null){
 		alert("로그인이 필요합니다.");
 		location.href="/member/login";
