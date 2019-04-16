@@ -111,7 +111,7 @@ public class BoardController {
 	@RequestMapping("/main")
 	public String main(Model model) {
 		// 맵퍼에  sellid (입찰자) 조인 해오면 dto에 sellid(입찰자)가 들어가나요??
-		List<RegistrationDTO> dto = service.mainView();	
+		List<RegistrationDTO> dto = service.mainView();
 		
 		model.addAttribute("view", dto);
 		//dto에 view.sellid가 안되지않을까
@@ -119,6 +119,7 @@ public class BoardController {
 		
 		return "/itachi/main";
 	}
+	
 
 	@RequestMapping(value = "/search")
 	public String search(SearchCriteria cri, Model model) {
