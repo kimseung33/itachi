@@ -25,6 +25,7 @@
    		<script type="text/javascript" src="js/html5.js"></script>
         <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
 	<![endif]-->
+	
 </head>
 <style type="text/css">
 #gnb { /*width:250px; background:#ccc;*/
@@ -109,7 +110,7 @@
 								if (session1 != null) {
 							%>
 									<li><a href="/member/update?id=${login.mb_Id}">개인정보수정</a></li>
-									<li><a href="/member/cashui?id=${login.mb_Id}">캐쉬충전</a></li>
+									<li><a href="javascript:void(0)" onclick="cashui('${login.mb_Id}')">캐쉬충전</a></li>
 									<li><a href="/board/Registration?id=${login.mb_Id}">글쓰기</a></li>
 									
 									
@@ -164,3 +165,9 @@
 		</div>
 	</div>
 </header>
+
+<script type="text/javascript">
+function cashui(mb_id){
+	var win = window.open("/member/cashui?id="+mb_id, "actionHistory", "width=600,height=700");
+}
+</script>
