@@ -28,6 +28,18 @@ public class BoardDAOImpl implements BoardDAO {
 	private String NS="itachi.uchiha.mapper.board";
 	
 	
+	@Override
+	public RegistrationDTO Rupdateui(String id,String productNumber) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("mb_Id", id);
+		map.put("productNumber", productNumber);
+		return sqlSession.selectOne(NS+".Rupdateui", map);
+	}
+
+	@Override
+	public void Rupdate(RegistrationDTO dto) {
+		sqlSession.update(NS+".Rupdate", dto);
+	}
 	
 	@Override
 	   public void usellCount(int usellCount,String productNumber) {

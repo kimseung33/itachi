@@ -27,6 +27,24 @@ public class BoardController {
 	@Inject
 	private BoardService service;
 	
+	//글등록수정 jsp
+	@RequestMapping("Rupdateui")
+	public String Rupdateui(String id, Model model,String productNumber) {
+	
+		RegistrationDTO dto=service.Rupdateui(id,productNumber);
+		model.addAttribute("rid", dto);
+		
+		return "/itachi/rUpdate";
+	}
+	//글등록수정
+	@RequestMapping(value="Rupdate", method=RequestMethod.POST)
+	public String Rupdate(RegistrationDTO dto) {
+		
+		service.Rupdate(dto);
+	
+		return "redirect:/board/main";
+	}
+	
 	@RequestMapping("/auctionHistory")
 	public String auctionHistory(String productNumber, Model model) {
 		//입찰자 list

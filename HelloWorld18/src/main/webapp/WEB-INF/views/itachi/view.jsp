@@ -18,6 +18,20 @@
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js" type="text/javascript"></script>
+<style type="text/css">
+.modify_btn {
+    display: inline-block;
+    padding: 10px 25px 11px;
+    color: #fff;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.22em;
+    /* background: url(../images/button-tail.gif) 0 0 repeat-x #000; */
+    background-color:#ff6e00;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+</style>
 </head>
 <body>
 <div id="locbar" class="crop">
@@ -184,17 +198,24 @@
 	                        src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif"
 	                        alt=""></a>                      
                         <%
+
                            } else {
-	                    %>
-	                    	<c:if test="${sessionScope.login.mb_Id ne view.mb_Id}">
-		                        <a id="ucControls_btn1" href="/board/sellin?productNumber=${view.productNumber}">
-		                        	<img src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif">
-		                        </a>
-	                        </c:if>
-                        
-	                        <c:if test="${sessionScope.login.mb_Id eq view.mb_Id}">
-	                        	판매자는 입찰이 불가능합니다.
-	                        </c:if>	
+                        %>
+
+
+
+                        <c:if test="${login.mb_Id ne view.mb_Id}">
+                        	 <a id="ucControls_btn1"
+                      			 href="/board/sellin?productNumber=${view.productNumber}"><img
+                        		 src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif"
+                        		 alt=""></a>
+                        </c:if>
+                                             
+                        <c:if test="${login.mb_Id eq view.mb_Id}">
+                        	<a href="/board/Rupdateui?id=${login.mb_Id}&productNumber=${view.productNumber}" class="modify_btn">글수정</a>
+                        	
+                        </c:if>	
+
                         <%
                            }
                         %>

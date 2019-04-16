@@ -32,5 +32,9 @@ public interface BoardService {
 	List<SellDTO> auctionHistory(String productNumber);
 	
 	void umoney(RegistrationDTO rdto);
+	
+	RegistrationDTO Rupdateui(String id,String productNumber);
+
+	void Rupdate(RegistrationDTO dto);
 
 }
