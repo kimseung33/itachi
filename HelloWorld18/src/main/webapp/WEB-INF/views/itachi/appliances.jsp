@@ -216,52 +216,6 @@
                 </div>
             </div>	
         </div>
-        <div class="bg-bot">
-        	<div class="main">
-            	<div class="container_12">
-                	<div class="wrapper">
-                    	<article class="grid_4">
-                        	<h3 class="p2">New Furniture</h3>
-                            <div class="wrapper">
-                            	<figure class="img-indent frame2"><img src="../resources/images/page4-img7.jpg" alt="" /></figure>
-                                <p class="prev-indent-bot color-4">At vero eos eaccusa mus etusto odio.</p>
-                                <p class="prev-indent-bot">Tium voluptatum del eniti atque corrupti quos dolores.</p>
-                                <a class="button" href="#">View More</a>
-                            </div>
-                        </article>
-                        <article class="grid_8">
-                        	<h3 class="prev-indent-bot2">Our Pricing</h3>
-                            <div class="wrapper">
-                            	<div class="grid_4 alpha">
-                                	<div class="indent-right2">
-                                        <ul class="price-list">
-                                            <li><span>$6700.00</span><a href="#">Totam rem aperiam eaque</a><strong>&nbsp;</strong></li>
-                                            <li><span>$4370.00</span><a href="#">Inventore veritatis quasi</a><strong>&nbsp;</strong></li>
-                                            <li><span>$5780.00</span><a href="#">Nemo enim ipsam voluptatem</a><strong>&nbsp;</strong></li>
-                                            <li><span>$2300.00</span><a href="#">Voluptas sit aspernatur aut</a><strong>&nbsp;</strong></li>
-                                            <li><span>$3650.00</span><a href="#">Sed quia consequuntur magni</a><strong>&nbsp;</strong></li>
-                                            <li class="last"><span>$7900.00</span><a href="#">Ratione voluptatem sequi</a><strong>&nbsp;</strong></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="grid_4 omega">
-                                	<div class="indent-right2">
-                                        <ul class="price-list">
-                                            <li><span>$6700.00</span><a href="#">Totam rem aperiam eaque</a><strong>&nbsp;</strong></li>
-                                            <li><span>$4370.00</span><a href="#">Inventore veritatis quasi</a><strong>&nbsp;</strong></li>
-                                            <li><span>$5780.00</span><a href="#">Nemo enim ipsam voluptatem</a><strong>&nbsp;</strong></li>
-                                            <li><span>$2300.00</span><a href="#">Voluptas sit aspernatur aut</a><strong>&nbsp;</strong></li>
-                                            <li><span>$3650.00</span><a href="#">Sed quia consequuntur magni</a><strong>&nbsp;</strong></li>
-                                            <li class="last"><span>$7900.00</span><a href="#">Ratione voluptatem sequi</a><strong>&nbsp;</strong></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
     
 
@@ -272,28 +226,11 @@
 			<div class="container_12">
 				<div class="wrapper">
 					<div class="grid_4">
-						<div>
-							Interior Design &copy; 2011 <a class="link color-3" href="#">Privacy
-								Policy</a>
-						</div>
-						<div>
-							<a rel="nofollow" target="_blank"
-								href="http://www.templatemonster.com/">Website Template</a> by
-							TemplateMonster.com | <a rel="nofollow" target="_blank"
-								href="http://www.html5xcss3.com/">html5xcss3.com</a>
-						</div>
 						<!-- {%FOOTER_LINK} -->
 					</div>
 					<div class="grid_4">
-						<span class="phone-numb"><span>+1(800)</span> 123-1234</span>
 					</div>
 					<div class="grid_4">
-						<ul class="list-services">
-							<li><a href="#"></a></li>
-							<li><a class="item-2" href="#"></a></li>
-							<li><a class="item-3" href="#"></a></li>
-							<li><a class="item-4" href="#"></a></li>
-						</ul>
 					</div>
 				</div>
 			</div>

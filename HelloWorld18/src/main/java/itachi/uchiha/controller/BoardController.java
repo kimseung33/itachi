@@ -143,6 +143,7 @@ public class BoardController {
 	public String sellIn(SellDTO dto,Model model) {
 		service.insertin(dto);
 		model.addAttribute("productNumber", dto.getSellNumber());
+		
 		return "redirect:/board/view";
 	}
 	
