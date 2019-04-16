@@ -101,7 +101,7 @@ public class BoardServiceImpl implements BoardService {
 		for (RegistrationDTO dto : list) {
 			List<String> fileList = dao.getAttach(dto.getProductNumber());
 			String[] files = fileList.toArray(new String[fileList.size()]);
-			System.out.println(files[0]);
+			//System.out.println(files[0]);
 			dto.setFiles(files);
 		}
 

@@ -68,64 +68,43 @@
 
 								<li><a href="/board/main" class="active">home</a></li>
 
-								<li><a href="#">Category</a>
+								<li>
+									<a href="javascrit:void(0);">Category</a>
 									<ul>
 										<li><a href="/board/clothing?productNumber=A">의류</a></li>
 										<li><a href="/board/beauty?productNumber=B">뷰티</a></li>
 										<li><a href="/board/merchandise?productNumber=C">잡화</a></li>
 										<li><a href="/board/appliances?productNumber=D">가전제품</a></li>
-										<li><a href="/board/bookorticket?productNumber=E">도서
-												티켓</a></li>
-									</ul></li>
-								<li><a href="#">AAAAA</a></li>
-								<li><a href="#">BBBBBB</a></li>
+										<li><a href="/board/bookorticket?productNumber=E">도서 티켓</a></li>
+									</ul>
+								</li>
+
 								<%
 									LoginDTO dto = new LoginDTO();
 									MemberDTO dto1 = new MemberDTO();
 									Object session1 = session.getAttribute("login");
-
-									if (session1 == null) {
+									if (session1 != null) {
 								%>
-
-								<li><a href="/member/login">Login</a></li>
+										<li><a href="/member/update?id=${login.mb_Id}">개인정보수정</a></li>
+										<li><a href="/member/cashui?id=${login.mb_Id}">캐쉬충전</a></li>
+										<li><a href="/board/Registration?id=${login.mb_Id}">글쓰기</a></li>
+										
+										
+										<li>
+											<a href="javascrit:void(0);" style="width:752px !important">
+												${login.mb_Id}님 환영합니다
+												<br>
+												잔액:<fmt:formatNumber value="${login.mb_cash}" pattern="#,###"/> 원
+											</a>
+										</li>
+										<li style="float:right;"><a href="/member/logout">Logout</a></li>
 								<%
 									} else {
 								%>
-								<li><a href="/member/logout">Logout</a></li>
+										<li><a href="/member/login">Login</a></li>
 								<%
 									}
 								%>
-
-								<%
-									if (session1 != null) {
-								%>
-								<li><a href="/member/update?id=${login.mb_Id}">개인정보수정</a></li>
-								<%
-									}
-								%>
-								<%
-									if (session1 != null) {
-								%>
-								<li><a href="/board/Registration?id=${login.mb_Id}">글쓰기</a></li>
-								<%
-									}
-								%>
-								<%
-									if (session1 != null) {
-								%>
-								<li><a href="/member/cashui?id=${login.mb_Id}">캐쉬충전</a></li>
-								<%
-									}
-								%>
-								<%
-									if (session1 != null) {
-								%>
-								<li>${login.mb_Id}님환영합니다</li>
-								<li>잔액:${login.mb_cash}</li>
-								<%
-									}
-								%>
-
 							</ul>
 
 						</nav>

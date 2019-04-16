@@ -67,9 +67,9 @@
 							<ul class="menu" id="gnb">
 
 
-								<li><a href="/board/main" class="active">home</a></li>
+								<li><a href="/board/main">home</a></li>
 
-								<li><a href="#">Category</a>
+								<li><a href="#" class="active">Category</a>
 									<ul>
 										<li><a href="/board/clothing?productNumber=A">ÀÇ·ù</a></li>
 										<li><a href="/board/beauty?productNumber=B">ºäÆ¼</a></li>

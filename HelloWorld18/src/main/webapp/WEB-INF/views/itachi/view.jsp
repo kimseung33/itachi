@@ -4,6 +4,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,21 +24,33 @@
 		<div class="loc">
 			<a href="/" class="home">홈</a>
 			<span class="sep">&gt;</span>
-			<a href="#">노트북/PC</a>
-			<span class="sep">&gt;</span>
-			<a href="#">브랜드 데스크탑</a>
-			<span class="sep">&gt;</span>
-			<a href="#;">삼성</a>
-			<span class="sep">&gt;</span>
-			<a href="#"><strong>본체</strong></a>
+			<a href="#">
+				<strong>
+					<c:choose>
+						<c:when test="${fn:substring(view.productNumber, 0, 1) eq 'A'}">
+							의류
+						</c:when>
+						<c:when test="${fn:substring(view.productNumber, 0, 1) eq 'B'}">
+							뷰티
+						</c:when>
+						<c:when test="${fn:substring(view.productNumber, 0, 1) eq 'C'}">
+							잡화
+						</c:when>
+						<c:when test="${fn:substring(view.productNumber, 0, 1) eq 'D'}">
+							가전(전자)제품
+						</c:when>
+						<c:when test="${fn:substring(view.productNumber, 0, 1) eq 'E'}">
+							도서/티켓
+						</c:when>
+						<c:otherwise>
+							기타
+						</c:otherwise>
+					</c:choose>
+				</strong>
+			</a>
 		</div>
 	</div>
 </div>
-
-
-
-
-
 
 	<div id="body">
 		<!-- CONTENTS -->
