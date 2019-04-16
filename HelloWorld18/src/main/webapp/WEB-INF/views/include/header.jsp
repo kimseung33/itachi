@@ -1,3 +1,8 @@
+<%@page import="itachi.uchiha.domain.LoginDTO"%>
+<%@page import="itachi.uchiha.domain.MemberDTO"%>
+<%@page import="org.springframework.ui.Model"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,3 +26,141 @@
         <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
 	<![endif]-->
 </head>
+<style type="text/css">
+#gnb { /*width:250px; background:#ccc;*/
+	
+}
+
+#gnb>li { /* display:inline-block; */
+	
+}
+
+#gnb>li>a {
+	/* display:block; line-height:25px; width:80px; text-align:center; */
+	
+}
+
+#gnb>li.on a {
+	background: #777;
+	color: #fff;
+}
+
+#gnb li ul {
+	position: absolute;
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+}
+
+#gnb li.on ul {
+	height: auto;
+	background: #777;
+	z-index: 9999;
+}
+
+
+
+#gnb li ul li a {
+	margin: 3px 0;
+	color: #fff;
+}
+
+#gnb li ul li a:hover {
+	background: #fff;
+	color: #000;
+}
+</style>
+
+
+<body id="page1">
+
+<!--==============================header=================================-->
+<header>
+	<div class="test">
+		<ul>
+
+		</ul>
+	</div>
+
+	<div class="row-1">
+		<div class="main">
+			<div class="container_12">
+				<div class="grid_12">
+					<nav>
+						<div class="container"></div>
+						<ul class="menu" id="gnb">
+							<li><a href="/board/main" class="active">home</a></li>
+
+							<li>
+								<a href="javascrit:void(0);">Category</a>
+								<ul>
+									<li><a href="/board/clothing?productNumber=A">의류</a></li>
+									<li><a href="/board/beauty?productNumber=B">뷰티</a></li>
+									<li><a href="/board/merchandise?productNumber=C">잡화</a></li>
+									<li><a href="/board/appliances?productNumber=D">가전제품</a></li>
+									<li><a href="/board/bookorticket?productNumber=E">도서 티켓</a></li>
+								</ul>
+							</li>
+
+							<%
+								LoginDTO dto = new LoginDTO();
+								MemberDTO dto1 = new MemberDTO();
+								Object session1 = session.getAttribute("login");
+								if (session1 != null) {
+							%>
+									<li><a href="/member/update?id=${login.mb_Id}">개인정보수정</a></li>
+									<li><a href="/member/cashui?id=${login.mb_Id}">캐쉬충전</a></li>
+									<li><a href="/board/Registration?id=${login.mb_Id}">글쓰기</a></li>
+									
+									
+									<li>
+										<a href="javascrit:void(0);" style="width:752px !important">
+											${login.mb_Id}님 환영합니다
+											<br>
+											잔액:<fmt:formatNumber value="${login.mb_cash}" pattern="#,###"/> 원
+										</a>
+									</li>
+									<li style="float:right;"><a href="/member/logout">Logout</a></li>
+							<%
+								} else {
+							%>
+									<li><a href="/member/login">Login</a></li>
+							<%
+								}
+							%>
+						</ul>
+
+					</nav>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="row-2">
+		<div class="main">
+			<div class="container_12">
+				<div class="grid_9">
+					<h1>
+						<a class="logo" href="#"><strong>A</strong>katsuki</a> <span>경매(Itachi)</span>
+					</h1>
+				</div>
+				<div class="grid_3">
+					<form id="search-form" action="/board/search" method="get"
+						enctype="multipart/form-data">
+						<input type="hidden" name="searchType" id="searchType"
+							value="title">
+
+						<fieldset>
+							<div class="search-field">									
+								<input class="form-control" id="keyword" name="keyword"
+									type="text"> 
+									<a class="search-button" href="#" onClick="document.getElementById('search-form').submit()"> <span>search</span></a>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</header>

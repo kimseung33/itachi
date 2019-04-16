@@ -106,6 +106,7 @@
 							<h2 id="hdivItemTitle">${view.title}</h2>
 							<div class="stitev3">
 								<em class="first">상품번호 : <span>${view.productNumber}</span></em>
+								<em class="first" style="float:right">판매자 : <span>${view.mb_Id}</span></em>
 							</div>
 						</div>
 						<!-- 해외쇼핑 -->
@@ -167,27 +168,27 @@
 						<!-- 구매버튼-->
 
 						<div id="ucControls_hdivUpper" class="mainbtnv3">
-                  <%
+                  		<%
                            LoginDTO dto = new LoginDTO();
                            MemberDTO dto1 = new MemberDTO();
                            Object session1 = session.getAttribute("login");
-
                            if (session1 == null) {
                         %>
-                        <a id="ucControls_btn1"
-                        href="/member/login"><img
-                        src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif"
-                        alt=""></a>                      
+	                        <a id="ucControls_btn1"
+	                        href="/member/login"><img
+	                        src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif"
+	                        alt=""></a>                      
                         <%
                            } else {
-                        %>
-                        <a id="ucControls_btn1"
-                        href="/board/sellin?productNumber=${view.productNumber}"><img
-                        src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif"
-                        alt=""></a>
-                        <%
-                           }
-                        %>
+	                    %>
+	                    	<c:if test="${sessionScope.login.mb_Id ne view.mb_Id}">
+	                        <a id="ucControls_btn1" href="/board/sellin?productNumber=${view.productNumber}">
+	                        	<img src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif">
+	                        </a>
+	                        </c:if>
+	                     <%
+	                     	}
+                         %>
                   
                      
                   </div>
