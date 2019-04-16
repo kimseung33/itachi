@@ -3,6 +3,7 @@ package itachi.uchiha.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -134,7 +135,9 @@ public class BoardController {
 	@RequestMapping("/sellin")
 	public String sellIn(String productNumber, Model model) {
 		//경매물품에 대한 정보
+		
 		RegistrationDTO dto = service.view(productNumber);
+		
 		model.addAttribute("list", dto);
 		
 		return "/sell/sellin";
@@ -148,10 +151,13 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/view", method=RequestMethod.GET)
-	public String view_page(String productNumber, Model model) {
+	public String view_page(String productNumber, Model model,HttpSession session) {
+		
 		
 		//경매물품에 대한 정보
+		MemberDTO login=(MemberDTO)session.getAttribute("login");
 		RegistrationDTO dto = service.view(productNumber);
+		
 		model.addAttribute("view", dto);
 		
 		//입찰 수 구하기
