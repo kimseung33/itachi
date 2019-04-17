@@ -93,7 +93,7 @@
 							<li><a href="/board/main" ${requestScope["javax.servlet.forward.request_uri"] eq "/board/main" ? "class='active'" : ""}>home</a></li>
 
 							<li>
-								<a href="javascrit:void(0);" ${ (requestScope["javax.servlet.forward.request_uri"] ne "/board/main") && (requestScope["javax.servlet.forward.request_uri"] ne "/board/search") ? "class='active'" : ""}>Category</a>
+								<a href="javascrit:void(0);" ${ (requestScope["javax.servlet.forward.request_uri"] ne "/board/main") && (requestScope["javax.servlet.forward.request_uri"] ne "/board/search")  && (requestScope["javax.servlet.forward.request_uri"] ne "/board/mylist") ? "class='active'" : ""}>Category</a>
 								<ul>
 									<li><a href="/board/clothing?productNumber=A">의류</a></li>
 									<li><a href="/board/beauty?productNumber=B">뷰티</a></li>

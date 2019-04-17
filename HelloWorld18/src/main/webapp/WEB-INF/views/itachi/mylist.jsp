@@ -3,7 +3,28 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <jsp:include page="/WEB-INF/views/include/header.jsp" />
-	
+<style>
+table.tbl_list {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: center;
+    line-height: 1.5;
+    margin: 20px 10px;
+}
+table.tbl_list th {
+	padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #bd7031;
+    border-bottom: 3px solid #a35d18;
+}
+table.tbl_list td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+</style>
 <!-- content -->
     <section id="content">
         <div class="bg-top">
@@ -19,42 +40,73 @@
                                             	<div class="indent-left p2">
                                                 	<h3 class="p0">경매 리스트</h3>
                                                 </div>
-                                                <c:if test="${not empty mylist}">
                                                 <div class="wrapper p4">
-                                                <table class="table table-hover">
-												<thead>
-													<tr>
-														<th>상품번호</th>
-														<th>제목</th>
-														<th>경매종료일</th>
-														<th>입찰수</th>
-														<th>즉매가</th>
-														<th></th>
-													</tr>
-												</thead>
-
-												
-												<tbody>
-	                                                <c:forEach var="view" items="${mylist}">
-
-
-														<tr>
-															<td>${view.title}</td>
-															<td>${view.endDate}</td>
-															<td>${view.usellCount}</td>
-															<td>${view.directMoney}원</td>
-															<td><a href="/board/view?productNumber=${view.productNumber}">자세히보기</a></td>
-														</tr>
-
-
-
-													</c:forEach>
-													</tbody>
+	                                                <c:if test="${not empty mylist}">
+		                                                <table class="tbl_list">
+															<thead>
+																<tr>
+																	<th width="10%">상품번호</th>
+																	<th width="20%">제목</th>
+																	<th width="10%">경매시작일</th>
+																	<th width="10%">경매종료일</th>
+																	<th width="10%">입찰수</th>
+																	<th width="10%">종료여부</th>
+																	<th width="10%">낙찰여부</th>
+																	<th width="10%">자세히</th>
+																</tr>
+															</thead>
+															<tbody> 
+																<!-- 현재시간 date format  -->
+																<c:set var="today_date" value="<%=new java.util.Date()%>"/>
+																<!-- datetime 비교하기쉽게 yyyyMMddHHmmss 방식으로 저장 --> 
+																<fmt:formatDate var="nowdateString" value="${today_date}" pattern="yyyyMMddHHmmss"/>
+																
+				                                                <c:forEach var="view" items="${mylist}">
+				                                                	<!-- 경매종료시간 date format -->
+				                                                	<!-- dateformat을 하기 위해 date를 java.util.date형식으로 초기화 -->
+																	<fmt:parseDate value="${view.endDate}" var="endDate" pattern="yyyy-MM-dd HH:mm:ss"/>
+																	<!-- datetime 비교하기쉽게 yyyyMMddHHmmss 방식으로 저장 -->
+																	<fmt:formatDate var="enddateString" value="${endDate}" pattern="yyyyMMddHHmmss"/>	
+				                                                	
+																	<tr>
+																		<td>${view.productNumber}</td>
+																		<td>${view.title}</td>
+																		<td>${view.writedate}</td>
+																		<td>${view.endDate}</td>
+																		<td>${view.usellCount}</td>
+																		
+																		<!-- 경매종료시간 vs 현재시간 비교 -->
+																		<c:choose>
+																			<c:when test="${enddateString > nowdateString}">
+																				<td>경매중</td>
+																				<td>낙찰<br>불가능</td>
+																			</c:when>
+																			<c:otherwise>
+																				<td>경매종료</td>
+																				
+																				<c:if test="${view.usellCount > 0}">
+																					<c:if test="${view.endflag eq 'N' }">
+																						<td><a href="javascript:alert('낙찰가능url연결좀')">낙찰가능</a></td>
+																					</c:if>
+																					<c:if test="${view.endflag eq 'Y' }">
+																						<td>낙찰완료</td>
+																					</c:if>
+																				</c:if>
+																				<c:if test="${view.usellCount <= 0}">
+																					<td>입찰없음</td>
+																				</c:if>
+																			</c:otherwise>
+																		</c:choose>															
+																		
+																		<td><a href="/board/view?productNumber=${view.productNumber}" style="color:#bd7031">자세히</a></td>
+																	</tr>
+																</c:forEach>
+															</tbody>
+														</table>
 													</c:if>
-													</table>
 													<c:if test="${empty mylist}">
-                                                		등록하신 글이 없습니다.
-                                                	</c:if>
+	                                                	등록하신 글이 없습니다.
+	                                                </c:if>
                                                 </div>
                                             </div>
                                         </div>
