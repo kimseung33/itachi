@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
+import itachi.uchiha.domain.ReceiptDTO;
 import kr.co.function.CheckNumberGenerator;
 import kr.co.function.MailExam;
 
@@ -19,6 +20,24 @@ public class MemberDAOImpl implements MemberDAO {
 	private SqlSession sqlSession;
 
 	private String NS = "itachi.uchiha.mapper.board";	
+	
+	@Override
+	public void cashget(ReceiptDTO dto) {
+		System.out.println("멤버dao에있는 cashget dto정상출력하는지 test"+dto+"::::::::::::::::::::");
+		sqlSession.update(NS+".cashget", dto);	//구매자 계정에서 입찰금액 빼는 과정
+		sqlSession.update(NS+".cashget2", dto);	//판매자 계정에 입찰금액 넣는 과정
+		System.out.println("멤버dao에있는 cashget sqlsession작업끝남?"+dto+"::::::::::::::::::::");
+	}
+
+	@Override
+	public ReceiptDTO cashgetui(int nowMoney, String productNumber) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("nowMoney", nowMoney);
+		map.put("productNumber", productNumber);
+		System.out.println("moeny:::::::::::::"+nowMoney+":::::::::"+"number"+productNumber+":::::::");
+		System.out.println("map::::::::::"+map+":::::::::::");
+		return sqlSession.selectOne(NS+".cashgetui", map);
+	}
 	
 	@Override
 	public void cashback(MemberDTO dto) {

@@ -10,6 +10,18 @@
 		select * from sasuke_mb where mb_id=#{mb_Id} order by usellCount desc
 	</select>
 	
+	<update id="cashget">
+		update itachi_mb set mb_cash=mb_cash-#{nowMoney} where mb_id=#{sellId}
+	</update>
+	
+	<update id="cashget2">
+		update itachi_mb set mb_cash=mb_cash+#{nowMoney} where mb_id=#{mb_Id}
+	</update>
+	
+	<select id="cashgetui" resultType="ReceiptDTO">
+		select * from sell_mb where nowMoney=#{nowMoney} and sellnumber=#{productNumber}
+	</select>
+	
 	<update id="Rupdate">
 			update sasuke_mb set title=#{title}, setence=#{setence}, nowmoney=#{nowMoney} where mb_id=#{mb_Id} and productNumber=#{productNumber}
 	</update>

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
+import itachi.uchiha.domain.ReceiptDTO;
 import itachi.uchiha.service.MemberService;
 
 @Controller
@@ -26,7 +27,33 @@ public class MemberController {
 
 	@Inject
 	private MemberService service;
-
+	
+	@RequestMapping("/cashget")
+	public String cashget(ReceiptDTO dto,HttpSession session,HttpServletRequest request) {
+		MemberDTO login=(MemberDTO)session.getAttribute("login");
+		String id=login.getMb_Id();
+		dto.setMb_Id(id);
+		
+		service.cashget(dto);
+		
+		session=request.getSession(false);
+		if(session != null) {
+			MemberDTO dto2 = service.readId(dto.getMb_Id());
+			session.setAttribute("login", dto2);
+		}
+		
+		return "redirect:/board/main";
+	}
+	
+	//금액수령 jsp
+	@RequestMapping("/cashgetui")
+	public String cashgetui(int nowMoney,Model model,String productNumber) {
+		System.out.println("::::::::::::::::::nowMoney"+nowMoney+":::::::::::num"+productNumber);
+		ReceiptDTO dto=service.cashgetui(nowMoney,productNumber);
+		model.addAttribute("cget", dto);
+		return "/member/cashget";
+	}
+	
 	@RequestMapping(value = "cash", method=RequestMethod.POST)
 	public void cash(MemberDTO dto, HttpServletRequest request, Model model) {
 		

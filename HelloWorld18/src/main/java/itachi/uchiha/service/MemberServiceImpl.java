@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import itachi.uchiha.dao.MemberDAO;
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
-
+import itachi.uchiha.domain.ReceiptDTO;
 import itachi.uchiha.domain.SellDTO;
 
 import itachi.uchiha.domain.RegistrationDTO;
@@ -24,7 +24,17 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	private MemberDAO dao;
-
+	
+	@Override
+	public void cashget(ReceiptDTO dto) {
+		dao.cashget(dto);
+	}
+	
+	@Override
+	public ReceiptDTO cashgetui(int nowMoney, String productNumber) {
+		return dao.cashgetui(nowMoney,productNumber);
+	}
+	
 	@Override
 	public void cashback(MemberDTO dto) {
 		dao.cashback(dto);

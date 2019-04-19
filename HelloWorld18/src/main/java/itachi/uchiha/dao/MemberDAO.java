@@ -2,6 +2,7 @@ package itachi.uchiha.dao;
 
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
+import itachi.uchiha.domain.ReceiptDTO;
 
 public interface MemberDAO {
 	MemberDTO login(LoginDTO dto);
@@ -26,4 +27,8 @@ public interface MemberDAO {
 	MemberDTO readId(String id);
 	
 	void cashback(MemberDTO dto);
+	
+	ReceiptDTO cashgetui(int nowMoney, String productNumber);
+
+	void cashget(ReceiptDTO dto);
 }

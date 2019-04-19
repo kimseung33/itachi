@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import itachi.uchiha.domain.LoginDTO;
 import itachi.uchiha.domain.MemberDTO;
-
+import itachi.uchiha.domain.ReceiptDTO;
 import itachi.uchiha.domain.SellDTO;
 
 import itachi.uchiha.domain.RegistrationDTO;
@@ -36,5 +36,9 @@ public interface MemberService {
 	MemberDTO readId(String id);
 	
 	void cashback(MemberDTO dto);
+	
+	ReceiptDTO cashgetui(int nowMoney, String productNumber);
+
+	void cashget(ReceiptDTO dto);
 
 }

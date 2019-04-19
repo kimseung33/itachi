@@ -198,12 +198,8 @@
 	                        src="http://pics.auction.co.kr/listing/used/2014/btn_bidding.gif"
 	                        alt=""></a>                      
                         <%
-
                            } else {
                         %>
-
-
-
                         <c:if test="${login.mb_Id ne view.mb_Id}">
                         	 <a id="ucControls_btn1"
                       			 href="/board/sellin?productNumber=${view.productNumber}"><img
@@ -213,15 +209,18 @@
                                              
                         <c:if test="${login.mb_Id eq view.mb_Id}">
                         	<a href="/board/Rupdateui?id=${login.mb_Id}&productNumber=${view.productNumber}" class="modify_btn">글수정</a>
-                        	
+                        	<%-- <a href="/member/cashgetui?nowMoney=${view.nowMoney}&productNumber=${view.productNumber}" class="modify_btn">금액수령</a> --%>     	
                         </c:if>	
-
                         <%
                            }
                         %>
-                 
                   </div>
-
+                  <!-- 문제되면 바로 삭제  -->
+                 
+                  <a id="ucControls_hdivUpper3" href="/member/cashgetui?nowMoney=${view.nowMoney}&productNumber=${view.productNumber}" class="modify_btn">금액수령3</a>
+                  
+                 	
+                  <!--  -->
 						<!-- 주버튼 -->
 
 
@@ -386,6 +385,7 @@
 	</script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			$("#ucControls_hdivUpper3").hide();
 			var productNumber = "${view.productNumber}";
 			getAllAttach(productNumber);
 
@@ -497,12 +497,13 @@
 				}
 				setTimeout("Countdown()",1000);
 				g_Timer = g_Timer + 1;
+				
 			}
 			else{
 				strLeftTime = "경매종료";
-				strLeftTime2 = "";
+				strLeftTime2 = "";		
 				$("#ucControls_hdivUpper").hide();
-				
+				$("#ucControls_hdivUpper3").show();
 			}
 			
 
